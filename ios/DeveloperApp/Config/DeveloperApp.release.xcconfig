@@ -1,0 +1,3 @@
+#include "Pods/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.release.xcconfig"
+#include "DeveloperApp.xcconfig"
+#include "ApiKeys.xcconfig"

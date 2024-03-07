@@ -1,0 +1,109 @@
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+deployment_target = min_ios_version_supported
+platform :ios, deployment_target
+prepare_react_native_project!
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+abstract_target "Mendix" do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # Hermes is now enabled by default. Disable by setting this flag to false.
+    :hermes_enabled => false,
+    :fabric_enabled => false,
+    # Enables Flipper.
+    #
+    # Note that if you have use_frameworks! enabled, Flipper will not work and
+    # you should disable the next line.
+    :flipper_configuration => FlipperConfiguration.enabled(["Debug"], {'Flipper' => '0.189.0' , 'Flipper-DoubleConversion' => '1.1.7'}),
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+  pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  # Required for Push notifications
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+
+  pod 'IQKeyboardManager'
+  pod 'React-logger', :path => '../node_modules/react-native/ReactCommon/logger'
+  pod 'SSZipArchive'
+  
+  target 'DeveloperApp' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    # use_frameworks!
+
+    # Pods for DeveloperApp
+
+    # At least one permission must be added when `react-native-permissions` used
+    permissions_path = '../node_modules/react-native-permissions/ios'
+    pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+    pod 'Permission-FaceID', :path => "#{permissions_path}/FaceID"
+    pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+    pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+    pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
+
+    pod 'QRCodeReader.swift', '~> 10.1.0'
+  end
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+  
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'YES'
+      config.build_settings['OTHER_LDFLAGS'] ||= ['$(inherited)']
+      if config.name == "Debug"
+        config.build_settings['DEAD_CODE_STRIPPING'] = 'YES'
+        config.build_settings['OTHER_LDFLAGS'] << "-fembed-bitcode-marker"
+        config.build_settings['BITCODE_GENERATION_MODE'] = "marker"
+      else
+        config.build_settings['OTHER_LDFLAGS'] << "-fembed-bitcode"
+        config.build_settings['BITCODE_GENERATION_MODE'] = "bitcode"
+      end
+    end
+  
+    # Enable React Native dev flags for all targets
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        if target.name.start_with?("React") || target.name == "RCTTypeSafety"
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', "COCOAPODS=1", "RCT_DEV=1"]
+        end
+      end
+    end
+  
+    # Ensure deployment_target is set correctly for all projects
+    installer.generated_projects.each do |project|
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+            end
+        end
+        project.build_configurations.each do |bc|
+            bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+        end
+    end
+  end
+end
