@@ -1,0 +1,54 @@
+{
+  "version": 20,
+  "apps": [
+    {
+      "id": "citrus_grove_retail_app",
+      "name": "Citrus Grove Retail",
+      "description": "Citrus Grove Retail",
+      "runtimeUrl": "https://citrus-shop.mendixcloud.com",
+      "backgroundImageName": "citrus_grove_retail_app"
+    },
+    {
+      "id": "banking_app",
+      "name": "Nova Personal Banking",
+      "description": "Showcases a Banking App created with Mendix",
+      "runtimeUrl": "https://personalbanking.mendixcloud.com",
+      "backgroundImageName": "banking_app"
+    },
+    {
+      "id": "new_garden_county_app",
+      "name": "New Garden County Inspection",
+      "description": "New Garden County Inspection",
+      "runtimeUrl": "https://inspection-portal.mendixcloud.com",
+      "backgroundImageName": "new_garden_county_app"
+    },
+    {
+      "id": "lato_bikes_app",
+      "name": "Lato Bikes",
+      "description": "Control your Lato Bike via your device",
+      "runtimeUrl": "https://lato-bicycles.mendixcloud.com",
+      "backgroundImageName": "lato_bikes_app"
+    },
+    {
+      "id": "shift_swap_app",
+      "name": "ShiftSwap",
+      "description": "Solves a common retail challenge with Mendix",
+      "runtimeUrl": "https://shiftswap.mendixcloud.com",
+      "backgroundImageName": "swift_swap_app"
+    },
+    {
+      "id": "atlas_ref_app",
+      "name": "Atlas 3 Reference App",
+      "description": "Showcases Atlas 3",
+      "runtimeUrl": "https://atlasdesignsystem.mendixcloud.com",
+      "backgroundImageName": "atlas_ref_app"
+    },
+    {
+      "id": "mendix_ar",
+      "name": "Mendix AR",
+      "description": "Showcases possible Mendix AR applications",
+      "runtimeUrl": "https://ar-examples-2.mendixcloud.com",
+      "backgroundImageName": "ar_app"
+    }
+  ]
+}
