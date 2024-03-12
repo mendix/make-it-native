@@ -55,14 +55,6 @@ Promote last version of Internal track to Alpha
 
 Promote the last version of Alpha track to Production (draft)
 
-### android build_mendix_native
-
-```sh
-[bundle exec] fastlane android build_mendix_native
-```
-
-Build Mendix Native library
-
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

@@ -41,6 +41,8 @@ local.properties
 #
 # android
 android/keystores/release.keystore
+**/android/fastlane/report.xml
+
 # ios
 **/ios/fastlane/report.xml
 **/ios/builds/*
