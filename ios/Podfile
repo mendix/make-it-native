@@ -83,6 +83,19 @@ abstract_target "Mendix" do
       end
     end
   
+    installer.pods_project.targets.each do |target|
+      if target.name == 'Flipper'
+        file_path = 'Pods/Flipper/xplat/Flipper/FlipperTransportTypes.h'
+        contents = File.read(file_path)
+        unless contents.include?('#include <functional>')
+          File.open(file_path, 'w') do |file|
+            file.puts('#include <functional>')
+            file.puts(contents)
+          end
+        end
+      end
+    end
+
     # Enable React Native dev flags for all targets
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
