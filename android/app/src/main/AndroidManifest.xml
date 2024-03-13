@@ -114,9 +114,9 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-
+        <!-- GEO_API_KEY -->
         <meta-data android:name="com.google.android.geo.API_KEY"
-                   android:value="AIzaSyBha1sFzMOMrHfWcbzl1yW71SBdKhaXCvE"/>
+                   android:value="{{GEO_API_KEY}"/>
         <meta-data
                 android:name="com.google.ar.core"
                 android:value="optional"/>
