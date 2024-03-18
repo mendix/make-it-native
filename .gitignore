@@ -47,6 +47,10 @@ android/keystores/release.keystore
 **/ios/fastlane/report.xml
 **/ios/builds/*
 
+# Firebase
+android/app/google-services.json
+ios/DeveloperApp/GoogleService-Info.plist
+
 # node.js
 #
 /node_modules/
