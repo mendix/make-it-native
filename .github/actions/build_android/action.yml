@@ -1,0 +1,40 @@
+name: 'Build Android App'
+description: 'Builds the Android app using Fastlane'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+
+    - name: Install Fastlane
+      run: gem install fastlane
+      shell: bash
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: .nvmrc
+
+    - name: Build Android Library with Fastlane
+      run: cd android && fastlane android local
+      shell: bash
+
+    - name: Copy Android Library to Shared Directory
+      run: mkdir -p ${{ github.workspace }}/artifacts/android && cp ./artifacts/aar/app-production-debug.apk ${{ github.workspace }}/artifacts/android/app-production-debug.apk
+      shell: bash
+
+    - name: Upload apk to artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: android
+        path: ${{ github.workspace }}/artifacts/android/
