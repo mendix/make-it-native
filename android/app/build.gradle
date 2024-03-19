@@ -216,7 +216,7 @@ dependencies {
     implementation "com.google.firebase:firebase-analytics"
     implementation "com.google.firebase:firebase-messaging"
     implementation "com.google.code.gson:gson:2.8.9"
-    implementation "com.budiyev.android:code-scanner:2.1.0"
+    implementation "com.github.yuriy-budiyev:code-scanner:2.1.0"
     implementation "com.fasterxml.jackson.core:jackson-core:2.11.3"
     implementation "com.fasterxml.jackson.core:jackson-annotations:2.11.3"
     implementation "com.fasterxml.jackson.core:jackson-databind:2.11.3"
