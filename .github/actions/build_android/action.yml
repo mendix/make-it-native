@@ -30,7 +30,7 @@ runs:
       shell: bash
 
     - name: Copy Android Library to Shared Directory
-      run: mkdir -p ${{ github.workspace }}/artifacts/android && cp ./artifacts/aar/app-production-debug.apk ${{ github.workspace }}/artifacts/android/app-production-debug.apk
+      run: mkdir -p ${{ github.workspace }}/artifacts/android && cp ./artifacts/app-production-debug.apk ${{ github.workspace }}/artifacts/android/app-production-debug.apk
       shell: bash
 
     - name: Upload apk to artifact

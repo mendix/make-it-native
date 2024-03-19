@@ -16,5 +16,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build Android Library
+      - name: Build Android apk
         uses: ./.github/actions/build_android
