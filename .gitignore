@@ -1,5 +1,5 @@
-# Xcode
-#
+### Xcode ###
+ios/builds/*
 ios/**/build/
 *.pbxuser
 !default.pbxuser
@@ -18,8 +18,9 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IntelliJ
-#
+### Android ###
+android/app/**/release/*
+android/keystores/release.keystore
 android/**/build/
 android/**/bin/
 android/**/.classpath
@@ -32,30 +33,32 @@ local.properties
 *.iml
 .project
 
+### Fastlane ###
+# fastlane specific
+**/fastlane/report.xml
 
-# Android Builds
-#
-**/android/app/developerapp/release/*
+# deliver temporary files
+**/fastlane/Preview.html
 
-# Fastlane Builds
-#
-# android
-android/keystores/release.keystore
-**/android/fastlane/report.xml
+# snapshot generated screenshots
+**/fastlane/screenshots
 
-# ios
-**/ios/fastlane/report.xml
-**/ios/builds/*
+# scan temporary files
+**/fastlane/test_output
 
-# Firebase
-android/app/google-services.json
-ios/DeveloperApp/GoogleService-Info.plist
+# Fastlane.swift runner binary
+**/fastlane/FastlaneRunner
 
-# node.js
-#
+### Firebase ###
+android/**/google-services.json
+ios/**/GoogleService-Info.plist
+
+### node.js ###
 /node_modules/
 npm-debug.log
 yarn-error.log
 android/captures/
 
+### others ###
 .DS_Store
+/artifacts/
