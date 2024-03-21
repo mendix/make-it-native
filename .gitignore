@@ -19,6 +19,7 @@ DerivedData
 project.xcworkspace
 
 ### Android ###
+android/app/src/main/google-maps-api-key
 android/app/**/release/*
 android/keystores/release.keystore
 android/**/build/
