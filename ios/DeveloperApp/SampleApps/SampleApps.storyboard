@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFl-0l-ZeX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Showcase-->
+        <scene sceneID="Njr-K4-mU0">
+            <objects>
+                <collectionViewController id="Lai-UA-mxz" userLabel="Showcase" customClass="SampleAppCollectionViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7in-sz-1mX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="bfS-nb-gdr" kind="show" identifier="OpenMendixApp" id="CT2-Ya-fZ7"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dww-5L-72a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602.8985507246377" y="-360.26785714285711"/>
+        </scene>
+        <!--MendixApp-->
+        <scene sceneID="8o6-vx-e52">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MendixApp" id="bfS-nb-gdr" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gdd-Rg-Hwa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="139-Jj-CfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2402.1739130434785" y="-360.26785714285711"/>
+        </scene>
+        <!--Showcase-->
+        <scene sceneID="efg-3w-n8X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="wFl-0l-ZeX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Showcase" image="Showcase Icon" id="0vY-Oi-IQm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5A1-T0-nUK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="primaryColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lai-UA-mxz" kind="relationship" relationship="rootViewController" id="990-3z-qkY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DhT-x0-U5X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692.75362318840587" y="-360.26785714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Showcase Icon" width="32" height="32"/>
+        <namedColor name="primaryColor">
+            <color red="0.050999999046325684" green="0.18000000715255737" blue="0.81999999284744263" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

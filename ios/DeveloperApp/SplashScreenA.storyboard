@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-VariableFont_wdth,wght.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashB" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-0p-mh5">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 1.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USN-ip-ttz">
+                                <rect key="frame" x="332" y="64" width="88" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Icon" translatesAutoresizingMaskIntoConstraints="NO" id="1nG-uw-dva">
+                                <rect key="frame" x="95" y="154" width="240" height="649"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" name="brandPrimary"/>
+                        <constraints>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="1nG-uw-dva" secondAttribute="trailing" constant="95" id="9OL-O9-je0"/>
+                            <constraint firstAttribute="trailing" secondItem="Enr-0p-mh5" secondAttribute="trailing" id="Aiu-KB-nZf"/>
+                            <constraint firstItem="Enr-0p-mh5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Dvd-PC-4g3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="1nG-uw-dva" secondAttribute="bottom" constant="95" id="IGe-np-7TC"/>
+                            <constraint firstItem="1nG-uw-dva" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="95" id="JbO-Fu-q5Q"/>
+                            <constraint firstAttribute="bottom" secondItem="Enr-0p-mh5" secondAttribute="bottom" id="Q60-FA-SMs"/>
+                            <constraint firstItem="Enr-0p-mh5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UwO-Yb-kHn"/>
+                            <constraint firstItem="1nG-uw-dva" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="95" id="WnO-my-QLt"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="USN-ip-ttz" secondAttribute="trailing" constant="10" id="vjk-Nn-LzR"/>
+                            <constraint firstItem="USN-ip-ttz" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="5" id="yb6-Hp-RM7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51.627906976744185" y="374.67811158798287"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo Icon" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="SplashB" width="540" height="951"/>
+        <namedColor name="brandPrimary">
+            <color red="0.14901960784313725" green="0.29019607843137257" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

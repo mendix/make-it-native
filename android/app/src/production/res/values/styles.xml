@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MakeItNative" parent="Theme.MaterialComponents.NoActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue1</item>
+        <item name="colorPrimaryVariant">@color/blue2</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/blue1</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue2</item>
+        <item name="colorSecondaryVariant">@color/orange1</item>
+        <item name="colorOnSecondary">@color/orange2</item>
+        <item name="android:textColorPrimaryInverse">#cc000000</item>
+        <item name="android:thumbTint">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="colorError">@color/red1</item>
+        <item name="colorSurface">#161F30</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">#161F30</item>
+        <item name="android:navigationBarColor">#0A1325</item>
+        <item name="android:actionBarSize">90dp</item>
+    </style>
+
+    <style name="Theme.MakeItNative.TextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="Theme.MakeItNative.IconButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="strokeColor">@color/shadow3</item>
+        <item name="iconTint">@color/shadow3</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Theme.MakeItNative.Text.Header" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.MakeItNative.Dark.Text.Header" parent="Theme.MakeItNative.Text.Header">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Theme.MakeItNative.Dark.Text.Notice" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Theme.MakeItNative.Text.Notice" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:spacing">0.32dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Theme.MakeItNative.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <!--  Base Mendix app theme-->
+    <style name="Theme.Mendix" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:editTextStyle">@style/MendixEditText</item>
+        <item name="android:alertDialogTheme">@style/MendixAlert.Light</item>
+    </style>
+    <style name="Theme.Mendix.Dark" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:editTextStyle">@style/MendixEditText</item>
+        <item name="android:alertDialogTheme">@style/MendixAlert.Dark</item>
+    </style>
+
+    <style name="MendixEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="MendixAlert.Light" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:buttonBarButtonStyle">@style/MendixAlert.Button.Light</item>
+    </style>
+
+    <style name="MendixAlert.Dark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:background">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:buttonBarButtonStyle">@style/MendixAlert.Button.Dark</item>
+    </style>
+
+    <style name="MendixAlert.Button.Light" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/blue2</item>
+    </style>
+
+    <style name="MendixAlert.Button.Dark" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/blue1</item>
+    </style>
+</resources>

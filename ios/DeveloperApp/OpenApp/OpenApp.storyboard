@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hzt-GV-XfM">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MendixApp-->
+        <scene sceneID="hqN-7z-u4Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MendixApp" id="lg8-BF-gVF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="D37-IN-IJj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRj-kB-T5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1492" y="90"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="mR4-fg-DUu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="Typ-Zx-Jy9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Launch app" image="Open App Icon" id="685-P5-GrN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEr-fp-JWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1299" y="199"/>
+        </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="MJA-Y5-BL0">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hzt-GV-XfM" customClass="TabViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="sqF-rs-ktR"/>
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="pEi-NF-pR3">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="gray-lighter"/>
+                        <color key="tintColor" name="brand-primary"/>
+                        <color key="barTintColor" name="gray-lighter"/>
+                        <color key="selectedImageTintColor" name="brand-primary"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lg8-BF-gVF" kind="show" identifier="MendixApp" id="yZ0-Tw-9iR"/>
+                        <segue destination="Typ-Zx-Jy9" kind="relationship" relationship="viewControllers" id="VvS-Sv-KvC"/>
+                        <segue destination="lVp-tR-eAs" kind="relationship" relationship="viewControllers" id="pfC-H2-RcU"/>
+                        <segue destination="h1s-21-Wl6" kind="relationship" relationship="viewControllers" id="4Ae-nO-eGc"/>
+                        <segue destination="Ley-GI-Eu3" kind="relationship" relationship="viewControllers" id="7jE-7h-UaM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjm-Qm-sWV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1020.2898550724639" y="-360.32608695652175"/>
+        </scene>
+        <!--HistoryHostViewController-->
+        <scene sceneID="OQS-hG-dY0">
+            <objects>
+                <hostingController title="HistoryHostViewController" id="lVp-tR-eAs" customClass="HistoryHostViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="mKD-ch-EZ4">
+                        <imageReference key="image" image="Navigation_History_Icon" symbolScale="default"/>
+                    </tabBarItem>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZt-gV-aAW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="461"/>
+        </scene>
+        <!--HelpHostViewController-->
+        <scene sceneID="Gyg-rQ-JMA">
+            <objects>
+                <hostingController title="HelpHostViewController" id="Ley-GI-Eu3" customClass="HelpHostViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Help" image="Help Icon" id="kmg-CM-8gx"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVn-Uw-uOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158" y="475"/>
+        </scene>
+        <!--SampleApps-->
+        <scene sceneID="A2h-y7-MqF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SampleApps" id="h1s-21-Wl6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Showcase" image="Showcase Icon" id="mOX-zA-Ijp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzG-3J-Lhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-901" y="186"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Help Icon" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Navigation_History_Icon" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Open App Icon" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Showcase Icon" width="21.333333969116211" height="21.333333969116211"/>
+        <namedColor name="brand-primary">
+            <color red="0.15294117647058825" green="0.29019607843137257" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray-lighter">
+            <color red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
