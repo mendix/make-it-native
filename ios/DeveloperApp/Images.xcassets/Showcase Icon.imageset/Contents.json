@@ -1,0 +1,41 @@
+{
+  "images" : [
+    {
+      "filename" : "Awards-Rewards_diamond_default_32.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Awards-Rewards_diamond_default_64.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Awards-Rewards_diamond_default_128.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "Awards-Rewards_diamond_default_65.png",
+      "idiom" : "universal",
+      "scale" : "1x",
+      "width-class" : "compact"
+    },
+    {
+      "filename" : "Awards-Rewards_diamond_default_66.png",
+      "idiom" : "universal",
+      "scale" : "2x",
+      "width-class" : "compact"
+    },
+    {
+      "filename" : "Awards-Rewards_diamond_default_67.png",
+      "idiom" : "universal",
+      "scale" : "3x",
+      "width-class" : "compact"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

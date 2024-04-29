@@ -1,0 +1,6 @@
+// Identity
+APP_DISPLAY_NAME = Make It Native 10
+BUNDLE_IDENTIFIER = com.mendix.developerapp.native.mx10
+
+CALENDARS_USAGE_DESCRIPTION = 'This app requires access to the calendar'
+BLUETOOTH_USAGE_DESCRIPTION = 'This app may need access to your Bluetooth connection'

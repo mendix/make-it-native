@@ -1,0 +1,5 @@
+.npmrc
+android/*.aar
+ios/mendixnative.xcframework/*
+node_modules
+artifacts

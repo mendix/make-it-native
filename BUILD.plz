@@ -1,0 +1,8 @@
+filegroup(
+    name = "package_json",
+    srcs = [
+        "package.json",
+        "package-lock.json",
+    ],
+    visibility = ["//client:all"],
+)

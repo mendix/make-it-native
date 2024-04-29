@@ -1,0 +1,10 @@
+## [Unreleased]
+
+### Added
+
+- We've reintegrate Firebase
+
+### Fixed
+- We've updated Showcase Banking App.
+- We've updated ShiftSwap showcase app.
+- We've updated Mendix AR showcase app.

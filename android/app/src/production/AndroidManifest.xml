@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mendix.developerapp">
+
+    <application android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.mendix.mendixnative.action.START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.mendix.mendixnative" />
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:label="@string/makeitnative_deep_link_label">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="makeitnative" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

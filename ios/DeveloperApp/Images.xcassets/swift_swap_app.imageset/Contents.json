@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ShiftSwap_Thumb.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ShiftSwap_Thumb@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ShiftSwap_Thumb@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

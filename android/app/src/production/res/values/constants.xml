@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="clearDataOption" type="string">clearDataOption</item>
+    <item name="historyPrefKeyHistoryList" type="string">history_list</item>
+    <item name="historyPrefKeyHistoryId" type="string">history_id</item>
+
+    <item name="error_type_unknown" type="string">error_unknown</item>
+    <item name="error_type_connection" type="string">error_connection</item>
+    <item name="error_type_version" type="string">error_version</item>
+</resources>

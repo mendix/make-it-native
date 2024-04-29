@@ -1,0 +1,69 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        buildToolsVersion = "33.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 33
+        targetSdkVersion = 33
+
+        // needed by camera module
+        googlePlayServicesVersion = "17+"
+        supportLibVersion = "28.0.0"
+        lifecycleVersion = "2.0.0"
+        kotlin_version = "1.8.21"
+        androidx_core_version = "1.6.0"
+        androidXBrowser = "1.2.0"
+        excludeAppGlideModule = true
+        androidx_lifecycle_version = "2.6.1"
+        constraint_layout_version = "2.0.4"
+        appcompat_version = "1.3.1"
+        excludeAppGlideModule = true
+        compose_ui_version = '1.2.0'
+        camerax_version = "1.3.0-alpha04"
+
+        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+        ndkVersion = "23.1.7779620"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.2.2"
+        classpath "com.facebook.react:react-native-gradle-plugin"
+        classpath "com.google.gms:google-services:4.3.14"
+        classpath "de.undercouch:gradle-download-task:5.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:2.7.1"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
+        apply from: file("../node_modules/@mendix/native/androidlib/mendix.gradle"); applyMendixClassPaths(project)
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    tasks.withType(JavaCompile) {
+            options.forkOptions.memoryMaximumSize = '512m'
+    }
+
+    tasks.withType(GroovyCompile) {
+        groovyOptions.forkOptions.memoryMaximumSize = '512m'
+    }
+    // Uncomment the following line if Windows fails due to long paths
+    // buildDir = c:/temp/${rootProject.name}/${project.name}
+    repositories {
+        all { ArtifactRepository repo ->
+            if (repo.url.toString().contains("jcenter.bintray.com")) {
+                remove repo
+                mavenCentral()
+            }
+        }
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+
+}

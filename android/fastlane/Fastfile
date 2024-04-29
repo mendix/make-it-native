@@ -1,0 +1,137 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+ENV["GRADLE_BINTRAY_REPO"] = ENV["NEXUS_BINTRAY_PROXY_URL"]
+ENV["GRADLE_JITPACK_REPO"] = ENV["NEXUS_JITPACK_PROXY_URL"]
+
+GOOGLE_PLAY_VERSION = sh("node -p -e \"require('../../package.json')['store-versions']['google-play']\"").chomp
+BUILD_NUMBER = ENV["BUILD_NUMBER"]
+ORIGINAL_CHANGELOG_PATH = "../../CHANGELOG.android.txt"
+FASTLANE_CHANGELOG_PATH = "./metadata/android/en-US/changelogs/default.txt"
+versionCodeOffset = 304
+
+platform :android do
+  before_all do
+    Dir.chdir("../..") do
+      sh("npm", "ci")
+      # Special hack to work-around alpine linux problem - File.getCanonicalPath is failing without a reason:
+      sh("find node_modules -name '*.gradle' -type f -exec sed -i.bak '/canonicalPath/d' {} +")
+    end
+  end
+
+  desc "Build apk"
+  lane :local do
+    gradleOptions = {
+      "android.injected.version.code" => BUILD_NUMBER.to_i() + versionCodeOffset,
+      "android.injected.version.name" => "#{GOOGLE_PLAY_VERSION}.dev",
+    }
+
+    gradle(task: "assemble", build_type: "Debug", flavor: "Production", flags: "--stacktrace", properties: gradleOptions)
+  end
+
+  desc "Build apk and install in the simulator"
+  lane :debug_internal do
+    UI.message("Installing dependencies")
+    sh("npm", "i")
+    gradleOptions = {
+      "android.injected.version.code" => BUILD_NUMBER.to_i() + versionCodeOffset,
+      "android.injected.version.name" => "#{GOOGLE_PLAY_VERSION}.dev",
+    }
+
+    UI.message("Building DeveloperApp")
+    gradle(task: "assemble", build_type: "Debug", flavor: "Production", flags: "--stacktrace", properties: gradleOptions)
+
+    UI.message("Installing APK into Android device/simulator")
+    lane_context[SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS].each do |apk|
+      begin
+        sh("adb reverse tcp:8080 tcp:8080")
+        sh("adb reverse tcp:8083 tcp:8083")
+        sh("adb install -r #{apk}")
+      end
+    end
+  end
+
+  desc "Build new bundle and upload to Internal track"
+  lane :internal do |options|
+    FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
+    versionCode = google_play_track_version_codes(track: "internal").max() + 1
+    versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
+
+    gradleOptions = {
+      # Gradle 7.3 removed support for dynamic versioning through android.injected.version.code
+      "versionCode" => versionCode,
+      "versionName" => versionName,
+      "android.injected.signing.store.file" => ENV["ANDROID_KEYSTORE_PATH"],
+      "android.injected.signing.store.password" => ENV["ANDROID_KEYSTORE_PASSWORD"],
+      "android.injected.signing.key.alias" => ENV["ANDROID_KEYSTORE_ALIAS"],
+      "android.injected.signing.key.password" => ENV["ANDROID_KEYSTORE_KEY_PASSWORD"],
+    }
+
+    UI.message "Replacing Firebase API keys from environment variables"
+    Dir.chdir("../app") do
+      firebaseApiKey1 = ENV["FIREBASE_API_KEY_1"] || "FIREBASE_API_KEY_1"
+      sh("sed -i 's/{{firebase-api-key-1}}/#{firebaseApiKey1}/g' google-services.json")
+      firebaseApiKey2 = ENV["FIREBASE_API_KEY_2"] || "FIREBASE_API_KEY_2"
+      sh("sed -i 's/{{firebase-api-key-2}}/#{firebaseApiKey2}/g' google-services.json")
+    end
+
+    if options[:submit] == true
+      UI.message "Promoting version #{versionName} (#{versionCode}) to internal testing on Google PlayStore"
+      #Build AAB
+      gradle(
+        task: "bundle",
+        build_type: "Release",
+        flavor: "Production",
+        flags: "-x bundleProductionReleaseJsAndAssets --stacktrace --no-daemon",
+        print_command: false,
+        properties: gradleOptions
+      )
+
+      #Upload to Google Play (Internal track)
+      supply(
+        aab: lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH],
+        track: "internal",
+        skip_upload_images: true,
+        skip_upload_apk: true,
+      )
+    else
+        UI.message "Building APK version #{versionName}(#{versionCode}) for internal tests"
+        #Build APK
+        gradle(
+          task: "assemble",
+          build_type: "Release", 
+          flavor: "Production",
+          flags: "-x bundleProductionReleaseJsAndAssets --stacktrace",
+          print_command: false,
+          properties: gradleOptions
+        )
+    end
+  end
+
+  desc "Promote last version of Internal track to Alpha"
+  lane :promote_to_alpha do
+    supply(
+      track_promote_to: "alpha",
+      track: "internal",
+      version_code: google_play_track_version_codes(track: "internal").max(),
+      rollout: "1",
+    )
+  end
+
+  desc "Promote the last version of Alpha track to Production (draft)"
+  lane :promote_to_production do
+    FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
+
+    supply(
+      track_promote_to: "production",
+      track: "internal",
+      version_code: google_play_track_version_codes(track: "internal").max(),
+      rollout: "1",
+    )
+  end
+end
