@@ -530,7 +530,7 @@ PODS:
   - React-jsinspector (0.72.7)
   - React-logger (0.72.7):
     - glog
-  - react-native-babylon (1.5.1):
+  - react-native-babylon (1.6.3):
     - React
   - react-native-ble-plx (2.0.3):
     - MultiplatformBleAdapter (= 0.1.9)
@@ -822,7 +822,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
-  - "react-native-babylon (from `../node_modules/@babylonjs/react-native-iosandroid-0-70`)"
+  - "react-native-babylon (from `../node_modules/@babylonjs/react-native-iosandroid-0-71`)"
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
@@ -978,7 +978,7 @@ EXTERNAL SOURCES:
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-babylon:
-    :path: "../node_modules/@babylonjs/react-native-iosandroid-0-70"
+    :path: "../node_modules/@babylonjs/react-native-iosandroid-0-71"
   react-native-ble-plx:
     :path: "../node_modules/react-native-ble-plx"
   react-native-blob-util:
@@ -1156,7 +1156,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 10e6c77ff6b32274b8d152d08ed0328c4b30a821
   React-jsinspector: 8baadae51f01d867c3921213a25ab78ab4fbcd91
   React-logger: 8edc785c47c8686c7962199a307015e2ce9a0e4f
-  react-native-babylon: 18f9efee3d1b6a2aabf09f38aa3b57abff140a78
+  react-native-babylon: 2c349f0fd849b41d88587e88ee343c32cb7db0f8
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: c3b0faecd2919db568e9d552084396f3e50b57c7
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
@@ -1225,4 +1225,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3c2e5ec73ca7ff4f185dca2c426a786795e6cc5d
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
