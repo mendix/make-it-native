@@ -40,7 +40,10 @@ fun PreviewViewComposable(onSuccess: (String)->Unit) {
                 .build()
                 .also { analysis ->
                     analysis.setAnalyzer(cameraExecutor, BarcodeAnalyser{
-                        onSuccess(it.url.toString())
+                        val url = it.url!!.url
+                        if(!url.isNullOrBlank()) {
+                            onSuccess(url)
+                        }
                     })
                 }
 

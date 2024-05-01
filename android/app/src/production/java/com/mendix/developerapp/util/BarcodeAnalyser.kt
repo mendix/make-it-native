@@ -25,7 +25,12 @@ class BarcodeAnalyser(
             scanner.process(image)
                 .addOnSuccessListener { barcodes ->
                     if (barcodes.size > 0) {
-                        callback(barcodes.first())
+                        for (barcode in barcodes) {
+                            if (barcode.valueType == Barcode.TYPE_URL) {
+                                callback(barcodes.first())
+                                break
+                            }
+                        }
                     }
                 }
         }
