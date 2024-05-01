@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xwR-jb-W4G">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch Tutorial View Controller-->
+        <scene sceneID="KW6-uC-4pA">
+            <objects>
+                <viewController id="xwR-jb-W4G" customClass="LaunchTutorialViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mtu-Q7-FLg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvG-M6-rva">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HBk-SA-Vh1"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qvG-M6-rva" secondAttribute="trailing" id="MXy-rA-fxK"/>
+                            <constraint firstItem="qvG-M6-rva" firstAttribute="top" secondItem="Mtu-Q7-FLg" secondAttribute="top" id="OWR-vq-YjW"/>
+                            <constraint firstAttribute="bottom" secondItem="qvG-M6-rva" secondAttribute="bottom" id="OYa-uu-biD"/>
+                            <constraint firstItem="qvG-M6-rva" firstAttribute="leading" secondItem="Mtu-Q7-FLg" secondAttribute="leading" id="PtR-CM-FZk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="5Ya-Mj-BSc" kind="presentation" identifier="OpenAppSegue" modalPresentationStyle="fullScreen" id="Gnr-4G-gma"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfe-vw-wC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1120" y="-423"/>
+        </scene>
+        <!--OpenApp-->
+        <scene sceneID="LlG-Jk-B0A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OpenApp" id="5Ya-Mj-BSc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXU-cs-fyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="-512"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
