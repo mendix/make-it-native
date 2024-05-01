@@ -188,7 +188,6 @@ dependencies {
 
     // Mendix dependencies
     implementation project(":mendixnative-release")
-    implementation project(":react-native-code-push")
 
     // Dev app dependencies
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

@@ -22,9 +22,6 @@ if (BUILD_RN_FROM_SOURCE.toBoolean()) {
     includeBuild("../node_modules/react-native/packages/react-native-codegen/android")
 }
 
-include ':react-native-code-push'
-project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
-
 include ':mendixnative-release'
 project(':mendixnative-release').projectDir = new File(rootProject.projectDir, '../node_modules/@mendix/native/androidlib')
 
