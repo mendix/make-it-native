@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a6I-ni-k0N">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View-->
+        <scene sceneID="cDR-9q-Jz9">
+            <objects>
+                <viewController id="y4n-MO-OD5" userLabel="Home View" customClass="HomeViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="od1-ul-AeK"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <segue destination="l2D-lf-y0C" kind="presentation" identifier="ConnectionError" modalPresentationStyle="fullScreen" id="CJA-9C-d53"/>
+                        <segue destination="HDz-a8-YBP" kind="show" identifier="OpenMendixApp" id="um6-C9-EmQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w2c-dF-bLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IWT-s9-gSn">
+                    <connections>
+                        <action selector="hideKeyboardAction:" destination="y4n-MO-OD5" id="XT1-If-VOr"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1046.5116279069766" y="101.07296137339057"/>
+        </scene>
+        <!--ConnectionError-->
+        <scene sceneID="P9g-Pn-INY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ConnectionError" id="l2D-lf-y0C" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UCM-dN-czc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YpL-dx-ijl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="102"/>
+        </scene>
+        <!--MendixApp-->
+        <scene sceneID="N3i-Qj-u0r">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MendixApp" id="HDz-a8-YBP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6wJ-tU-cwx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pen-3N-jPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="236"/>
+        </scene>
+        <!--Launch App-->
+        <scene sceneID="oIE-9i-cn5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="a6I-ni-k0N" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Launch App" image="Open App Icon" id="BRq-0o-YnZ">
+                        <color key="badgeColor" name="gray-lighter"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fgt-m6-fAp">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="gray-lighter"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nCp-F9-vTg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="y4n-MO-OD5" kind="relationship" relationship="rootViewController" id="Ngk-UL-HSs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n57-cq-6Bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Open App Icon" width="42.666667938232422" height="42.666667938232422"/>
+        <namedColor name="gray-lighter">
+            <color red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

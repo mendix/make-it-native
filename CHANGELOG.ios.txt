@@ -1,0 +1,10 @@
+## [Unreleased]
+
+### Features
+
+- Rebranding: Introduced fresh designs for Make It Native 10.
+- History Integration: Implemented a new history feature.
+
+### Fixed
+- Library Update: Upgraded `react-native-device-info` to version 8.7.1 to enhance device compatibility and performance.
+- We've updated Showcase Banking App.
