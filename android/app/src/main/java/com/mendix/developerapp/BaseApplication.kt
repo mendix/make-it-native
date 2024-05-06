@@ -1,10 +1,13 @@
 package com.mendix.developerapp
 
 import android.content.Context
+import android.os.Build
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactPackage
+import com.mendix.developerapp.utilities.CrashlyticsErrorHandler
 import com.mendix.mendixnative.MendixReactApplication
+import com.mendix.mendixnative.error.ErrorHandler
 import com.microsoft.codepush.react.CodePush
 import java.lang.reflect.InvocationTargetException
 
@@ -28,6 +31,10 @@ open class BaseApplication : MendixReactApplication() {
 
     override fun getUseDeveloperSupport(): Boolean {
         return false
+    }
+
+    override fun createErrorHandler(): ErrorHandler {
+        return CrashlyticsErrorHandler(this)
     }
 
     private fun initializeFlipper(context: Context, reactInstanceManager: ReactInstanceManager) {

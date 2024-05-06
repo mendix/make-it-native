@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 apply plugin: "com.google.gms.google-services"
+apply plugin: "com.google.firebase.crashlytics"
 apply plugin: "kotlin-kapt"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
@@ -100,12 +101,35 @@ android {
             include (*reactNativeArchitectures())
         }
     }
+    
     signingConfigs {
         debug {
-            storeFile file("../keystores/debug.keystore")
-            storePassword "android"
-            keyAlias "androiddebugkey"
-            keyPassword "android"
+            Properties debugProps = new Properties()
+            def propFile = new File('./keystores/debug.keystore.properties')
+            if (propFile.canRead()) {
+                debugProps.load(new FileInputStream(propFile))
+
+                storeFile file(debugProps["key.store"])
+                storePassword debugProps["key.store.password"]
+                keyAlias debugProps["key.alias"]
+                keyPassword debugProps["key.alias.password"]
+            } else {
+                print 'debug.keystore.properties not found'
+            }
+        }
+        release {
+            Properties releaseProps = new Properties()
+            def propFile = new File('./local.properties')
+            if (propFile.canRead()) {
+                releaseProps.load(new FileInputStream(propFile))
+
+                storeFile file(releaseProps["key.store"])
+                storePassword releaseProps["key.store.password"]
+                keyAlias releaseProps["key.alias"]
+                keyPassword releaseProps["key.alias.password"]
+            } else {
+                print 'local.properties not found'
+            }
         }
     }
     buildTypes {
@@ -116,6 +140,7 @@ android {
             }
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -211,6 +236,10 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.1.0") { transitive = false }
     implementation "com.google.zxing:core:3.4.0"
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+    implementation platform("com.google.firebase:firebase-bom:32.3.1")
+    implementation "com.google.firebase:firebase-crashlytics"
+    implementation "com.google.firebase:firebase-analytics"
+    implementation "com.google.firebase:firebase-messaging"
     implementation "com.google.code.gson:gson:2.8.9"
     implementation "com.github.yuriy-budiyev:code-scanner:2.1.0"
     implementation "com.fasterxml.jackson.core:jackson-core:2.11.3"

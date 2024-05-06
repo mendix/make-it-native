@@ -69,6 +69,10 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
 
+# React native firebase
+-keep class io.invertase.firebase.** { *; }
+-dontwarn io.invertase.firebase.**
+
 -dontwarn com.polidea.reactnativeble.**
 
 -keepclassmembers class ** {

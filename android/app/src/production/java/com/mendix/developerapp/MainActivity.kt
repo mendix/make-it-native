@@ -5,10 +5,12 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -20,7 +22,11 @@ import androidx.navigation.ui.NavigationUI
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.react.modules.core.PermissionAwareActivity
 import com.facebook.react.modules.core.PermissionListener
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.mendix.developerapp.databinding.ActivityMainBinding
+import com.mendix.developerapp.firebase.FCMNotificationHandler
+import com.mendix.developerapp.firebase.MENDIX_AD_CAMPAIGN_CHANNEL
 import com.mendix.developerapp.home.HomeViewModel
 import com.mendix.developerapp.mendixapp.MendixProjectFragment
 import com.mendix.developerapp.utilities.GlobalTouchEventListener
@@ -90,6 +96,30 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         setupHomeViewModel()
         setupNavigation()
         setupActionBar()
+        setupDevTools()
+        handlePossibleSpecialLaunch()
+    }
+
+    private fun handlePossibleSpecialLaunch() {
+        if (!handleLaunchedWithExtras(intent)) handleMendixAdvertisingPushNotifications(intent)
+    }
+
+    private fun setupDevTools() {
+        if (BuildConfig.DEBUG) {
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w("Token", "Fetching FCM registration token failed", task.exception)
+                    return@OnCompleteListener
+                }
+
+                // Get new FCM registration token
+                val token = task.result
+
+                // Log and toast
+                Log.d("Token", token)
+                Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+            })
+        }
     }
 
     override fun onResume() {
@@ -108,6 +138,13 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         super.onNewIntent(intent)
         setIntent(intent)
         (currentFragment as? MendixReactFragment)?.onNewIntent(intent)
+
+        handlePossibleSpecialLaunch()
+    }
+
+    private fun handleMendixAdvertisingPushNotifications(intent: Intent) {
+        if (intent.extras?.containsKey("google.message_id") != null && intent.extras?.getString("id") == MENDIX_AD_CAMPAIGN_CHANNEL)
+            FCMNotificationHandler(this).handleNotification(intent.extras!!)
     }
 
     private fun setupHomeViewModel() {

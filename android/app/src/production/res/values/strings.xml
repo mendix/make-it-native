@@ -28,6 +28,8 @@
     <string name="react_native_component_name">App</string>
     <string name="permission_camera_qr_scanner">To be able to scan QR codes, the app will now request access to the camera. Please accept the request.</string>
     <string name="permission_camera_qr_scanner_title">Camera access required</string>
+    <string name="permission_post_notification_title">Notification access required</string>
+    <string name="permission_post_notification">To be able to receive notifications, the app will now request access to the notification. Please accept the request.</string>
     <string name="generic_continue">Continue</string>
     <string name="generic_deny">Deny</string>
     <string name="error_input_app_url_invalid">Invalid app url provided</string>

@@ -10,7 +10,7 @@ import java.lang.reflect.Type
 class HistoryPreferences(context: Context) {
     private val historyPreferences: SharedPreferences = context
         .getSharedPreferences(
-            BuildConfig.APPLICATION_ID,
+            BuildConfig.LIBRARY_PACKAGE_NAME,
             Context.MODE_PRIVATE
         )
     private val _editor: SharedPreferences.Editor = historyPreferences.edit()

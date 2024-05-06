@@ -3,12 +3,14 @@ package com.mendix.developerapp.home
 import android.Manifest
 import android.app.AlertDialog
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.compose.ui.platform.ComposeView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -42,6 +44,9 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPostNotificationPermission()
+        };
         composeView.setContent {
             MyApplicationTheme {
                 HomeScreen(viewModel)
@@ -94,6 +99,39 @@ class HomeFragment : BaseFragment() {
                 dialog.dismiss()
                 requestPermissionLauncher.launch(
                     Manifest.permission.CAMERA
+                )
+            }.setNegativeButton(getString(R.string.generic_deny)) { dialog, _ ->
+                dialog.dismiss()
+            }.show()
+        return true
+    }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun requestPostNotificationPermission() {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED -> {
+
+            }
+            shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)
+            -> showPostNotificationRequestRational()
+            else -> requestPermissionLauncher.launch(
+                Manifest.permission.POST_NOTIFICATIONS
+            )
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun showPostNotificationRequestRational(): Boolean {
+        AlertDialog.Builder(requireContext())
+            .setMessage(getString(R.string.permission_post_notification))
+            .setTitle(getString(R.string.permission_post_notification_title))
+            .setPositiveButton(getString(R.string.generic_continue)) { dialog, _ ->
+                dialog.dismiss()
+                requestPermissionLauncher.launch(
+                    Manifest.permission.POST_NOTIFICATIONS
                 )
             }.setNegativeButton(getString(R.string.generic_deny)) { dialog, _ ->
                 dialog.dismiss()
