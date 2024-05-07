@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="status"
+            type="com.mendix.developerapp.viewmodels.ProjectLoaderViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.mendix.developerapp.viewmodels.ProjectLoaderViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.loading || viewModel.hasError ? View.VISIBLE : View.INVISIBLE }"
+        tools:context=".loading.MendixProjectLoaderFragment"
+        android:theme="@style/Theme.MakeItNative">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:visibility="@{!viewModel.hasError ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/logo_mendix_all_white"
+                    tools:ignore="ContentDescription" />
+
+                <ProgressBar
+                    style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="@{!viewModel.hasProgress}"
+                    android:progress="@{viewModel.downloadProgress}"
+                    android:progressBackgroundTint="@color/white"
+                    android:progressTint="@color/orange1"
+                    android:progressTintMode="multiply" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/windowBackground"
+            android:visibility="@{viewModel.hasError ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/error_disconnected"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    style="@style/Theme.MakeItNative.Dark.Text.Header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/error_something_went_wrong_title" />
+
+                <TextView
+                    style="@style/Theme.MakeItNative.Dark.Text.Notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:gravity="center"
+                    android:text="@{context.getString(viewModel.errorMessageId)}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_test_connection"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_test_connection"
+                    android:visibility="@{viewModel.canTestConnection ? View.VISIBLE : View.GONE}" />
+
+                <Button
+                    android:id="@+id/button_retry"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/button_retry"
+                    android:visibility="@{viewModel.canRetry ? View.VISIBLE : View.GONE}" />
+
+                <Button
+                    android:id="@+id/button_go_back"
+                    style="@style/Theme.MakeItNative.Button"
+                    android:layout_width="352dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/button_go_back" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</layout>

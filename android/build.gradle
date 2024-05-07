@@ -1,0 +1,83 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        minSdkVersion = 21
+        compileSdkVersion = 33
+        targetSdkVersion = 33
+        buildToolsVersion = "31.0.0"
+        // needed by camera module
+        googlePlayServicesVersion = "17+"
+        supportLibVersion = "28.0.0"
+        lifecycleVersion = "2.0.0"
+        kotlin_version = "1.7.21"
+        androidx_core_version = "1.6.0"
+        androidXBrowser = "1.2.0"
+        excludeAppGlideModule = true
+        androidx_lifecycle_version = "2.3.1"
+        constraint_layout_version = "2.0.4"
+        appcompat_version = "1.3.1"
+        excludeAppGlideModule = true
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.2.1"
+        classpath "com.facebook.react:react-native-gradle-plugin"
+        classpath "com.google.gms:google-services:4.3.10"
+        classpath "de.undercouch:gradle-download-task:5.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:2.7.1"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
+        apply from: file("../node_modules/@mendix/native/android/mendix.gradle"); applyMendixClassPaths(project)
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    // Uncomment the following line if Windows fails due to long paths
+    // buildDir = c:/temp/${rootProject.name}/${project.name}
+    repositories {
+        all { ArtifactRepository repo ->
+            println repo.url.toString()
+            if (repo.url.toString().contains("jcenter.bintray.com")) {
+                project.logger.warn "Repository ${repo.url} removed."
+                remove repo
+                mavenCentral()
+            }
+        }
+        exclusiveContent {
+            filter {
+                includeGroup "com.facebook.react"
+            }
+            forRepository {
+                maven {
+                    url "$rootDir/../node_modules/react-native/android"
+                }
+            }
+        }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            // Local Maven repo containing AARs with JSC library built for Android
+            url "$rootDir/../node_modules/jsc-android/dist"
+        }
+        mavenCentral {
+            // We don't want to fetch react-native from Maven Central as there are
+            // older versions over there.
+            content {
+                excludeGroup "com.facebook.react"
+            }
+        }
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+
+}

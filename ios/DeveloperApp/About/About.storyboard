@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygt-ge-c5Q">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--About View-->
+        <scene sceneID="eS5-DX-Bdy">
+            <objects>
+                <viewController title="About View" id="uFm-jJ-Dl9" customClass="AboutViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tnH-bc-J8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="C0A-Ac-Uzi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="505"/>
+                                <connections>
+                                    <segue destination="T0P-gm-Ejr" kind="embed" id="OSw-Ud-KBW"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wix-mO-Kde" customClass="RoundedCornersUIButton" customModule="DeveloperApp" customModuleProvider="target">
+                                <rect key="frame" x="42" y="615" width="330" height="48"/>
+                                <color key="backgroundColor" name="primaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="330" id="l1u-8w-pvm">
+                                        <variation key="heightClass=compact" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="48" id="oun-2S-zmO"/>
+                                </constraints>
+                                <state key="normal" title="OPEN HOW-TO'S">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="navigateToHowtos:" destination="uFm-jJ-Dl9" eventType="primaryActionTriggered" id="yXM-Xm-HeJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqy-om-fyh" customClass="RoundedCornersUIButton" customModule="DeveloperApp" customModuleProvider="target">
+                                <rect key="frame" x="42" y="559" width="330" height="48"/>
+                                <color key="backgroundColor" name="primaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="330" id="LRB-Dl-ZVQ">
+                                        <variation key="heightClass=compact" constant="220"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="48" id="r58-bA-eRo"/>
+                                </constraints>
+                                <state key="normal" title="OPEN REFERENCE GUIDE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="navigateToReferenceGuide:" destination="uFm-jJ-Dl9" eventType="primaryActionTriggered" id="Qhv-kw-h1G"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZRy-Pm-tLR"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Wqy-om-fyh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tnH-bc-J8Q" secondAttribute="leading" constant="10" id="0Pn-8h-6ze"/>
+                            <constraint firstItem="wix-mO-Kde" firstAttribute="top" secondItem="Wqy-om-fyh" secondAttribute="bottom" constant="8" id="2rq-Kk-18N"/>
+                            <constraint firstItem="C0A-Ac-Uzi" firstAttribute="width" secondItem="tnH-bc-J8Q" secondAttribute="width" id="3ZW-KD-gQg"/>
+                            <constraint firstItem="C0A-Ac-Uzi" firstAttribute="trailing" secondItem="tnH-bc-J8Q" secondAttribute="trailing" id="Ans-Jf-BDD"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wqy-om-fyh" secondAttribute="trailing" constant="10" id="CEM-WF-k1M"/>
+                            <constraint firstItem="wix-mO-Kde" firstAttribute="centerX" secondItem="tnH-bc-J8Q" secondAttribute="centerX" id="CNk-C2-Cdl"/>
+                            <constraint firstItem="C0A-Ac-Uzi" firstAttribute="top" secondItem="ZRy-Pm-tLR" secondAttribute="top" id="OLM-V8-7o7"/>
+                            <constraint firstItem="ZRy-Pm-tLR" firstAttribute="bottom" secondItem="wix-mO-Kde" secondAttribute="bottom" constant="24" id="W4N-eT-lSV"/>
+                            <constraint firstItem="Wqy-om-fyh" firstAttribute="top" secondItem="C0A-Ac-Uzi" secondAttribute="bottom" constant="10" id="anH-9G-GSf"/>
+                            <constraint firstItem="Wqy-om-fyh" firstAttribute="centerX" secondItem="tnH-bc-J8Q" secondAttribute="centerX" id="egW-KG-VmD"/>
+                            <constraint firstItem="C0A-Ac-Uzi" firstAttribute="leading" secondItem="tnH-bc-J8Q" secondAttribute="leading" id="goO-e0-hWX"/>
+                            <constraint firstItem="wix-mO-Kde" firstAttribute="centerY" secondItem="Wqy-om-fyh" secondAttribute="centerY" id="oaO-50-8Ld">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="C0A-Ac-Uzi" firstAttribute="centerX" secondItem="ZRy-Pm-tLR" secondAttribute="centerX" id="sxQ-Ze-yyF"/>
+                            <constraint firstItem="Wqy-om-fyh" firstAttribute="centerX" secondItem="tnH-bc-J8Q" secondAttribute="centerX" id="vqE-mr-45l">
+                                <variation key="heightClass=compact" constant="110"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wix-mO-Kde" secondAttribute="trailing" constant="10" id="xxz-s6-Uo8"/>
+                            <constraint firstItem="Wqy-om-fyh" firstAttribute="leading" secondItem="wix-mO-Kde" secondAttribute="trailing" constant="-210" id="z2j-vj-JjL">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="wix-mO-Kde" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tnH-bc-J8Q" secondAttribute="leading" constant="10" id="zdW-ar-vjY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ans-Jf-BDD"/>
+                                <exclude reference="goO-e0-hWX"/>
+                                <exclude reference="vqE-mr-45l"/>
+                                <exclude reference="z2j-vj-JjL"/>
+                                <exclude reference="oaO-50-8Ld"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="Ans-Jf-BDD"/>
+                                <include reference="goO-e0-hWX"/>
+                                <exclude reference="0Pn-8h-6ze"/>
+                                <exclude reference="CEM-WF-k1M"/>
+                                <exclude reference="egW-KG-VmD"/>
+                                <include reference="vqE-mr-45l"/>
+                                <include reference="z2j-vj-JjL"/>
+                                <exclude reference="2rq-Kk-18N"/>
+                                <exclude reference="CNk-C2-Cdl"/>
+                                <include reference="oaO-50-8Ld"/>
+                                <exclude reference="xxz-s6-Uo8"/>
+                                <exclude reference="zdW-ar-vjY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="F4I-0R-eUu"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="howtoButton" destination="wix-mO-Kde" id="L2k-4W-enb"/>
+                        <outlet property="referenceGuideButton" destination="Wqy-om-fyh" id="82K-PJ-vVx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G37-B7-LLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389.85507246376812" y="103.53260869565219"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="uhq-c7-svC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tutorial" id="T0P-gm-Ejr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U8b-GM-4we" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1463.0434782608697" y="103.53260869565219"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="Rg8-Cw-fzW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="ygt-ge-c5Q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Help" image="questionmark.circle" catalog="system" id="ezW-zl-F7q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvV-92-CfV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="primaryColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uFm-jJ-Dl9" kind="relationship" relationship="rootViewController" id="sFd-pY-7G1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ud8-lV-71y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-517.39130434782612" y="103.53260869565219"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="backgroundColor">
+            <color red="0.086274509799999996" green="0.1215686275" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.050980392159999999" green="0.18039215689999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

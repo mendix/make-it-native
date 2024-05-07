@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.mendix.developerapp.home.HomeFragment"
+        android:label="fragment_home">
+        <action
+            android:id="@+id/action_startAppFragment_to_mendixProjectLoaderFragment"
+            app:destination="@id/nav_loader" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_mendix_app"
+        android:name="com.mendix.developerapp.mendixapp.MendixProjectFragment"
+        android:label="fragment_mendix_project">
+        <argument
+            android:name="arg_component_name"
+            app:argType="string" />
+        <argument
+            android:name="arg_launch_options"
+            android:defaultValue="@null"
+            app:argType="android.os.Bundle"
+            app:nullable="true" />
+        <argument
+            android:name="arg_mendix_app"
+            app:argType="java.io.Serializable" />
+        <argument
+            android:name="arg_clear_data"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="arg_use_developer_support"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_mendixProjectFragment_to_startAppFragment"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_loader"
+        android:name="com.mendix.developerapp.loading.MendixProjectLoaderFragment"
+        android:label="fragment_loader">
+        <argument
+            android:name="arg_component_name"
+            app:argType="string" />
+        <argument
+            android:name="arg_launch_options"
+            android:defaultValue="@null"
+            app:argType="android.os.Bundle"
+            app:nullable="true" />
+        <argument
+            android:name="arg_mendix_app"
+            app:argType="java.io.Serializable" />
+        <argument
+            android:name="arg_clear_data"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="arg_use_developer_support"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_mendixProjectLoaderFragment_to_mendixProjectFragment"
+            app:destination="@id/nav_mendix_app"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.mendix.developerapp.sampelapps.SampleAppsFragment"
+        android:label="fragment_sample_apps">
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_mendix_sample_app"
+            app:destination="@id/nav_mendix_sample_app" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_welcome_screen"
+        android:name="com.mendix.developerapp.welcomescreen.WelcomeFragment"
+        android:label="fragment_welcome" />
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.mendix.developerapp.helppage.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/nav_mendix_sample_app"
+        android:name="com.mendix.developerapp.mendixapp.MendixSampleProjectFragment"
+        android:label="fragment_mendix_sample_app">
+        <argument
+            android:name="arg_component_name"
+            app:argType="string" />
+        <argument
+            android:name="arg_launch_options"
+            android:defaultValue="@null"
+            app:argType="android.os.Bundle"
+            app:nullable="true" />
+        <argument
+            android:name="arg_mendix_app"
+            app:argType="java.io.Serializable" />
+        <argument
+            android:name="arg_clear_data"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="arg_use_developer_support"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+</navigation>

@@ -1,0 +1,1 @@
+export type StoreName = "google-play" | "apple-store"

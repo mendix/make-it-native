@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mendix.developerapp.viewmodels.AppViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.budiyev.android.codescanner.CodeScannerView
+            android:id="@+id/qr_code_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:frameAspectRatioHeight="1"
+            app:frameAspectRatioWidth="1"
+            app:frameColor="#161F30"
+            app:frameCornersRadius="0dp"
+            app:frameCornersSize="0dp"
+            app:frameSize="0.5"
+            app:frameThickness="2dp"
+            app:maskColor="#50161F30"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <LinearLayout
+            android:id="@id/input_wrapper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="400dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_clear_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.clearData}"
+                    android:contentDescription="@string/clear_data"
+                    android:text="@string/clear_data"
+                    android:thumb="@drawable/switch_thumb"
+                    app:OnCheckedChangeListener="@{viewModel::clearDataChangedListener}"
+                    app:thumbTint="@color/white"
+                    app:track="@drawable/switch_track"
+                    app:trackTint="?attr/colorPrimary" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_dev_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/enable_dev_mode"
+                    android:text="@string/enable_dev_mode"
+                    android:thumb="@drawable/switch_thumb"
+                    app:OnCheckedChangeListener="@{viewModel::devChangedListener}"
+                    app:checked="@{viewModel.devModeEnabled}"
+                    app:thumbTint="@color/white"
+                    app:track="@drawable/switch_track"
+                    app:trackTint="?attr/colorPrimary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@id/text_input_runtime_url"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/widget_textinput_background"
+                    android:hint="@string/application_url_hint"
+                    android:inputType="textUri"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:onTextChanged="@{viewModel.onRuntimeTextInputChanged}"
+                    android:text="@={viewModel.appUrl}" />
+
+                <Space
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@id/btn_scan_qr_code"
+                    style="@style/Theme.MakeItNative.IconButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    app:icon="@drawable/ic_baseline_qr_code_scanner_24" />
+            </LinearLayout>
+
+            <Button
+                android:id="@id/btn_launch_app"
+                style="@style/Theme.MakeItNative.Button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/launch_app_caption"
+                android:enabled="@{!viewModel.appUrlInvalid}"
+                android:text="@string/launch_app_caption" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

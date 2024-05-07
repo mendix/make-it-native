@@ -1,0 +1,39 @@
+{
+  "apps": [
+    {
+      "id": "atlas_ref_app",
+      "name": "Atlas 3 Reference App",
+      "description": "Showcases Atlas 3",
+      "runtimeUrl": "https://atlasdesignsystem.mendixcloud.com",
+      "backgroundImageName": "atlas_ref_app"
+    },
+    {
+      "id": "banking_app",
+      "name": "Native Banking App",
+      "description": "Showcases a Banking App created with Mendix",
+      "runtimeUrl": "https://personalbanking.mendixcloud.com",
+      "backgroundImageName": "banking_app"
+    },
+    {
+      "id": "mendix_ar",
+      "name": "Mendix AR",
+      "description": "Showcases possible Mendix AR applications",
+      "runtimeUrl": "https://ar-examples-2.mendixcloud.com",
+      "backgroundImageName": "ar_app"
+    },
+    {
+      "id": "shift_swap_app",
+      "name": "ShiftSwap",
+      "description": "Solves a common retail challenge with Mendix",
+      "runtimeUrl": "https://shiftswap.mendixcloud.com",
+      "backgroundImageName": "swift_swap_app"
+    },
+    {
+      "id": "lato_bikes_app",
+      "name": "Lato Bikes",
+      "description": "Control your Lato Bike via your device",
+      "runtimeUrl": "https://lato-bicycles.mendixcloud.com",
+      "backgroundImageName": "lato_bikes_app"
+    }
+  ]
+}

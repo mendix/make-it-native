@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xwR-jb-W4G">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch Tutorial View Controller-->
+        <scene sceneID="KW6-uC-4pA">
+            <objects>
+                <viewController id="xwR-jb-W4G" customClass="LaunchTutorialViewController" customModule="DeveloperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mtu-Q7-FLg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvG-M6-rva">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="Vjb-TN-piw" kind="embed" id="CjC-Mg-tEi"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhZ-xq-97O">
+                                <rect key="frame" x="32" y="826" width="64" height="36"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btn_welcome_skip"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="cLl-jN-wZM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="16"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="xwR-jb-W4G" eventType="touchUpInside" id="kjS-eL-5Rn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5G2-rU-BWr">
+                                <rect key="frame" x="318" y="826" width="64" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="6Mx-sL-y7z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="16"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="xwR-jb-W4G" eventType="primaryActionTriggered" id="HHB-yP-vEI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HBk-SA-Vh1"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HBk-SA-Vh1" firstAttribute="bottom" secondItem="xhZ-xq-97O" secondAttribute="bottom" id="Dcn-I6-Thc"/>
+                            <constraint firstAttribute="trailing" secondItem="qvG-M6-rva" secondAttribute="trailing" id="MXy-rA-fxK"/>
+                            <constraint firstItem="xhZ-xq-97O" firstAttribute="centerX" secondItem="qvG-M6-rva" secondAttribute="leading" constant="64" id="OAJ-3H-2FF"/>
+                            <constraint firstItem="qvG-M6-rva" firstAttribute="top" secondItem="Mtu-Q7-FLg" secondAttribute="top" id="OWR-vq-YjW"/>
+                            <constraint firstAttribute="bottom" secondItem="qvG-M6-rva" secondAttribute="bottom" id="OYa-uu-biD"/>
+                            <constraint firstItem="HBk-SA-Vh1" firstAttribute="bottom" secondItem="5G2-rU-BWr" secondAttribute="bottom" id="Pf5-Mq-vqO"/>
+                            <constraint firstItem="qvG-M6-rva" firstAttribute="leading" secondItem="Mtu-Q7-FLg" secondAttribute="leading" id="PtR-CM-FZk"/>
+                            <constraint firstItem="qvG-M6-rva" firstAttribute="trailing" secondItem="5G2-rU-BWr" secondAttribute="centerX" constant="64" id="osH-hO-j5e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="5G2-rU-BWr" id="FFR-P1-Zp5"/>
+                        <outlet property="skipButton" destination="xhZ-xq-97O" id="uSv-hE-Vca"/>
+                        <segue destination="5Ya-Mj-BSc" kind="presentation" identifier="OpenAppSegue" modalPresentationStyle="fullScreen" id="Gnr-4G-gma"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfe-vw-wC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1120" y="-423"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="HJb-07-h68">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tutorial" id="Vjb-TN-piw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ev-70-msl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="-350"/>
+        </scene>
+        <!--OpenApp-->
+        <scene sceneID="LlG-Jk-B0A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OpenApp" id="5Ya-Mj-BSc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXU-cs-fyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="-512"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.086274509799999996" green="0.1215686275" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

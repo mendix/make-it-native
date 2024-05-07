@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="ltQ-kV-NQV">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Text" translatesAutoresizingMaskIntoConstraints="NO" id="nMd-pB-kMX">
+                                <rect key="frame" x="79" y="423" width="270" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nMd-pB-kMX" secondAttribute="height" multiplier="277:82" priority="750" id="VaQ-fP-LYC"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="270" id="yqn-IP-aos"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.85490196078431369" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nMd-pB-kMX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="44l-7g-4xf"/>
+                            <constraint firstItem="nMd-pB-kMX" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" priority="750" constant="8" id="AjP-w5-HFi"/>
+                            <constraint firstAttribute="bottom" secondItem="ltQ-kV-NQV" secondAttribute="bottom" id="Gm4-PE-bhN"/>
+                            <constraint firstItem="ltQ-kV-NQV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="KXS-sQ-b2A"/>
+                            <constraint firstAttribute="trailing" secondItem="ltQ-kV-NQV" secondAttribute="trailing" id="Nfq-fT-x6V"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="nMd-pB-kMX" secondAttribute="trailing" priority="750" constant="8" id="ZaB-Dv-yGW"/>
+                            <constraint firstItem="nMd-pB-kMX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="seI-YQ-WtH"/>
+                            <constraint firstItem="ltQ-kV-NQV" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wyb-7Z-RIW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo Text" width="266.66665649414062" height="78.666664123535156"/>
+        <image name="splash" width="720" height="1268"/>
+    </resources>
+</document>
