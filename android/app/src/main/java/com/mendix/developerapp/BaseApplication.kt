@@ -7,7 +7,6 @@ import com.facebook.react.ReactPackage
 import com.mendix.developerapp.utilities.CrashlyticsErrorHandler
 import com.mendix.mendixnative.MendixReactApplication
 import com.mendix.mendixnative.error.ErrorHandler
-import com.microsoft.codepush.react.CodePush
 import java.lang.reflect.InvocationTargetException
 
 @Suppress("unused")
@@ -23,8 +22,6 @@ open class BaseApplication : MendixReactApplication() {
     override fun getPackages(): List<ReactPackage> {
         val packages: MutableList<ReactPackage> = PackageList(this).packages
 
-        // Packages that cannot be autolinked yet can be added manually here:
-        packages.add(CodePush(codePushKey, applicationContext, BuildConfig.DEBUG))
         return packages
     }
 
