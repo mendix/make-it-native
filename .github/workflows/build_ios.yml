@@ -1,4 +1,4 @@
-name: "iOS Test"
+name: "Build iOS & Upload AppStore"
 
 on:
   push:
