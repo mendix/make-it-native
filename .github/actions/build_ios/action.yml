@@ -1,5 +1,5 @@
-name: 'Build iOS App'
-description: 'Builds the iOS app using Fastlane'
+name: 'Build & Upload iOS App'
+description: 'Build and upload the iOS app using Fastlane'
 
 runs:
   using: 'composite'
@@ -18,3 +18,7 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version-file: .nvmrc
+
+    - name: Run Fastlane
+      uses: actions/checkout@v3
+      run: cd ios && fastlane ios beta
