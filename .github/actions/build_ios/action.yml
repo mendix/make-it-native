@@ -20,5 +20,5 @@ runs:
         node-version-file: .nvmrc
 
     - name: Run Fastlane
-      uses: actions/checkout@v3
       run: cd ios && fastlane ios beta
+      shell: bash
