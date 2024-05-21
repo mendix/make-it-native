@@ -5,10 +5,6 @@ runs:
   using: 'composite'
   
   steps:
-    - name: Hello Function
-      run: echo "Hello!"
-      shell: bash
-    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -17,3 +13,8 @@ runs:
     - name: Install Fastlane
       run: gem install fastlane
       shell: bash
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: .nvmrc
