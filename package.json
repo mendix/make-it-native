@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "store-versions": {
     "google-play": "1.0.0",
-    "apple-store": "2.9.9"
+    "apple-store": "2.1.2"
   },
   "private": true,
   "scripts": {
