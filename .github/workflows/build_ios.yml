@@ -1,4 +1,4 @@
-name: "Build & Upload iOS"
+name: "Build & Upload iOS App"
 
 on:
   push:
@@ -16,5 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build iOS
+      - name: Build & Upload iOS App
         uses: ./.github/actions/build_ios
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
