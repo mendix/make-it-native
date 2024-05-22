@@ -7,6 +7,7 @@ platform :ios do
 
   desc "Upload a new build to AppStore"
   lane :release do
+    setup_ci
     sh("npm", "ci", "--legacy-peer-deps")
     cocoapods
 
@@ -30,6 +31,8 @@ platform :ios do
 
     UI.message("Get the latest build number from AppStore Connect")
     build_num = app_store_build_number(
+      live: false,
+      initial_build_number: 0,
       api_key: api_key,
       version: APPLE_STORE_VERSION,
     )
