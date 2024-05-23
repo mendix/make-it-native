@@ -4,7 +4,6 @@ APPLE_STORE_VERSION = sh("node -p -e \"require('../../package.json')['store-vers
 default_platform(:ios)
 
 platform :ios do
-
   desc "Upload a new build to AppStore"
   lane :release do
     setup_ci
@@ -17,11 +16,10 @@ platform :ios do
       key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"],
       duration: 1200, # Session Length in seconds (maximum: 1200).
     )
-    get_certificates(
-      output_path: "./build",
-    )
-    get_provisioning_profile(
-      output_path: "./build",
+    
+    match(
+      type:"appstore",
+      api_key:api_key,
     )
 
     UI.message("Set version number")
