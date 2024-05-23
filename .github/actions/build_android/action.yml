@@ -1,5 +1,16 @@
 name: 'Build Android App'
 description: 'Builds the Android app using Fastlane'
+inputs:
+  firebaseAPIKey:
+    required: true
+  keystorePath:
+    required: true
+  keystoreAlias:
+    required: true
+  keystorePassword:
+    required: true
+  keystoreKeyPassword:
+    required: true
 
 runs:
   using: 'composite'
@@ -26,11 +37,21 @@ runs:
         node-version-file: .nvmrc
 
     - name: Build Android Library with Fastlane
-      run: cd android && fastlane android local
+      run: |
+        cd android
+        fastlane android local
       shell: bash
+      env:
+        FIREBASE_API_KEY: ${{ inputs.firebaseAPIKey }}
+        ANDROID_KEYSTORE_PATH: ${{ inputs.keystorePath }}
+        ANDROID_KEYSTORE_PASSWORD: ${{ inputs.keystorePassword }}
+        ANDROID_KEYSTORE_ALIAS: ${{ inputs.keystoreAlias }}
+        ANDROID_KEYSTORE_KEY_PASSWORD: ${{ inputs.keystoreKeyPassword }}
 
     - name: Copy Android Library to Shared Directory
-      run: mkdir -p ${{ github.workspace }}/artifacts/android && cp ./artifacts/app-production-debug.apk ${{ github.workspace }}/artifacts/android/app-production-debug.apk
+      run: |
+        mkdir -p ${{ github.workspace }}/artifacts/android
+        cp ./artifacts/app-production-debug.apk ${{ github.workspace }}/artifacts/android/app-production-debug.apk
       shell: bash
 
     - name: Upload apk to artifact
