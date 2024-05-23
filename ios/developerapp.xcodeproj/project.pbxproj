@@ -59,6 +59,7 @@
 		6EF5DA0D2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EF5DA0C2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */; };
 		6EF5DA862A385C72009B4F09 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5DA852A385C72009B4F09 /* HistoryView.swift */; };
 		6EFB6B452A3B3EFE006D8C2C /* HelpHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB6B442A3B3EFE006D8C2C /* HelpHostViewController.swift */; };
+		C538FD0A2BFF285B00140B7E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C538FD092BFF285B00140B7E /* PrivacyInfo.xcprivacy */; };
 		E7CA7B3A2A320CFA00F8EBF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CA7B392A320CFA00F8EBF0 /* Constants.swift */; };
 		E7EF3D222A3346E800A04EA8 /* LaunchScreenUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF3D212A3346E800A04EA8 /* LaunchScreenUIView.swift */; };
 		E7EF3D242A33474400A04EA8 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF3D232A33474400A04EA8 /* LaunchScreenStateManager.swift */; };
@@ -146,6 +147,7 @@
 		6EF5DA0C2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		6EF5DA852A385C72009B4F09 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		6EFB6B442A3B3EFE006D8C2C /* HelpHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHostViewController.swift; sourceTree = "<group>"; };
+		C538FD092BFF285B00140B7E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D35B611E13EA45A9A21912F0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D661F6F1A4BB4FFEEC1DD4B6 /* Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; sourceTree = "<group>"; };
 		DF8CCDFC26E5FA0900323934 /* DeveloperApp.release.devtools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DeveloperApp.release.devtools.xcconfig; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C538FD092BFF285B00140B7E /* PrivacyInfo.xcprivacy */,
 				13B07FAE1A68108700A75B9A /* DeveloperApp */,
 				043B69352141195F0041928E /* Production */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -547,6 +550,7 @@
 				0A0BF8751FFD2AA5002CF6FD /* OpenApp.storyboard in Resources */,
 				6EABAB5B2A41FFA10030BF0D /* LaunchScreen.storyboard in Resources */,
 				6EABAB592A41FE820030BF0D /* SampleApps.storyboard in Resources */,
+				C538FD0A2BFF285B00140B7E /* PrivacyInfo.xcprivacy in Resources */,
 				EBA1256821B95D7100681FC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
