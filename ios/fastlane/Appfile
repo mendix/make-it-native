@@ -1,8 +1,3 @@
-app_identifier("com.mendix.developerapp.native.mx10") # The bundle identifier of your app
-apple_id("selim.ustel@mendix.com") # Your Apple Developer Portal username
+app_identifier("com.mendix.developerapp.native.mx10")
 
-itc_team_id("625085") # App Store Connect Team ID
-team_id("BC32QNM6AD") # Developer Portal Team ID
 
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
