@@ -17,6 +17,7 @@ platform :ios do
     match(
       type:"appstore",
       api_key:api_key,
+      readonly:false,
       git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
     )
   end
@@ -37,6 +38,7 @@ platform :ios do
     match(
       type:"appstore",
       api_key:api_key,
+      readonly: false,
       git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
     )
 
