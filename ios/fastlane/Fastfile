@@ -16,6 +16,9 @@ platform :ios do
       key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"],
       duration: 1200, # Session Length in seconds (maximum: 1200).
     )
+
+    UI.message("Disabling automatic signing on Xcode")
+    disable_automatic_code_signing
     
     match(
       type:"appstore",
@@ -43,8 +46,6 @@ platform :ios do
       build_number: build_num + 1,
     )
 
-    UI.message("Disabling automatic signing on Xcode")
-    disable_automatic_code_signing
 
     UI.message("Replacing Google Maps API key from environment variables")
     Dir.chdir("../DeveloperApp/Config") do
