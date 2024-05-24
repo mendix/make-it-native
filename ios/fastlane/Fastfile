@@ -43,6 +43,9 @@ platform :ios do
       build_number: build_num + 1,
     )
 
+    UI.message("Disabling automatic signing on Xcode")
+    disable_automatic_code_signing
+
     UI.message("Replacing Google Maps API key from environment variables")
     Dir.chdir("../DeveloperApp/Config") do
         googleMapsApiKey = ENV["GOOGLE_MAPS_API_KEY"] || "GOOGLE_MAPS_API_KEY"
