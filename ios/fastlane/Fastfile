@@ -12,6 +12,7 @@ platform :ios do
       default_keychain: true,
       unlock: true,
       timeout: 3600,
+      password: ENV["KEYCHAIN_PASSWORD"],
       lock_when_sleeps: true
     )
     sh("npm", "ci", "--legacy-peer-deps")
