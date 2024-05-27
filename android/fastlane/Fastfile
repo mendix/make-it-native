@@ -6,11 +6,9 @@
 
 default_platform(:android)
 
-ENV["GRADLE_BINTRAY_REPO"] = ENV["NEXUS_BINTRAY_PROXY_URL"]
-ENV["GRADLE_JITPACK_REPO"] = ENV["NEXUS_JITPACK_PROXY_URL"]
-
 GOOGLE_PLAY_VERSION = sh("node -p -e \"require('../../package.json')['store-versions']['google-play']\"").chomp
 BUILD_NUMBER = ENV["BUILD_NUMBER"]
+TEST = ENV["TEST"]
 ORIGINAL_CHANGELOG_PATH = "../../CHANGELOG.android.txt"
 FASTLANE_CHANGELOG_PATH = "./metadata/android/en-US/changelogs/default.txt"
 versionCodeOffset = 304
@@ -18,7 +16,7 @@ versionCodeOffset = 304
 platform :android do
   before_all do
     Dir.chdir("../..") do
-      sh("npm", "ci", "--legacy-peer-deps")
+      sh("npm", "ci")
       # Special hack to work-around alpine linux problem - File.getCanonicalPath is failing without a reason:
       sh("find node_modules -name '*.gradle' -type f -exec sed -i.bak '/canonicalPath/d' {} +")
     end
@@ -37,7 +35,6 @@ platform :android do
   desc "Build apk and install in the simulator"
   lane :debug_internal do
     UI.message("Installing dependencies")
-    sh("npm", "i", "--legacy-peer-deps")
     gradleOptions = {
       "android.injected.version.code" => BUILD_NUMBER.to_i() + versionCodeOffset,
       "android.injected.version.name" => "#{GOOGLE_PLAY_VERSION}.dev",
@@ -74,10 +71,8 @@ platform :android do
 
     UI.message "Replacing Firebase API keys from environment variables"
     Dir.chdir("../app") do
-      firebaseApiKey1 = ENV["FIREBASE_API_KEY_1"] || "FIREBASE_API_KEY_1"
-      sh("sed -i 's/{{firebase-api-key-1}}/#{firebaseApiKey1}/g' google-services.json")
-      firebaseApiKey2 = ENV["FIREBASE_API_KEY_2"] || "FIREBASE_API_KEY_2"
-      sh("sed -i 's/{{firebase-api-key-2}}/#{firebaseApiKey2}/g' google-services.json")
+      firebaseApiKey = ENV["FIREBASE_API_KEY"] || "FIREBASE_API_KEY"
+      sh("sed -i 's/{{firebase-api-key}}/#{firebaseApiKey}/g' google-services.json")
     end
 
     if options[:submit] == true

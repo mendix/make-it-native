@@ -51,8 +51,8 @@ local.properties
 **/fastlane/FastlaneRunner
 
 ### Firebase ###
-android/**/google-services.json
-ios/**/GoogleService-Info.plist
+# android/**/google-services.json
+# ios/**/GoogleService-Info.plist
 
 ### node.js ###
 /node_modules/
