@@ -126,7 +126,7 @@ Based on your Mendix Studio Pro version, switch to the corresponding branch in o
 | Mendix Studio Pro 10.4.1   | `mx/10.4.1`   |
 | Mendix Studio Pro 10.3.1   | `mx/10.3.1`   |
 | Mendix Studio Pro LTS/9.24 | `mx/lts/9.24` |
-| Mendix Studio Pro MTS/9.24 | `mx/mts/10.6` |
+| Mendix Studio Pro MTS/10.6 | `mx/mts/10.6` |
 
 Use the following Git command to switch branches:
 
