@@ -1,14 +1,10 @@
-name: 'Build iOS App'
-description: 'Builds the iOS app using Fastlane'
+name: 'Build & Upload iOS App'
+description: 'Build and upload the iOS app using Fastlane'
 
 runs:
   using: 'composite'
   
   steps:
-    - name: Hello Function
-      run: echo "Hello!"
-      shell: bash
-    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -16,4 +12,13 @@ runs:
 
     - name: Install Fastlane
       run: gem install fastlane
+      shell: bash
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: .nvmrc
+
+    - name: Run Fastlane
+      run: cd ios && fastlane ios release
       shell: bash

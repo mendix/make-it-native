@@ -1,5 +1,3 @@
-app_identifier "com.mendix.developerapp.native.mx10" # The bundle identifier of your app
+app_identifier("com.mendix.developerapp.native.mx10")
 
-team_id "BC32QNM6AD" # Developer Portal Team ID
 
-# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md

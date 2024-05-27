@@ -1,85 +1,41 @@
-# If you want to automatically update fastlane if a new version is available:
-#update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
-fastlane_version "2.213.0"
-
-default_platform :ios
-
 # Constants
 APPLE_STORE_VERSION = sh("node -p -e \"require('../../package.json')['store-versions']['apple-store']\"").chomp
-BUILD_NUMBER = 1
-ORIGINAL_CHANGELOG_PATH = "../../CHANGELOG.ios.txt"
-FASTLANE_CHANGELOG_PATH = "./metadata/default/release_notes.txt"
+
+default_platform(:ios)
 
 platform :ios do
-  lane :install_dev_certificate do
-    # Improve DX. We cannot use an empty password, so we use the public password.
-    ENV["MATCH_PASSWORD"] = "AppleDeveloper1!"
-    match(
-      type: "development",
-      git_branch: "appdev",
-      profile_name: "Make It Native 9 Dev (Match)",
-      readonly: true,
-    )
-  end
-
-  desc "Build an internal version for automation"
-  desc "It always uses v.0.0.0 and build number 0 by design"
-  lane :internal do
-    sh("npm", "ci", "--legacy-peer-deps")
-    cocoapods
-    increment_version_number(
-      version_number: "0.0.0",
-    )
-    gym(scheme: "DeveloperApp", configuration: "ReleaseDevToolsEnabled", export_method: "development", build_path: "./builds/internal/intermediate", output_directory: "./builds/internal/output")
-  end
-
-  desc "Builds and install DeveloperApp into the simulator"
-  desc "This will use iPhone 13 Pro simulator with OS 15.5"
-  lane :debug_internal do
-    UI.message("Installing dependencies")
-    sh("npm", "i", "--legacy-peer-deps")
-    cocoapods
-    UI.message("Building and installing DeveloperApp")
-    gym(
-      scheme: "DeveloperApp",
-      configuration: "Debug",
-      skip_package_ipa: true,
-      skip_package_pkg: true,
-      sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5",
-      xcargs: "ONLY_ACTIVE_ARCH=NO",
-    )
-  end
-
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do |options|
-    keychain_name = "min_10_ios"
-    sh("npm", "ci", "--legacy-peer-deps")
-    cocoapods
-
-    UI.message("Connect API key")
-    app_store_connect_api_key(
-      is_key_content_base64: true,
-    )
-
+  desc "Upload a new build to AppStore"
+  lane :release do
+    keychain_name = "MiN_10_keychain"
     create_keychain(
       name: keychain_name,
-      unlock: true,
-      timeout: 0,
       default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      password: ENV["KEYCHAIN_PASSWORD"],
+      lock_when_sleeps: false
+    )
+    sh("npm", "ci", "--legacy-peer-deps")
+    cocoapods
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"],
+      duration: 1200, # Session Length in seconds (maximum: 1200).
     )
 
-    UI.message("Retrieve iOS certificate and profile")
+    UI.message("Disabling automatic signing on Xcode")
+    disable_automatic_code_signing
+    
+    UI.message("Get the certificates and profiles")
     match(
-      type: "appstore",
-      keychain_name: keychain_name,
+      type:"appstore",
+      api_key:api_key,
+      keychain_name:keychain_name,
       keychain_password: ENV["KEYCHAIN_PASSWORD"],
-      profile_name: "match AppStore com.mendix.developerapp.native.mx10",
-      readonly: true,
+      git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+      readonly: false,
     )
 
     UI.message("Set version number")
@@ -87,126 +43,36 @@ platform :ios do
       version_number: APPLE_STORE_VERSION,
     )
 
+    UI.message("Get the latest build number from AppStore Connect")
+    build_num = app_store_build_number(
+      live: false,
+      initial_build_number: 0,
+      api_key: api_key,
+      version: APPLE_STORE_VERSION,
+    )
+
     UI.message("Set build number")
     increment_build_number(
-      build_number: app_store_build_number(live: false, version: APPLE_STORE_VERSION, initial_build_number: 0) + 1,
-    )
-
-    unlock_keychain( # Unlock an existing keychain and add it to the keychain search list
-      path: keychain_name,
-      password: ENV["KEYCHAIN_PASSWORD"],
-    )
-
-    update_project_provisioning(
       xcodeproj: "developerapp.xcodeproj",
-      code_signing_identity: "Apple Distribution",
-      profile: ENV["sigh_com.mendix.developerapp.native.mx10_appstore_profile-path"],
-      build_configuration: "Release",
-      target_filter: "DeveloperApp",
+      build_number: build_num + 1,
     )
+
 
     UI.message("Replacing Google Maps API key from environment variables")
     Dir.chdir("../DeveloperApp/Config") do
         googleMapsApiKey = ENV["GOOGLE_MAPS_API_KEY"] || "GOOGLE_MAPS_API_KEY"
         sh("sed -i '' 's/{{google-maps-api-key}}/#{googleMapsApiKey}/g' ApiKeys.xcconfig")
     end
-
-    UI.message("Build iOS app")
-    gym(
+    
+    build_app(
+      workspace: "DeveloperApp.xcworkspace",
       scheme: "DeveloperApp",
-      export_method: "app-store",
-      configuration: "Release",
-      output_directory: "./build/beta/output",
+      build_path:"./build",
+      output_directory:"./build"
     )
-
-    if options[:submit] == true
-      UI.message("Send iOS app to TestFlight")
-      pilot(
-        groups: ["Internal Testers"],
-        skip_submission: true,
-        skip_waiting_for_build_processing: true,
-        distribute_external: false
-      )
-    end
-
-    UI.message("Copy artifacts")
-    copy_artifacts(
-      target_path: "../artifacts",
-      artifacts: ["./build/beta/output/DeveloperApp.ipa",
-                  "./build/beta/output/DeveloperApp.app.dSYM.zip"],
-    )
-  end
-
-  lane :beta_manually do
-    sh("npm", "ci", "--legacy-peer-deps")
-    cocoapods
-
-    UI.message("Retrieve iOS certificate and profile")
-    match(
-      type: "appstore",
-      profile_name: "match AppStore com.mendix.developerapp.native.mx10",
-      readonly: true,
-    )
-
-    UI.message("Set version number")
-    increment_version_number(
-      version_number: APPLE_STORE_VERSION,
-    )
-
-    UI.message("Set build number")
-    increment_build_number(
-      build_number: app_store_build_number(live: false, version: APPLE_STORE_VERSION, initial_build_number: 0) + 1,
-    )
-
-    UI.message("Build iOS app")
-    gym(
-      scheme: "DeveloperApp",
-      export_method: "app-store",
-      configuration: "Release",
-      output_directory: "./build/beta/output",
-    )
-
-    UI.message("Send iOS app to TestFlight")
-    pilot(
-      skip_submission: true,
+    upload_to_testflight(
       skip_waiting_for_build_processing: true,
     )
-
-    UI.message("Copy artifacts")
-    copy_artifacts(
-      target_path: "../artifacts",
-      artifacts: ["./build/beta/output/DeveloperApp.ipa",
-                  "./build/beta/output/DeveloperApp.app.dSYM.zip"],
-    )
   end
 
-  desc "Send appstore version to review"
-  lane :promote_to_production do |options|
-    if !options[:build_number]
-      UI.user_error!("build_number is required to release app")
-    end
-
-    FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
-
-    UI.message("Connect API key")
-    app_store_connect_api_key(
-      is_key_content_base64: true,
-    )
-
-    deliver(
-      app_version: APPLE_STORE_VERSION,
-      build_number: options[:build_number],
-      submit_for_review: true,
-      automatic_release: true,
-      force: true,
-      skip_metadata: false,
-      skip_screenshots: true,
-      skip_binary_upload: true,
-      precheck_include_in_app_purchases: false,
-      submission_information: {
-        add_id_info_uses_idfa: false,
-        export_compliance_uses_encryption: false,
-      },
-    )
-  end
 end
