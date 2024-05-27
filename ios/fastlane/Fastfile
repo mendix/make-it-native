@@ -31,7 +31,7 @@ platform :ios do
     match(
       type:"appstore",
       api_key:api_key,
-      keychain_password: ENV["KEYCHAIN_PASSWORD"]
+      keychain_password: ENV["KEYCHAIN_PASSWORD"],
       git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
       readonly: false,
     )
