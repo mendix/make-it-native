@@ -13,7 +13,7 @@ platform :ios do
       unlock: true,
       timeout: 3600,
       password: ENV["KEYCHAIN_PASSWORD"],
-      lock_when_sleeps: true
+      lock_when_sleeps: false
     )
     sh("npm", "ci", "--legacy-peer-deps")
     cocoapods
@@ -32,6 +32,7 @@ platform :ios do
     match(
       type:"appstore",
       api_key:api_key,
+      keychain_name:keychain_name
       keychain_password: ENV["KEYCHAIN_PASSWORD"],
       git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
       readonly: false,
