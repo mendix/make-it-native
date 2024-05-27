@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>23</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ForumUrl</key>
 	<string>https://forum.mendix.com/index3.html</string>
 	<key>GoogleMapsKey</key>
