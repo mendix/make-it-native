@@ -6,7 +6,14 @@ default_platform(:ios)
 platform :ios do
   desc "Upload a new build to AppStore"
   lane :release do
-    setup_ci
+    keychain_name = "MiN_10_keychain"
+    create_keychain(
+      name: keychain_name,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
     sh("npm", "ci", "--legacy-peer-deps")
     cocoapods
 
@@ -20,11 +27,13 @@ platform :ios do
     UI.message("Disabling automatic signing on Xcode")
     disable_automatic_code_signing
     
+    UI.message("Get the certificates and profiles")
     match(
       type:"appstore",
       api_key:api_key,
-      readonly: false,
+      keychain_password: ENV["KEYCHAIN_PASSWORD"]
       git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+      readonly: false,
     )
 
     UI.message("Set version number")
