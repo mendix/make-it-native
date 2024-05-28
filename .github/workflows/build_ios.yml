@@ -3,7 +3,8 @@ name: "Build & Upload iOS App"
 on:
   push:
     branches:
-      - main
+      - feat/setup-release-pipeline
+      
   pull_request:
     branches:
       - main
