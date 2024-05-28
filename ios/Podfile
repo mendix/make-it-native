@@ -15,6 +15,9 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+# Force libraries to disable hermes usage
+ENV["USE_HERMES"] = "0"
+
 abstract_target "Mendix" do
   config = use_native_modules!
 
