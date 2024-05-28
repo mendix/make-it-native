@@ -117,14 +117,15 @@ Based on your Mendix Studio Pro version, switch to the corresponding branch in o
 
 | Studio Pro Version         | Branch        |
 | -------------------------- | ------------- |
-| Mendix Studio Pro 10.10.0  | `mx/10.10.0`  |
-| Mendix Studio Pro 10.9.0   | `mx/10.9.0`   |
-| Mendix Studio Pro 10.8.0   | `mx/10.8.0`   |
-| Mendix Studio Pro 10.7.0   | `mx/10.7.0`   |
-| Mendix Studio Pro 10.6.0   | `mx/10.6.0`   |
-| Mendix Studio Pro 10.5.0   | `mx/10.5.0`   |
-| Mendix Studio Pro 10.4.1   | `mx/10.4.1`   |
-| Mendix Studio Pro 10.3.1   | `mx/10.3.1`   |
+| Mendix Studio Pro 10.11.0  | `mx/10.11`  |
+| Mendix Studio Pro 10.10.0  | `mx/10.10`  |
+| Mendix Studio Pro 10.9.0   | `mx/10.9`   |
+| Mendix Studio Pro 10.8.0   | `mx/10.8`   |
+| Mendix Studio Pro 10.7.0   | `mx/10.7`   |
+| Mendix Studio Pro 10.6.0   | `mx/10.6`   |
+| Mendix Studio Pro 10.5.0   | `mx/10.5`   |
+| Mendix Studio Pro 10.4.1   | `mx/10.4`   |
+| Mendix Studio Pro 10.3.1   | `mx/10.3`   |
 | Mendix Studio Pro LTS/9.24 | `mx/lts/9.24` |
 | Mendix Studio Pro MTS/10.6 | `mx/mts/10.6` |
 
