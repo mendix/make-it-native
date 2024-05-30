@@ -33,6 +33,7 @@ android/**/release/*.aab
 local.properties
 *.iml
 .project
+keystores/
 
 ### Fastlane ###
 # fastlane specific
