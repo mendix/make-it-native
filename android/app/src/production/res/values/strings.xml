@@ -38,14 +38,14 @@
     <string name="button_retry">Retry</string>
     <string name="button_go_back">Go Back</string>
     <string name="button_troubleshooting">Troubleshooting</string>
-    <string name="button_studio_pro_download">Studio Pro Download</string>
+    <string name="button_min_versions_guide">Make it Native Versions Guide</string>
     <string name="button_custom_developer_app_guide">Custom Developer App Guide</string>
     <string name="error_unknown_title">We\'ve encountered an issue</string>
     <string name="error_connection_title">We\'ve encountered a connection issue</string>
     <string name="error_version_title">We\'ve encountered a version issue</string>
     <string name="error_js_bundle">Metro Bundler is not running at: %1$s\n\nPlease try followings\n\n1.\t\tCheck that your app is running in Studio Pro\n2.\t\tCheck that IP is correct and accessible\n3.\t\tCheck that port %2$s and port 8083 are accessible></string>
     <string name="error_runtime_connection">Mendix runtime is not running at: %1$s\n\nPlease try followings\n\n1.\t\tCheck that port %2$s is accessible\n2.\t\tCheck that native profile is used\n3.\t\tVerify that Metro is running (You might need to restart Windows)</string>
-    <string name="error_min_outdated">It seems that you\'re trying to connect to a version of Mendix Studio Pro that is either too new or too old for compatibility.\n\nTo ensure a smooth experience, please make sure you\'re using a supported version of Mendix Studio Pro</string>
+    <string name="error_min_outdated">It seems you\'re trying to connect to a Mendix application that is not supported by this version of the app.\n\nPlease refer to our documentation to learn how to get the correct version of this app for your project.</string>
     <string name="error_studio_outdated">You are trying to connect to an older version of Mendix Studio Pro which is not supported.</string>
     <string name="error_missing_native_profile">Your Mendix app does not have a Native Mobile Profile.</string>
     <string name="error_packager_not_running">The packager is not running. Restart your runtime and try again.</string>

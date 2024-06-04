@@ -7,11 +7,11 @@ class HomeViewController: UIViewController {
     private var errorShown = false
     private var clearCache: Bool = false
     private var developerMode: Bool = false
-    
+
     private var uiState: HomeUIState = .idle {
         didSet {
             AppState.shared.uiState = uiState
-            
+
             if (oldValue != uiState) {
                 DispatchQueue.main.async {
                     self.updateUIState()
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+
     private func updateUIState() {
         switch uiState {
         case .idle:
@@ -31,20 +31,20 @@ class HomeViewController: UIViewController {
             break
         }
     }
-    
+
     private func setUIState(state: HomeUIState) {
         DispatchQueue.main.async {
             self.uiState = state
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+
         setupSwiftUIScreen()
         triggerLocalNetworkPrivacyAlert()
     }
-    
+
     private func setupSwiftUIScreen(){
         // Set up Swift UI screen.
         let homeUI = UIHostingController(rootView: HomeView(
@@ -55,9 +55,9 @@ class HomeViewController: UIViewController {
                 self.textFieldReturnAction(AppState.shared.url.lowercased())
             }
         ))
-        
+
         view.addSubview(homeUI.view)
-        
+
         // Adjust frame constraints.
         homeUI.view.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
@@ -66,22 +66,22 @@ class HomeViewController: UIViewController {
             homeUI.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             homeUI.view.rightAnchor.constraint(equalTo: view.rightAnchor)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
     }
-    
+
     func textFieldReturnAction(_ urlText: String) {
         if (uiState == .loading) {
             return
         }
-        
+
         uiState = .loading
         validateMendixUrl(urlText) { (running) in
             guard running, AppUrl.isValid(urlText) else {
                 self.uiState = .runtimeNotRunning(url: urlText)
                 return
             }
-            
+
             self.isSupportedMendixVersion(urlString: urlText) {
                 supported in
                 if (!supported) {
@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
+
     private func launchApp(_ url: String) {
         HistoryStore().saveHistoryItem(historyItem: HistoryItem(url:url))
         DispatchQueue.main.async {
@@ -102,7 +102,7 @@ class HomeViewController: UIViewController {
             self.performSegue(withIdentifier: "OpenMendixApp", sender: nil)
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is MendixAppViewController {
             let url = AppUrl.forBundle(
@@ -110,9 +110,9 @@ class HomeViewController: UIViewController {
                 port: AppPreferences.getRemoteDebuggingPackagerPort(),
                 isDebuggingRemotely: AppPreferences.remoteDebuggingEnabled(),
                 isDevModeEnabled: AppPreferences.devModeEnabled())
-            
+
             let runtimeUrl: URL = AppUrl.forRuntime(AppPreferences.getAppUrl())!
-            
+
             ReactNative.instance.setup(MendixApp(nil, bundleUrl: url!, runtimeUrl: runtimeUrl, warningsFilter: getWarningFilterValue(), isDeveloperApp: true, clearDataAtLaunch: self.clearCache, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil)), launchOptions: nil)
         } else if segue.destination is ConnectionErrorViewController {
             let viewController = segue.destination as! ConnectionErrorViewController
@@ -120,38 +120,38 @@ class HomeViewController: UIViewController {
             case .updateAvailable:
                 viewController.model = getVersionErrorModel()
                 break
-                
+
                 // Old Studio Pro Version
             case .deprecatedRuntime:
                 viewController.model = getVersionErrorModel()
                 break
-                
+
                 // Runtime Not Running
             case let .runtimeNotRunning(url):
                 viewController.model = getRuntimeErrorModel(url: url)
                 break
-                
+
                 // Metro Bundle Not Running
             case let .packagerNotRunning(url):
                 viewController.model = getMetroErrorModel(url: url)
                 break
-                
+
             case let .error(message):
                 viewController.model = getGeneralErrorModel(message: message)
                 break
-                
+
             default:
                 print("Unknown state")
             }
         }
     }
-    
+
     private func isSupportedMendixVersion(urlString: String, cb: @escaping (Bool) -> Void) {
         guard let runtimeUrl = AppUrl.forRuntimeInfo(urlString) else {
             self.uiState = .error(message: "The URL provided does not point to a valid Mendix app.")
             return
         }
-        
+
         let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.timeoutIntervalForRequest = 3
         URLSession(configuration: sessionConfiguration).dataTask(with: AppUrl.forPackagerStatus(urlString, port: AppPreferences.getRemoteDebuggingPackagerPort())) { (_, __, error) in
@@ -159,18 +159,18 @@ class HomeViewController: UIViewController {
                 self.uiState = .packagerNotRunning(url: runtimeUrl.absoluteString)
                 return cb(false)
             }
-            
+
             RuntimeInfoProvider.getRuntimeInfo(runtimeUrl) { (response) in
                 guard let runtimeInfoResponse = response else {
                     self.uiState = .runtimeNotRunning(url: urlString)
                     return cb(false)
                 }
-                
+
                 if (runtimeInfoResponse.status == "INACCESSIBLE") {
                     self.uiState = .runtimeNotRunning(url: urlString)
                     return cb(false)
                 }
-                
+
                 if (runtimeInfoResponse.status == "FAILED") {
                     self.uiState = .deprecatedRuntime
                     return cb(false)
@@ -179,7 +179,7 @@ class HomeViewController: UIViewController {
                     self.uiState = .deprecatedRuntime
                     return cb(false)
                 }
-                
+
                 let nativeBinaryVersion = runtimeInfo.nativeBinaryVersion
                 if (nativeBinaryVersion == supportedNativeBinaryVersion) {
                     return cb(true)
@@ -193,24 +193,24 @@ class HomeViewController: UIViewController {
             }
         }.resume()
     }
-    
+
     private func validateMendixUrl(_ urlString: String, onCompletion: @escaping (_ valid: Bool) -> Void) {
         if let url = AppUrl.forValidation(urlString) {
             URLValidator.validate(url, onCompletion: onCompletion)
             return
         }
-        
+
         onCompletion(false)
     }
-    
+
     private func getVersionErrorModel()->ConnectErrorModel{
         return ConnectErrorModel(
             title: "We've encountered a version issue.",
-            body: "Your project was build with an incompatible version of Mendix. This app supports the following versions: \n\n1.\t10.1 (example) \n2.\t10.2 (example) \n3.\t10.3 (example)",
-            instructions: "Please use one of the supported Mendix versions or create a custom developer app.",
-            primaryBtnTitle: "Studio Pro Download",
+            body: "It seems you're trying to connect to a Mendix application that is not supported by this version of the app.",
+            instructions: "Please refer to our documentation to learn how to get the correct version of this app for your project.",
+            primaryBtnTitle: "Make it Native Versions Guide",
             primaryBtnAction: { () in
-                if let url = getUrlFromBundle("StudioProDownloadUrl") {
+                if let url = getUrlFromBundle("HowToMiNVersions") {
                     navigateTo(url)
                 }
             },
@@ -223,12 +223,12 @@ class HomeViewController: UIViewController {
             uiState: .updateAvailable
         )
     }
-    
+
     private func getRuntimeErrorModel(url:String)->ConnectErrorModel{
         let port = AppPreferences.getRemoteDebuggingPackagerPort()
         let metroUrl = AppUrl.forPackagerStatus(url, port: port).absoluteString
         let runtimeUrl = AppUrl.forRuntime(url).absoluteString
-        
+
         return ConnectErrorModel(
             title: "We've encountered a connection issue.",
             body: "Runtime is not running at: \n\(runtimeUrl)",
@@ -249,12 +249,12 @@ class HomeViewController: UIViewController {
             runtimeUrl: runtimeUrl
         )
     }
-    
+
     private func getMetroErrorModel(url:String)->ConnectErrorModel{
         let port = AppPreferences.getRemoteDebuggingPackagerPort()
         let metroUrl = AppUrl.forPackagerStatus(url, port: port).absoluteString
         let runtimeUrl = AppUrl.forRuntime(url).absoluteString
-        
+
         return ConnectErrorModel(
             title: "We've encountered a connection issue.",
             body: "Metro Bundler is not running at: \n\(metroUrl)",
@@ -275,7 +275,7 @@ class HomeViewController: UIViewController {
             runtimeUrl: runtimeUrl
         )
     }
-    
+
     private func getGeneralErrorModel(message:String)->ConnectErrorModel{
         return ConnectErrorModel(
             title: "We've encountered an issue.",
@@ -295,5 +295,5 @@ class HomeViewController: UIViewController {
             uiState: .error(message: message)
         )
     }
-    
+
 }

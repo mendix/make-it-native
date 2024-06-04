@@ -43,9 +43,9 @@ fun MendixProjectLoaderScreen(viewModel: ProjectLoaderViewModel) {
 
         R.string.error_type_version -> {
             errorMessageTitle = stringResource(R.string.error_version_title)
-            primaryButtonText = stringResource(R.string.button_studio_pro_download)
+            primaryButtonText = stringResource(R.string.button_min_versions_guide)
             secondaryButtonText = stringResource(R.string.button_custom_developer_app_guide)
-            primaryButtonOnPress = { viewModel.openInBrowser.invoke("https://marketplace.mendix.com/link/studiopro/") }
+            primaryButtonOnPress = { viewModel.openInBrowser.invoke("https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-min-versions/") }
             secondaryButtonOnPress = { viewModel.openInBrowser.invoke("https://docs.mendix.com/howto8/mobile/how-to-devapps/") }
         }
 
@@ -62,7 +62,7 @@ fun MendixProjectLoaderScreen(viewModel: ProjectLoaderViewModel) {
         ProjectLoaderViewModel.STATUS_ERROR_CONNECTION -> stringResource(R.string.error_runtime_connection, uri, portNumber)
         ProjectLoaderViewModel.STATUS_ERROR_NO_NATIVE_PROFIlE -> stringResource(R.string.error_missing_native_profile)
         ProjectLoaderViewModel.STATUS_ERROR_PACKAGER_CONNECTION -> stringResource(R.string.error_packager_not_running)
-        ProjectLoaderViewModel.STATUS_ERROR_STUDIO_OUTDATED -> stringResource(R.string.error_studio_outdated)
+        ProjectLoaderViewModel.STATUS_ERROR_STUDIO_OUTDATED -> stringResource(R.string.error_min_outdated)
         ProjectLoaderViewModel.STATUS_ERROR_MIN_OUTDATED -> stringResource(R.string.error_min_outdated)
         else -> stringResource(R.string.error_unknown)
     }
