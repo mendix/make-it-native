@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
-apply plugin: "kotlin-android"
+apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.google.gms.google-services"
 apply plugin: "com.google.firebase.crashlytics"
 apply plugin: "kotlin-kapt"
@@ -80,6 +80,7 @@ def reactNativeFromSource = BUILD_RN_FROM_SOURCE.toBoolean()
 
 android {
     ndkVersion rootProject.ndkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.compileSdkVersion
 
     namespace "com.mendix.developerapp"
@@ -172,11 +173,7 @@ dependencies {
     }
 
     // Flipper debugger
-    debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
-    debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
-        exclude group: "com.squareup.okhttp3", module: "okhttp"
-    }
-    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
+    implementation("com.facebook.react:flipper-integration")
 
     // Javascript engine
     if (hermesEnabled.toBoolean()) {
@@ -189,7 +186,7 @@ dependencies {
     implementation project(":mendixnative-release")
 
     // Dev app dependencies
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "com.google.android.material:material:1.4.0"
     implementation "androidx.core:core-ktx:$androidx_core_version"
