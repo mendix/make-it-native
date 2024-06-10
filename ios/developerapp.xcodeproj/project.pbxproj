@@ -22,6 +22,7 @@
 		0AEBC15421C1397E003E47B4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEBC15321C1397E003E47B4 /* EventKit.framework */; };
 		0AEBC15821C139DF003E47B4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEBC15621C139D3003E47B4 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055849D2A8DF9950015F9E0 /* SampleApps.swift */; };
+		105BFF1D2C1728370087BB6C /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 105BFF1C2C1728370087BB6C /* CodeScanner */; };
 		2C005A9323DF2F5000003E29 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C005A9223DF2F5000003E29 /* Helpers.swift */; };
 		2C6849DC257FB52800ABCEF9 /* ConnectionError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6849DB257FB52700ABCEF9 /* ConnectionError.storyboard */; };
 		2C6849ED257FBA6700ABCEF9 /* ConnectionErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6849EC257FBA6700ABCEF9 /* ConnectionErrorViewController.swift */; };
@@ -40,7 +41,6 @@
 		6E6C9B422A408839002F788D /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C9B412A408839002F788D /* URLImage.swift */; };
 		6E6C9B442A408C12002F788D /* SampleAppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C9B432A408C12002F788D /* SampleAppCard.swift */; };
 		6E6C9B462A4098E4002F788D /* TroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C9B452A4098E4002F788D /* TroubleshootView.swift */; };
-		6E7851A92A45A835004F313D /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 6E7851A82A45A835004F313D /* CodeScanner */; };
 		6E7851AB2A49850B004F313D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7851AA2A49850A004F313D /* TabViewController.swift */; };
 		6E84426F2A40459100D6159E /* SampleAppsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E84426E2A40459100D6159E /* SampleAppsSwiftUIView.swift */; };
 		6E8442742A40499A00D6159E /* AppBarContentScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */; };
@@ -182,8 +182,8 @@
 				6E21481C2B90B6F000430472 /* mendixnative.xcframework in Frameworks */,
 				0AEBC15821C139DF003E47B4 /* CoreFoundation.framework in Frameworks */,
 				0AEBC15421C1397E003E47B4 /* EventKit.framework in Frameworks */,
-				6E7851A92A45A835004F313D /* CodeScanner in Frameworks */,
 				6D631AFF82EFB03018D699AD /* libPods-Mendix-DeveloperApp.a in Frameworks */,
+				105BFF1D2C1728370087BB6C /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +477,7 @@
 			);
 			name = DeveloperApp;
 			packageProductDependencies = (
-				6E7851A82A45A835004F313D /* CodeScanner */,
+				105BFF1C2C1728370087BB6C /* CodeScanner */,
 			);
 			productName = "Hello World";
 			productReference = 13B07F961A680F5B00A75B9A /* DeveloperApp.app */;
@@ -516,7 +516,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				6E7851A72A45A835004F313D /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -613,8 +613,9 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SQLCipher/SQLCipher.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -644,8 +645,9 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCTI18nStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SQLCipher.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -864,7 +866,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -909,20 +911,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = false;
 			};
 			name = Debug;
 		};
@@ -932,7 +929,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -973,20 +970,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				USE_HERMES = false;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -997,7 +989,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1038,20 +1030,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				USE_HERMES = false;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = ReleaseDevToolsEnabled;
@@ -1150,20 +1137,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6E7851A72A45A835004F313D /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+		105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6E7851A82A45A835004F313D /* CodeScanner */ = {
+		105BFF1C2C1728370087BB6C /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6E7851A72A45A835004F313D /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			package = 105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
