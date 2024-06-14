@@ -72,7 +72,7 @@ class HomeFragment : BaseFragment() {
         super.onResume()
         activity?.window?.statusBarColor = MaterialColors.getColor(
             requireContext(),
-            R.attr.colorPrimary,
+            com.mendix.mendixnative.R.attr.color,
             ResourcesCompat.getColor(requireActivity().resources, R.color.red1, activity?.theme)
         )
     }
@@ -143,15 +143,15 @@ class HomeFragment : BaseFragment() {
         findNavController().navigate(
             HomeFragmentDirections.actionStartAppFragmentToMendixProjectLoaderFragment(
                 getString(R.string.react_native_component_name),
-                activity?.intent?.extras,
-                MendixApp(
-                    viewModel.getAppUrl(),
-                    getWarningFilterValue(requireActivity()),
-                    viewModel.getDevModeEnabled(),
-                    true
-                ),
-                viewModel.getClearData(),
-                true,
+                    MendixApp(
+                            viewModel.getAppUrl(),
+                            getWarningFilterValue(requireActivity()),
+                            viewModel.getDevModeEnabled(),
+                            true
+                    ),
+                    activity?.intent?.extras,
+                    viewModel.getClearData(),
+                    true,
             )
         )
     }
