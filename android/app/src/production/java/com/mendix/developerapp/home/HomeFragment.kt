@@ -72,7 +72,7 @@ class HomeFragment : BaseFragment() {
         super.onResume()
         activity?.window?.statusBarColor = MaterialColors.getColor(
             requireContext(),
-            com.mendix.mendixnative.R.attr.color,
+            com.mendix.mendixnative.R.attr.colorPrimary,
             ResourcesCompat.getColor(requireActivity().resources, R.color.red1, activity?.theme)
         )
     }
