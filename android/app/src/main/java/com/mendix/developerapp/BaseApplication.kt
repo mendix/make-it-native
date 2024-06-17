@@ -14,8 +14,8 @@ open class BaseApplication : MendixReactApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        if(reactNativeHost.hasInstance()) {
-            initializeFlipper(this, reactNativeHost.reactInstanceManager)
+        if(getReactNativeHost().hasInstance()) {
+            initializeFlipper(this, getReactNativeHost().reactInstanceManager)
         }
     }
 
