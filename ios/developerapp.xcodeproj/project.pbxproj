@@ -22,7 +22,7 @@
 		0AEBC15421C1397E003E47B4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEBC15321C1397E003E47B4 /* EventKit.framework */; };
 		0AEBC15821C139DF003E47B4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEBC15621C139D3003E47B4 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055849D2A8DF9950015F9E0 /* SampleApps.swift */; };
-		105BFF1D2C1728370087BB6C /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 105BFF1C2C1728370087BB6C /* CodeScanner */; };
+		10BF55CC2C231533000F10AD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 10BF55CB2C231533000F10AD /* CodeScanner */; };
 		2C005A9323DF2F5000003E29 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C005A9223DF2F5000003E29 /* Helpers.swift */; };
 		2C6849DC257FB52800ABCEF9 /* ConnectionError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6849DB257FB52700ABCEF9 /* ConnectionError.storyboard */; };
 		2C6849ED257FBA6700ABCEF9 /* ConnectionErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6849EC257FBA6700ABCEF9 /* ConnectionErrorViewController.swift */; };
@@ -183,7 +183,7 @@
 				0AEBC15821C139DF003E47B4 /* CoreFoundation.framework in Frameworks */,
 				0AEBC15421C1397E003E47B4 /* EventKit.framework in Frameworks */,
 				6D631AFF82EFB03018D699AD /* libPods-Mendix-DeveloperApp.a in Frameworks */,
-				105BFF1D2C1728370087BB6C /* CodeScanner in Frameworks */,
+				10BF55CC2C231533000F10AD /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +468,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				DF17395E25B4582800B65592 /* Embed Frameworks */,
-				EF52C5109DFCEC9214B96A36 /* [CP] Embed Pods Frameworks */,
 				C172FBA7B7AE84E7986F03ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -477,7 +476,7 @@
 			);
 			name = DeveloperApp;
 			packageProductDependencies = (
-				105BFF1C2C1728370087BB6C /* CodeScanner */,
+				10BF55CB2C231533000F10AD /* CodeScanner */,
 			);
 			productName = "Hello World";
 			productReference = 13B07F961A680F5B00A75B9A /* DeveloperApp.app */;
@@ -516,7 +515,7 @@
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			packageReferences = (
-				105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				10BF55CA2C231533000F10AD /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
@@ -594,6 +593,7 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNDeviceInfo/RNDeviceInfoPrivacyInfo.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -614,7 +614,6 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SQLCipher/SQLCipher.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -626,6 +625,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleUtilities_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBLPromises_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNDeviceInfoPrivacyInfo.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
@@ -646,32 +646,11 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCTI18nStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SQLCipher.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF52C5109DFCEC9214B96A36 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-Glog/glog.framework/glog",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1137,7 +1116,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+		10BF55CA2C231533000F10AD /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
 			requirement = {
@@ -1148,9 +1127,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		105BFF1C2C1728370087BB6C /* CodeScanner */ = {
+		10BF55CB2C231533000F10AD /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 105BFF1B2C1728370087BB6C /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			package = 10BF55CA2C231533000F10AD /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -2,7 +2,6 @@ PODS:
   - boost (1.83.0)
   - BVLinearGradient (2.5.6):
     - React
-  - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.73.8)
   - FBReactNativeSpec (0.73.8):
@@ -74,62 +73,6 @@ PODS:
     - GoogleUtilities/Reachability (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - Flipper (0.200.0):
-    - Flipper-Folly (~> 2.6)
-  - Flipper-Boost-iOSX (1.76.0.1.11)
-  - Flipper-DoubleConversion (1.1.7)
-  - Flipper-Fmt (7.1.7)
-  - Flipper-Folly (2.6.10):
-    - Flipper-Boost-iOSX
-    - Flipper-DoubleConversion
-    - Flipper-Fmt (= 7.1.7)
-    - Flipper-Glog
-    - libevent (~> 2.1.12)
-    - OpenSSL-Universal (= 1.1.1100)
-  - Flipper-Glog (0.5.0.5)
-  - Flipper-PeerTalk (0.0.4)
-  - FlipperKit (0.200.0):
-    - FlipperKit/Core (= 0.200.0)
-  - FlipperKit/Core (0.200.0):
-    - Flipper (~> 0.200.0)
-    - FlipperKit/CppBridge
-    - FlipperKit/FBCxxFollyDynamicConvert
-    - FlipperKit/FBDefines
-    - FlipperKit/FKPortForwarding
-    - SocketRocket (~> 0.6.0)
-  - FlipperKit/CppBridge (0.200.0):
-    - Flipper (~> 0.200.0)
-  - FlipperKit/FBCxxFollyDynamicConvert (0.200.0):
-    - Flipper-Folly (~> 2.6)
-  - FlipperKit/FBDefines (0.200.0)
-  - FlipperKit/FKPortForwarding (0.200.0):
-    - CocoaAsyncSocket (~> 7.6)
-    - Flipper-PeerTalk (~> 0.0.4)
-  - FlipperKit/FlipperKitHighlightOverlay (0.200.0)
-  - FlipperKit/FlipperKitLayoutHelpers (0.200.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutTextSearchable
-  - FlipperKit/FlipperKitLayoutIOSDescriptors (0.200.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutHelpers
-  - FlipperKit/FlipperKitLayoutPlugin (0.200.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutHelpers
-    - FlipperKit/FlipperKitLayoutIOSDescriptors
-    - FlipperKit/FlipperKitLayoutTextSearchable
-  - FlipperKit/FlipperKitLayoutTextSearchable (0.200.0)
-  - FlipperKit/FlipperKitNetworkPlugin (0.200.0):
-    - FlipperKit/Core
-  - FlipperKit/FlipperKitReactPlugin (0.200.0):
-    - FlipperKit/Core
-  - FlipperKit/FlipperKitUserDefaultsPlugin (0.200.0):
-    - FlipperKit/Core
-  - FlipperKit/SKIOSNetworkPlugin (0.200.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
   - Google-Maps-iOS-Utils (4.1.0):
@@ -225,7 +168,6 @@ PODS:
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
   - IQKeyboardManager (6.5.19)
-  - libevent (2.1.12)
   - libwebp (1.3.2):
     - libwebp/demux (= 1.3.2)
     - libwebp/mux (= 1.3.2)
@@ -244,7 +186,6 @@ PODS:
     - nanopb/encode (= 2.30909.1)
   - nanopb/decode (2.30909.1)
   - nanopb/encode (2.30909.1)
-  - OpenSSL-Universal (1.1.1100)
   - Permission-Camera (3.3.1):
     - RNPermissions
   - Permission-FaceID (3.3.1):
@@ -1142,14 +1083,10 @@ PODS:
   - react-native-sqlite-storage (7.1.0):
     - React-Core
     - SQLCipher
-  - react-native-video (6.1.2):
-    - glog
-    - RCT-Folly (= 2022.05.16.00)
+  - react-native-video (5.2.1):
     - React-Core
-    - react-native-video/Video (= 6.1.2)
-  - react-native-video/Video (6.1.2):
-    - glog
-    - RCT-Folly (= 2022.05.16.00)
+    - react-native-video/Video (= 5.2.1)
+  - react-native-video/Video (5.2.1):
     - React-Core
   - react-native-view-shot (3.1.2):
     - React
@@ -1412,32 +1349,11 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - Firebase
   - FirebaseCore
-  - Flipper (= 0.200.0)
-  - Flipper-Boost-iOSX (= 1.76.0.1.11)
-  - Flipper-DoubleConversion (= 1.1.7)
-  - Flipper-Fmt (= 7.1.7)
-  - Flipper-Folly (= 2.6.10)
-  - Flipper-Glog (= 0.5.0.5)
-  - Flipper-PeerTalk (= 0.0.4)
-  - FlipperKit (= 0.200.0)
-  - FlipperKit/Core (= 0.200.0)
-  - FlipperKit/CppBridge (= 0.200.0)
-  - FlipperKit/FBCxxFollyDynamicConvert (= 0.200.0)
-  - FlipperKit/FBDefines (= 0.200.0)
-  - FlipperKit/FKPortForwarding (= 0.200.0)
-  - FlipperKit/FlipperKitHighlightOverlay (= 0.200.0)
-  - FlipperKit/FlipperKitLayoutPlugin (= 0.200.0)
-  - FlipperKit/FlipperKitLayoutTextSearchable (= 0.200.0)
-  - FlipperKit/FlipperKitNetworkPlugin (= 0.200.0)
-  - FlipperKit/FlipperKitReactPlugin (= 0.200.0)
-  - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.200.0)
-  - FlipperKit/SKIOSNetworkPlugin (= 0.200.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - Google-Maps-iOS-Utils
   - GoogleMaps
   - GoogleUtilities
   - IQKeyboardManager
-  - OpenSSL-Universal (= 1.1.1100)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
   - Permission-FaceID (from `../node_modules/react-native-permissions/ios/FaceID`)
   - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse`)
@@ -1452,7 +1368,6 @@ DEPENDENCIES:
   - React-callinvoker (from `../node_modules/react-native/ReactCommon/callinvoker`)
   - React-Codegen (from `build/generated/ios`)
   - React-Core (from `../node_modules/react-native/`)
-  - React-Core/DevSupport (from `../node_modules/react-native/`)
   - React-Core/RCTWebSocket (from `../node_modules/react-native/`)
   - React-CoreModules (from `../node_modules/react-native/React/CoreModules`)
   - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
@@ -1536,8 +1451,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs:
-    - CocoaAsyncSocket
+  trunk:
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -1546,14 +1460,6 @@ SPEC REPOS:
     - FirebaseCrashlytics
     - FirebaseInstallations
     - FirebaseMessaging
-    - Flipper
-    - Flipper-Boost-iOSX
-    - Flipper-DoubleConversion
-    - Flipper-Fmt
-    - Flipper-Folly
-    - Flipper-Glog
-    - Flipper-PeerTalk
-    - FlipperKit
     - fmt
     - Google-Maps-iOS-Utils
     - GoogleAppMeasurement
@@ -1561,11 +1467,9 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - IQKeyboardManager
-    - libevent
     - libwebp
     - MultiplatformBleAdapter
     - nanopb
-    - OpenSSL-Universal
     - PromisesObjC
     - QRCodeReader.swift
     - SDWebImage
@@ -1773,7 +1677,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
-  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: df34a309e356a77581809834f6ec3fbe7153f620
   FBReactNativeSpec: bbe8b686178e5ce03d1d8a356789f211f91f31b8
@@ -1785,14 +1688,6 @@ SPEC CHECKSUMS:
   FirebaseCrashlytics: ea94bc81f67d5d4702d0c782da13e1483217bac8
   FirebaseInstallations: 60c1d3bc1beef809fd1ad1189a8057a040c59f2e
   FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
-  Flipper: 8ebce8ae13d605500050dce409e1c7f61773953d
-  Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
-  Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
-  Flipper-Fmt: 60cbdd92fc254826e61d669a5d87ef7015396a9b
-  Flipper-Folly: 584845625005ff068a6ebf41f857f468decd26b3
-  Flipper-Glog: 70c50ce58ddaf67dc35180db05f191692570f446
-  Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
-  FlipperKit: b4639118030371146bdfc61805ca22b48ae56d0d
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   Google-Maps-iOS-Utils: 3343332b18dfd5be8f1f44edd7d481ace3da4d9a
@@ -1801,11 +1696,9 @@ SPEC CHECKSUMS:
   GoogleMaps: 94e6e0851beece6678af9f508f4918b7a7c61722
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
-  libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-  OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
   Permission-FaceID: 278547824ae3a5cae07050505e8a505932c3c5c4
   Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
@@ -1850,7 +1743,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-sqlite-storage: 7697e1df2125d556c58de9d9764549195b25afcf
-  react-native-video: 88cf186299aa6c3e4fb54aa1bc99267bf99c2b91
+  react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
   React-nativeconfig: 2e44d0d2dd222b12a5183f4bcaa4a91881497acb
@@ -1903,8 +1796,8 @@ SPEC CHECKSUMS:
   SQLCipher: 30a8e81afa6128e600b17ffa77d0f92fa05ed208
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
-  Yoga: e5b887426cee15d2a326bdd34afc0282fc0486ad
+  Yoga: 2a16e58450c48e110211dae1159fb114bbcdcfc0
 
-PODFILE CHECKSUM: 80a74788e1564d6216c963c7eaef9a26df4b8e44
+PODFILE CHECKSUM: 72f12d6548863ad64a3c58b942c5f58b1d28e859
 
 COCOAPODS: 1.15.2
