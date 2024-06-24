@@ -41,6 +41,8 @@
 	<string>${GOOGLE_MAPS_API_KEY}</string>
 	<key>HowToDevApps</key>
 	<string>https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-devapps/</string>
+	<key>HowToMiNVersions</key>
+	<string>https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-min-versions/</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
@@ -82,7 +84,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To use that feature the app needs access to your photo library.</string>
 	<key>Native Binary Version</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>NativeOTAEnabled</key>
 	<true/>
 	<key>ReferenceGuideUrl</key>

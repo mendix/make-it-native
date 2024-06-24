@@ -736,12 +736,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 25;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -776,7 +774,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 2.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -785,8 +783,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mendix.developerapp.native.mx10";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.mendix.developerapp.native.mx10";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/Firebase\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAnalytics\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\" \"${PODS_CONFIGURATION_BUILD_DIR}/Google-Maps-iOS-Utils\" \"${PODS_CONFIGURATION_BUILD_DIR}/MultiplatformBleAdapter\" \"${PODS_CONFIGURATION_BUILD_DIR}/QRCodeReader.swift\" \"${PODS_CONFIGURATION_BUILD_DIR}/YogaKit\" \"${PODS_CONFIGURATION_BUILD_DIR}/react-native-geolocation-service\" \"${SRCROOT}/../node_modules/@mendix/native/ios\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "DeveloperApp/DeveloperApp-Bridging-Header.h";
@@ -805,11 +802,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -844,7 +839,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 2.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -853,8 +848,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D RCT_DEV";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mendix.developerapp.native.mx10";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.mendix.developerapp.native.mx10";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/Firebase\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAnalytics\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\" \"${PODS_CONFIGURATION_BUILD_DIR}/Google-Maps-iOS-Utils\" \"${PODS_CONFIGURATION_BUILD_DIR}/MultiplatformBleAdapter\" \"${PODS_CONFIGURATION_BUILD_DIR}/QRCodeReader.swift\" \"${PODS_CONFIGURATION_BUILD_DIR}/YogaKit\" \"${PODS_CONFIGURATION_BUILD_DIR}/react-native-geolocation-service\" \"${SRCROOT}/../node_modules/@mendix/native/ios\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "DeveloperApp/DeveloperApp-Bridging-Header.h";
@@ -1070,11 +1064,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1114,7 +1106,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 2.2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1122,8 +1114,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mendix.developerapp.native.mx10";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.mendix.developerapp.native.mx10";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_INCLUDE_PATHS = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/Firebase\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAnalytics\" \"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal\" \"${PODS_CONFIGURATION_BUILD_DIR}/Google-Maps-iOS-Utils\" \"${PODS_CONFIGURATION_BUILD_DIR}/MultiplatformBleAdapter\" \"${PODS_CONFIGURATION_BUILD_DIR}/QRCodeReader.swift\" \"${PODS_CONFIGURATION_BUILD_DIR}/YogaKit\" \"${PODS_CONFIGURATION_BUILD_DIR}/react-native-geolocation-service\" \"${SRCROOT}/../node_modules/@mendix/native/ios\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "DeveloperApp/DeveloperApp-Bridging-Header.h";
