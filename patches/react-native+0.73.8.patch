@@ -15,11 +15,11 @@ index 9a38143..4bd33b4 100644
    return findNodeHandle(currentlyFocusedInputRef);
  }
  
-diff --git a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
-index f532ce5..bd46641 100644
---- a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
-+++ b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m
-@@ -283,6 +283,10 @@ static NSUInteger RCTDeviceFreeMemory()
+diff --git a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.mm b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.mm
+index aa0abfe..481c817 100644
+--- a/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.mm
++++ b/node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.mm
+@@ -283,6 +283,10 @@ - (void)displayDidRefresh:(CADisplayLink *)displayLink
  
  - (void)displayLayer:(CALayer *)layer
  {
@@ -51,7 +51,7 @@ index 1ceaf6e..6c3b75a 100644
  
  @end
  
-@@ -116,16 +116,16 @@ RCT_NOT_IMPLEMENTED(-(instancetype)init)
+@@ -116,16 +116,16 @@ - (void)handleKeyUIEventSwizzle:(UIEvent *)event
    UIKeyModifierFlags modifierFlags = 0;
    BOOL isKeyDown = NO;
  
@@ -88,10 +88,10 @@ index 6dea84f..7adc8f5 100644
  @optional
  
 diff --git a/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm b/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm
-index 08c0ca1..5a41feb 100644
+index bd4075c..6a518c3 100644
 --- a/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm
 +++ b/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm
-@@ -208,12 +208,12 @@ static void eraseRegistrationsWithToken(std::vector<Registration<Handler>> &regi
+@@ -209,12 +209,12 @@ - (void)addHandler:(id<RCTPackagerClientMethod>)handler forMethod:(NSString *)me
    dispatch_queue_t queue =
        [handler respondsToSelector:@selector(methodQueue)] ? [handler methodQueue] : dispatch_get_main_queue();
  
@@ -101,29 +101,12 @@ index 08c0ca1..5a41feb 100644
 -      }
 -                       queue:queue
 -                   forMethod:method];
-+//  [self
-+//      addNotificationHandler:^(NSDictionary<NSString *, id> *notification) {
-+//         [handler handleNotification:notification];
-+//       }
-+//                        queue:queue
-+//                    forMethod:method];
++  // [self
++  //     addNotificationHandler:^(NSDictionary<NSString *, id> *notification) {
++  //       [handler handleNotification:notification];
++  //     }
++  //                      queue:queue
++  //                  forMethod:method];
    [self
        addRequestHandler:^(NSDictionary<NSString *, id> *request, RCTPackagerClientResponder *responder) {
          [handler handleRequest:request withResponder:responder];
-diff --git a/node_modules/react-native/ReactCommon/jsc/JSCRuntime.cpp b/node_modules/react-native/ReactCommon/jsc/JSCRuntime.cpp
-index 523b1be..e209713 100644
---- a/node_modules/react-native/ReactCommon/jsc/JSCRuntime.cpp
-+++ b/node_modules/react-native/ReactCommon/jsc/JSCRuntime.cpp
-@@ -419,12 +419,6 @@ JSCRuntime::~JSCRuntime() {
-   // has started.
-   ctxInvalid_ = true;
-   JSGlobalContextRelease(ctx_);
--#ifndef NDEBUG
--  assert(
--      objectCounter_ == 0 && "JSCRuntime destroyed with a dangling API object");
--  assert(
--      stringCounter_ == 0 && "JSCRuntime destroyed with a dangling API string");
--#endif
- }
- 
- std::shared_ptr<const jsi::PreparedJavaScript> JSCRuntime::prepareJavaScript(

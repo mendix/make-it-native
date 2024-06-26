@@ -105,11 +105,7 @@ class MendixProjectLoaderFragment : Fragment() {
         requireActivity().runOnUiThread {
             findNavController().navigate(
                 MendixProjectLoaderFragmentDirections.actionMendixProjectLoaderFragmentToMendixProjectFragment(
-                    argComponentName,
-                    argLaunchOptions,
-                    argMendixApp,
-                    argClearData,
-                    argUseDeveloperSupport
+                    argComponentName, argMendixApp, argLaunchOptions, argClearData, argUseDeveloperSupport
                 )
             )
         }

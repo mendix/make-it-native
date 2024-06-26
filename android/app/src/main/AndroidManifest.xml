@@ -68,7 +68,9 @@
             android:largeHeap="true"
             android:requestLegacyExternalStorage="true"
             android:theme="@style/Theme.MakeItNative"
-            android:usesCleartextTraffic="true">
+            android:usesCleartextTraffic="true"
+            tools:ignore="GoogleAppIndexingWarning"
+            tools:targetApi="28">
         <activity
                 android:name=".MainActivity"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
