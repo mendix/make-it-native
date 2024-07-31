@@ -52,7 +52,6 @@
                         <segue destination="lg8-BF-gVF" kind="show" identifier="MendixApp" id="yZ0-Tw-9iR"/>
                         <segue destination="Typ-Zx-Jy9" kind="relationship" relationship="viewControllers" id="VvS-Sv-KvC"/>
                         <segue destination="lVp-tR-eAs" kind="relationship" relationship="viewControllers" id="pfC-H2-RcU"/>
-                        <segue destination="h1s-21-Wl6" kind="relationship" relationship="viewControllers" id="4Ae-nO-eGc"/>
                         <segue destination="Ley-GI-Eu3" kind="relationship" relationship="viewControllers" id="7jE-7h-UaM"/>
                     </connections>
                 </tabBarController>

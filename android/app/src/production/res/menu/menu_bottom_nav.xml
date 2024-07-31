@@ -10,11 +10,6 @@
         android:title="@string/bottom_nav_history"
         />
     <item
-        android:id="@+id/nav_gallery"
-        android:icon="@drawable/ic_action_sample_apps"
-        android:title="@string/bottom_nav_showcase"
-        />
-    <item
         android:id="@+id/nav_help"
         android:icon="@drawable/ic_help"
         android:title="@string/bottom_nav_help"
