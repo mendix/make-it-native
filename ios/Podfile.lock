@@ -1115,7 +1115,7 @@ SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
+  DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 5fbbff1d7734827299274638deb8ba3024f6c597
   FBReactNativeSpec: 638095fe8a01506634d77b260ef8a322019ac671
   Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
@@ -1135,7 +1135,7 @@ SPEC CHECKSUMS:
   Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
   FlipperKit: 68ebe97318a2eddde21182533ef84f879a22869d
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
+  glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   Google-Maps-iOS-Utils: 3343332b18dfd5be8f1f44edd7d481ace3da4d9a
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: bed3a36c04c8552479fbb9b76326e0fc69bddcb2
