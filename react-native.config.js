@@ -6,12 +6,5 @@ module.exports = {
         ios: null, // disable ios platform, CodePush is not necessary for the MendixNative library
       },
     },
-    'react-native-video': {
-      platforms: {
-        android: {
-          sourceDir: '../node_modules/react-native-video/android-exoplayer',
-        },
-      },
-    },
   },
 };

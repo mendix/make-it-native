@@ -24,9 +24,10 @@ import com.mendix.mendixnative.react.MxConfiguration
 
 class SampleAppsFragment : BaseFragment() {
     private lateinit var binding: ContentSampleAppsBinding
+   
     private val sampleAppsViewModel: SampleAppsViewModel by viewModels {
-        return@viewModels object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
                 return SampleAppsViewModel(SampleAppsManager(requireContext(), requireActivity().filesDir.absolutePath)) as T
             }
