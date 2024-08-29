@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         setIntent(intent)
         (currentFragment as? MendixReactFragment)?.onNewIntent(intent)
             ?: if (homeViewModel.appUrlInvalid.value == false) handleLaunchedWithExtras(intent)
-        handlePossibleSpecialLaunch()
+       else handlePossibleSpecialLaunch()
     }
 
     private fun handleMendixAdvertisingPushNotifications(intent: Intent) {

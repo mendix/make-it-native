@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-deployment_target = '12.4'
+deployment_target = '13.4'
 platform :ios, deployment_target
 install! 'cocoapods', :deterministic_uuids => false
 
@@ -100,6 +100,10 @@ post_install do |installer|
       config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
       if target.name.start_with?("React") || target.name == "RCTTypeSafety"
         config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', "COCOAPODS=1", "RCT_DEV=1"]
+      end
+      # Specify 'Swift Version: 5.0' for resolving archieve errors.
+      if target.name == 'react-native-video'
+        config.build_settings['SWIFT_VERSION'] = '5.0'
       end
     end
   end
