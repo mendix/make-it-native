@@ -5,7 +5,7 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-deployment_target = min_ios_version_supported
+deployment_target = "13.4"
 platform :ios, deployment_target
 prepare_react_native_project!
 
@@ -104,6 +104,11 @@ abstract_target "Mendix" do
         config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
         if target.name.start_with?("React") || target.name == "RCTTypeSafety"
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', "COCOAPODS=1", "RCT_DEV=1"]
+        end
+
+        # Specify 'Swift Version: 5.0' for resolving archieve errors.
+        if target.name == 'react-native-video'
+          config.build_settings['SWIFT_VERSION'] = '5.0'
         end
       end
     end
