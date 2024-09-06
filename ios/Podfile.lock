@@ -573,12 +573,10 @@ PODS:
   - react-native-sqlite-storage (7.1.0):
     - React-Core
     - SQLCipher
-  - react-native-video (6.4.5):
-    - RCT-Folly (= 2021.07.22.00)
+  - react-native-video (5.2.1):
     - React-Core
-    - react-native-video/Video (= 6.4.5)
-  - react-native-video/Video (6.4.5):
-    - RCT-Folly (= 2021.07.22.00)
+    - react-native-video/Video (= 5.2.1)
+  - react-native-video/Video (5.2.1):
     - React-Core
   - react-native-view-shot (3.1.2):
     - React
@@ -1187,7 +1185,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-sqlite-storage: 7697e1df2125d556c58de9d9764549195b25afcf
-  react-native-video: fdcfbf66416475f8e122be9f7d72dd1d156ef3ed
+  react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
   React-NativeModulesApple: 6f63747fd6e237b646c61957a8f877a2713617af
@@ -1240,6 +1238,6 @@ SPEC CHECKSUMS:
   Yoga: 4c3aa327e4a6a23eeacd71f61c81df1bcdf677d5
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: fe31b50ba383608c2b6f91bef0c0c78ad2073289
+PODFILE CHECKSUM: d6f1ae4d05584871fe5eb8b5d90908808f747634
 
 COCOAPODS: 1.15.2
