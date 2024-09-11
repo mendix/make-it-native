@@ -75,25 +75,25 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - Google-Maps-iOS-Utils (4.1.0):
-    - Google-Maps-iOS-Utils/Clustering (= 4.1.0)
-    - Google-Maps-iOS-Utils/Geometry (= 4.1.0)
-    - Google-Maps-iOS-Utils/GeometryUtils (= 4.1.0)
-    - Google-Maps-iOS-Utils/Heatmap (= 4.1.0)
-    - Google-Maps-iOS-Utils/QuadTree (= 4.1.0)
-    - GoogleMaps
-  - Google-Maps-iOS-Utils/Clustering (4.1.0):
+  - Google-Maps-iOS-Utils (4.2.2):
+    - Google-Maps-iOS-Utils/Clustering (= 4.2.2)
+    - Google-Maps-iOS-Utils/Geometry (= 4.2.2)
+    - Google-Maps-iOS-Utils/GeometryUtils (= 4.2.2)
+    - Google-Maps-iOS-Utils/Heatmap (= 4.2.2)
+    - Google-Maps-iOS-Utils/QuadTree (= 4.2.2)
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Clustering (4.2.2):
     - Google-Maps-iOS-Utils/QuadTree
-    - GoogleMaps
-  - Google-Maps-iOS-Utils/Geometry (4.1.0):
-    - GoogleMaps
-  - Google-Maps-iOS-Utils/GeometryUtils (4.1.0):
-    - GoogleMaps
-  - Google-Maps-iOS-Utils/Heatmap (4.1.0):
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Geometry (4.2.2):
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/GeometryUtils (4.2.2):
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/Heatmap (4.2.2):
     - Google-Maps-iOS-Utils/QuadTree
-    - GoogleMaps
-  - Google-Maps-iOS-Utils/QuadTree (4.1.0):
-    - GoogleMaps
+    - GoogleMaps (~> 7.3)
+  - Google-Maps-iOS-Utils/QuadTree (4.2.2):
+    - GoogleMaps (~> 7.3)
   - GoogleAppMeasurement (10.5.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.5.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -118,10 +118,10 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30911.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMaps (7.0.0):
-    - GoogleMaps/Maps (= 7.0.0)
-  - GoogleMaps/Base (7.0.0)
-  - GoogleMaps/Maps (7.0.0):
+  - GoogleMaps (7.4.0):
+    - GoogleMaps/Maps (= 7.4.0)
+  - GoogleMaps/Base (7.4.0)
+  - GoogleMaps/Maps (7.4.0):
     - GoogleMaps/Base
   - GoogleUtilities (7.13.3):
     - GoogleUtilities/AppDelegateSwizzler (= 7.13.3)
@@ -186,16 +186,6 @@ PODS:
     - nanopb/encode (= 2.30909.1)
   - nanopb/decode (2.30909.1)
   - nanopb/encode (2.30909.1)
-  - Permission-Camera (3.3.1):
-    - RNPermissions
-  - Permission-FaceID (3.3.1):
-    - RNPermissions
-  - Permission-LocationWhenInUse (3.3.1):
-    - RNPermissions
-  - Permission-Microphone (3.3.1):
-    - RNPermissions
-  - Permission-PhotoLibrary (3.3.1):
-    - RNPermissions
   - PromisesObjC (2.4.0)
   - QRCodeReader.swift (10.1.0)
   - RCT-Folly (2022.05.16.00):
@@ -1062,13 +1052,13 @@ PODS:
     - React
   - react-native-geolocation-service (5.2.0):
     - React
-  - react-native-google-maps (1.0.3):
-    - Google-Maps-iOS-Utils (= 4.1.0)
-    - GoogleMaps (= 7.0.0)
+  - react-native-google-maps (1.14.0):
+    - Google-Maps-iOS-Utils (= 4.2.2)
+    - GoogleMaps (= 7.4.0)
     - React-Core
   - react-native-image-picker (5.0.1):
     - React-Core
-  - react-native-maps (1.0.3):
+  - react-native-maps (1.14.0):
     - React-Core
   - react-native-netinfo (5.9.7):
     - React-Core
@@ -1083,10 +1073,14 @@ PODS:
   - react-native-sqlite-storage (7.1.0):
     - React-Core
     - SQLCipher
-  - react-native-video (5.2.1):
+  - react-native-video (6.4.5):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
     - React-Core
-    - react-native-video/Video (= 5.2.1)
-  - react-native-video/Video (5.2.1):
+    - react-native-video/Video (= 6.4.5)
+  - react-native-video/Video (6.4.5):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - react-native-view-shot (3.1.2):
     - React
@@ -1305,7 +1299,7 @@ PODS:
     - React-Core
   - RNLocalize (1.4.2):
     - React-Core
-  - RNPermissions (3.3.1):
+  - RNPermissions (4.1.5):
     - React-Core
   - RNReanimated (1.13.1):
     - React
@@ -1354,11 +1348,6 @@ DEPENDENCIES:
   - GoogleMaps
   - GoogleUtilities
   - IQKeyboardManager
-  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
-  - Permission-FaceID (from `../node_modules/react-native-permissions/ios/FaceID`)
-  - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse`)
-  - Permission-Microphone (from `../node_modules/react-native-permissions/ios/Microphone`)
-  - Permission-PhotoLibrary (from `../node_modules/react-native-permissions/ios/PhotoLibrary`)
   - QRCodeReader.swift (~> 10.1.0)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -1491,16 +1480,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  Permission-Camera:
-    :path: "../node_modules/react-native-permissions/ios/Camera"
-  Permission-FaceID:
-    :path: "../node_modules/react-native-permissions/ios/FaceID"
-  Permission-LocationWhenInUse:
-    :path: "../node_modules/react-native-permissions/ios/LocationWhenInUse"
-  Permission-Microphone:
-    :path: "../node_modules/react-native-permissions/ios/Microphone"
-  Permission-PhotoLibrary:
-    :path: "../node_modules/react-native-permissions/ios/PhotoLibrary"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -1690,20 +1669,15 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
-  Google-Maps-iOS-Utils: 3343332b18dfd5be8f1f44edd7d481ace3da4d9a
+  Google-Maps-iOS-Utils: f77eab4c4326d7e6a277f8e23a0232402731913a
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
-  GoogleMaps: 6e9c923ca035989709fcb5771544fda4cc5fa2a4
+  GoogleMaps: 032f676450ba0779bd8ce16840690915f84e57ac
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-  Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
-  Permission-FaceID: 278547824ae3a5cae07050505e8a505932c3c5c4
-  Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
-  Permission-Microphone: 13922195a81b9d46d2df8050c225006eae126d49
-  Permission-PhotoLibrary: ddb5a158725b29cb12e9e477e8a5f5151c66cc3c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
@@ -1735,15 +1709,15 @@ SPEC CHECKSUMS:
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
-  react-native-google-maps: a0f902341b41368784c062227c41f1aea56b17c9
+  react-native-google-maps: 94df984b1647973baffe17c0b7b52828d6b69d94
   react-native-image-picker: 8cb4280e2c1efc3daeb2d9d597f9429a60472e40
-  react-native-maps: b9dc7086ea283f748330d80d369d81d9548f8a2b
+  react-native-maps: cbf2f03bfeebfd7ec45966b066db13a075fd2af3
   react-native-netinfo: 250dc0ca126512f618a8a2ca6a936577e1f66586
   react-native-pager-view: 0eb900a8c5d83c02a74b0125d4b5f9fdcc5b8f44
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-sqlite-storage: 7697e1df2125d556c58de9d9764549195b25afcf
-  react-native-video: c26780b224543c62d5e1b2a7244a5cd1b50e8253
+  react-native-video: 848bcb856d67585199b80fdfc93dd642d33d0ae6
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
   React-nativeconfig: 2e44d0d2dd222b12a5183f4bcaa4a91881497acb
@@ -1784,7 +1758,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 96439cf6543defdde87459e48cd1a3f0e45a008e
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNLocalize: 452d4118e338dee1e5ca3fac4d5a11a4ab26a46a
-  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
+  RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 17e2f657f1b09a71ec3c821368a04acbb7ebcb46
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
@@ -1796,8 +1770,8 @@ SPEC CHECKSUMS:
   SQLCipher: 77fbe633cd84db04b07876dd50766b4924b57d61
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
-  Yoga: e5b887426cee15d2a326bdd34afc0282fc0486ad
+  Yoga: 2a16e58450c48e110211dae1159fb114bbcdcfc0
 
-PODFILE CHECKSUM: 72f12d6548863ad64a3c58b942c5f58b1d28e859
+PODFILE CHECKSUM: b78a30d2cdb644b21279e9b9eafb38b242da43f1
 
 COCOAPODS: 1.15.2

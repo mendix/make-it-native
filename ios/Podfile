@@ -1,13 +1,29 @@
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+# Use it to require both react-native's and this package's scripts:
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
 
 deployment_target = "13.4"
 platform :ios, deployment_target
 prepare_react_native_project!
+
+setup_permissions([
+  'Camera',
+  'FaceID',
+  'LocationWhenInUse',
+  'Microphone',
+  'PhotoLibrary',
+  'Bluetooth',
+  'MediaLibrary'
+])
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
@@ -52,15 +68,6 @@ abstract_target "Mendix" do
     # use_frameworks!
 
     # Pods for DeveloperApp
-
-    # At least one permission must be added when `react-native-permissions` used
-    permissions_path = '../node_modules/react-native-permissions/ios'
-    pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
-    pod 'Permission-FaceID', :path => "#{permissions_path}/FaceID"
-    pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
-    pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
-    pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
-
     pod 'QRCodeReader.swift', '~> 10.1.0'
   end
 
