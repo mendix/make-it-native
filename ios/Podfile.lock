@@ -236,15 +236,15 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - OpenSSL-Universal (1.1.1100)
-  - Permission-Camera (3.3.1):
+  - Permission-Camera (3.6.1):
     - RNPermissions
-  - Permission-FaceID (3.3.1):
+  - Permission-FaceID (3.6.1):
     - RNPermissions
-  - Permission-LocationWhenInUse (3.3.1):
+  - Permission-LocationWhenInUse (3.6.1):
     - RNPermissions
-  - Permission-Microphone (3.3.1):
+  - Permission-Microphone (3.6.1):
     - RNPermissions
-  - Permission-PhotoLibrary (3.3.1):
+  - Permission-PhotoLibrary (3.6.1):
     - RNPermissions
   - PromisesObjC (2.2.0)
   - QRCodeReader.swift (10.1.0)
@@ -620,7 +620,7 @@ PODS:
     - React-Core
   - RNLocalize (1.4.2):
     - React-Core
-  - RNPermissions (3.3.1):
+  - RNPermissions (3.6.1):
     - React-Core
   - RNReanimated (1.13.1):
     - React
@@ -973,7 +973,7 @@ SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
+  DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: a6454570f573a0f6f1d397e5a95c13e8e45d1700
   FBReactNativeSpec: 09e8dfba44487e5dc4882a9f5318cde67549549c
   Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
@@ -994,7 +994,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: d9d9ade67cbecf6ac10730304bf5607266dd2541
   FlipperKit: cbdee19bdd4e7f05472a66ce290f1b729ba3cb86
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   Google-Maps-iOS-Utils: 3343332b18dfd5be8f1f44edd7d481ace3da4d9a
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
@@ -1006,11 +1006,11 @@ SPEC CHECKSUMS:
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
-  Permission-FaceID: 278547824ae3a5cae07050505e8a505932c3c5c4
-  Permission-LocationWhenInUse: 006c85c8de0c05b5d8be8e8029e4f6b813270293
-  Permission-Microphone: 13922195a81b9d46d2df8050c225006eae126d49
-  Permission-PhotoLibrary: ddb5a158725b29cb12e9e477e8a5f5151c66cc3c
+  Permission-Camera: bf6791b17c7f614b6826019fcfdcc286d3a107f6
+  Permission-FaceID: e70223280292a1a5e4b8ad943b70cd9229a7d2c3
+  Permission-LocationWhenInUse: 3ba99e45c852763f730eabecec2870c2382b7bd4
+  Permission-Microphone: 48212dd4d28025d9930d583e3c7a56da7268665c
+  Permission-PhotoLibrary: 5b34ca67279f7201ae109cef36f9806a6596002d
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
@@ -1075,7 +1075,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNLocalize: 452d4118e338dee1e5ca3fac4d5a11a4ab26a46a
-  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
+  RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
@@ -1091,4 +1091,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 48c643c1967e7f5580b7ed2c8a884133db9647af
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
