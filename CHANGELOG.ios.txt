@@ -3,3 +3,4 @@
 ### Fixed
 - We've updated Showcase Banking App.
 - We've updated ShiftSwap showcase app.
+- We've updated `react-native-permissions` to version `3.6.1`
