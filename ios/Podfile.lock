@@ -179,6 +179,12 @@ PODS:
     - nanopb/encode (= 2.30909.1)
   - nanopb/decode (2.30909.1)
   - nanopb/encode (2.30909.1)
+  - op-sqlite (9.1.2):
+    - OpenSSL-Universal
+    - React
+    - React-callinvoker
+    - React-Core
+  - OpenSSL-Universal (3.1.5007)
   - PromisesObjC (2.4.0)
   - QRCodeReader.swift (10.1.0)
   - RCT-Folly (2024.01.01.00):
@@ -1444,9 +1450,6 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-sqlite-storage (7.1.0):
-    - React-Core
-    - SQLCipher
   - react-native-video (6.4.5):
     - DoubleConversion
     - glog
@@ -1887,6 +1890,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GoogleUtilities
   - IQKeyboardManager
+  - "op-sqlite (from `../node_modules/@op-engineering/op-sqlite`)"
   - QRCodeReader.swift (~> 10.1.0)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -1934,7 +1938,6 @@ DEPENDENCIES:
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
-  - "react-native-sqlite-storage (from `../node_modules/@mendix/react-native-sqlite-storage`)"
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -1992,7 +1995,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs:
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -2010,12 +2013,12 @@ SPEC REPOS:
     - libwebp
     - MultiplatformBleAdapter
     - nanopb
+    - OpenSSL-Universal
     - PromisesObjC
     - QRCodeReader.swift
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
-    - SQLCipher
     - SSZipArchive
 
 EXTERNAL SOURCES:
@@ -2031,6 +2034,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/fmt.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  op-sqlite:
+    :path: "../node_modules/@op-engineering/op-sqlite"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTDeprecation:
@@ -2119,8 +2124,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
-  react-native-sqlite-storage:
-    :path: "../node_modules/@mendix/react-native-sqlite-storage"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -2254,6 +2257,8 @@ SPEC CHECKSUMS:
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
+  op-sqlite: ea5fd8301f488c7544281b3f85f257d520172049
+  OpenSSL-Universal: 2d916d735a0196be6a14b959ce976c564d392861
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
