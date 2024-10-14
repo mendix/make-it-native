@@ -1440,7 +1440,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-safe-area-context (3.1.8):
+  - react-native-safe-area-context (4.11.0):
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
@@ -1741,17 +1741,17 @@ PODS:
     - React
   - RNCalendarEvents (2.1.0):
     - React
-  - RNCAsyncStorage (1.12.0):
-    - React
-  - RNCMaskedView (0.1.10):
-    - React
-  - RNCPicker (2.4.8):
+  - RNCAsyncStorage (2.0.0):
+    - React-Core
+  - RNCMaskedView (0.3.1):
+    - React-Core
+  - RNCPicker (2.8.1):
     - React-Core
   - RNCPushNotificationIOS (1.10.1):
     - React-Core
-  - RNDateTimePicker (3.0.3):
+  - RNDateTimePicker (8.2.0):
     - React-Core
-  - RNDeviceInfo (11.1.0):
+  - RNDeviceInfo (13.0.0):
     - React-Core
   - RNFastImage (8.6.3):
     - React-Core
@@ -1802,7 +1802,7 @@ PODS:
     - Yoga
   - RNInAppBrowser (3.6.3):
     - React-Core
-  - RNLocalize (1.4.2):
+  - RNLocalize (3.2.1):
     - React-Core
   - RNPermissions (4.1.5):
     - React-Core
@@ -1835,9 +1835,9 @@ PODS:
     - RNSound/Core (= 0.11.0)
   - RNSound/Core (0.11.0):
     - React
-  - RNSVG (12.1.0):
-    - React
-  - RNVectorIcons (10.0.3):
+  - RNSVG (15.7.1):
+    - React-Core
+  - RNVectorIcons (10.2.0):
     - DoubleConversion
     - glog
     - RCT-Folly (= 2024.01.01.00)
@@ -1966,8 +1966,8 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "ReactNativeART (from `../node_modules/@react-native-community/art`)"
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
-  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
-  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
@@ -2183,9 +2183,9 @@ EXTERNAL SOURCES:
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
-    :path: "../node_modules/@react-native-community/async-storage"
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCMaskedView:
-    :path: "../node_modules/@react-native-community/masked-view"
+    :path: "../node_modules/@react-native-masked-view/masked-view"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
   RNCPushNotificationIOS:
@@ -2234,7 +2234,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 4cb898d0bf20404aab1850c656dcea009429d6c1
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
-  DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
+  DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 430e10366de01d1e3d57374500b1b150fe482e6d
   Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
   FirebaseAnalytics: 6f7430030cb6b22fe1db2e3bed782e999b76dc00
@@ -2245,7 +2245,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 913cf60d0400ebd5d6b63a28b290372ab44590dd
   FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
-  glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   Google-Maps-iOS-Utils: f77eab4c4326d7e6a277f8e23a0232402731913a
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
@@ -2299,7 +2299,7 @@ SPEC CHECKSUMS:
   react-native-maps: cbf2f03bfeebfd7ec45966b066db13a075fd2af3
   react-native-netinfo: 250dc0ca126512f618a8a2ca6a936577e1f66586
   react-native-pager-view: 707f0384a5d5d1fe103c44789ea48187ffdae5ce
-  react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
+  react-native-safe-area-context: 851c62c48dce80ccaa5637b6aa5991a1bc36eca9
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-sqlite-storage: 7697e1df2125d556c58de9d9764549195b25afcf
   react-native-video: 1ab90e23263d1764849070f0ec84582101c9f3a2
@@ -2332,12 +2332,12 @@ SPEC CHECKSUMS:
   ReactCommon: 8377a2a5504f72e284ce1b1cd207d8455bdbfdf3
   ReactNativeART: 78edc68dd4a1e675338cd0cd113319cf3a65f2ab
   RNCalendarEvents: 3a79bc6e476b55920aa706c211a15a1d2c53ec17
-  RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
-  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPicker: 0bf8ef8f7800524f32d2bb2a8bcadd53eda0ecd1
+  RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
+  RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
+  RNCPicker: 0b6860a6b208d4046227d2f626ad0722f99a969c
   RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
-  RNDateTimePicker: 6f62fd42ac8b58bcc30c43ac3620e5097e8a227f
-  RNDeviceInfo: b899ce37a403a4dea52b7cb85e16e49c04a5b88e
+  RNDateTimePicker: 40ffda97d071a98a10fdca4fa97e3977102ccd14
+  RNDeviceInfo: 55264dd7cc939dad6e9c231a7621311f5277f1dc
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBAnalytics: ed2ef775a5ce391ce3043b913129b07a78b64b0c
   RNFBApp: 13ca8ba0feba98d4bac2057884894dcf8eedf97f
@@ -2347,13 +2347,13 @@ SPEC CHECKSUMS:
   RNFileViewer: ce7ca3ac370e18554d35d6355cffd7c30437c592
   RNGestureHandler: 18b9b5d65c77c4744a640f69b7fccdd47ed935c0
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
-  RNLocalize: 452d4118e338dee1e5ca3fac4d5a11a4ab26a46a
+  RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 5288a8dbeedb3c5051aa2d5658c1c553c050b80a
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
-  RNSVG: ce9d996113475209013317e48b05c21ee988d42e
-  RNVectorIcons: 3f20cdd392aacf01b14ca2f56cddd99ab0279983
+  RNSVG: 4590aa95758149fa27c5c83e54a6a466349a1688
+  RNVectorIcons: 0cbcb1c0cb6da1ca1d43d3d990255e584bb99028
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
@@ -2362,6 +2362,6 @@ SPEC CHECKSUMS:
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   Yoga: aa3df615739504eebb91925fc9c58b4922ea9a08
 
-PODFILE CHECKSUM: 8f58d30538a43045b13035c5b719b2ccc6d78a61
+PODFILE CHECKSUM: 781fafebc7f38eb8adc747cd8f3025f05eb41f6e
 
 COCOAPODS: 1.15.2
