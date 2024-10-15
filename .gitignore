@@ -17,6 +17,8 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+**/.xcode.env.local
+**/Pods/
 
 ### Android ###
 android/app/src/main/google-maps-api-key

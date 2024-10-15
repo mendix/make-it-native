@@ -70,7 +70,8 @@
             android:theme="@style/Theme.MakeItNative"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning"
-            tools:targetApi="28">
+            tools:targetApi="28"
+            android:supportsRtl="true">
         <activity
                 android:name=".MainActivity"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
