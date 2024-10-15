@@ -8,7 +8,7 @@ import com.facebook.react.devsupport.DefaultDevLoadingViewImplementation
 import com.facebook.react.devsupport.ReactInstanceDevHelper
 
 class EmptyDevLoadingViewController() : DefaultDevLoadingViewImplementation(EmptyReactInstanceDevHelper()) {
-    override fun showMessage(message: String?) {}
+    override fun showMessage(message: String) {}
     override fun hide() {}
     override fun updateProgress(status: String?, done: Int?, total: Int?) {}
 }
