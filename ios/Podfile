@@ -42,12 +42,6 @@ abstract_target "Mendix" do
     # Hermes is now enabled by default. Disable by setting this flag to false.
     :hermes_enabled => false,
     :fabric_enabled => false,
-    # Enables Flipper.
-    #
-    # Note that if you have use_frameworks! enabled, Flipper will not work and
-    # you should disable the next line.
-#    :flipper_configuration => FlipperConfiguration.enabled(["Debug"], {'Flipper' => '0.200.0' , 'Flipper-DoubleConversion' => '1.1.7'}),
-    # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
   pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
@@ -75,7 +69,8 @@ abstract_target "Mendix" do
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false
+      :mac_catalyst_enabled => false,
+      # :ccache_enabled => true
     )
 
     installer.pods_project.build_configurations.each do |config|
