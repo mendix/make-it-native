@@ -25,7 +25,7 @@
       "id": "lato_bikes_app",
       "name": "Lato Bikes",
       "description": "Control your Lato Bike via your device",
-      "runtimeUrl": "https://lato-bicycles.mendixcloud.com",
+      "runtimeUrl": "https://lato-customer-app.apps.eu-1c.mendixcloud.com",
       "backgroundImageName": "lato_bikes_app"
     },
     {
@@ -34,20 +34,6 @@
       "description": "Solves a common retail challenge with Mendix",
       "runtimeUrl": "https://shiftswap.mendixcloud.com",
       "backgroundImageName": "swift_swap_app"
-    },
-    {
-      "id": "atlas_ref_app",
-      "name": "Atlas 3 Reference App",
-      "description": "Showcases Atlas 3",
-      "runtimeUrl": "https://atlasdesignsystem.mendixcloud.com",
-      "backgroundImageName": "atlas_ref_app"
-    },
-    {
-      "id": "mendix_ar",
-      "name": "Mendix AR",
-      "description": "Showcases possible Mendix AR applications",
-      "runtimeUrl": "https://ar-examples-2.mendixcloud.com",
-      "backgroundImageName": "ar_app"
     }
   ]
 }
