@@ -58,6 +58,8 @@
 	<true/>
 	<key>MobildeDocsUrl</key>
 	<string>https://docs.mendix.com/refguide/mobile/</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsLocalNetworking</key>
