@@ -86,7 +86,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To use that feature the app needs access to your photo library.</string>
 	<key>Native Binary Version</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>NativeOTAEnabled</key>
 	<true/>
 	<key>ReferenceGuideUrl</key>
@@ -140,7 +140,7 @@
 	<string>LaunchTutorial</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
