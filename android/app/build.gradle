@@ -176,11 +176,7 @@ dependencies {
     }
 
     // Javascript engine
-    if (hermesEnabled.toBoolean()) {
-        implementation("com.facebook.react:hermes-android")
-    } else {
-        implementation jscFlavor
-    }
+    implementation("com.facebook.react:hermes-android")
 
     // Mendix dependencies
     implementation project(":mendixnative-release")
