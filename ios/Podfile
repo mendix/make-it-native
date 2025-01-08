@@ -14,7 +14,7 @@ node_require('react-native-permissions/scripts/setup.rb')
 deployment_target = "13.4"
 platform :ios, deployment_target
 prepare_react_native_project!
-use_modular_headers!
+# use_modular_headers!
 
 setup_permissions([
   'Camera',
@@ -32,17 +32,11 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-# Force libraries to disable hermes usage
-ENV["USE_HERMES"] = "0"
-
 abstract_target "Mendix" do
   config = use_native_modules!
 
   use_react_native!(
     :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    :hermes_enabled => false,
-    :fabric_enabled => false,
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
   pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
