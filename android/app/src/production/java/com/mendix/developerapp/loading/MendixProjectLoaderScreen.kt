@@ -45,7 +45,7 @@ fun MendixProjectLoaderScreen(viewModel: ProjectLoaderViewModel) {
             errorMessageTitle = stringResource(R.string.error_version_title)
             primaryButtonText = stringResource(R.string.button_min_versions_guide)
             secondaryButtonText = stringResource(R.string.button_custom_developer_app_guide)
-            primaryButtonOnPress = { viewModel.openInBrowser.invoke("https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-min-versions/") }
+            primaryButtonOnPress = { viewModel.openInBrowser.invoke("https://docs.mendix.com/refguide/mobile/getting-started-with-mobile/prerequisites/#get-min-app") }
             secondaryButtonOnPress = { viewModel.openInBrowser.invoke("https://docs.mendix.com/howto8/mobile/how-to-devapps/") }
         }
 
