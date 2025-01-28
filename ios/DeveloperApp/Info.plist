@@ -42,7 +42,7 @@
 	<key>HowToDevApps</key>
 	<string>https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-devapps/</string>
 	<key>HowToMiNVersions</key>
-	<string>https://docs.mendix.com/refguide/mobile/distributing-mobile-apps/building-native-apps/how-to-min-versions/</string>
+	<string>https://docs.mendix.com/refguide/mobile/getting-started-with-mobile/prerequisites/#get-min-app</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
