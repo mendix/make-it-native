@@ -66,7 +66,7 @@ class FirebaseMessagingService: com.google.firebase.messaging.FirebaseMessagingS
         val intent = Intent(Intent.ACTION_VIEW).apply {
             this.data = uri
         }
-        return PendingIntent.getActivity(context, MENDIX_AD_NOTIFICATION_ID, intent, PendingIntent.FLAG_ONE_SHOT)
+        return PendingIntent.getActivity(context, MENDIX_AD_NOTIFICATION_ID, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
     }
 
     private fun safeParseStringToUri(url: String?): Uri? {
