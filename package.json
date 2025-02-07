@@ -38,7 +38,7 @@
     "@react-native-firebase/crashlytics": "17.3.0",
     "@react-native-firebase/messaging": "17.3.0",
     "@react-native-firebase/ml": "17.3.0",
-    "@react-native-picker/picker": "2.8.1",
+    "@react-native-picker/picker": "2.11.0",
     "react-native": "0.77.0",
     "react-native-ble-plx": "2.0.3",
     "react-native-blob-util": "0.21.2",
