@@ -1,9 +1,10 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
-apply plugin: "kotlin-android"
 apply plugin: "com.google.gms.google-services"
 apply plugin: "com.google.firebase.crashlytics"
+apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 /**
@@ -59,27 +60,6 @@ react {
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
 def enableProguardInReleaseBuilds = false
-
-/**
- * The preferred build flavor of JavaScriptCore (JSC)
- *
- * For example, to use the international variant, you can use:
- * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
- *
- * The international variant includes ICU i18n library and necessary data
- * allowing to use e.g. `Date.toLocaleString` and `String.localeCompare` that
- * give correct results when using with locales other than en-US. Note that
- * this variant is about 6MiB larger per architecture than default.
- */
-def jscFlavor = "org.webkit:android-jsc:+"
-
-/**
- * Whether to load react from source or use the prepacked package
- *
- * Keep false for faster compilation and avoid the need for an NDK to be installed.
- * Use true if you want to debug and modify RN source, say for patching.
- */
-def reactNativeFromSource = BUILD_RN_FROM_SOURCE.toBoolean()
 
 android {
     ndkVersion rootProject.ndkVersion
@@ -169,14 +149,7 @@ android {
 
 dependencies {
     // React Native Core
-    if (reactNativeFromSource) {
-        implementation project(":ReactAndroid")
-    } else {
-        implementation "com.facebook.react:react-android"
-    }
-
-    // Javascript engine
-    implementation("com.facebook.react:hermes-android")
+    implementation "com.facebook.react:react-android:0.77.0"
 
     // Mendix dependencies
     implementation project(":mendixnative-release")
