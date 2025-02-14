@@ -25,7 +25,6 @@
     "@mendix/native": "./mendix-native-8.0.0.tgz",
     "@op-engineering/op-sqlite": "9.2.7",
     "@gorhom/bottom-sheet": "^5.1.1",
-    "@react-native-community/art": "1.2.0",
     "@react-native-async-storage/async-storage": "2.0.0",
     "@react-native-community/datetimepicker": "8.2.0",
     "@react-native-camera-roll/camera-roll": "7.4.0",
@@ -51,9 +50,9 @@
     "react-native-fast-image": "8.6.3",
     "react-native-file-viewer": "2.1.5",
     "react-native-geocoder": "0.5.0",
-    "react-native-gesture-handler": "2.20.2",
-    "react-native-image-picker": "7.2.3",
     "@swan-io/react-native-browser": "0.4.1",
+    "react-native-gesture-handler": "2.22.1",
+    "react-native-image-picker": "7.2.3",
     "react-native-linear-gradient": "2.5.6",
     "react-native-localize": "3.2.1",
     "react-native-maps": "1.14.0",
@@ -71,16 +70,16 @@
     "react-native-tab-view": "3.5.2",
     "react-native-touch-id": "4.4.1",
     "react-native-vector-icons": "10.2.0",
-    "react-native-video": "6.4.5",
+    "react-native-video": "6.10.0",
     "react-native-view-shot": "4.0.3",
-   "react-native-webview": "13.13.2"
+    "react-native-webview": "13.13.2"
   },
   "overrides": {
     "@sideway/address": "4.1.4"
   },
   "devDependencies": {
     "del-cli": "^3.0.1",
-    "jetifier": "^1.6.5",
+    "jetifier": "^1.6.8",
     "patch-package": "^8.0.0",
     "snyk": "^1.1118.0"
   },
