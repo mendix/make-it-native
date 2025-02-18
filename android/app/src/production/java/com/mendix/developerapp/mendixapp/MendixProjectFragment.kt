@@ -2,9 +2,8 @@ package com.mendix.developerapp.mendixapp
 
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
-import com.facebook.react.devsupport.overrideDevLoadingViewController
+import com.facebook.react.devsupport.DefaultDevLoadingViewImplementation
 import com.facebook.react.devsupport.setBundleDownloadListener
-import com.mendix.developerapp.utilities.EmptyDevLoadingViewController
 import com.mendix.mendixnative.react.MxConfiguration
 
 class MendixProjectFragment : MendixProjectFragmentBase() {
@@ -23,8 +22,10 @@ class MendixProjectFragment : MendixProjectFragmentBase() {
         // Setting up our download listener
         reactNativeHost.reactInstanceManager.devSupportManager.apply {
             setBundleDownloadListener(this, viewModel.devServerCallback)
-            overrideDevLoadingViewController(this, EmptyDevLoadingViewController())
         }
+
+        // This now uses built-in RN mechanism to show bundling progress.
+        DefaultDevLoadingViewImplementation.setDevLoadingEnabled(true);
     }
 
     override fun onCloseProjectSelected() {
