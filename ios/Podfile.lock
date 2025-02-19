@@ -1506,7 +1506,7 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-video (6.4.5):
+  - react-native-video (6.10.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1519,7 +1519,7 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
-    - react-native-video/Video (= 6.4.5)
+    - react-native-video/Video (= 6.10.0)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1528,7 +1528,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-video/Video (6.4.5):
+  - react-native-video/Video (6.10.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1880,8 +1880,6 @@ PODS:
     - React-logger (= 0.77.0)
     - React-perflogger (= 0.77.0)
     - React-utils (= 0.77.0)
-  - ReactNativeART (1.2.0):
-    - React
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
@@ -1922,7 +1920,7 @@ PODS:
     - RNFBApp
   - RNFileViewer (2.1.5):
     - React-Core
-  - RNGestureHandler (2.20.2):
+  - RNGestureHandler (2.23.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2192,7 +2190,6 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - "ReactNativeART (from `../node_modules/@react-native-community/art`)"
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
@@ -2417,8 +2414,6 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  ReactNativeART:
-    :path: "../node_modules/@react-native-community/art"
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
@@ -2543,9 +2538,9 @@ SPEC CHECKSUMS:
   react-native-pager-view: c3b8efd9000368320e3710c01f38a83bd2170779
   react-native-safe-area-context: 849d7df29ecb2a7155c769c0b76849ba952c2aa3
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  react-native-video: 5e6002de6927cae1aa31295b1cdf9d56585b8ac3
-  react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
-  react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
+  react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
+  react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
+  react-native-webview: 9f111dfbcfc826084d6c507f569e5e03342ee1c1
   React-nativeconfig: cd0fbb40987a9658c24dab5812c14e5522a64929
   React-NativeModulesApple: 45187d13c68d47250a7416b18ff082c7cc07bff7
   React-perflogger: 15a7bcb6c46eae8a981f7add8c9f4172e2372324
@@ -2575,7 +2570,6 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 3d947e9d62f351c06c71497e1be897e6006dc303
   ReactCodegen: 1baa534318b19e95fb0f02db0a1ae1e3c271944d
   ReactCommon: 6014af4276bb2debc350e2620ef1bd856b4d981c
-  ReactNativeART: 78edc68dd4a1e675338cd0cd113319cf3a65f2ab
   RNCalendarEvents: 3a79bc6e476b55920aa706c211a15a1d2c53ec17
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
   RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
@@ -2590,7 +2584,8 @@ SPEC CHECKSUMS:
   RNFBMessaging: 0bdc8269fefad36f6820d6fc89b0bcae3f705891
   RNFBML: 8cccd332f13f2d0d74312d37867605fd144324b2
   RNFileViewer: ce7ca3ac370e18554d35d6355cffd7c30437c592
-  RNGestureHandler: 8f5d72b76cdb12421e6c8bc2b006ea12c69662f7
+  RNGestureHandler: de78ee811b577ae76d679715e5e9298b23a8c278
+  RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: 280140e1989bc33d5586cbca10bd199fd1fbdbf1
