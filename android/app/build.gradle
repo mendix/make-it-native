@@ -116,7 +116,18 @@ android {
             }
         }
         release {
+           Properties releaseProps = new Properties()
+           def propFile = new File('./local.properties')
+           if (propFile.canRead()) {
+               releaseProps.load(new FileInputStream(propFile))
 
+               storeFile file(releaseProps["key.store"])
+               storePassword releaseProps["key.store.password"]
+               keyAlias releaseProps["key.alias"]
+               keyPassword releaseProps["key.alias.password"]
+           } else {
+               print 'local.properties not found'
+           }
         }
     }
     buildTypes {
