@@ -99,6 +99,7 @@ android {
         buildConfigField "boolean", "DETOX", "false"
         buildConfigField "String", "RUNTIME_URL", '""'
         buildConfigField "boolean", "OTA", "false"
+        manifestPlaceholders["cookieEncryption"] = project.hasProperty("com.mendix.mendixnative.cookieEncryption") ? project.property("com.mendix.mendixnative.cookieEncryption") : "false"
     }
     signingConfigs {
         debug {
