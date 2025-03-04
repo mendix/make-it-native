@@ -123,7 +123,7 @@
                 android:name="com.google.ar.core"
                 android:value="optional"/>
         <meta-data 
-                android:name="com.mendix.mendixnative.CookieEncryption" 
+                android:name="mendixnative.CookieEncryption" 
                 android:value="${cookieEncryption}"/>
     </application>
 </manifest>
