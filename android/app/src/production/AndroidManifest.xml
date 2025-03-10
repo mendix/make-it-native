@@ -5,7 +5,7 @@
     <application android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode|fontScale"
             android:launchMode="singleTask"
             android:screenOrientation="user"
             android:windowSoftInputMode="stateHidden"
