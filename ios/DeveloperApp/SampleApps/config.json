@@ -25,7 +25,7 @@
       "id": "lato_bikes_app",
       "name": "Lato Bikes",
       "description": "Control your Lato Bike via your device",
-      "runtimeUrl": "https://lato-bicycles.mendixcloud.com",
+      "runtimeUrl": "https://customer.lato-bicycles.com",
       "backgroundImageName": "lato_bikes_app"
     },
     {
