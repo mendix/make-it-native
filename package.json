@@ -22,7 +22,7 @@
     "@babylonjs/loaders": "6.8.1",
     "@babylonjs/react-native": "1.6.3",
     "@babylonjs/react-native-iosandroid-0-71": "1.6.3",
-    "@mendix/native": "7.0.1",
+    "@mendix/native": "./mendix-native-8.0.1.tgz",
     "@op-engineering/op-sqlite": "9.1.2",
     "@gorhom/bottom-sheet": "^5.1.1",
     "@react-native-community/art": "1.2.0",
