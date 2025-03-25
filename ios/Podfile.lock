@@ -1435,8 +1435,27 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.40.0):
     - React-Core
-  - react-native-cameraroll (4.0.1):
-    - React
+  - react-native-cameraroll (7.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-geocoder (0.5.0):
     - React
   - react-native-geolocation (3.4.0):
@@ -2013,7 +2032,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (4.4.0):
+  - RNScreens (4.6.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2128,7 +2147,7 @@ DEPENDENCIES:
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
-  - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
+  - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
@@ -2307,7 +2326,7 @@ EXTERNAL SOURCES:
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
-    :path: "../node_modules/@react-native-community/cameraroll"
+    :path: "../node_modules/@react-native-camera-roll/camera-roll"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation:
@@ -2499,7 +2518,7 @@ SPEC CHECKSUMS:
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: 64a732c0b8bb7f4928905e16ea8dc5cde6fb4832
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
-  react-native-cameraroll: 60ba0068826eab1c8d43146191bafd4363ea58a7
+  react-native-cameraroll: 2501572a79da186b62ca0b11c3b812eb59484226
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation: 0c7a8496962d3268ac5b28f22a8e5d7a04c43f1a
   react-native-google-maps: 94df984b1647973baffe17c0b7b52828d6b69d94
@@ -2557,7 +2576,7 @@ SPEC CHECKSUMS:
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: f42a5044d121d68e91680caacb0293f4274228eb
-  RNScreens: e52d2e7e5fa29266d6f8f68e8229452e5b2f4236
+  RNScreens: d682e5fff3175487730bf2aa308fbf0898b69410
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: 4590aa95758149fa27c5c83e54a6a466349a1688
   RNSwanBrowser: af8718931e79c8077be3cf021d1bc270ae666503
