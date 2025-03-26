@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: "Check if docker image already exists"
         run: |
-          docker manifest inspect ghcr.io/mendix/native-widgets/mxbuild:${{ needs.mendix-version.outputs.mendix_version }} || EXIT_CODE=$?
+          docker manifest inspect ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }} || EXIT_CODE=$?
           echo "IMAGE_MISSING=$EXIT_CODE" >> $GITHUB_ENV
       - name: "Check out code"
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -66,13 +66,13 @@ jobs:
           build-args: |
             MENDIX_VERSION=${{ needs.mendix-version.outputs.mendix_version }}
           push: true
-          tags: ghcr.io/mendix/native-widgets/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
+          tags: ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
 
   project:
-      needs: [mendix-version]
+      needs: [docker-images, mendix-version]
       runs-on: ubuntu-22.04
       container:
-        image: ghcr.io/mendix/native-widgets/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
+        image: ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
         credentials:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
@@ -99,6 +99,8 @@ jobs:
   android-app:
     runs-on: ubuntu-22.04
     steps:
+      - name: "Check out code"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Build android apk
         uses: ./.github/actions/build-android
 
@@ -108,8 +110,6 @@ jobs:
     steps:
       - name: "Check out code"
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          fetch-depth: 0
       - name: "Download project MDA file"
         uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
         with:
