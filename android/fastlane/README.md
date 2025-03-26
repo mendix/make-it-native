@@ -15,45 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android local
-
-```sh
-[bundle exec] fastlane android local
-```
-
-Build apk
-
 ### android debug_internal
 
 ```sh
 [bundle exec] fastlane android debug_internal
 ```
 
-Build apk and install in the simulator
-
-### android internal
-
-```sh
-[bundle exec] fastlane android internal
-```
-
-Build new bundle and upload to Internal track
-
-### android promote_to_alpha
-
-```sh
-[bundle exec] fastlane android promote_to_alpha
-```
-
-Promote last version of Internal track to Alpha
-
-### android promote_to_production
-
-```sh
-[bundle exec] fastlane android promote_to_production
-```
-
-Promote the last version of Alpha track to Production (draft)
+Build development APK
 
 ----
 

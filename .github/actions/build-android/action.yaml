@@ -1,0 +1,48 @@
+name: 'Build Android App'
+description: 'Builds the Android app using Fastlane'
+
+runs:
+  using: composite
+
+  steps:
+    - name: "Setup Java 21"
+      id: setup-java
+      uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 #v4
+      with:
+        distribution: "temurin"
+        java-version: "21"
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@1a615958ad9d422dd932dc1d5823942ee002799f #v1
+      with:
+        ruby-version: '3.2'
+
+    - name: Install Fastlane
+      run: gem install fastlane
+      shell: bash
+
+    - name: Setup Node
+      uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e #v4
+      with:
+        node-version-file: .nvmrc
+
+    - name: Build Android APK with Fastlane
+      run: npm run android:debug
+      shell: bash
+
+    - name: Copy Android APK to Shared Directory
+      run: |
+        mkdir -p ${{ github.workspace }}/artifacts/android-app
+        if [ -f ./android/app/build/outputs/apk/production/debug/app-production-debug.apk ]; then
+          cp ./android/app/build/outputs/apk/production/debug/app-production-debug.apk ${{ github.workspace }}/artifacts/android-app/app-production-debug.apk
+        else
+          echo "APK not found at the expected path."
+          exit 1
+        fi
+      shell: bash
+
+    - name: Upload apk to artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-app
+        path: ${{ github.workspace }}/artifacts/android/
