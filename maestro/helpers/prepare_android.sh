@@ -13,7 +13,7 @@ install_android_app() {
     while [ "$RETRIES" -lt "$MAX_RETRIES" ]; do
         echo "Attempt $(($RETRIES + 1)) of $MAX_RETRIES: Installing APK..."
 
-        adb install /home/runner/work/make-it-native/make-it-native/artifacts/android/app-production-debug.apk
+        adb install /home/runner/work/make-it-native/make-it-native/android-app/app-production-debug.apk
 
         if adb shell pm list packages | grep -q "com.mendix.developerapp.mx10"; then
             echo "App installed successfully!"

@@ -100,9 +100,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: "Check out code"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v4
       - name: Build android apk
         uses: ./.github/actions/build-android
+        with:
+          google_services_json: ${{ secrets.GOOGLE_SERVICES_JSON }}
 
   android-test:
     needs: [mendix-version, project, android-app]
@@ -119,6 +121,24 @@ jobs:
         with:
           name: android-app
           path: android-app
+
+      - name: "Debug Android app directory"
+        run: |
+          echo "Listing contents of android-app directory:"
+          ls -R android-app/
+        shell: bash
+      
+      - name: "Check for APK file"
+        run: |
+          echo "Checking for APK file..."
+          if [ -f android-app/app-production-debug.apk ]; then
+            echo "APK file found: android-app/app-production-debug.apk"
+          else
+            echo "APK file not found!"
+            exit 1
+          fi
+        shell: bash
+
       - name: "Start runtime"
         uses: ./.github/actions/start-runtime
         with:
