@@ -188,7 +188,7 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
-  - OpenSSL-Universal (3.3.2000)
+  - OpenSSL-Universal (3.3.3000)
   - PromisesObjC (2.4.0)
   - QRCodeReader.swift (10.1.0)
   - RCT-Folly (2024.11.18.00):
@@ -2497,7 +2497,7 @@ SPEC CHECKSUMS:
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   op-sqlite: 619906dc2ed9c1fcc33ff455eb52fa10bda5e70c
-  OpenSSL-Universal: b60a3702c9fea8b3145549d421fdb018e53ab7b4
+  OpenSSL-Universal: d776ce24dab24323e6995dfb17c64d598885d05c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
@@ -2608,4 +2608,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
