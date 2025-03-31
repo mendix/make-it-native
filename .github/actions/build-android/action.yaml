@@ -1,6 +1,11 @@
 name: 'Build Android App'
 description: 'Builds the Android app using Fastlane'
 
+inputs:
+  google_services_json:
+    description: 'Base64-encoded google-services.json file'
+    required: true
+
 runs:
   using: composite
 
@@ -26,8 +31,21 @@ runs:
       with:
         node-version-file: .nvmrc
 
+    - name: Decode google-services.json
+      env:
+        GOOGLE_SERVICES_JSON: ${{ inputs.google_services_json }}
+      run: |
+        echo $GOOGLE_SERVICES_JSON | base64 --decode > android/app/google-services.json
+      shell: bash
+
     - name: Build Android APK with Fastlane
       run: npm run android:debug
+      shell: bash
+
+    - name: Debug APK Output Directory
+      run: |
+        echo "Listing APK output directory:"
+        ls -R ./android/app/build/outputs/apk/ || echo "Directory does not exist"
       shell: bash
 
     - name: Copy Android APK to Shared Directory
@@ -45,4 +63,4 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: android-app
-        path: ${{ github.workspace }}/artifacts/android/
+        path: ${{ github.workspace }}/artifacts/android-app/
