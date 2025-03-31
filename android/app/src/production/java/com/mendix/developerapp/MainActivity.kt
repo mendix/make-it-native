@@ -262,7 +262,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
     }
 
     override fun requestPermissions(
-        permissions: Array<out String>,
+        permissions: Array<String>,
         requestCode: Int,
         listener: PermissionListener?
     ) {
