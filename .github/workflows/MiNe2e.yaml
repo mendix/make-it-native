@@ -175,10 +175,29 @@ jobs:
             chmod +x maestro/run_maestro_tests.sh
             bash maestro/helpers/prepare_android.sh
             bash maestro/run_maestro_tests.sh android
+      
+      - name: "Debug screenshot generation"
+        continue-on-error: true
+        run: |
+          echo "Checking contents of maestro/tests/images/actual/android/ after test execution:"
+          ls -R ${{ github.workspace }}/maestro/tests/images/actual/android/
+
+      - name: "Debug root folder"
+        continue-on-error: true
+        run: |
+          echo "Checking contents of the root folder:"
+          ls -R ${{ github.workspace }}
+        
+      - name: "Debug screenshot directory"
+        continue-on-error: true
+        run: |
+          echo "Checking contents of maestro/tests/images/actual/android/"
+          ls -R ${{ github.workspace }}/maestro/tests/images/actual/android/
 
       - name: "Archive runtime logs"
         uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
         if: always()
+        continue-on-error: true
         with:
           name: android-runtime-logs
           path: log/*.log
@@ -190,7 +209,8 @@ jobs:
         with:
           name: android-screenshots
           path: ${{ github.workspace }}/maestro/tests/images/actual/android/**/*.png
-          if-no-files-found: ignore
+          if-no-files-found: warn
+    
 
   compare-screenshots:
     needs: [android-test]
@@ -238,7 +258,7 @@ jobs:
         uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
         with:
           name: screenshot-diffs
-          path: images/diffs
+          path: maestro/tests/images/diffs/
           if-no-files-found: ignore
         
       - name: "Archive comparison results"

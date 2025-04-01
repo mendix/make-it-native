@@ -8,9 +8,9 @@ const pixelmatch = require('pixelmatch');
 const core = require('@actions/core');
 
 const platform = process.argv[2];
-const actualDir = path.join(__dirname, `../../maestro/tests/images/actual/${platform}`);
-const expectedDir = path.join(__dirname, `../../maestro/tests/images/expected/${platform}`);
-const diffDir = path.join(__dirname, `../../images/diffs/${platform}-${process.env.GITHUB_RUN_ID}`);
+const actualDir = path.join(__dirname, `../tests/images/actual/${platform}`);
+const expectedDir = path.join(__dirname, `../tests/images/expected/${platform}`);
+const diffDir = path.join(__dirname, `../tests/images/diffs/${platform}-${process.env.GITHUB_RUN_ID}`);
 
 if (!fs.existsSync(diffDir)) {
   fs.mkdirSync(diffDir, { recursive: true });
