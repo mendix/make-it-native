@@ -191,3 +191,66 @@ jobs:
           name: android-screenshots
           path: ${{ github.workspace }}/maestro/tests/images/actual/android/**/*.png
           if-no-files-found: ignore
+
+  compare-screenshots:
+    needs: [android-test]
+    runs-on: ubuntu-latest
+    if: always()
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: "Check out code"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+  
+  
+      - name: "Download all Android screenshots"
+        run: |
+          mkdir -p images/actual/android/
+          echo "Downloading all Android screenshots..."
+          gh run download ${{ github.run_id }} --name android-screenshots --dir images/actual/android/ || echo "⚠️ Failed to download Android screenshots."
+          ls -l images/actual/android/
+              
+      - name: "Download all iOS screenshots"
+        run: |
+          mkdir -p images/actual/ios/
+          echo "Downloading all iOS screenshots..."
+          gh run download ${{ github.run_id }} --name ios-screenshots --dir images/actual/ios/ || echo "⚠️ Failed to download iOS screenshots."
+          ls -l images/actual/ios/
+        
+      - name: "Set up node"
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+    
+      - name: "Install pixelmatch"
+        run: npm install pixelmatch
+
+      - name: "Compare Android screenshots"
+        continue-on-error: true 
+        run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js android
+
+      - name: "Compare iOS screenshots"
+        continue-on-error: true
+        run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js ios
+
+      - name: "Archive diff results"
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+        with:
+          name: screenshot-diffs
+          path: images/diffs
+          if-no-files-found: ignore
+        
+      - name: "Archive comparison results"
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+        with:
+          name: comparison-results
+          path: compare_output.txt
+          if-no-files-found: ignore
+
+      - name: "Fail if comparisons failed"
+        run: |
+          if [ "$ANDROID_COMPARISON_FAILED" == "true" ] || [ "$IOS_COMPARISON_FAILED" == "true" ]; then
+            echo "One or more comparisons failed."
+            exit 1
+          fi
