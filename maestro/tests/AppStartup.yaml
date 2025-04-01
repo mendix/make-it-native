@@ -3,13 +3,26 @@ appId: "${APP_ID}"
 - retry:
     maxRetries: 3
     commands:
-      - launchApp:
-          clearState: true
-          permissions:
-            camera: allow
-            notifications: allow
-      - extendedWaitUntil:
-          visible: "Widgets menu"
-          timeout: 240000 # A long timeout since app startup is quite unstable due to resources when executed on Github runners
-      - takeScreenshot:
-          path: "maestro/tests/images/actual/${PLATFORM}/app-startup"
+        - launchApp:
+            clearState: true
+            permissions:
+                camera: allow
+                notifications: allow
+        - assertVisible: "Preview your app effortlessly."
+        - tapOn: "Continue"
+        - assertVisible: "Seamless navigation at your fingertips."
+        - tapOn: "Continue"
+        - assertVisible: "The ‘History’ for hassle-free testing."
+        - tapOn: "Start"
+        - assertVisible: "Clear cache"
+        - takeScreenshot:
+            path: "tests/images/actual/${PLATFORM}/MiN_page"
+        - tapOn: "http://runtime-url:8080"
+        - inputText: "http://10.0.2.2:8080"
+        - pressKey: Enter
+        - tapOn: "Launch app"
+        - extendedWaitUntil:
+                visible: "Widgets menu"
+                timeout: 300000
+        - takeScreenshot:
+            path: "tests/images/actual/${PLATFORM}/app-loaded"
