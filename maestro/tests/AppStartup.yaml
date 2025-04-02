@@ -16,13 +16,20 @@ appId: "${APP_ID}"
         - tapOn: "Start"
         - assertVisible: "Clear cache"
         - takeScreenshot:
-            path: "tests/images/actual/${PLATFORM}/MiN_page"
+            path: "maestro/tests/images/actual/${PLATFORM}/MiN_page"
         - tapOn: "http://runtime-url:8080"
-        - inputText: "http://localhost:8080"
+        - inputText: "http://10.0.2.2:8080"
         - pressKey: Enter
-        - tapOn: "Launch app"
+        - hideKeyboard
+        - takeScreenshot:
+            path: "maestro/tests/images/actual/${PLATFORM}/keyboard_gone"
+        - tapOn:
+            text: "Launch app"
+            index: 0
+        - takeScreenshot:
+            path: "maestro/tests/images/actual/${PLATFORM}/app-loading"
         - extendedWaitUntil:
                 visible: "Widgets menu"
                 timeout: 300000
         - takeScreenshot:
-            path: "tests/images/actual/${PLATFORM}/app-loaded"
+            path: "maestro/tests/images/actual/${PLATFORM}/app-loaded"
