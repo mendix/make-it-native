@@ -35,22 +35,22 @@ platform :ios do
     )
     gym(scheme: "DeveloperApp", configuration: "ReleaseDevToolsEnabled", export_method: "development", build_path: "./builds/internal/intermediate", output_directory: "./builds/internal/output")
   end
-
-  desc "Builds and install DeveloperApp into the simulator"
-  desc "This will use iPhone 13 Pro simulator with OS 15.5"
+  
+  desc "Builds and installs DeveloperApp into the simulator for debugging"
   lane :debug_internal do
     UI.message("Installing dependencies")
-    sh("npm", "i", "--legacy-peer-deps")
-    cocoapods
-    UI.message("Building and installing DeveloperApp")
+    sh("npm", "ci", "--legacy-peer-deps") # Install npm dependencies
+    cocoapods # Install CocoaPods dependencies
+  
+    UI.message("Building DeveloperApp for Debug")
     gym(
-      scheme: "DeveloperApp",
-      configuration: "Debug",
-      skip_package_ipa: true,
-      skip_package_pkg: true,
-      sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5",
-      xcargs: "ONLY_ACTIVE_ARCH=NO",
+      scheme: "DeveloperApp", # Replace with your app's scheme name
+      configuration: "Debug", # Use Debug configuration
+      skip_package_ipa: true, # Skip creating an .ipa file
+      skip_package_pkg: true, # Skip creating a .pkg file
+      sdk: "iphonesimulator", # Build for the iOS Simulator
+      destination: "platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5", # Target simulator
+      xcargs: "ONLY_ACTIVE_ARCH=NO", # Ensure compatibility with all architectures
     )
   end
 

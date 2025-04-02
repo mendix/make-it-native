@@ -42,12 +42,6 @@ runs:
       run: npm run android:debug
       shell: bash
 
-    - name: Debug APK Output Directory
-      run: |
-        echo "Listing APK output directory:"
-        ls -R ./android/app/build/outputs/apk/ || echo "Directory does not exist"
-      shell: bash
-
     - name: Copy Android APK to Shared Directory
       run: |
         mkdir -p ${{ github.workspace }}/artifacts/android-app
