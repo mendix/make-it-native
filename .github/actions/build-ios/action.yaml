@@ -1,0 +1,24 @@
+name: 'Build iOS App'
+description: 'Build iOS app using Fastlane'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@1a615958ad9d422dd932dc1d5823942ee002799f #v1
+      with:
+        ruby-version: '3.2'
+
+    - name: Install Fastlane
+      run: gem install fastlane
+      shell: bash
+
+    - name: Setup Node
+      uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e #v4
+      with:
+        node-version-file: .nvmrc
+
+    - name: Run Fastlane
+      run: cd ios && fastlane ios debug_internal
+      shell: bash
