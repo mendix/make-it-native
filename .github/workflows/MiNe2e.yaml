@@ -106,26 +106,18 @@ jobs:
   #       with:
   #         google_services_json: ${{ secrets.GOOGLE_SERVICES_JSON }}
 
-  # ios-app:
-  #   runs-on: macOS-13
-  #   steps:
-  #     - name: "Check out code"
-  #       uses: actions/checkout@v4
-  #     - name: Build ios app
-  #       uses: ./.github/actions/build-ios
-  #       env:
-  #         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
-  #         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-  #         KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-  #         GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-  #         APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-  #         APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-  #         APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
-        # - name: "Upload iOS App"
-        #   uses: actions/upload-artifact@v4
-        #   with:
-        #     name: ios-app
-        #     path: ios/build/Release-iphoneos/*.ipa
+  ios-app:
+    runs-on: macOS-15
+    steps:
+      - name: "Check out code"
+        uses: actions/checkout@v4
+      - name: Build ios app
+        uses: ./.github/actions/build-ios
+      - name: "Upload iOS App"
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-app
+          path: ios/build/DeveloperApp-Debug.ipa
 
   android-test:
     needs: [mendix-version, project]
@@ -219,18 +211,21 @@ jobs:
             bash maestro/run_maestro_tests.sh android
       
       - name: "Debug screenshot generation"
+        if: always()
         continue-on-error: true
         run: |
           echo "Checking contents of maestro/tests/images/actual/android/ after test execution:"
           ls -R ${{ github.workspace }}/maestro/tests/images/actual/android/
 
       - name: "Debug root folder"
+        if: always()
         continue-on-error: true
         run: |
           echo "Checking contents of the root folder:"
           ls -R ${{ github.workspace }}
         
       - name: "Debug screenshot directory"
+        if: always()
         continue-on-error: true
         run: |
           echo "Checking contents of maestro/tests/images/actual/android/"
@@ -284,9 +279,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-    
-      - name: "Install pixelmatch"
-        run: npm install pixelmatch
+
+      - name: "Install npm and dependencies"
+        run: npm install && npm install @actions/core pixelmatch
 
       - name: "Compare Android screenshots"
         continue-on-error: true 
