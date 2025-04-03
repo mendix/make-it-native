@@ -146,10 +146,10 @@ jobs:
         run: |
           unset GITHUB_TOKEN
           echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
-      - name: "Fetch artifacts from run 676"
+      - name: "Fetch artifacts from run 41"
         id: fetch-artifacts
         run: |
-          artifacts_url=$(gh api "repos/${{ github.repository }}/actions/runs/14200920117/artifacts" --jq '.artifacts[] | select(.name == "android-app") | .archive_download_url')
+          artifacts_url=$(gh api "repos/${{ github.repository }}/actions/runs/14242504528/artifacts" --jq '.artifacts[] | select(.name == "android-app") | .archive_download_url')
           echo "Artifacts URL: $artifacts_url"
           echo "artifacts_url=$artifacts_url" >> $GITHUB_ENV
       - name: "Download Android app"
@@ -209,13 +209,24 @@ jobs:
             chmod +x maestro/run_maestro_tests.sh
             bash maestro/helpers/prepare_android.sh
             bash maestro/run_maestro_tests.sh android
-      
-      - name: "Debug screenshot generation"
+
+      - name: "Capture emulator logs"
         if: always()
         continue-on-error: true
         run: |
-          echo "Checking contents of maestro/tests/images/actual/android/ after test execution:"
-          ls -R ${{ github.workspace }}/maestro/tests/images/actual/android/
+          mkdir -p ${{ github.workspace }}/emulator-logs
+          adb logcat -d > ${{ github.workspace }}/emulator-logs/emulator-logcat.txt
+          adb shell dmesg > ${{ github.workspace }}/emulator-logs/emulator-dmesg.txt
+        shell: bash
+
+      - name: "Upload emulator logs"
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+        continue-on-error: true
+        if: always()
+        with:
+          name: emulator-logs
+          path: ${{ github.workspace }}/emulator-logs/
+          if-no-files-found: warn
 
       - name: "Debug root folder"
         if: always()
@@ -223,13 +234,6 @@ jobs:
         run: |
           echo "Checking contents of the root folder:"
           ls -R ${{ github.workspace }}
-        
-      - name: "Debug screenshot directory"
-        if: always()
-        continue-on-error: true
-        run: |
-          echo "Checking contents of maestro/tests/images/actual/android/"
-          ls -R ${{ github.workspace }}/maestro/tests/images/actual/android/
 
       - name: "Archive runtime logs"
         uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
