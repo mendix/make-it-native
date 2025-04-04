@@ -96,15 +96,28 @@ jobs:
             name: mda
             path: automation.mda
 
-  # android-app:
-  #   runs-on: ubuntu-22.04
-  #   steps:
-  #     - name: "Check out code"
-  #       uses: actions/checkout@v4
-  #     - name: Build android apk
-  #       uses: ./.github/actions/build-android
-  #       with:
-  #         google_services_json: ${{ secrets.GOOGLE_SERVICES_JSON }}
+  android-app:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: "Check out code"
+        uses: actions/checkout@v4
+      - name: Retrieve the secrets and decode it to a file
+        env:
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          PLAY_STORE_CREDENTIALS_BASE64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
+        run: |
+          echo $UPLOAD_KEYSTORE_BASE64 | base64 --decode > ./android/keystores/upload.keystore
+          echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > ./android/fastlane/play-store-credentials.json
+        shell: bash
+
+      - name: Build Android apk
+        uses: ./.github/actions/build_android
+        with:
+          firebaseAPIKey: ${{ secrets.FIREBASE_API_KEY }}
+          keystorePath: ${{ env.ANDROID_KEYSTORE_PATH }}
+          keystoreAlias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keystorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keystoreKeyPassword: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
 
   ios-app:
     runs-on: macOS-15
@@ -210,23 +223,23 @@ jobs:
             bash maestro/helpers/prepare_android.sh
             bash maestro/run_maestro_tests.sh android
 
-      - name: "Capture emulator logs"
-        if: always()
-        continue-on-error: true
-        run: |
-          mkdir -p ${{ github.workspace }}/emulator-logs
-          adb logcat -d > ${{ github.workspace }}/emulator-logs/emulator-logcat.txt
-          adb shell dmesg > ${{ github.workspace }}/emulator-logs/emulator-dmesg.txt
-        shell: bash
+      # - name: "Capture emulator logs"
+      #   if: always()
+      #   continue-on-error: true
+      #   run: |
+      #     mkdir -p ${{ github.workspace }}/emulator-logs
+      #     adb logcat -d > ${{ github.workspace }}/emulator-logs/emulator-logcat.txt
+      #     adb shell dmesg > ${{ github.workspace }}/emulator-logs/emulator-dmesg.txt
+      #   shell: bash
 
-      - name: "Upload emulator logs"
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
-        continue-on-error: true
-        if: always()
-        with:
-          name: emulator-logs
-          path: ${{ github.workspace }}/emulator-logs/
-          if-no-files-found: warn
+      # - name: "Upload emulator logs"
+      #   uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+      #   continue-on-error: true
+      #   if: always()
+      #   with:
+      #     name: emulator-logs
+      #     path: ${{ github.workspace }}/emulator-logs/
+      #     if-no-files-found: warn
 
       - name: "Debug root folder"
         if: always()
