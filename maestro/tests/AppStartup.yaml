@@ -18,7 +18,7 @@ appId: "${APP_ID}"
         - takeScreenshot:
             path: "maestro/tests/images/actual/${PLATFORM}/MiN_page"
         - tapOn: "http://runtime-url:8080"
-        - inputText: "http://localhost:8080"
+        - inputText: "http://10.0.2.2:8080"
         - pressKey: Enter
         - hideKeyboard
         - takeScreenshot:
