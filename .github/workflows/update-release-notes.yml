@@ -1,0 +1,20 @@
+name: Publish Release Notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to run this action on'
+        required: true
+        default: 'main'
+
+jobs:
+  sync-release-notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run custom release notes sync action
+        uses: ./.github/actions/sync-release-notes
+        env:
+          PAT: ${{ secrets.PAT }}
+          TARGET_BRANCH: ${{ github.event.inputs.target_branch }}
