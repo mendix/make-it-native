@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Run custom release notes sync action
-        uses: ./.github/actions/sync-release-notes
+        uses: ./.github/actions/update-release-notes
         env:
           PAT: ${{ secrets.PAT }}
           TARGET_BRANCH: ${{ github.event.inputs.target_branch }}
