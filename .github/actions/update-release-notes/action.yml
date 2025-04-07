@@ -1,0 +1,52 @@
+name: 'Sync Release Notes to Docs'
+description: 'Extract release notes from CHANGELOG.md and create a PR in mendix/docs repo'
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Checkout make-it-native repo
+      uses: actions/checkout@v4
+
+    - name: Extract latest release notes from CHANGELOG.md
+      id: changelog
+      shell: bash
+      run: |
+        notes=$(awk '/^## \[.*\]/ {found++} found==2 {exit} found==1' CHANGELOG.md | tail -n +2)
+        echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+        echo "$notes" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+
+    - name: Clone fork of docs repo
+      shell: bash
+      run: |
+        git clone https://x-access-token:${{ secrets.PAT }}@github.com/moo-team/docs.git
+        cd docs
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout -b update-mobile-release-notes || git checkout update-mobile-release-notes
+
+    - name: Update mobile release notes
+      shell: bash
+      run: |
+        cd docs
+        target_file="content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native-10.md"
+        echo -e "## Make It Native Update\n\n$RELEASE_NOTES\n\n$(cat $target_file)" > $target_file
+        git add $target_file
+        git commit -m "docs: update mobile release notes from make-it-native" || echo "No changes to commit"
+        git push origin update-mobile-release-notes
+
+    - name: Install GitHub CLI
+      shell: bash
+      run: sudo apt-get install -y gh
+
+    - name: Create Pull Request
+      shell: bash
+      env:
+        GH_TOKEN: ${{ secrets.PAT }}
+      run: |
+        gh pr create \
+          --repo mendix/docs \
+          --base main \
+          --head moo-team:update-mobile-release-notes \
+          --title "Update mobile app release notes from make-it-native" \
+          --body "Automated sync of the latest release notes from [make-it-native](https://github.com/mendix/make-it-native)."
