@@ -1,6 +1,14 @@
 name: Publish Release Notes
 
 on:
+  push:
+    branches:
+      - MOO-1819/automate-release-docs
+
+  pull_request:
+    branches:
+      - main
+  
   workflow_dispatch:
     inputs:
       target_branch:
