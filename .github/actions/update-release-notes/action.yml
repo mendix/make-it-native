@@ -16,7 +16,7 @@ runs:
     - name: Clone fork of docs repo
       shell: bash
       run: |
-        git clone https://x-access-token:${{ env.PAT }}@github.com/moo-team/docs.git
+        git clone https://x-access-token:${{ env.PAT }}@github.com/mendix/docs.git
         cd docs
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
