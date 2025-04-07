@@ -21,6 +21,7 @@ runs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git checkout -b update-mobile-release-notes || git checkout update-mobile-release-notes
+        git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/moo-team/docs.git
 
     - name: Update mobile release notes
       shell: bash
