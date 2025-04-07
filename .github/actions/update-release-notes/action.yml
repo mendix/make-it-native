@@ -16,7 +16,7 @@ runs:
     - name: Clone fork of docs repo
       shell: bash
       run: |
-        git clone https://x-access-token:${{ secrets.PAT }}@github.com/moo-team/docs.git
+        git clone https://x-access-token:${{ env.PAT }}@github.com/moo-team/docs.git
         cd docs
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -39,7 +39,7 @@ runs:
     - name: Create Pull Request
       shell: bash
       env:
-        GH_TOKEN: ${{ secrets.PAT }}
+        GH_TOKEN: ${{ env.PAT }}
       run: |
         gh pr create \
           --repo mendix/docs \
