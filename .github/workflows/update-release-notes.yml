@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout make-it-native repo
+        uses: actions/checkout@v4
+
       - name: Run custom release notes sync action
         uses: ./.github/actions/update-release-notes/action.yml
         env:

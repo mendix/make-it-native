@@ -4,9 +4,6 @@ runs:
   using: 'composite'
 
   steps:
-    - name: Checkout make-it-native repo
-      uses: actions/checkout@v4
-
     - name: Extract latest release notes from CHANGELOG.md
       id: changelog
       shell: bash
