@@ -20,6 +20,9 @@ inputs:
   keystoreKeyPassword:
     description: 'Key password for the Android keystore'
     required: true
+  playStoreCredentialsBase64:
+    description: 'Base64-encoded Play Store credentials JSON file'
+    required: true
 
 runs:
   using: composite
@@ -53,10 +56,26 @@ runs:
         echo $GOOGLE_SERVICES_JSON | base64 --decode > android/app/google-services.json
       shell: bash
 
+    - name: Decode upload.keystore
+      env:
+        KEYSTORE_BASE64: ${{ inputs.keystoreBase64 }}
+      run: |
+        mkdir -p android/keystores
+        echo $KEYSTORE_BASE64 | base64 --decode > android/keystores/upload.keystore
+      shell: bash
+    
+    - name: Decode Play Store credentials
+      env:
+        PLAY_STORE_CREDENTIALS_BASE64: ${{ inputs.playStoreCredentialsBase64 }}
+      run: |
+        mkdir -p android/fastlane
+        echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > android/fastlane/play-store-credentials.json
+      shell: bash
+
     - name: Build Android Library with Fastlane
       run: |
         cd android
-        fastlane android local
+        fastlane android internal submit:false
       shell: bash
       env:
         FIREBASE_API_KEY: ${{ inputs.firebaseAPIKey }}

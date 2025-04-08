@@ -23,7 +23,7 @@ runs:
       run: pod install --project-directory=ios
       shell: bash
 
-    - name: Build iOS Debug App
-      run: cd ios && fastlane ios debug_internal
+    - name: Run Fastlane
+      run: cd ios && fastlane ios release
       shell: bash
   
