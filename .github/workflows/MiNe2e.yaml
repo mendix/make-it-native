@@ -106,18 +106,22 @@ jobs:
           UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
           PLAY_STORE_CREDENTIALS_BASE64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
         run: |
+          mkdir -p ./android/keystores
           echo $UPLOAD_KEYSTORE_BASE64 | base64 --decode > ./android/keystores/upload.keystore
           echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > ./android/fastlane/play-store-credentials.json
         shell: bash
 
       - name: Build Android apk
-        uses: ./.github/actions/build_android
+        uses: ./.github/actions/build-android
         with:
+          google_services_json: ${{ secrets.GOOGLE_SERVICES_JSON }}
           firebaseAPIKey: ${{ secrets.FIREBASE_API_KEY }}
-          keystorePath: ${{ env.ANDROID_KEYSTORE_PATH }}
+          keystoreBase64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
           keystoreAlias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
           keystorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           keystoreKeyPassword: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
+          playStoreCredentialsBase64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
+          keystorePath: ./android/keystores/upload.keystore
 
   ios-app:
     runs-on: macOS-15

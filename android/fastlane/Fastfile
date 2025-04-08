@@ -43,21 +43,23 @@ platform :android do
     UI.message("Building DeveloperApp")
     gradle(task: "assemble", build_type: "Debug", flavor: "Production", flags: "--stacktrace", properties: gradleOptions)
 
-    # UI.message("Installing APK into Android device/simulator")
-    # lane_context[SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS].each do |apk|
-    #   begin
-    #     sh("adb reverse tcp:8080 tcp:8080")
-    #     sh("adb reverse tcp:8083 tcp:8083")
-    #     sh("adb install -r #{apk}")
-    #   end
-    # end
+    UI.message("Installing APK into Android device/simulator")
+    lane_context[SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS].each do |apk|
+      begin
+        sh("adb reverse tcp:8080 tcp:8080")
+        sh("adb reverse tcp:8083 tcp:8083")
+        sh("adb install -r #{apk}")
+      end
+    end
   end
 
   desc "Build new bundle and upload to Internal track"
   lane :internal do |options|
     FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
-    versionCode = google_play_track_version_codes(track: "internal").max() + 1
-    versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
+    #versionCode = google_play_track_version_codes(track: "internal").max() + 1
+    versionCode = 1
+    # versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
+    versionName = BUILD_NUMBER
 
     gradleOptions = {
       # Gradle 7.3 removed support for dynamic versioning through android.injected.version.code
@@ -93,6 +95,7 @@ platform :android do
         track: "internal",
         skip_upload_images: true,
         skip_upload_apk: true,
+        json_key: "./fastlane/play-store-credentials.json",
       )
     else
         UI.message "Building APK version #{versionName}(#{versionCode}) for internal tests"
