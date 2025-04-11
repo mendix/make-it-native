@@ -758,7 +758,11 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 600;
+=======
+				CURRENT_PROJECT_VERSION = 405;
+>>>>>>> moo-1800/update-dependencies
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
@@ -795,7 +799,11 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 6.0.0;
+=======
+				MARKETING_VERSION = 4.2.0;
+>>>>>>> moo-1800/update-dependencies
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -824,7 +832,11 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 600;
+=======
+				CURRENT_PROJECT_VERSION = 405;
+>>>>>>> moo-1800/update-dependencies
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -860,7 +872,11 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 6.0.0;
+=======
+				MARKETING_VERSION = 4.2.0;
+>>>>>>> moo-1800/update-dependencies
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1084,7 +1100,11 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 600;
+=======
+				CURRENT_PROJECT_VERSION = 405;
+>>>>>>> moo-1800/update-dependencies
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -1125,7 +1145,11 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
+<<<<<<< HEAD
 				MARKETING_VERSION = 6.0.0;
+=======
+				MARKETING_VERSION = 4.2.0;
+>>>>>>> moo-1800/update-dependencies
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
