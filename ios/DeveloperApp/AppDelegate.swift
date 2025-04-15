@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
         if (!handleMendixNotification(response: response)) {
-            RNCPushNotificationIOS.didReceive(response)
+//            RNCPushNotificationIOS.didReceive(response)
         }
         completionHandler()
     }
