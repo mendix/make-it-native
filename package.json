@@ -69,7 +69,7 @@
     "react-native-system-navigation-bar": "2.6.3",
     "react-native-tab-view": "3.5.2",
     "react-native-biometrics": "3.0.1",
-    "@d11/react-native-fast-image": "8.9.2",
+    "react-native-fast-image": "8.6.3",
     "react-native-vector-icons": "10.2.0",
     "react-native-video": "6.10.0",
     "react-native-view-shot": "4.0.3",

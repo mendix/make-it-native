@@ -781,11 +781,6 @@
     base-64 "^0.1.0"
     semver "^7.3.2"
 
-"@d11/react-native-fast-image@8.9.2":
-  version "8.9.2"
-  resolved "https://registry.npmjs.org/@d11/react-native-fast-image/-/react-native-fast-image-8.9.2.tgz"
-  integrity sha512-7d0O5mA17SCbIAYq9D0WxDlS3HXf5v9vg9ltphDfP/3R57sBEf6/wby/sHkOmrQGwvgUlz2oSo5Ld8hgocLJeQ==
-
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz"
@@ -4491,6 +4486,11 @@ react-native-device-info@14.0.4:
   version "14.0.4"
   resolved "https://registry.npmjs.org/react-native-device-info/-/react-native-device-info-14.0.4.tgz"
   integrity sha512-NX0wMAknSDBeFnEnSFQ8kkAcQrFHrG4Cl0mVjoD+0++iaKrOupiGpBXqs8xR0SeJyPC5zpdPl4h/SaBGly6UxA==
+
+react-native-fast-image@8.6.3:
+  version "8.6.3"
+  resolved "https://registry.npmjs.org/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz"
+  integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
 
 react-native-file-viewer@2.1.5:
   version "2.1.5"
