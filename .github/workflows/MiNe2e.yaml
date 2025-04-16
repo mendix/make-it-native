@@ -101,6 +101,7 @@ jobs:
     steps:
       - name: "Check out code"
         uses: actions/checkout@v4
+
       - name: Retrieve the secrets and decode it to a file
         env:
           UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
@@ -121,7 +122,7 @@ jobs:
           keystorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           keystoreKeyPassword: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
           playStoreCredentialsBase64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
-          keystorePath: ./android/keystores/upload.keystore
+          keystorePath: ${{ github.workspace }}/android/keystores/upload.keystore  
 
   ios-app:
     runs-on: macOS-15
@@ -146,38 +147,38 @@ jobs:
         uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
         with:
           name: mda
-      # - name: "Download Android app"
-      #   uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
-      #   with:
-      #     name: android-app
-      #     path: android-app
-
-      - name: "Install GitHub CLI"
-        run: |
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh
-      - name: "Authenticate GitHub CLI"
-        run: |
-          unset GITHUB_TOKEN
-          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
-      - name: "Fetch artifacts from run 41"
-        id: fetch-artifacts
-        run: |
-          artifacts_url=$(gh api "repos/${{ github.repository }}/actions/runs/14242504528/artifacts" --jq '.artifacts[] | select(.name == "android-app") | .archive_download_url')
-          echo "Artifacts URL: $artifacts_url"
-          echo "artifacts_url=$artifacts_url" >> $GITHUB_ENV
       - name: "Download Android app"
-        if: env.artifacts_url != ''
-        run: |
-          if [ -z "$artifacts_url" ]; then
-            echo "No artifacts URL found."
-            exit 1
-          fi
-          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o android-app.zip "$artifacts_url"
-          unzip android-app.zip -d android-app
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
+        with:
+          name: android-app
+          path: android-app
+
+      # - name: "Install GitHub CLI"
+      #   run: |
+      #     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+      #     sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+      #     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+      #     sudo apt update
+      #     sudo apt install gh
+      # - name: "Authenticate GitHub CLI"
+      #   run: |
+      #     unset GITHUB_TOKEN
+      #     echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+      # - name: "Fetch artifacts from run 41"
+      #   id: fetch-artifacts
+      #   run: |
+      #     artifacts_url=$(gh api "repos/${{ github.repository }}/actions/runs/14242504528/artifacts" --jq '.artifacts[] | select(.name == "android-app") | .archive_download_url')
+      #     echo "Artifacts URL: $artifacts_url"
+      #     echo "artifacts_url=$artifacts_url" >> $GITHUB_ENV
+      # - name: "Download Android app"
+      #   if: env.artifacts_url != ''
+      #   run: |
+      #     if [ -z "$artifacts_url" ]; then
+      #       echo "No artifacts URL found."
+      #       exit 1
+      #     fi
+      #     curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o android-app.zip "$artifacts_url"
+      #     unzip android-app.zip -d android-app
       
       - name: "Check for APK file"
         run: |
