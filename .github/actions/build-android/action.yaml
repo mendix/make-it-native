@@ -71,7 +71,10 @@ runs:
         mkdir -p android/fastlane
         echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > android/fastlane/play-store-credentials.json
       shell: bash
-
+    # - name: Verify Keystore File
+    #   run: |
+    #     keytool -list -v -keystore ./android/keystores/upload.keystore -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+    # shell: bash 
     - name: Build Android Library with Fastlane
       run: |
         cd android

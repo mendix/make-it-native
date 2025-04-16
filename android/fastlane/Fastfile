@@ -99,6 +99,10 @@ platform :android do
       )
     else
         UI.message "Building APK version #{versionName}(#{versionCode}) for internal tests"
+        UI.message "Checking if keystore file exists at: #{ENV['ANDROID_KEYSTORE_PATH']}"
+        sh("ls -l #{ENV['ANDROID_KEYSTORE_PATH']}")
+        UI.message "ANDROID_KEYSTORE_PATH: #{ENV['ANDROID_KEYSTORE_PATH']}"
+        UI.message "ANDROID_KEYSTORE_ALIAS: #{ENV['ANDROID_KEYSTORE_ALIAS']}"
         #Build APK
         gradle(
           task: "assemble",
