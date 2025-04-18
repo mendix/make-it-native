@@ -14,7 +14,7 @@ extension RNSplashScreen {
   }
 
   static func hideStoryBoard() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
       UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
         loadingView?.alpha = 0.0;
       }, completion: {_ in

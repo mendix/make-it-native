@@ -112,8 +112,10 @@ class HomeViewController: UIViewController {
                 isDevModeEnabled: AppPreferences.devModeEnabled())
 
             let runtimeUrl: URL = AppUrl.forRuntime(AppPreferences.getAppUrl())!
-
-            ReactNative.instance.setup(MendixApp(nil, bundleUrl: url!, runtimeUrl: runtimeUrl, warningsFilter: getWarningFilterValue(), isDeveloperApp: true, clearDataAtLaunch: self.clearCache, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil)), launchOptions: nil)
+            
+            let mxApp = MendixApp(nil, bundleUrl: url!, runtimeUrl: runtimeUrl, warningsFilter: getWarningFilterValue(), isDeveloperApp: true, clearDataAtLaunch: self.clearCache, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil))
+            mxApp.splashScreenPresenter = SplashScreenPresenter()
+            ReactNative.instance.setup(mxApp, launchOptions: nil)
         } else if segue.destination is ConnectionErrorViewController {
             let viewController = segue.destination as! ConnectionErrorViewController
             switch uiState {
