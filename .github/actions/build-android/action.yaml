@@ -8,8 +8,8 @@ inputs:
   firebaseAPIKey:
     description: 'Firebase API key'
     required: true
-  keystorePath:
-    description: 'Path to the Android keystore file'
+  keystoreBase64: 
+    description: 'Base64-encoded Android keystore file'
     required: true
   keystoreAlias:
     description: 'Alias for the Android keystore'
@@ -82,10 +82,11 @@ runs:
       shell: bash
       env:
         FIREBASE_API_KEY: ${{ inputs.firebaseAPIKey }}
-        ANDROID_KEYSTORE_PATH: ${{ inputs.keystorePath }}
+        ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/keystores/upload.keystore
         ANDROID_KEYSTORE_PASSWORD: ${{ inputs.keystorePassword }}
         ANDROID_KEYSTORE_ALIAS: ${{ inputs.keystoreAlias }}
         ANDROID_KEYSTORE_KEY_PASSWORD: ${{ inputs.keystoreKeyPassword }}
+        PLAY_STORE_CREDENTIALS_PATH: ${{ github.workspace }}/android/fastlane/play-store-credentials.json
 
     - name: Copy Android APK to Shared Directory
       run: |
