@@ -102,15 +102,15 @@ jobs:
       - name: "Check out code"
         uses: actions/checkout@v4
 
-      - name: Retrieve the secrets and decode it to a file
-        env:
-          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
-          PLAY_STORE_CREDENTIALS_BASE64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
-        run: |
-          mkdir -p ./android/keystores
-          echo $UPLOAD_KEYSTORE_BASE64 | base64 --decode > ./android/keystores/upload.keystore
-          echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > ./android/fastlane/play-store-credentials.json
-        shell: bash
+      # - name: Retrieve the secrets and decode it to a file
+      #   env:
+      #     UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+      #     PLAY_STORE_CREDENTIALS_BASE64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
+      #   run: |
+      #     mkdir -p ./android/keystores
+      #     echo $UPLOAD_KEYSTORE_BASE64 | base64 --decode > ./android/keystores/upload.keystore
+      #     echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > ./android/fastlane/play-store-credentials.json
+      #   shell: bash
 
       - name: Build Android apk
         uses: ./.github/actions/build-android
@@ -122,7 +122,10 @@ jobs:
           keystorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           keystoreKeyPassword: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
           playStoreCredentialsBase64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
-          keystorePath: ${{ github.workspace }}/android/keystores/upload.keystore  
+          # keystorePath: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          # playStoreCredentialsPath: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }} 
+          # # keystorePath: ${{ github.workspace }}/android/keystores/upload.keystore
+          # # playStoreCredentialsPath: ${{ github.workspace }}/android/fastlane/play-store-credentials.json
 
   ios-app:
     runs-on: macOS-15
@@ -138,7 +141,7 @@ jobs:
           path: ios/build/DeveloperApp-Debug.ipa
 
   android-test:
-    needs: [mendix-version, project]
+    needs: [mendix-version, project, android-app]
     runs-on: ubuntu-22.04
     steps:
       - name: "Check out code"

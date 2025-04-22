@@ -56,10 +56,11 @@ platform :android do
   desc "Build new bundle and upload to Internal track"
   lane :internal do |options|
     FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
-    #versionCode = google_play_track_version_codes(track: "internal").max() + 1
-    versionCode = 1
-    # versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
-    versionName = BUILD_NUMBER
+    versionCode = google_play_track_version_codes(track: "internal", json_key: ENV["PLAY_STORE_CREDENTIALS_PATH"]).max() + 1
+    versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
+    # versionCode = 1
+    # versionName = BUILD_NUMBER
+
 
     gradleOptions = {
       # Gradle 7.3 removed support for dynamic versioning through android.injected.version.code
