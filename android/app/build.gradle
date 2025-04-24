@@ -44,32 +44,32 @@ android {
     }
     signingConfigs {
         debug {
-            Properties debugProps = new Properties()
-            def propFile = new File('./keystores/debug.keystore.properties')
-            if (propFile.canRead()) {
-                debugProps.load(new FileInputStream(propFile))
+            // Properties debugProps = new Properties()
+            // def propFile = new File('./keystores/debug.keystore.properties')
+            // if (propFile.canRead()) {
+            //     debugProps.load(new FileInputStream(propFile))
 
-                storeFile file(debugProps["key.store"])
-                storePassword debugProps["key.store.password"]
-                keyAlias debugProps["key.alias"]
-                keyPassword debugProps["key.alias.password"]
-            } else {
-                print 'debug.keystore.properties not found'
-            }
+            //     storeFile file(debugProps["key.store"])
+            //     storePassword debugProps["key.store.password"]
+            //     keyAlias debugProps["key.alias"]
+            //     keyPassword debugProps["key.alias.password"]
+            // } else {
+            //     print 'debug.keystore.properties not found'
+            // }
         }
         release {
-           Properties releaseProps = new Properties()
-           def propFile = new File('./keystores/debug.keystore.properties')
-           if (propFile.canRead()) {
-               releaseProps.load(new FileInputStream(propFile))
+        //    Properties releaseProps = new Properties()
+        //    def propFile = new File('./keystores/debug.keystore.properties')
+        //    if (propFile.canRead()) {
+        //        releaseProps.load(new FileInputStream(propFile))
 
-               storeFile file(releaseProps["key.store"])
-               storePassword releaseProps["key.store.password"]
-               keyAlias releaseProps["key.alias"]
-               keyPassword releaseProps["key.alias.password"]
-           } else {
-               print 'local.properties not found'
-           }
+        //        storeFile file(releaseProps["key.store"])
+        //        storePassword releaseProps["key.store.password"]
+        //        keyAlias releaseProps["key.alias"]
+        //        keyPassword releaseProps["key.alias.password"]
+        //    } else {
+        //        print 'local.properties not found'
+        //    }
         }
     }
     buildTypes {
@@ -171,6 +171,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+
+    // The version google released at 14 april crashes, so we import previous version.
+    // https://developers.google.com/android/guides/releases
+
+    implementation "com.google.android.gms:play-services-base:18.6.0"
+    implementation "com.google.android.gms:play-services-basement:18.6.0"
+    implementation "com.google.android.gms:play-services-tasks:18.2.1"
 }
 
 configurations.all {
