@@ -23,6 +23,7 @@
     "@babylonjs/react-native": "1.6.3",
     "@babylonjs/react-native-iosandroid-0-71": "1.6.3",
     "@mendix/native": "10.1.1",
+    "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "12.0.2",
     "@gorhom/bottom-sheet": "^5.1.1",
     "@react-native-async-storage/async-storage": "2.0.0",
@@ -73,7 +74,8 @@
     "react-native-vector-icons": "10.2.0",
     "react-native-video": "6.10.0",
     "react-native-view-shot": "4.0.3",
-    "react-native-webview": "13.13.2"
+    "react-native-webview": "13.13.2",
+    "simple-git": "^3.27.0"
   },
   "overrides": {
     "@sideway/address": "4.1.4"
