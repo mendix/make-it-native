@@ -29,6 +29,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://notifee.app/maven" } 
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.4.2"
@@ -66,6 +67,9 @@ allprojects {
         }
         google()
         maven { url 'https://jitpack.io' }
+        maven {
+            url "$rootDir/../node_modules/@notifee/react-native/android/libs"
+        }
     }
 }
 
