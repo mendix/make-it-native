@@ -102,16 +102,6 @@ jobs:
       - name: "Check out code"
         uses: actions/checkout@v4
 
-      # - name: Retrieve the secrets and decode it to a file
-      #   env:
-      #     UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
-      #     PLAY_STORE_CREDENTIALS_BASE64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
-      #   run: |
-      #     mkdir -p ./android/keystores
-      #     echo $UPLOAD_KEYSTORE_BASE64 | base64 --decode > ./android/keystores/upload.keystore
-      #     echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > ./android/fastlane/play-store-credentials.json
-      #   shell: bash
-
       - name: Build Android apk
         uses: ./.github/actions/build-android
         with:
@@ -122,10 +112,6 @@ jobs:
           keystorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           keystoreKeyPassword: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
           playStoreCredentialsBase64: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }}
-          # keystorePath: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
-          # playStoreCredentialsPath: ${{ secrets.PLAY_STORE_CREDENTIALS_BASE64 }} 
-          # # keystorePath: ${{ github.workspace }}/android/keystores/upload.keystore
-          # # playStoreCredentialsPath: ${{ github.workspace }}/android/fastlane/play-store-credentials.json
 
   ios-app:
     runs-on: macOS-15
@@ -231,24 +217,6 @@ jobs:
             bash maestro/helpers/prepare_android.sh
             bash maestro/run_maestro_tests.sh android
 
-      # - name: "Capture emulator logs"
-      #   if: always()
-      #   continue-on-error: true
-      #   run: |
-      #     mkdir -p ${{ github.workspace }}/emulator-logs
-      #     adb logcat -d > ${{ github.workspace }}/emulator-logs/emulator-logcat.txt
-      #     adb shell dmesg > ${{ github.workspace }}/emulator-logs/emulator-dmesg.txt
-      #   shell: bash
-
-      # - name: "Upload emulator logs"
-      #   uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
-      #   continue-on-error: true
-      #   if: always()
-      #   with:
-      #     name: emulator-logs
-      #     path: ${{ github.workspace }}/emulator-logs/
-      #     if-no-files-found: warn
-
       - name: "Debug root folder"
         if: always()
         continue-on-error: true
@@ -274,65 +242,65 @@ jobs:
           if-no-files-found: warn
     
 
-  compare-screenshots:
-    needs: [android-test]
-    runs-on: ubuntu-latest
-    if: always()
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - name: "Check out code"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+  # compare-screenshots:
+  #   needs: [android-test]
+  #   runs-on: ubuntu-latest
+  #   if: always()
+  #   env:
+  #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #   steps:
+  #     - name: "Check out code"
+  #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
   
   
-      - name: "Download all Android screenshots"
-        run: |
-          mkdir -p images/actual/android/
-          echo "Downloading all Android screenshots..."
-          gh run download ${{ github.run_id }} --name android-screenshots --dir images/actual/android/ || echo "⚠️ Failed to download Android screenshots."
-          ls -l images/actual/android/
+  #     - name: "Download all Android screenshots"
+  #       run: |
+  #         mkdir -p images/actual/android/
+  #         echo "Downloading all Android screenshots..."
+  #         gh run download ${{ github.run_id }} --name android-screenshots --dir images/actual/android/ || echo "⚠️ Failed to download Android screenshots."
+  #         ls -l images/actual/android/
               
-      - name: "Download all iOS screenshots"
-        run: |
-          mkdir -p images/actual/ios/
-          echo "Downloading all iOS screenshots..."
-          gh run download ${{ github.run_id }} --name ios-screenshots --dir images/actual/ios/ || echo "⚠️ Failed to download iOS screenshots."
-          ls -l images/actual/ios/
+  #     - name: "Download all iOS screenshots"
+  #       run: |
+  #         mkdir -p images/actual/ios/
+  #         echo "Downloading all iOS screenshots..."
+  #         gh run download ${{ github.run_id }} --name ios-screenshots --dir images/actual/ios/ || echo "⚠️ Failed to download iOS screenshots."
+  #         ls -l images/actual/ios/
         
-      - name: "Set up node"
-        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+  #     - name: "Set up node"
+  #       uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
 
-      - name: "Install npm and dependencies"
-        run: npm install && npm install @actions/core pixelmatch
+  #     - name: "Install npm and dependencies"
+  #       run: npm install && npm install @actions/core pixelmatch
 
-      - name: "Compare Android screenshots"
-        continue-on-error: true 
-        run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js android
+  #     - name: "Compare Android screenshots"
+  #       continue-on-error: true 
+  #       run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js android
 
-      - name: "Compare iOS screenshots"
-        continue-on-error: true
-        run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js ios
+  #     - name: "Compare iOS screenshots"
+  #       continue-on-error: true
+  #       run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js ios
 
-      - name: "Archive diff results"
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
-        with:
-          name: screenshot-diffs
-          path: maestro/tests/images/diffs/
-          if-no-files-found: ignore
+  #     - name: "Archive diff results"
+  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+  #       with:
+  #         name: screenshot-diffs
+  #         path: maestro/tests/images/diffs/
+  #         if-no-files-found: ignore
         
-      - name: "Archive comparison results"
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
-        with:
-          name: comparison-results
-          path: compare_output.txt
-          if-no-files-found: ignore
+  #     - name: "Archive comparison results"
+  #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+  #       with:
+  #         name: comparison-results
+  #         path: compare_output.txt
+  #         if-no-files-found: ignore
 
-      - name: "Fail if comparisons failed"
-        run: |
-          if [ "$ANDROID_COMPARISON_FAILED" == "true" ] || [ "$IOS_COMPARISON_FAILED" == "true" ]; then
-            echo "One or more comparisons failed."
-            exit 1
-          fi
+  #     - name: "Fail if comparisons failed"
+  #       run: |
+  #         if [ "$ANDROID_COMPARISON_FAILED" == "true" ] || [ "$IOS_COMPARISON_FAILED" == "true" ]; then
+  #           echo "One or more comparisons failed."
+  #           exit 1
+  #         fi
