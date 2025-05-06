@@ -53,15 +53,16 @@ runs:
       env:
         GOOGLE_SERVICES_JSON: ${{ inputs.google_services_json }}
       run: |
-        echo $GOOGLE_SERVICES_JSON | base64 --decode > android/app/google-services.json
+        echo "$GOOGLE_SERVICES_JSON" | base64 -d > android/app/google-services.json
       shell: bash
 
     - name: Decode upload.keystore
       env:
-        KEYSTORE_BASE64: ${{ inputs.keystoreBase64 }}
+        UPLOAD_KEYSTORE_BASE64: ${{ inputs.keystoreBase64 }}
       run: |
         mkdir -p android/keystores
-        echo $KEYSTORE_BASE64 | base64 --decode > android/keystores/upload.keystore
+        # Add quotes to preserve newlines and use -d flag instead of --decode for better compatibility
+        echo "$UPLOAD_KEYSTORE_BASE64" | base64 -d > android/keystores/upload.keystore
       shell: bash
     
     - name: Decode Play Store credentials
@@ -69,12 +70,22 @@ runs:
         PLAY_STORE_CREDENTIALS_BASE64: ${{ inputs.playStoreCredentialsBase64 }}
       run: |
         mkdir -p android/fastlane
-        echo $PLAY_STORE_CREDENTIALS_BASE64 | base64 --decode > android/fastlane/play-store-credentials.json
+        echo "$PLAY_STORE_CREDENTIALS_BASE64" | base64 -d > android/fastlane/play-store-credentials.json
       shell: bash
-    # - name: Verify Keystore File
-    #   run: |
-    #     keytool -list -v -keystore ./android/keystores/upload.keystore -storepass ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-    # shell: bash 
+
+    - name: Verify Keystore File
+      run: |
+        echo "Verifying keystore file exists and has content..."
+        ls -la android/keystores/
+        if [ ! -s android/keystores/upload.keystore ]; then
+          echo "Error: Keystore file is empty or doesn't exist!"
+          exit 1
+        fi
+        
+        echo "Verifying keystore with keytool..."
+        keytool -list -v -keystore android/keystores/upload.keystore -storepass "${{ inputs.keystorePassword }}" | head -n 5
+      shell: bash
+
     - name: Build Android Library with Fastlane
       run: |
         cd android
@@ -87,15 +98,31 @@ runs:
         ANDROID_KEYSTORE_ALIAS: ${{ inputs.keystoreAlias }}
         ANDROID_KEYSTORE_KEY_PASSWORD: ${{ inputs.keystoreKeyPassword }}
         PLAY_STORE_CREDENTIALS_PATH: ${{ github.workspace }}/android/fastlane/play-store-credentials.json
+        BUILD_NUMBER: ${{ github.run_number }}
 
     - name: Copy Android APK to Shared Directory
       run: |
         mkdir -p ${{ github.workspace }}/artifacts/android-app
-        if [ -f ./android/app/build/outputs/apk/production/debug/app-production-debug.apk ]; then
-          cp ./android/app/build/outputs/apk/production/debug/app-production-debug.apk ${{ github.workspace }}/artifacts/android-app/app-production-debug.apk
-        else
-          echo "APK not found at the expected path."
+        
+        echo "Finding all APK files in the project..."
+        APK_FILES=$(find ./android -name "*.apk")
+        
+        if [ -z "$APK_FILES" ]; then
+          echo "No APK files found anywhere in the android directory."
+          echo "Listing all output files that might exist:"
+          find ./android -type f -path "*/build/outputs/*" | sort
           exit 1
+        else
+          echo "Found the following APK files:"
+          echo "$APK_FILES" | while read APK_PATH; do
+            echo "- $APK_PATH ($(du -h "$APK_PATH" | cut -f1))"
+          done
+          
+          # Take the first APK found
+          FIRST_APK=$(echo "$APK_FILES" | head -n1)
+          echo "Copying $FIRST_APK to artifacts directory..."
+          cp "$FIRST_APK" ${{ github.workspace }}/artifacts/android-app/app-debug.apk
+          echo "APK successfully copied to artifacts directory."
         fi
       shell: bash
 

@@ -55,11 +55,14 @@ platform :android do
 
   desc "Build new bundle and upload to Internal track"
   lane :internal do |options|
+    UI.message "GOOGLE_PLAY_VERSION: #{GOOGLE_PLAY_VERSION.inspect}"
+    UI.message "BUILD_NUMBER: #{BUILD_NUMBER.inspect}"
     FileUtils.copy(ORIGINAL_CHANGELOG_PATH, FASTLANE_CHANGELOG_PATH)
     versionCode = google_play_track_version_codes(track: "internal", json_key: ENV["PLAY_STORE_CREDENTIALS_PATH"]).max() + 1
-    versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
-    # versionCode = 1
-    # versionName = BUILD_NUMBER
+    #versionName = GOOGLE_PLAY_VERSION + "." + BUILD_NUMBER
+    google_play_version = GOOGLE_PLAY_VERSION || "1.0"
+    build_number = BUILD_NUMBER || "1"
+    versionName = "#{google_play_version}.#{build_number}"
 
 
     gradleOptions = {
@@ -100,10 +103,20 @@ platform :android do
       )
     else
         UI.message "Building APK version #{versionName}(#{versionCode}) for internal tests"
-        UI.message "Checking if keystore file exists at: #{ENV['ANDROID_KEYSTORE_PATH']}"
-        sh("ls -l #{ENV['ANDROID_KEYSTORE_PATH']}")
-        UI.message "ANDROID_KEYSTORE_PATH: #{ENV['ANDROID_KEYSTORE_PATH']}"
-        UI.message "ANDROID_KEYSTORE_ALIAS: #{ENV['ANDROID_KEYSTORE_ALIAS']}"
+        # Add detailed keystore debugging info
+        UI.message "Android Keystore Debug Info:"
+        UI.message "ANDROID_KEYSTORE_PATH exists: #{File.exist?(ENV["ANDROID_KEYSTORE_PATH"])}"
+        UI.message "ANDROID_KEYSTORE_PATH size: #{File.size(ENV["ANDROID_KEYSTORE_PATH"])} bytes" if File.exist?(ENV["ANDROID_KEYSTORE_PATH"])
+        UI.message "ANDROID_KEYSTORE_ALIAS: #{ENV["ANDROID_KEYSTORE_ALIAS"]}"
+        
+        # Try to verify the keystore using a subprocess to catch any failures
+        begin
+          sh("keytool -list -keystore \"#{ENV["ANDROID_KEYSTORE_PATH"]}\" -storepass \"#{ENV["ANDROID_KEYSTORE_PASSWORD"]}\" -alias \"#{ENV["ANDROID_KEYSTORE_ALIAS"]}\" > /dev/null 2>&1")
+          UI.success "Keystore verification passed!"
+        rescue => e
+          UI.error "Keystore verification failed: #{e.message}"
+          # Continue the build anyway - this is just for debugging
+        end
         #Build APK
         gradle(
           task: "assemble",
