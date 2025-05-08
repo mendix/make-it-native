@@ -1,0 +1,90 @@
+diff --git a/node_modules/@react-native-community/geolocation/android/src/main/java/com/reactnativecommunity/geolocation/GeolocationModule.java b/node_modules/@react-native-community/geolocation/android/src/main/java/com/reactnativecommunity/geolocation/GeolocationModule.java
+index 5b42ba4..7e0be63 100644
+--- a/node_modules/@react-native-community/geolocation/android/src/main/java/com/reactnativecommunity/geolocation/GeolocationModule.java
++++ b/node_modules/@react-native-community/geolocation/android/src/main/java/com/reactnativecommunity/geolocation/GeolocationModule.java
+@@ -22,6 +22,13 @@ import com.facebook.react.modules.permissions.PermissionsModule;
+ import com.google.android.gms.common.ConnectionResult;
+ import com.google.android.gms.common.GoogleApiAvailability;
+ 
++import com.google.android.gms.location.FusedLocationProviderClient;
++import com.google.android.gms.location.LocationRequest;
++import com.google.android.gms.location.LocationServices;
++import com.facebook.react.bridge.Arguments;
++import com.facebook.react.bridge.WritableMap;
++import android.util.Log;
++
+ import java.util.ArrayList;
+ import java.util.Arrays;
+ import java.util.Objects;
+@@ -113,19 +120,70 @@ public class GeolocationModule extends ReactContextBaseJavaModule {
+       final ReadableMap options,
+       final Callback success,
+       final Callback error) {
++
+     try {
++      // 1) FAST PATH: Play Services one-shot if configured
++      // boolean isPlayServicesUsed = mConfiguration.locationProvider === "playServices"
++      if (mConfiguration != null) {
++        Log.d("GeoPatch", "▶️ Using FusedLocationProvider.getCurrentLocation()");  
++        FusedLocationProviderClient fusedClient =
++          LocationServices.getFusedLocationProviderClient(getReactApplicationContext());
++
++        int priority = LocationRequest.PRIORITY_HIGH_ACCURACY;
++        if (options.hasKey("enableHighAccuracy")
++            && !options.getBoolean("enableHighAccuracy")) {
++          priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY;
++        }
++
++        fusedClient
++          .getCurrentLocation(priority, /* cancellationToken= */ null)
++          .addOnSuccessListener(location -> {
++            if (location != null) {
++              WritableMap result = Arguments.createMap();
++              WritableMap coords  = Arguments.createMap();
++
++              coords.putDouble("latitude",  location.getLatitude());
++              coords.putDouble("longitude", location.getLongitude());
++              coords.putDouble("accuracy",  location.getAccuracy());
++              if (location.hasAltitude()) coords.putDouble("altitude", location.getAltitude());
++              if (location.hasBearing())  coords.putDouble("heading",  location.getBearing());
++              if (location.hasSpeed())    coords.putDouble("speed",    location.getSpeed());
++
++              result.putMap("coords",     coords);
++              result.putDouble("timestamp", location.getTime());
++
++              success.invoke(result);
++
++            } else {
++              error.invoke("E_LOCATION_UNAVAILABLE", "Location is null");
++            }
++          })
++          .addOnFailureListener(e ->
++            error.invoke("E_LOCATION_ERROR", e.getMessage())
++          );
++
++        return;
++      }
++
+       if (mConfiguration.skipPermissionRequests) {
++        Log.d("GeoPatch", "▶️ Using fallback LocationManager path");
+         mLocationManager.getCurrentLocationData(options, success, error);
+         return;
+       }
+ 
+-      requestAuthorization(args -> mLocationManager.getCurrentLocationData(options, success, error), error);
++      requestAuthorization(
++        args -> mLocationManager.getCurrentLocationData(options, success, error),
++        error
++      );
++
+     } catch (SecurityException e) {
+       emitLocationPermissionMissing(e);
+     }
+   }
+ 
+ 
++
++
+   /**
+    * Start listening for location updates. These will be emitted via the
+    * {@link RCTDeviceEventEmitter} as {@code geolocationDidChange} events.
