@@ -75,4 +75,79 @@ platform :ios do
     )
   end
 
+  desc "Build new app and optionally upload to TestFlight"
+  lane :internal do |options|
+    keychain_name = "MiN_10_keychain"
+    create_keychain(
+      name: keychain_name,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      password: ENV["KEYCHAIN_PASSWORD"],
+      lock_when_sleeps: false
+    )
+    sh("npm", "ci", "--legacy-peer-deps")
+    cocoapods
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"],
+      duration: 1200, # Session Length in seconds (maximum: 1200).
+    )
+
+    UI.message("Disabling automatic signing on Xcode")
+    disable_automatic_code_signing
+    
+    UI.message("Get the certificates and profiles")
+    match(
+      type:"appstore",
+      api_key:api_key,
+      keychain_name:keychain_name,
+      keychain_password: ENV["KEYCHAIN_PASSWORD"],
+      git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+      readonly: false,
+    )
+
+    UI.message("Set version number")
+    increment_version_number(
+      version_number: APPLE_STORE_VERSION,
+    )
+
+    UI.message("Get the latest build number from AppStore Connect")
+    build_num = app_store_build_number(
+      live: false,
+      initial_build_number: 0,
+      api_key: api_key,
+      version: APPLE_STORE_VERSION,
+    )
+
+    UI.message("Set build number")
+    increment_build_number(
+      xcodeproj: "developerapp.xcodeproj",
+      build_number: build_num + 1,
+    )
+
+    UI.message("Replacing Google Maps API key from environment variables")
+    Dir.chdir("../DeveloperApp/Config") do
+        googleMapsApiKey = ENV["GOOGLE_MAPS_API_KEY"] || "GOOGLE_MAPS_API_KEY"
+        sh("sed -i '' 's/{{google-maps-api-key}}/#{googleMapsApiKey}/g' ApiKeys.xcconfig")
+    end
+    
+    build_app(
+      workspace: "DeveloperApp.xcworkspace",
+      scheme: "DeveloperApp",
+      build_path:"./build",
+      output_directory:"./build"
+    )
+
+    if options[:submit] == true
+      UI.message "Uploading build to TestFlight"
+      upload_to_testflight(
+        skip_waiting_for_build_processing: true,
+      )
+    else
+      UI.message "Build completed successfully. Skipping upload to TestFlight."
+    end
+  end
 end

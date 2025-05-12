@@ -1,5 +1,4 @@
-name: MiN E2E
-description: "Builds MiN app and runs e2e test"
+name: MiN E2E Test
 
 on:
   workflow_dispatch:
@@ -172,8 +171,8 @@ jobs:
       - name: "Check for APK file"
         run: |
           echo "Checking for APK file..."
-          if [ -f android-app/app-production-debug.apk ]; then
-            echo "APK file found: android-app/app-production-debug.apk"
+          if [ -f android-app/app-debug.apk ]; then
+            echo "APK file found: android-app/app-debug.apk"
           else
             echo "APK file not found!"
             exit 1

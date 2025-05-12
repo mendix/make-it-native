@@ -18,12 +18,20 @@ runs:
       uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e #v4
       with:
         node-version-file: .nvmrc
+  
+    - name: Install Node dependencies
+      run: npm ci
+      shell: bash
+
+    - name: Install CocoaPods
+      run: gem install cocoapods
+      shell: bash
     
     - name: Install CocoaPods dependencies
       run: pod install --project-directory=ios
       shell: bash
 
     - name: Run Fastlane
-      run: cd ios && fastlane ios release
+      run: cd ios && fastlane ios internal submit:false
       shell: bash
   
