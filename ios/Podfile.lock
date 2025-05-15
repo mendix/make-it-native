@@ -165,17 +165,17 @@ PODS:
     - hermes-engine/Pre-built (= 0.77.1)
   - hermes-engine/Pre-built (0.77.1)
   - IQKeyboardManager (6.5.19)
-  - libwebp (1.3.2):
-    - libwebp/demux (= 1.3.2)
-    - libwebp/mux (= 1.3.2)
-    - libwebp/sharpyuv (= 1.3.2)
-    - libwebp/webp (= 1.3.2)
-  - libwebp/demux (1.3.2):
+  - libwebp (1.5.0):
+    - libwebp/demux (= 1.5.0)
+    - libwebp/mux (= 1.5.0)
+    - libwebp/sharpyuv (= 1.5.0)
+    - libwebp/webp (= 1.5.0)
+  - libwebp/demux (1.5.0):
     - libwebp/webp
-  - libwebp/mux (1.3.2):
+  - libwebp/mux (1.5.0):
     - libwebp/demux
-  - libwebp/sharpyuv (1.3.2)
-  - libwebp/webp (1.3.2):
+  - libwebp/sharpyuv (1.5.0)
+  - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
   - MultiplatformBleAdapter (0.1.9)
   - nanopb (2.30909.1):
@@ -188,7 +188,7 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
-  - OpenSSL-Universal (3.3.2000)
+  - OpenSSL-Universal (3.3.3001)
   - PromisesObjC (2.4.0)
   - QRCodeReader.swift (10.1.0)
   - RCT-Folly (2024.11.18.00):
@@ -1508,9 +1508,6 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-track-player (4.1.1):
-    - React-Core
-    - SwiftAudioEx (= 1.1.0)
   - react-native-video (6.10.0):
     - DoubleConversion
     - glog
@@ -2064,6 +2061,11 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNSVG (15.11.1):
     - React-Core
   - RNSwanBrowser (0.4.1):
@@ -2097,7 +2099,6 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
-  - SwiftAudioEx (1.1.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2163,7 +2164,6 @@ DEPENDENCIES:
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
-  - react-native-track-player (from `../node_modules/react-native-track-player`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -2216,6 +2216,7 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - "RNSwanBrowser (from `../node_modules/@swan-io/react-native-browser`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -2248,7 +2249,6 @@ SPEC REPOS:
     - SDWebImageWebPCoder
     - SocketRocket
     - SSZipArchive
-    - SwiftAudioEx
 
 EXTERNAL SOURCES:
   boost:
@@ -2358,8 +2358,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
-  react-native-track-player:
-    :path: "../node_modules/react-native-track-player"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -2464,6 +2462,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNSwanBrowser:
@@ -2496,11 +2496,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   hermes-engine: ccc24d29d650ea725d582a9a53d57cd417fbdb53
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
-  libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
+  libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   op-sqlite: 619906dc2ed9c1fcc33ff455eb52fa10bda5e70c
-  OpenSSL-Universal: b60a3702c9fea8b3145549d421fdb018e53ab7b4
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
@@ -2547,7 +2547,6 @@ SPEC CHECKSUMS:
   react-native-pager-view: c3b8efd9000368320e3710c01f38a83bd2170779
   react-native-safe-area-context: 849d7df29ecb2a7155c769c0b76849ba952c2aa3
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  react-native-track-player: 82ef1756ffeea61140fea17519ecd6d64ec3cf3e
   react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
   react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
   react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
@@ -2600,6 +2599,7 @@ SPEC CHECKSUMS:
   RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: 280140e1989bc33d5586cbca10bd199fd1fbdbf1
   RNScreens: e9bb7c3063237983e75d01bb45ce591cc4e7afc2
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: 515a902fc18a375907eb4c3abec0b803fbfa37ef
   RNSwanBrowser: af8718931e79c8077be3cf021d1bc270ae666503
   RNVectorIcons: 85ed086927e7548461d593e68b190c38a6606a05
@@ -2607,7 +2607,6 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
   Yoga: 1fd059161b449018342943b095a6d4e69bcaa719
 
 PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
