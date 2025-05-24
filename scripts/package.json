@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "bump-version:android": "ts-node update-repository-with-new-version.ts --store-name google-play",
     "bump-version:ios": "ts-node update-repository-with-new-version.ts --store-name apple-store"
