@@ -58,18 +58,25 @@ android {
             }
         }
         release {
-           Properties releaseProps = new Properties()
-           def propFile = new File('./keystores/debug.keystore.properties')
-           if (propFile.canRead()) {
-               releaseProps.load(new FileInputStream(propFile))
+            if(System.getenv("CI") != null) {
+                storeFile file("${project.rootDir}/keystores/upload.keystore")
+                storePassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
+                keyPassword System.getenv("BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            } else {
+                Properties releaseProps = new Properties()
+                def propFile = new File('./keystores/debug.keystore.properties')
+                if (propFile.canRead()) {
+                    releaseProps.load(new FileInputStream(propFile))
 
-               storeFile file(releaseProps["key.store"])
-               storePassword releaseProps["key.store.password"]
-               keyAlias releaseProps["key.alias"]
-               keyPassword releaseProps["key.alias.password"]
-           } else {
-               print 'local.properties not found'
-           }
+                    storeFile file(releaseProps["key.store"])
+                    storePassword releaseProps["key.store.password"]
+                    keyAlias releaseProps["key.alias"]
+                    keyPassword releaseProps["key.alias.password"]
+                } else {
+                    print 'local.properties not found'
+                }
+            }
         }
     }
     buildTypes {
