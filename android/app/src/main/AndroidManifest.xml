@@ -121,5 +121,8 @@
         <meta-data
                 android:name="com.google.ar.core"
                 android:value="optional"/>
+        <meta-data 
+                android:name="mendixnative.CookieEncryption" 
+                android:value="${cookieEncryption}"/>
     </application>
 </manifest>
