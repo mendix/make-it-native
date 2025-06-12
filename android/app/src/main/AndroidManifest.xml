@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <!-- Required for scheduling local notifications -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <!-- Ignore deprecation: We still need this for the RN I think -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <!-- Ignore deprecation -->
