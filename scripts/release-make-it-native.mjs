@@ -207,7 +207,6 @@ async function updateMiNChangelog(changelog, unreleasedContent, changelogPath) {
 // Update MiN Release Notes in Docs repo
 async function updateMiNReleaseNotes(unreleasedContent) {
   try {
-    const { unreleasedContent } = extractUnreleasedChangelog();
     const git = simpleGit();
     await cloneDocsRepo(git);
     updateDocsMiNReleaseNotes(unreleasedContent);
