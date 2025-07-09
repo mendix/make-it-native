@@ -5,14 +5,12 @@ import { fileURLToPath } from "url";
 import simpleGit, { GitConfigScope } from "simple-git";
 
 const required = [
-  "VERSION",
+  "MIN_VERSION",
   "GITHUB_TOKEN",
   "GITHUB_SHA",
   "GITHUB_REPOSITORY",
   "GITHUB_REPOSITORY_OWNER",
   "PAT",
-  "GIT_AUTHOR_EMAIL",
-  "GIT_AUTHOR_NAME",
 ];
 
 const missing = required.filter((k) => !process.env[k]);
