@@ -26,7 +26,9 @@ jobs:
 
       - name: Run release script
         env:
-          VERSION: ${{ github.event.inputs.version }}
+          MIN_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAT: ${{ secrets.PAT }}
+          GIT_AUTHOR_EMAIL: ${{ env.GIT_AUTHOR_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ env.GIT_AUTHOR_NAME }}
         run: node scripts/release-make-it-native.mjs
