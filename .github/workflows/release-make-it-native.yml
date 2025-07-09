@@ -24,11 +24,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set git identity
+        env:
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+        run: |
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
+
       - name: Run release script
         env:
           MIN_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAT: ${{ secrets.PAT }}
-          GIT_AUTHOR_EMAIL: ${{ env.GIT_AUTHOR_EMAIL }}
-          GIT_AUTHOR_NAME: ${{ env.GIT_AUTHOR_NAME }}
         run: node scripts/release-make-it-native.mjs
