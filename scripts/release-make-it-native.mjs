@@ -34,6 +34,14 @@ const CHANGELOG_BRANCH_NAME = `update-changelog-v${MIN_VERSION}`;
 
 const octokit = new Octokit({ auth: GITHUB_PAT });
 
+function getToday() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
+
 // Changelog
 function extractUnreleasedChangelog() {
   const changelogPath = path.resolve(__dirname, "../CHANGELOG.md");
