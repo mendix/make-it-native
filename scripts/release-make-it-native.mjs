@@ -70,6 +70,9 @@ function updateChangelog({ changelog, unreleasedContent, changelogPath }) {
 async function createPRUpdateChangelog() {
   const git = simpleGit();
 
+  await git.addConfig("user.name", "MendixMobile", ["--global"]);
+  await git.addConfig("user.email", "moo@mendix.com", ["--global"]);
+
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
   await git.add("CHANGELOG.md");
