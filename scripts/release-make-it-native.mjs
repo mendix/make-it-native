@@ -86,11 +86,13 @@ async function createChangelogUpdatePR() {
 
   await git.addConfig(
     "user.name",
-    process.env.GIT_AUTHOR_NAME || "Release Bot"
+    process.env.GIT_AUTHOR_NAME || "Release Bot",
+    ["--global"]
   );
   await git.addConfig(
     "user.email",
-    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com"
+    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com",
+    ["--global"]
   );
 
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
@@ -144,11 +146,13 @@ async function updateDocs(unreleasedContent) {
 
   await git.addConfig(
     "user.name",
-    process.env.GIT_AUTHOR_NAME || "Release Bot"
+    process.env.GIT_AUTHOR_NAME || "Release Bot",
+    ["--global"]
   );
   await git.addConfig(
     "user.email",
-    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com"
+    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com",
+    ["--global"]
   );
 
   await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
