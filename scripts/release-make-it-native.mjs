@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import { Octokit } from "@octokit/rest";
 import { fileURLToPath } from "url";
-import simpleGit, { GitConfigScope } from "simple-git";
+import simpleGit from "simple-git";
+import { execSync } from "child_process";
 
 const required = [
   "MIN_VERSION",
@@ -142,22 +143,6 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
 
-async function listFiles() {
-  try {
-    const files = await fs.readdir(process.cwd(), { withFileTypes: true });
-
-    for (const file of files) {
-      if (file.isFile()) {
-        console.log("File:", file.name);
-      } else if (file.isDirectory()) {
-        console.log("Directory:", file.name);
-      }
-    }
-  } catch (err) {
-    console.error("Error reading directory:", err);
-  }
-}
-
 async function cloneDocsRepo(git) {
   await git.clone(
     `https://x-access-token:${GITHUB_PAT}@github.com/${DOCS_REPO_OWNER}/${DOCS_REPO_NAME}.git`
@@ -166,7 +151,13 @@ async function cloneDocsRepo(git) {
   process.chdir(DOCS_REPO_NAME);
 
   console.log(process.cwd());
-  listFiles();
+
+  try {
+    const result = execSync(`ls -al ${process.cwd()}`, { encoding: "utf-8" });
+    console.log(result);
+  } catch (err) {
+    console.error("Error listing folder:", err.message);
+  }
 
   await git.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
   await git.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
