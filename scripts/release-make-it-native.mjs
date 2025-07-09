@@ -132,6 +132,16 @@ async function updateDocs(unreleasedContent) {
     `https://x-access-token:${PAT}@github.com/${DOCS_REPO_OWNER}/${DOCS_REPO_NAME}.git`
   );
   process.chdir(DOCS_REPO_NAME);
+
+  await git.addConfig(
+    "user.name",
+    process.env.GIT_AUTHOR_NAME || "Release Bot"
+  );
+  await git.addConfig(
+    "user.email",
+    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com"
+  );
+
   await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
 
   const newDocContent = injectUnreleasedToDoc(TARGET_FILE, unreleasedContent);
