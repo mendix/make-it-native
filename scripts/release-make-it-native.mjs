@@ -142,12 +142,31 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
 
+async function listFiles() {
+  try {
+    const files = await fs.readdir(folderPath, { withFileTypes: true });
+
+    for (const file of files) {
+      if (file.isFile()) {
+        console.log("File:", file.name);
+      } else if (file.isDirectory()) {
+        console.log("Directory:", file.name);
+      }
+    }
+  } catch (err) {
+    console.error("Error reading directory:", err);
+  }
+}
+
 async function cloneDocsRepo(git) {
   await git.clone(
     `https://x-access-token:${GITHUB_PAT}@github.com/${DOCS_REPO_OWNER}/${DOCS_REPO_NAME}.git`
   );
 
   process.chdir(DOCS_REPO_NAME);
+
+  console.log(process.cwd());
+  listFiles();
 
   await git.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
   await git.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
