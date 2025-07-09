@@ -1,21 +1,30 @@
-const fs = require("fs");
-const path = require("path");
-const { Octokit } = require("@octokit/rest");
-const simpleGit = require("simple-git");
+import fs from "fs";
+import path from "path";
+import { Octokit } from "@octokit/rest";
+import { fileURLToPath } from "url";
+import simpleGit from "simple-git";
 
 const VERSION = process.env.VERSION;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const PAT = process.env.PAT || GITHUB_TOKEN;
-const REPO_OWNER = "MendixMobile";
-const REPO_NAME = "docs";
-const UPSTREAM_OWNER = "MendixMobile";
-// const UPSTREAM_OWNER = "mendix";
-const BRANCH_NAME = `update-mobile-release-notes-v${VERSION}`;
+
+const CHANGELOG_BRANCH_NAME = `update-changelog-v${VERSION}`;
+
+const DOCS_REPO_OWNER = "MendixMobile";
+const DOCS_REPO_NAME = "docs";
+const DOCS_UPSTREAM_OWNER = "MendixMobile";
+// const DOCS_UPSTREAM_OWNER = "mendix";
+const DOCS_BRANCH_NAME = `update-mobile-release-notes-v${VERSION}`;
 const TARGET_FILE =
   "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native-10.md";
 
-if (!VERSION) {
-  console.error("VERSION env variable is required!");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const required = ["VERSION", "GITHUB_TOKEN", "GITHUB_SHA", "GITHUB_REPOSITORY"];
+const missing = required.filter((k) => !process.env[k]);
+if (missing.length) {
+  console.error("Missing env vars:", missing.join(", "));
   process.exit(1);
 }
 
@@ -43,7 +52,7 @@ function extractUnreleased() {
 
 function updateChangelog({ changelog, unreleasedContent, changelogPath }) {
   const today = getToday();
-  const newSection = `## [${VERSION}] Make it Native - ${today}\n${unreleasedContent}\n\n`;
+  const newSection = `## [${VERSION}] Make it Native - ${today}\n\n${unreleasedContent}\n\n`;
   const unreleasedRegex =
     /^## \[Unreleased\](.*?)(?=^## \[\d+\.\d+\.\d+\][^\n]*|\Z)/ms;
   const updatedChangelog = changelog.replace(
@@ -72,21 +81,21 @@ async function createRelease(unreleasedContent) {
   });
 }
 
-async function prChangelogUpdate() {
+async function createChangelogUpdatePR() {
   const git = simpleGit();
 
-  await git.checkoutLocalBranch(CHANGELOG_BRANCH);
+  await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
   await git.add("CHANGELOG.md");
   await git.commit(`chore: update CHANGELOG for v${VERSION}`);
-  await git.push("origin", CHANGELOG_BRANCH, ["--force"]);
+  await git.push("origin", CHANGELOG_BRANCH_NAME, ["--force-with-lease"]);
 
   await octokit.pulls.create({
-    owner: MAKE_IT_NATIVE_OWNER,
-    repo: MAKE_IT_NATIVE_REPO,
+    owner: process.env.GITHUB_REPOSITORY_OWNER,
+    repo: process.env.GITHUB_REPOSITORY.split("/")[1],
     title: `Update CHANGELOG for v${VERSION}`,
-    head: CHANGELOG_BRANCH,
-    base: "development",
+    head: CHANGELOG_BRANCH_NAME,
+    base: "main",
     body: "**Note:** Please do not take any action on this pull request unless it has been reviewed and approved by a member of the Mobile team.",
     draft: true,
   });
@@ -94,35 +103,43 @@ async function prChangelogUpdate() {
   process.chdir("..");
 }
 
+function injectUnreleasedToDoc(docPath, unreleasedContent) {
+  const doc = fs.readFileSync(docPath, "utf-8");
+  const frontmatterMatch = doc.match(/^---[\s\S]*?---/);
+  if (!frontmatterMatch) throw new Error("Frontmatter not found!");
+  const frontmatter = frontmatterMatch[0];
+  const rest = doc.slice(frontmatter.length).trimStart();
+
+  const firstParagraphMatch = rest.match(/^(.*?\n)(\s*\n)/s);
+  if (!firstParagraphMatch) throw new Error("First paragraph not found!");
+  const firstParagraph = firstParagraphMatch[1];
+  const afterFirstParagraph = rest.slice(firstParagraph.length).trimStart();
+
+  const date = new Date();
+  const formattedDate = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  const title = `## ${VERSION}\n\n**Release date: ${formattedDate}**`;
+
+  return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
+}
+
 async function updateDocs(unreleasedContent) {
   const git = simpleGit();
   await git.clone(
-    `https://x-access-token:${PAT}@github.com/${REPO_OWNER}/${REPO_NAME}.git`
+    `https://x-access-token:${PAT}@github.com/${DOCS_REPO_OWNER}/${DOCS_REPO_NAME}.git`
   );
-  process.chdir(REPO_NAME);
-  await git.checkoutLocalBranch(BRANCH_NAME);
-
-  function injectUnreleasedToDoc(docPath, unreleasedContent) {
-    const doc = fs.readFileSync(docPath, "utf-8");
-    const frontmatterMatch = doc.match(/^---[\s\S]*?---/);
-    if (!frontmatterMatch) throw new Error("Frontmatter not found!");
-    const frontmatter = frontmatterMatch[0];
-    const rest = doc.slice(frontmatter.length).trimStart();
-
-    const firstParagraphMatch = rest.match(/^(.*?\n)(\s*\n)/s);
-    if (!firstParagraphMatch) throw new Error("First paragraph not found!");
-    const firstParagraph = firstParagraphMatch[1];
-    const afterFirstParagraph = rest.slice(firstParagraph.length).trimStart();
-
-    return `${frontmatter}\n\n${firstParagraph}\n${unreleasedContent}\n\n${afterFirstParagraph}`;
-  }
+  process.chdir(DOCS_REPO_NAME);
+  await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
 
   const newDocContent = injectUnreleasedToDoc(TARGET_FILE, unreleasedContent);
   fs.writeFileSync(TARGET_FILE, newDocContent, "utf-8");
 
   await git.add(TARGET_FILE);
   await git.commit(`docs: update mobile release notes for v${VERSION}`);
-  await git.push("origin", BRANCH_NAME, ["--force"]);
+  await git.push("origin", DOCS_BRANCH_NAME, ["--force"]);
 
   const prBody = `
 Automated sync of the latest release notes for v${VERSION} from [make-it-native](https://github.com/mendix/make-it-native).
@@ -135,10 +152,10 @@ This pull request was automatically generated by an automation process managed b
 `;
 
   await octokit.pulls.create({
-    owner: UPSTREAM_OWNER,
-    repo: REPO_NAME,
+    owner: DOCS_UPSTREAM_OWNER,
+    repo: DOCS_REPO_NAME,
     title: `Update mobile app release notes for v${VERSION}`,
-    head: `${REPO_OWNER}:${BRANCH_NAME}`,
+    head: `${DOCS_REPO_OWNER}:${DOCS_BRANCH_NAME}`,
     base: "development",
     body: prBody,
     draft: true,
@@ -148,12 +165,18 @@ This pull request was automatically generated by an automation process managed b
 }
 
 (async () => {
-  const { changelog, unreleasedContent, changelogPath } = extractUnreleased();
+  try {
+    const { changelog, unreleasedContent, changelogPath } = extractUnreleased();
 
-  await createRelease(unreleasedContent);
-  updateChangelog({ changelog, unreleasedContent, changelogPath });
-  await prChangelogUpdate();
-  await updateDocs(unreleasedContent);
+    await createRelease(unreleasedContent);
+    updateChangelog({ changelog, unreleasedContent, changelogPath });
+    await createChangelogUpdatePR();
+    await updateDocs(unreleasedContent);
 
-  console.log("Release, changelog update, and docs PR completed!");
+    console.log("Release, changelog update, and docs PR completed!");
+    process.exit(0);
+  } catch (err) {
+    console.error("❌ Release script failed:", err);
+    process.exit(1);
+  }
 })();
