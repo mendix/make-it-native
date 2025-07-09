@@ -3,7 +3,6 @@ import path from "path";
 import { Octokit } from "@octokit/rest";
 import { fileURLToPath } from "url";
 import simpleGit from "simple-git";
-import { execSync } from "child_process";
 
 const required = [
   "MIN_VERSION",
@@ -24,7 +23,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const MIN_VERSION = process.env.MIN_VERSION;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_PAT = process.env.PAT;
 
 const GIT_AUTHOR_NAME = "MendixMobile";
@@ -36,8 +34,7 @@ const CHANGELOG_BRANCH_NAME = `update-changelog-v${MIN_VERSION}`;
 // Docs Repo Settings
 const DOCS_REPO_NAME = "docs";
 const DOCS_REPO_OWNER = "MendixMobile";
-const DOCS_UPSTREAM_OWNER = "MendixMobile";
-// const DOCS_UPSTREAM_OWNER = "mendix";
+const DOCS_UPSTREAM_OWNER = "mendix";
 const DOCS_BRANCH_NAME = `update-mobile-release-notes-v${MIN_VERSION}`;
 const TARGET_FILE =
   "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native-10.md";
