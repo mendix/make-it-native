@@ -84,6 +84,15 @@ async function createRelease(unreleasedContent) {
 async function createChangelogUpdatePR() {
   const git = simpleGit();
 
+  await git.addConfig(
+    "user.name",
+    process.env.GIT_AUTHOR_NAME || "Release Bot"
+  );
+  await git.addConfig(
+    "user.email",
+    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com"
+  );
+
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
   await git.add("CHANGELOG.md");
