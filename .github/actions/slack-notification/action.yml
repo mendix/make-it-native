@@ -21,5 +21,7 @@ runs:
         method: chat.postMessage
         token: ${{ inputs.bot-token }}
         payload: |
-          channel: ${{ inputs.channel-id }}
-          text: ${{ inputs.message }}
+          {
+            "channel": "${{ inputs.channel-id }}",
+            "text": "${{ inputs.message }}"
+          }
