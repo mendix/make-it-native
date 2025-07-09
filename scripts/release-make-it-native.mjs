@@ -144,7 +144,7 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
 
 async function listFiles() {
   try {
-    const files = await fs.readdir(folderPath, { withFileTypes: true });
+    const files = await fs.readdir(process.cwd(), { withFileTypes: true });
 
     for (const file of files) {
       if (file.isFile()) {
