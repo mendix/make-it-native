@@ -70,18 +70,8 @@ function updateChangelog({ changelog, unreleasedContent, changelogPath }) {
 async function createPRUpdateChangelog() {
   const git = simpleGit();
 
-  await git.addConfig(
-    "user.name",
-    GIT_AUTHOR_NAME,
-    false,
-    GitConfigScope.global
-  );
-  await git.addConfig(
-    "user.email",
-    GIT_AUTHOR_EMAIL,
-    false,
-    GitConfigScope.global
-  );
+  await git.addConfig("user.name", GIT_AUTHOR_NAME);
+  await git.addConfig("user.email", GIT_AUTHOR_EMAIL);
 
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
