@@ -26,8 +26,8 @@ const MIN_VERSION = process.env.MIN_VERSION;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_PAT = process.env.PAT;
 
-const GIT_AUTHOR_NAME = process.env.GIT_AUTHOR_NAME;
-const GIT_AUTHOR_EMAIL = process.env.GIT_AUTHOR_EMAIL;
+const GIT_AUTHOR_NAME = "MendixMobile";
+const GIT_AUTHOR_EMAIL = "moo@mendix.com";
 
 // Changelog Settings
 const CHANGELOG_BRANCH_NAME = `update-changelog-v${MIN_VERSION}`;
@@ -72,14 +72,14 @@ async function createPRUpdateChangelog() {
 
   await git.addConfig(
     "user.name",
-    GIT_AUTHOR_NAME || "MendixMobile",
-    undefined,
+    GIT_AUTHOR_NAME,
+    false,
     GitConfigScope.global
   );
   await git.addConfig(
     "user.email",
-    GIT_AUTHOR_EMAIL || "moo@mendix.com",
-    undefined,
+    GIT_AUTHOR_EMAIL,
+    false,
     GitConfigScope.global
   );
 
