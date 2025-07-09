@@ -149,16 +149,8 @@ async function cloneDocsRepo(git) {
 
   process.chdir(DOCS_REPO_NAME);
 
-  await git.addConfig(
-    "user.name",
-    process.env.GIT_AUTHOR_NAME || "Release Bot",
-    ["--global"]
-  );
-  await git.addConfig(
-    "user.email",
-    process.env.GIT_AUTHOR_EMAIL || "release-bot@example.com",
-    ["--global"]
-  );
+  await git.addConfig("user.name", GIT_AUTHOR_NAME, ["--global"]);
+  await git.addConfig("user.email", GIT_AUTHOR_EMAIL, ["--global"]);
 
   await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
 }
