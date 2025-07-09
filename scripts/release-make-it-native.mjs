@@ -149,7 +149,10 @@ async function cloneDocsRepo(git) {
 
   process.chdir(DOCS_REPO_NAME);
 
-  await git.addConfig("user.name", GIT_AUTHOR_NAME, ["--global"]);
+  console.log(import.meta.url);
+  console.log(path.dirname(import.meta.url));
+
+  await git.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
   await git.addConfig("user.email", GIT_AUTHOR_EMAIL, ["--global"]);
 
   await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
