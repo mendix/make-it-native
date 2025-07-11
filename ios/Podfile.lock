@@ -1896,7 +1896,7 @@ PODS:
     - RNSound/Core (= 0.11.0)
   - RNSound/Core (0.11.0):
     - React
-  - RNSVG (15.12.0):
+  - RNSVG (15.11.2):
     - React-Core
   - RNVectorIcons (10.2.0):
     - DoubleConversion
@@ -1926,10 +1926,10 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.0)
-  - SQLCipher (4.7.0):
-    - SQLCipher/standard (= 4.7.0)
-  - SQLCipher/common (4.7.0)
-  - SQLCipher/standard (4.7.0):
+  - SQLCipher (4.9.0):
+    - SQLCipher/standard (= 4.9.0)
+  - SQLCipher/common (4.9.0)
+  - SQLCipher/standard (4.9.0):
     - SQLCipher/common
   - SSZipArchive (2.4.3)
   - TouchID (4.4.1):
@@ -2418,12 +2418,12 @@ SPEC CHECKSUMS:
   RNReanimated: 5cf9d578b1b596f0c33cb3cfbfd500b272143666
   RNScreens: f7656034912d7171175c2e37108f333d7f9ca1a4
   RNSound: 436aa4de81ae87b90e1781b5dd9247df3aa4622a
-  RNSVG: e3ad69848b6357587545e0a49628b1148acf082c
+  RNSVG: 7d403633772d39f695b8a1ccb64db8499e807dac
   RNVectorIcons: 182892e7d1a2f27b52d3c627eca5d2665a22ee28
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
-  SQLCipher: ba9d0076041ed767c5bd3d3f77098318d04a403c
+  SQLCipher: 31878d8ebd27e5c96db0b7cb695c96e9f8ad77da
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   TouchID: 6d9af299007675845fe9e23bd2701f4354613366
   Yoga: 055f92ad73f8c8600a93f0e25ac0b2344c3b07e6
