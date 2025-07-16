@@ -6,14 +6,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-### Changed
-
--   Test
-
-## BREAKING CHANGE
-
--  BREAKING CHANGE
-
-## [Unreleased]
-
 -   We have fixed the svg crash issue by updating the version to the latest.
