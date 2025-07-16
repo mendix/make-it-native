@@ -239,6 +239,7 @@ dependencies {
 configurations.all {
     resolutionStrategy {
         force "androidx.lifecycle:lifecycle-viewmodel:$androidx_lifecycle_version"
+        // Apps crash during build after version 1.17.0:beta01
         force "androidx.core:core-ktx:1.16.0"
         force "androidx.core:core:1.16.0"
     }
