@@ -34,7 +34,7 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 513
-        versionName "5.0.2"
+        versionName "10.24.0"
         missingDimensionStrategy "react-native-camera", "general"
         testBuildType System.getProperty("testBuildType", "debug")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
