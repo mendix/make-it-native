@@ -1393,8 +1393,6 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-babylon (1.6.3):
-    - React
   - react-native-biometrics (3.0.1):
     - React-Core
   - react-native-ble-plx (2.0.3):
@@ -2149,7 +2147,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - "react-native-babylon (from `../node_modules/@babylonjs/react-native-iosandroid-0-71`)"
   - react-native-biometrics (from `../node_modules/react-native-biometrics`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
@@ -2328,8 +2325,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-babylon:
-    :path: "../node_modules/@babylonjs/react-native-iosandroid-0-71"
   react-native-biometrics:
     :path: "../node_modules/react-native-biometrics"
   react-native-ble-plx:
@@ -2499,8 +2494,8 @@ SPEC CHECKSUMS:
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-  op-sqlite: 137cd6d3df9b86e147fb7e2f70c8d6f97bd0941b
-  OpenSSL-Universal: d776ce24dab24323e6995dfb17c64d598885d05c
+  op-sqlite: 7c3a6a7f84f0969b96266dbd143a3793bc2bc9cf
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
@@ -2532,7 +2527,6 @@ SPEC CHECKSUMS:
   React-logger: 1935d6e6461e9c8be4c87af56c56a4876021171e
   React-Mapbuffer: 212171f037e3b22e6c2df839aa826806da480b85
   React-microtasksnativemodule: 72564d5469003687d39bfc4efad281df8efc0684
-  react-native-babylon: 2c349f0fd849b41d88587e88ee343c32cb7db0f8
   react-native-biometrics: 352e5a794bfffc46a0c86725ea7dc62deb085bdc
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: 64a732c0b8bb7f4928905e16ea8dc5cde6fb4832
@@ -2607,7 +2601,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  Yoga: 1fd059161b449018342943b095a6d4e69bcaa719
+  Yoga: 2957d0e744897870b5a377f26522e3f08cadd7ac
 
 PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
 
