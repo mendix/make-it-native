@@ -18,10 +18,6 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
-    "@babylonjs/core": "6.8.1",
-    "@babylonjs/loaders": "6.8.1",
-    "@babylonjs/react-native": "1.6.3",
-    "@babylonjs/react-native-iosandroid-0-71": "1.6.3",
     "@mendix/native": "9.0.6",
     "@op-engineering/op-sqlite": "9.2.7",
     "@gorhom/bottom-sheet": "^5.1.1",
