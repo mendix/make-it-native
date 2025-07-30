@@ -111,7 +111,7 @@ android {
 
 dependencies {
     // React Native Core
-    implementation "com.facebook.react:react-android:0.77.0"
+    implementation "com.facebook.react:react-android:0.77.3"
     implementation("com.facebook.react:hermes-android")
 
     // Mendix dependencies
