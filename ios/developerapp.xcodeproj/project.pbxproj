@@ -795,7 +795,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -860,7 +860,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1125,7 +1125,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
