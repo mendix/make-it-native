@@ -23,6 +23,17 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <!-- Required for scheduling local notifications -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <!--
+    According to Google Play policy, only apps with core functionality as an alarm clock or calendar
+    are allowed to use this (USE_EXACT_ALARM) permission.
+
+    Since our app does not fall into either category, we are commenting out this permission to comply with
+    Play Store requirements. If exact alarm functionality is needed in the future, we must use alternative
+    scheduling strategies.
+
+    Reference: https://support.google.com/googleplay/android-developer/answer/16324062?visit_id=638895316296116059-3809056551&rd=2
+    -->
+    <!-- <uses-permission android:name="android.permission.USE_EXACT_ALARM" /> -->
     <!-- Ignore deprecation: We still need this for the RN I think -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <!-- Ignore deprecation -->
@@ -118,11 +129,7 @@
         </service>
         <meta-data android:name="com.google.android.geo.API_KEY"
                    android:value="{{GEO_API_KEY}}"/>
-        <meta-data
-                android:name="com.google.ar.core"
-                android:value="optional"/>
-        <meta-data 
-                android:name="mendixnative.CookieEncryption" 
-                android:value="${cookieEncryption}"/>
+        <meta-data android:name="mendixnative.CookieEncryption" 
+                   android:value="${cookieEncryption}"/>
     </application>
 </manifest>

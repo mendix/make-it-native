@@ -782,7 +782,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,7 +795,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -847,7 +847,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -860,7 +860,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1112,7 +1112,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1125,7 +1125,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

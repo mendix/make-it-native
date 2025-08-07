@@ -1,7 +1,7 @@
 PODS:
   - boost (1.84.0)
-  - BVLinearGradient (2.5.6):
-    - React
+  - BVLinearGradient (2.8.3):
+    - React-Core
   - DoubleConversion (1.1.6)
   - fast_float (6.1.4)
   - FBLazyVector (0.77.1)
@@ -188,7 +188,7 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
-  - OpenSSL-Universal (3.3.3000)
+  - OpenSSL-Universal (3.3.3001)
   - PromisesObjC (2.4.0)
   - QRCodeReader.swift (10.1.0)
   - RCT-Folly (2024.11.18.00):
@@ -1393,8 +1393,8 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-babylon (1.6.3):
-    - React
+  - react-native-biometrics (3.0.1):
+    - React-Core
   - react-native-ble-plx (2.0.3):
     - MultiplatformBleAdapter (= 0.1.9)
     - React-Core
@@ -1888,11 +1888,9 @@ PODS:
     - React-Core
   - RNCPicker (2.11.0):
     - React-Core
-  - RNCPushNotificationIOS (1.10.1):
-    - React-Core
   - RNDateTimePicker (8.2.0):
     - React-Core
-  - RNDeviceInfo (13.0.0):
+  - RNDeviceInfo (14.0.4):
     - React-Core
   - RNFastImage (8.6.3):
     - React-Core
@@ -1944,6 +1942,11 @@ PODS:
   - RNInAppBrowser (3.6.3):
     - React-Core
   - RNLocalize (3.2.1):
+    - React-Core
+  - RNNotifee (9.1.8):
+    - React-Core
+    - RNNotifee/NotifeeCore (= 9.1.8)
+  - RNNotifee/NotifeeCore (9.1.8):
     - React-Core
   - RNPermissions (4.1.5):
     - React-Core
@@ -2094,8 +2097,6 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
-  - TouchID (4.4.1):
-    - React
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2146,7 +2147,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - "react-native-babylon (from `../node_modules/@babylonjs/react-native-iosandroid-0-71`)"
+  - react-native-biometrics (from `../node_modules/react-native-biometrics`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
@@ -2196,7 +2197,6 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
-  - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
@@ -2209,6 +2209,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - "RNNotifee (from `../node_modules/@notifee/react-native`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -2217,7 +2218,6 @@ DEPENDENCIES:
   - "RNSwanBrowser (from `../node_modules/@swan-io/react-native-browser`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - SSZipArchive
-  - TouchID (from `../node_modules/react-native-touch-id`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2325,8 +2325,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-babylon:
-    :path: "../node_modules/@babylonjs/react-native-iosandroid-0-71"
+  react-native-biometrics:
+    :path: "../node_modules/react-native-biometrics"
   react-native-ble-plx:
     :path: "../node_modules/react-native-ble-plx"
   react-native-blob-util:
@@ -2425,8 +2425,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-masked-view/masked-view"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
-  RNCPushNotificationIOS:
-    :path: "../node_modules/@react-native-community/push-notification-ios"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
@@ -2451,6 +2449,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-inappbrowser-reborn"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNNotifee:
+    :path: "../node_modules/@notifee/react-native"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNReanimated:
@@ -2465,15 +2465,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@swan-io/react-native-browser"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
-  TouchID:
-    :path: "../node_modules/react-native-touch-id"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
-  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
-  DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
+  boost: 4cb898d0bf20404aab1850c656dcea009429d6c1
+  BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
+  DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 79c4b7ec726447eec5f8593379466bd9fde1aa14
   Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
@@ -2485,7 +2483,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 913cf60d0400ebd5d6b63a28b290372ab44590dd
   FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
-  glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
+  glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   Google-Maps-iOS-Utils: f77eab4c4326d7e6a277f8e23a0232402731913a
   GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
@@ -2496,8 +2494,8 @@ SPEC CHECKSUMS:
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-  op-sqlite: 137cd6d3df9b86e147fb7e2f70c8d6f97bd0941b
-  OpenSSL-Universal: d776ce24dab24323e6995dfb17c64d598885d05c
+  op-sqlite: 7c3a6a7f84f0969b96266dbd143a3793bc2bc9cf
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
@@ -2529,7 +2527,7 @@ SPEC CHECKSUMS:
   React-logger: 1935d6e6461e9c8be4c87af56c56a4876021171e
   React-Mapbuffer: 212171f037e3b22e6c2df839aa826806da480b85
   React-microtasksnativemodule: 72564d5469003687d39bfc4efad281df8efc0684
-  react-native-babylon: 2c349f0fd849b41d88587e88ee343c32cb7db0f8
+  react-native-biometrics: 352e5a794bfffc46a0c86725ea7dc62deb085bdc
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: 64a732c0b8bb7f4928905e16ea8dc5cde6fb4832
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
@@ -2579,9 +2577,8 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
   RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
   RNCPicker: 4f6d5e8d107064be32dfc8f1bcb5a3741135db0b
-  RNCPushNotificationIOS: 87b8d16d3ede4532745e05b03c42cff33a36cc45
   RNDateTimePicker: 40ffda97d071a98a10fdca4fa97e3977102ccd14
-  RNDeviceInfo: 55264dd7cc939dad6e9c231a7621311f5277f1dc
+  RNDeviceInfo: feea80a690d2bde1fe51461cf548039258bd03f2
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNFBAnalytics: ed2ef775a5ce391ce3043b913129b07a78b64b0c
   RNFBApp: 13ca8ba0feba98d4bac2057884894dcf8eedf97f
@@ -2592,6 +2589,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: de78ee811b577ae76d679715e5e9298b23a8c278
   RNInAppBrowser: 3ff3a3b8f458aaf25aaee879d057352862edf357
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
+  RNNotifee: 4a6ee5c7deaf00e005050052d73ee6315dff7ec9
   RNPermissions: 337dcb2adb1b49dd9ec27b652fc6b28fc52478f5
   RNReanimated: 280140e1989bc33d5586cbca10bd199fd1fbdbf1
   RNScreens: e9bb7c3063237983e75d01bb45ce591cc4e7afc2
@@ -2603,8 +2601,7 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
-  Yoga: 1fd059161b449018342943b095a6d4e69bcaa719
+  Yoga: 2957d0e744897870b5a377f26522e3f08cadd7ac
 
 PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
 

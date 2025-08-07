@@ -6,14 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-### Changed
-
--   Test
-
-## BREAKING CHANGE
-
--  BREAKING CHANGE
-
 ## [3.1.8] Make it Native - 2025-4-02
 
 ### Fixes
