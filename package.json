@@ -18,7 +18,7 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
-    "@mendix/native": "10.1.7",
+    "@mendix/native": "./mendix-native-10.2.0.tgz",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "12.0.2",
     "@gorhom/bottom-sheet": "^5.1.1",
@@ -40,7 +40,7 @@
     "@react-native-masked-view/masked-view": "0.3.1",
     "@react-native-picker/picker": "2.11.0",
     "@swan-io/react-native-browser": "0.4.1",
-    "react-native": "0.77.1",
+    "react-native": "0.77.3",
     "react-native-ble-plx": "2.0.3",
     "react-native-blob-util": "0.21.2",
     "react-native-calendar-events": "2.1.0",
