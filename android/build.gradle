@@ -32,7 +32,7 @@ buildscript {
         maven { url "https://notifee.app/maven" } 
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.4.2"
+        classpath "com.android.tools.build:gradle:8.8.2"
         classpath "com.facebook.react:react-native-gradle-plugin"
         classpath "com.google.gms:google-services:4.4.2"
         classpath "de.undercouch:gradle-download-task:4.1.2"
