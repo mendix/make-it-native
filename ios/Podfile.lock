@@ -1946,7 +1946,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 9.1.8)
   - RNNotifee/NotifeeCore (9.1.8):
     - React-Core
-  - RNPermissions (5.4.2):
+  - RNPermissions (4.1.5):
     - React-Core
   - RNReanimated (3.16.1):
     - DoubleConversion
@@ -2584,7 +2584,7 @@ SPEC CHECKSUMS:
   RNInAppBrowser: 031138591f9cbf57e987d0fe97f4e73d5fc7524b
   RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
   RNNotifee: 5e3b271e8ea7456a36eec994085543c9adca9168
-  RNPermissions: a4f47362ad585ea7a9a84d03288f18d22c54595d
+  RNPermissions: e1ce3272c349e0e06c38d540353967737428336b
   RNReanimated: 20f0d150af988258289b2d6cda655bd14945a769
   RNScreens: 86e5c168cdd055a8feead28eb756ca7103918b6a
   RNSound: 436aa4de81ae87b90e1781b5dd9247df3aa4622a
