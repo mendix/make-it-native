@@ -37,7 +37,6 @@
     "@react-native-firebase/crashlytics": "17.3.0",
     "@react-native-firebase/messaging": "17.3.0",
     "@react-native-firebase/ml": "17.3.0",
-    "@react-native-masked-view/masked-view": "0.3.1",
     "@react-native-picker/picker": "2.11.0",
     "@swan-io/react-native-browser": "0.4.1",
     "react-native": "0.77.3",
