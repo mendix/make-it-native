@@ -1504,9 +1504,7 @@ PODS:
     - Yoga
   - react-native-safe-area-context (5.2.0):
     - React-Core
-  - react-native-splash-screen (3.2.0):
-    - React
-  - react-native-track-player (4.1.2):
+  - react-native-track-player (4.1.1):
     - React-Core
     - SwiftAudioEx (= 1.1.0)
   - react-native-video (6.10.0):
@@ -1883,6 +1881,8 @@ PODS:
     - React-logger (= 0.77.3)
     - React-perflogger (= 0.77.3)
     - React-utils (= 0.77.3)
+  - RNBootSplash (6.3.10):
+    - React-Core
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
@@ -2159,7 +2159,6 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-track-player (from `../node_modules/react-native-track-player`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
@@ -2193,6 +2192,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
@@ -2351,8 +2351,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-splash-screen:
-    :path: "../node_modules/react-native-splash-screen"
   react-native-track-player:
     :path: "../node_modules/react-native-track-player"
   react-native-video:
@@ -2419,6 +2417,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNBootSplash:
+    :path: "../node_modules/react-native-bootsplash"
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
@@ -2540,8 +2540,7 @@ SPEC CHECKSUMS:
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-pager-view: 68e8a65a607a6f91a1e25865002192c3c4f53fcf
   react-native-safe-area-context: 3e33e7c43c8b74dba436a5a32651cb8d7064c740
-  react-native-splash-screen: a43276f9cf4b2e65d7ce30efe372ffc528064293
-  react-native-track-player: dd56f9948e03756a217c75e0a61aa04aab65b5a1
+  react-native-track-player: 6dc2e2633265704b8ab6d8124b80239d4ed1f911
   react-native-video: 75279235027642749f1da92c456b10860c3aa13a
   react-native-view-shot: 16b52ee447420cb06810b8dd05b711d3f978efb4
   react-native-webview: 2cf4fe62b06f9ac42f92d1e2bb1345a407a13a57
@@ -2574,6 +2573,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 31015410a4a53b9fd0a908ad4d6e3e2b9a25086a
   ReactCodegen: eac5d74d85dff515b48a5c36f154bc4128f217e6
   ReactCommon: bf4612cba0fa356b529385029f470d5529dddde4
+  RNBootSplash: 866866f2a3856cd76547a24c6a63be79aeca40f8
   RNCalendarEvents: 1a67c97e7427cf16fbf60adbb4c11c0d62082eaa
   RNCAsyncStorage: 40367e8d25522dca9c3513c7b9815a184669bd97
   RNCMaskedView: de80352547bd4f0d607bf6bab363d826822bd126

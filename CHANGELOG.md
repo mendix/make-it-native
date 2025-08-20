@@ -1,5 +1,5 @@
-# Changelog
-
+# Changelo-   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
+-   Migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
 All notable changes to the Make It Native mobile app will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changes
 
 -   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
+-   Migrated from `react-native-splash-screen@3.2.0` to `react-native-bootsplash@^7.7.0` for better splash screen support and autolinking compatibility.
 
 ## [3.1.8] Make it Native - 2025-4-02
 
