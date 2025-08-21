@@ -1429,6 +1429,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-file-viewer-turbo (0.6.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-geocoder (0.5.0):
     - React
   - react-native-geolocation (3.4.0):
@@ -1914,8 +1935,6 @@ PODS:
   - RNFBML (17.3.0):
     - React-Core
     - RNFBApp
-  - RNFileViewer (2.1.5):
-    - React-Core
   - RNGestureHandler (2.23.1):
     - DoubleConversion
     - glog
@@ -2150,6 +2169,7 @@ DEPENDENCIES:
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
+  - react-native-file-viewer-turbo (from `../node_modules/react-native-file-viewer-turbo`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
@@ -2202,7 +2222,6 @@ DEPENDENCIES:
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - "RNFBML (from `../node_modules/@react-native-firebase/ml`)"
-  - RNFileViewer (from `../node_modules/react-native-file-viewer`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
   - RNLocalize (from `../node_modules/react-native-localize`)
@@ -2332,6 +2351,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
+  react-native-file-viewer-turbo:
+    :path: "../node_modules/react-native-file-viewer-turbo"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation:
@@ -2436,8 +2457,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/messaging"
   RNFBML:
     :path: "../node_modules/@react-native-firebase/ml"
-  RNFileViewer:
-    :path: "../node_modules/react-native-file-viewer"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNInAppBrowser:
@@ -2527,6 +2546,7 @@ SPEC CHECKSUMS:
   react-native-blob-util: b653f7dae5c9fa3f903af51bc2edfb8ef659022b
   react-native-camera: 22dbf8ce6a4c6a25ae49f4e2fa5859c5277f1631
   react-native-cameraroll: 0d805139369f07b822f51841801429a4049e1234
+  react-native-file-viewer-turbo: 02b2556f5193a8512c5b00fa24e0d29c1fa639cb
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
   react-native-geolocation: 697f7e4206386120bfdcf0c6a858e956360c734c
   react-native-google-maps: 992905591a0a9315b8e74faecadd72f039e41dda
@@ -2579,7 +2599,6 @@ SPEC CHECKSUMS:
   RNFBCrashlytics: 83fd3d33655ff926e3a57008ec94815ba8c2bc94
   RNFBMessaging: 8047aaea4d0e56547715085c6d2bedee31bdcd9b
   RNFBML: df509c560094cdf6fa5b8d17fde64ad504f305e9
-  RNFileViewer: 4b5d83358214347e4ab2d4ca8d5c1c90d869e251
   RNGestureHandler: 9bf6e8f72d2e72c8f7eb45986fe71a5005fb072d
   RNInAppBrowser: 031138591f9cbf57e987d0fe97f4e73d5fc7524b
   RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
