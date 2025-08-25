@@ -79,3 +79,7 @@
   @org.greenrobot.eventbus.Subscribe <methods>;
 }
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+# @sbaiahmed1/react-native-biometrics
+-keep class androidx.biometric.** { *; }
+-keep class com.sbaiahmed1.reactnativebiometrics.** { *; }
