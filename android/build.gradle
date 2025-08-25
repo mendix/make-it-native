@@ -29,7 +29,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://notifee.app/maven" } 
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.8.2"
