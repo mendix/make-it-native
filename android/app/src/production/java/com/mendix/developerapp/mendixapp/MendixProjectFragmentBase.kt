@@ -11,7 +11,6 @@ import com.mendix.developerapp.MendixBaseFragment
 import com.mendix.developerapp.loading.ProjectLoaderViewModel
 import com.mendix.developerapp.ui.theme.MyApplicationTheme
 import com.mendix.developerapp.utilities.GlobalTouchEventListener
-import org.devio.rn.splashscreen.SplashScreen
 
 open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventListener {
     private lateinit var composeView: ComposeView
@@ -36,9 +35,11 @@ open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventLis
 
         viewModel.status.observe(viewLifecycleOwner) {
             if (it === ProjectLoaderViewModel.STATUS_SUCCESS) {
-                SplashScreen.show(requireActivity())
+                // react-native-bootsplash handles the native splash screen automatically
+                // Splash screen management is handled from JavaScript
             } else {
-                SplashScreen.hide(requireActivity())
+                // react-native-bootsplash will be hidden from JavaScript when appropriate
+                // No need to manually hide it here
             }
         }
 
