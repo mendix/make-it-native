@@ -1393,8 +1393,6 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-biometrics (3.0.1):
-    - React-Core
   - react-native-ble-plx (2.0.3):
     - MultiplatformBleAdapter (= 0.1.9)
     - React-Core
@@ -1409,6 +1407,27 @@ PODS:
   - react-native-camera/RN (3.40.0):
     - React-Core
   - react-native-cameraroll (7.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-file-viewer-turbo (0.6.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1506,7 +1525,7 @@ PODS:
     - React-Core
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-track-player (4.1.2):
+  - react-native-track-player (4.1.1):
     - React-Core
     - SwiftAudioEx (= 1.1.0)
   - react-native-video (6.10.0):
@@ -1883,11 +1902,30 @@ PODS:
     - React-logger (= 0.77.3)
     - React-perflogger (= 0.77.3)
     - React-utils (= 0.77.3)
+  - ReactNativeBiometrics (0.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
-    - React-Core
-  - RNCMaskedView (0.3.1):
     - React-Core
   - RNCPicker (2.11.0):
     - React-Core
@@ -1919,8 +1957,6 @@ PODS:
   - RNFBML (17.3.0):
     - React-Core
     - RNFBApp
-  - RNFileViewer (2.1.5):
-    - React-Core
   - RNGestureHandler (2.23.1):
     - DoubleConversion
     - glog
@@ -1951,7 +1987,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 9.1.8)
   - RNNotifee/NotifeeCore (9.1.8):
     - React-Core
-  - RNPermissions (4.1.5):
+  - RNPermissions (5.4.2):
     - React-Core
   - RNReanimated (3.16.1):
     - DoubleConversion
@@ -2146,11 +2182,11 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - react-native-biometrics (from `../node_modules/react-native-biometrics`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
+  - react-native-file-viewer-turbo (from `../node_modules/react-native-file-viewer-turbo`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
@@ -2193,9 +2229,9 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "ReactNativeBiometrics (from `../node_modules/@sbaiahmed1/react-native-biometrics`)"
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
-  - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
@@ -2205,7 +2241,6 @@ DEPENDENCIES:
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - "RNFBML (from `../node_modules/@react-native-firebase/ml`)"
-  - RNFileViewer (from `../node_modules/react-native-file-viewer`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
   - RNLocalize (from `../node_modules/react-native-localize`)
@@ -2325,8 +2360,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-biometrics:
-    :path: "../node_modules/react-native-biometrics"
   react-native-ble-plx:
     :path: "../node_modules/react-native-ble-plx"
   react-native-blob-util:
@@ -2335,6 +2368,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
+  react-native-file-viewer-turbo:
+    :path: "../node_modules/react-native-file-viewer-turbo"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation:
@@ -2419,12 +2454,12 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeBiometrics:
+    :path: "../node_modules/@sbaiahmed1/react-native-biometrics"
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
-  RNCMaskedView:
-    :path: "../node_modules/@react-native-masked-view/masked-view"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
   RNDateTimePicker:
@@ -2443,8 +2478,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/messaging"
   RNFBML:
     :path: "../node_modules/@react-native-firebase/ml"
-  RNFileViewer:
-    :path: "../node_modules/react-native-file-viewer"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNInAppBrowser:
@@ -2527,11 +2560,11 @@ SPEC CHECKSUMS:
   React-logger: a23563f96a622637d7cce687bdf304929104effd
   React-Mapbuffer: 1864935968d15b9b73d8e413d29c780f0ab50038
   React-microtasksnativemodule: 3b784cf40f7c3c9500b9a5f9e4eec5c9bbfbef8f
-  react-native-biometrics: 43ed5b828646a7862dbc7945556446be00798e7d
   react-native-ble-plx: 2dd8780ee8d34c60399aaa897249ed1860ebef10
   react-native-blob-util: b653f7dae5c9fa3f903af51bc2edfb8ef659022b
   react-native-camera: 22dbf8ce6a4c6a25ae49f4e2fa5859c5277f1631
   react-native-cameraroll: 0d805139369f07b822f51841801429a4049e1234
+  react-native-file-viewer-turbo: 02b2556f5193a8512c5b00fa24e0d29c1fa639cb
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
   react-native-geolocation: 697f7e4206386120bfdcf0c6a858e956360c734c
   react-native-google-maps: 992905591a0a9315b8e74faecadd72f039e41dda
@@ -2541,7 +2574,7 @@ SPEC CHECKSUMS:
   react-native-pager-view: 68e8a65a607a6f91a1e25865002192c3c4f53fcf
   react-native-safe-area-context: 3e33e7c43c8b74dba436a5a32651cb8d7064c740
   react-native-splash-screen: a43276f9cf4b2e65d7ce30efe372ffc528064293
-  react-native-track-player: dd56f9948e03756a217c75e0a61aa04aab65b5a1
+  react-native-track-player: 6dc2e2633265704b8ab6d8124b80239d4ed1f911
   react-native-video: 75279235027642749f1da92c456b10860c3aa13a
   react-native-view-shot: 16b52ee447420cb06810b8dd05b711d3f978efb4
   react-native-webview: 2cf4fe62b06f9ac42f92d1e2bb1345a407a13a57
@@ -2574,9 +2607,9 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 31015410a4a53b9fd0a908ad4d6e3e2b9a25086a
   ReactCodegen: eac5d74d85dff515b48a5c36f154bc4128f217e6
   ReactCommon: bf4612cba0fa356b529385029f470d5529dddde4
+  ReactNativeBiometrics: f56337d452bec236502d5ef4a4c86ec2a38214d0
   RNCalendarEvents: 1a67c97e7427cf16fbf60adbb4c11c0d62082eaa
   RNCAsyncStorage: 40367e8d25522dca9c3513c7b9815a184669bd97
-  RNCMaskedView: de80352547bd4f0d607bf6bab363d826822bd126
   RNCPicker: 124b4fb5859ba1a3fd53a91e16d1e7a0fc016e59
   RNDateTimePicker: 818460dc31b0dc5ec58289003e27dd8d022fb79c
   RNDeviceInfo: d863506092aef7e7af3a1c350c913d867d795047
@@ -2586,12 +2619,11 @@ SPEC CHECKSUMS:
   RNFBCrashlytics: 83fd3d33655ff926e3a57008ec94815ba8c2bc94
   RNFBMessaging: 8047aaea4d0e56547715085c6d2bedee31bdcd9b
   RNFBML: df509c560094cdf6fa5b8d17fde64ad504f305e9
-  RNFileViewer: 4b5d83358214347e4ab2d4ca8d5c1c90d869e251
   RNGestureHandler: 9bf6e8f72d2e72c8f7eb45986fe71a5005fb072d
   RNInAppBrowser: 031138591f9cbf57e987d0fe97f4e73d5fc7524b
   RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
   RNNotifee: 5e3b271e8ea7456a36eec994085543c9adca9168
-  RNPermissions: e1ce3272c349e0e06c38d540353967737428336b
+  RNPermissions: a4f47362ad585ea7a9a84d03288f18d22c54595d
   RNReanimated: 20f0d150af988258289b2d6cda655bd14945a769
   RNScreens: 86e5c168cdd055a8feead28eb756ca7103918b6a
   RNSVG: 4903d466c3a877644d5219dbc1d97f9ef9e4a3cc
