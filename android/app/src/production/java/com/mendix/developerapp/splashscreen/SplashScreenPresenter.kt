@@ -1,12 +1,13 @@
 import android.app.Activity
 import com.zoontek.rnbootsplash.RNBootSplash
+import com.mendix.developerapp.R
 
 class SplashScreenPresenter {
-    override fun show(activity: Activity) {
-        RNBootSplash.init(activity)
+    fun show(activity: Activity) {
+        RNBootSplash.init(activity, R.style.BootTheme)
     }
 
-    override fun hide(activity: Activity) {
-        RNBootSplash.hide(activity, true)
+    fun hide(activity: Activity) {
+        // RNBootSplash.hide() should be called from JS/TS code
     }
 }
