@@ -99,7 +99,7 @@
     </style>
 
     <!-- BootSplash theme. -->
-    <style name="BootTheme" parent="Theme.SplashScreen">
+    <style name="BootTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 </resources>
