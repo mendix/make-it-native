@@ -18,6 +18,7 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
+    "@d11/react-native-fast-image": "8.11.1",
     "@mendix/native": "10.2.0",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "12.0.2",
@@ -64,7 +65,6 @@
     "react-native-svg": "15.11.1",
     "react-native-system-navigation-bar": "2.6.3",
     "react-native-tab-view": "3.5.2",
-    "react-native-fast-image": "8.6.3",
     "react-native-vector-icons": "10.2.0",
     "react-native-video": "6.10.0",
     "react-native-view-shot": "4.0.3",
