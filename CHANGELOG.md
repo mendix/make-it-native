@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changes
 
+-   Updated `react-native-maps` dependency from 1.14.0 to 1.20.1.
 -   Removed `@react-native-masked-view/masked-view` dependency.
 -   We migrated from react-native-file-viewer to react-native-file-viewer-turbo for new architecture compatibility
 -   File viewer now uses modal to display content
