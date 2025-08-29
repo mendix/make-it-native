@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   File viewer now uses modal to display content
 -   We migrated from react-native-biometrics to @sbaiahmed1/react-native-biometrics for new architecture compatibility
 -   We have removed react-native-system-navigation-bar dependency. Navigation bar visibility is now handled by the react-native-video package.
+-   We migrated from react-native-fast-image to @d11/react-native-fast-image for new architecture compatibility.
 
 ## [3.1.8] Make it Native - 2025-4-02
 
