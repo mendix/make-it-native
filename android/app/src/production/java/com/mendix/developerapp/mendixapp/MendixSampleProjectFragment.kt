@@ -7,11 +7,10 @@ import com.mendix.developerapp.R
 import com.mendix.developerapp.sampelapps.SampleAppsManager
 import com.mendix.mendixnative.react.MxConfiguration
 import com.mendix.mendixnative.react.clearData
-import org.devio.rn.splashscreen.SplashScreen
 
 class MendixSampleProjectFragment : MendixProjectFragmentBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        SplashScreen.show(requireActivity())
+        // react-native-bootsplash handles the native splash screen automatically
         MxConfiguration.setDefaultAppNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultDatabaseNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultFilesDirectoryOrDefault(SampleAppsManager.appName)

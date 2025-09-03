@@ -1,14 +1,15 @@
 package com.mendix.developerapp.splashscreen
 
 import android.app.Activity
+import com.zoontek.rnbootsplash.RNBootSplash
+import com.mendix.developerapp.R
 import com.mendix.mendixnative.react.splash.MendixSplashScreenPresenter
-import org.devio.rn.splashscreen.SplashScreen
 
 class SplashScreenPresenter : MendixSplashScreenPresenter {
     override fun show(activity: Activity) {
-        hide(activity)
-        SplashScreen.show(activity, true)
+        RNBootSplash.init(activity, R.style.BootTheme)
     }
 
-    override fun hide(activity: Activity) = SplashScreen.hide(activity)
+    override fun hide(activity: Activity) {
+    }
 }
