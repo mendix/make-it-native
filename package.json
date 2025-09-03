@@ -18,7 +18,7 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
-    "@mendix/native": "10.2.0",
+    "@mendix/native": "./mendix-native-10.2.0.tgz",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "12.0.2",
     "@gorhom/bottom-sheet": "^5.1.1",
@@ -59,8 +59,8 @@
     "react-native-reanimated": "3.16.1",
     "react-native-safe-area-context": "5.2.0",
     "react-native-screens": "4.6.0",
-    "react-native-sound": "0.11.0",
-    "react-native-splash-screen": "3.2.0",
+    "react-native-track-player": "4.1.1",
+    "react-native-bootsplash": "6.3.10",
     "react-native-svg": "15.11.1",
     "react-native-tab-view": "3.5.2",
     "react-native-fast-image": "8.6.3",

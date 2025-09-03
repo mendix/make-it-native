@@ -164,7 +164,6 @@ dependencies {
     implementation "androidx.camera:camera-view:$camerax_version"
     implementation 'com.google.mlkit:barcode-scanning:17.3.0'
     implementation "com.google.guava:guava:31.0.1-android"
-    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation project(':react-native-localize')
 
     androidTestImplementation "junit:junit:4.13.2"
