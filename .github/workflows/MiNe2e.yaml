@@ -7,8 +7,8 @@ on:
         description: "Provide the SP version to be used (e.g., 10.14.0.43709) - has to be a released version (Default: latest from Mendix versions.json)"
         required: false
         default: ""
-  push:
-  pull_request:
+  # push:
+  # pull_request:
 
 permissions:
   packages: write
