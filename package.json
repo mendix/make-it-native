@@ -15,7 +15,8 @@
     "ios:debug": "cd ios && arch -x86_64 fastlane debug_internal",
     "snyk": "npm run snyk:android && npm run snyk:ios",
     "snyk:ios": "cd ios && snyk monitor --org=appdev --project-name=developerapp-ios${SNYK_SUBPROJECT} --prune-repeated-subdependencies --debug",
-    "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
+    "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}",
+    "run job": "gh workflow run MiNe2e.yaml --ref moo/MOO-1455-setup-MiN-test-job"
   },
   "dependencies": {
     "@mendix/native": "10.2.0",

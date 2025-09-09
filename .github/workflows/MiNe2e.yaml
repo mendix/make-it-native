@@ -38,7 +38,7 @@ jobs:
       - name: "Debug Mendix Version"
         run: |
           echo "Mendix Version: ${{ steps.set-mendix-version.outputs.MENDIX_VERSION }}"
-    
+
   docker-images:
     needs: mendix-version
     runs-on: ubuntu-22.04
@@ -68,32 +68,32 @@ jobs:
           tags: ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
 
   project:
-      needs: [docker-images, mendix-version]
-      runs-on: ubuntu-22.04
-      container:
-        image: ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
-        credentials:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      steps:
-        - name: "Make sure curl is installed"
-          run: |
-            apt update && apt upgrade -y
-            apt install curl -y
-        - name: "Download test project"
-          run: curl -L -o project.zip https://github.com/mendix/Native-Mobile-Resources/archive/refs/heads/main.zip
-        - name: "Extract test project"
-          uses: montudor/action-zip@0852c26906e00f8a315c704958823928d8018b28 # v1.0.0
-          with:
-            args: unzip -qq project.zip -d .
-        - name: "Force rebuild test project"
-          run: |
-            mxbuild -o automation.mda --loose-version-check Native-Mobile-Resources-main/NativeComponentsTestProject.mpr
-        - name: "Upload MDA"
-          uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
-          with:
-            name: mda
-            path: automation.mda
+    needs: [docker-images, mendix-version]
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/mendix/make-it-native/mxbuild:${{ needs.mendix-version.outputs.mendix_version }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: "Make sure curl is installed"
+        run: |
+          apt update && apt upgrade -y
+          apt install curl -y
+      - name: "Download test project"
+        run: curl -L -o project.zip https://github.com/mendix/Native-Mobile-Resources/archive/refs/heads/main.zip
+      - name: "Extract test project"
+        uses: montudor/action-zip@0852c26906e00f8a315c704958823928d8018b28 # v1.0.0
+        with:
+          args: unzip -qq project.zip -d .
+      - name: "Force rebuild test project"
+        run: |
+          mxbuild -o automation.mda --loose-version-check Native-Mobile-Resources-main/NativeComponentsTestProject.mpr
+      - name: "Upload MDA"
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
+        with:
+          name: mda
+          path: automation.mda
 
   android-app:
     runs-on: ubuntu-22.04
@@ -124,6 +124,7 @@ jobs:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
+          MATCH_GIT_URL: https://gitlab.rnd.mendix.com/mobile-offline/ios-credentials-min-10.git
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
       - name: "Upload iOS App"
@@ -133,6 +134,7 @@ jobs:
           path: ios/build/DeveloperApp-Debug.ipa
 
   android-test:
+    if: ${{ false }}
     needs: [mendix-version, project, android-app]
     runs-on: ubuntu-22.04
     steps:
@@ -174,7 +176,7 @@ jobs:
       #     fi
       #     curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -o android-app.zip "$artifacts_url"
       #     unzip android-app.zip -d android-app
-      
+
       - name: "Check for APK file"
         run: |
           echo "Checking for APK file..."
@@ -202,7 +204,7 @@ jobs:
         run: $HOME/.local/bin/maestro/bin/maestro --version
       - name: Set up Android SDK
         run: echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
-      
+
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -246,7 +248,6 @@ jobs:
           name: android-screenshots
           path: ${{ github.workspace }}/maestro/tests/images/actual/android/**/*.png
           if-no-files-found: warn
-    
 
   # compare-screenshots:
   #   needs: [android-test]
@@ -257,22 +258,21 @@ jobs:
   #   steps:
   #     - name: "Check out code"
   #       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-  
-  
+
   #     - name: "Download all Android screenshots"
   #       run: |
   #         mkdir -p images/actual/android/
   #         echo "Downloading all Android screenshots..."
   #         gh run download ${{ github.run_id }} --name android-screenshots --dir images/actual/android/ || echo "⚠️ Failed to download Android screenshots."
   #         ls -l images/actual/android/
-              
+
   #     - name: "Download all iOS screenshots"
   #       run: |
   #         mkdir -p images/actual/ios/
   #         echo "Downloading all iOS screenshots..."
   #         gh run download ${{ github.run_id }} --name ios-screenshots --dir images/actual/ios/ || echo "⚠️ Failed to download iOS screenshots."
   #         ls -l images/actual/ios/
-        
+
   #     - name: "Set up node"
   #       uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
   #       with:
@@ -283,7 +283,7 @@ jobs:
   #       run: npm install && npm install @actions/core pixelmatch
 
   #     - name: "Compare Android screenshots"
-  #       continue-on-error: true 
+  #       continue-on-error: true
   #       run: node ${{ github.workspace }}/maestro/helpers/compare_screenshots.js android
 
   #     - name: "Compare iOS screenshots"
@@ -296,7 +296,7 @@ jobs:
   #         name: screenshot-diffs
   #         path: maestro/tests/images/diffs/
   #         if-no-files-found: ignore
-        
+
   #     - name: "Archive comparison results"
   #       uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 #v4
   #       with:

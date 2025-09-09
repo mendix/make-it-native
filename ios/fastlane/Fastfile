@@ -29,13 +29,20 @@ platform :ios do
     disable_automatic_code_signing
     
     UI.message("Get the certificates and profiles")
+    auth_args = {}
+    if ENV["MATCH_GIT_PRIVATE_KEY"] && !ENV["MATCH_GIT_PRIVATE_KEY"].empty?
+      auth_args[:git_private_key] = ENV["MATCH_GIT_PRIVATE_KEY"]
+    elsif ENV["MATCH_GIT_BASIC_AUTHORIZATION"] && !ENV["MATCH_GIT_BASIC_AUTHORIZATION"].empty?
+      auth_args[:git_basic_authorization] = ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    end
     match(
       type:"appstore",
       api_key:api_key,
       keychain_name:keychain_name,
       keychain_password: ENV["KEYCHAIN_PASSWORD"],
-      git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+      git_url: ENV["MATCH_GIT_URL"],
       readonly: false,
+      **auth_args,
     )
 
     UI.message("Set version number")
@@ -100,13 +107,20 @@ platform :ios do
     disable_automatic_code_signing
     
     UI.message("Get the certificates and profiles")
+    auth_args = {}
+    if ENV["MATCH_GIT_PRIVATE_KEY"] && !ENV["MATCH_GIT_PRIVATE_KEY"].empty?
+      auth_args[:git_private_key] = ENV["MATCH_GIT_PRIVATE_KEY"]
+    elsif ENV["MATCH_GIT_BASIC_AUTHORIZATION"] && !ENV["MATCH_GIT_BASIC_AUTHORIZATION"].empty?
+      auth_args[:git_basic_authorization] = ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
+    end
     match(
       type:"appstore",
       api_key:api_key,
       keychain_name:keychain_name,
       keychain_password: ENV["KEYCHAIN_PASSWORD"],
-      git_basic_authorization:ENV["MATCH_GIT_BASIC_AUTHORIZATION"],
+      git_url: ENV["MATCH_GIT_URL"],
       readonly: false,
+      **auth_args,
     )
 
     UI.message("Set version number")
