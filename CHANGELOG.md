@@ -1,4 +1,5 @@
-# Changelo-   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
+# Changelog   
+-   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
 -   Migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
 All notable changes to the Make It Native mobile app will be documented in this file.
 
