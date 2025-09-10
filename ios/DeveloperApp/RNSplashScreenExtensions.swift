@@ -1,6 +1,6 @@
 import Foundation
 
-extension RNSplashScreen {
+extension RNBootSplash {
   static var loadingView: UIView? = nil;
 
   static func showStoryBoard(_ name: String, rootView: UIView) {

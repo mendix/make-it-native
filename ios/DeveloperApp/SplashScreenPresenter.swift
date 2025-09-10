@@ -3,11 +3,13 @@ import Foundation
 class SplashScreenPresenter: SplashScreenPresenterProtocol  {
   func show(_ rootView: UIView?) {
     if (rootView != nil) {
-      RNSplashScreen.showStoryBoard("LaunchScreen", rootView: rootView!)
+      RNBootSplash.showStoryBoard("LaunchScreen", rootView: rootView!)
     }
   }
 
   func hide() {
-    RNSplashScreen.hideStoryBoard();
+    // RNBootSplash automatically handles hiding when the React Native app is ready
+    // No explicit hide call needed with the new API
+    RNBootSplash.hideStoryBoard()
   }
 }
