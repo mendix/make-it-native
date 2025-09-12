@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changes
 
+-   Migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features
 -   Removed `@react-native-masked-view/masked-view` dependency.
 -   We migrated from react-native-file-viewer to react-native-file-viewer-turbo for new architecture compatibility
 -   File viewer now uses modal to display content
