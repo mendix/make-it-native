@@ -8,8 +8,6 @@ class SplashScreenPresenter: SplashScreenPresenterProtocol  {
   }
 
   func hide() {
-    // RNBootSplash automatically handles hiding when the React Native app is ready
-    // No explicit hide call needed with the new API
     RNBootSplash.hideStoryBoard()
   }
 }
