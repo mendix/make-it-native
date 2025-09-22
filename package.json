@@ -18,7 +18,7 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
-    "@mendix/native": "9.0.7",
+    "@mendix/native": "./mendix-native-9.1.0.tgz",
     "@op-engineering/op-sqlite": "9.2.7",
     "@gorhom/bottom-sheet": "^5.1.1",
     "@react-native-async-storage/async-storage": "2.0.0",
