@@ -1,3 +1,5 @@
+import MendixNative
+
 extension MendixReactWindow {
   open override var canBecomeFirstResponder: Bool {
     return true

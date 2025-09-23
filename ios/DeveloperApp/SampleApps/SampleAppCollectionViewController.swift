@@ -1,5 +1,6 @@
 import UIKit
 import SwiftUI
+import MendixNative
 
 class SampleAppCollectionViewController: UIViewController {
   private let config = SampleAppsConfig()
@@ -52,12 +53,8 @@ class SampleAppCollectionViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.destination is MendixAppViewController {
       let sampleApp = sampleApps[currentSelectedSampleAppIndex]
-      
-      AppPreferences.devMode(false)
-      let runtimeUrl = AppUrl.forRuntime(sampleApp.runtimeUrl)!
-      let bundleUrl = Bundle.main.url(forResource: "Bundles/\(sampleApp.id)/index", withExtension: "bundle") ?? AppUrl.forBundle(sampleApp.runtimeUrl, port: AppPreferences.getRemoteDebuggingPackagerPort(), isDebuggingRemotely: false, isDevModeEnabled: false)
-      
-      ReactNative.instance.setup(MendixApp(sampleApp.id, bundleUrl: bundleUrl!, runtimeUrl: runtimeUrl, warningsFilter: WarningsFilter.none, isDeveloperApp: false, clearDataAtLaunch: true, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil), enableThreeFingerGestures: true), launchOptions: nil)
+      AppPreferences.devModeEnabled = false
+      ReactNative.instance.setup(MendixAppEntryType.sampleApp(sampleApp).mendixApp, launchOptions: nil)
     }
   }
   

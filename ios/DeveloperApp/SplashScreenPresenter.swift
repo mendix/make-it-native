@@ -1,13 +1,14 @@
 import Foundation
+import MendixNative
 
 class SplashScreenPresenter: SplashScreenPresenterProtocol  {
   func show(_ rootView: UIView?) {
-    if (rootView != nil) {
-      RNSplashScreen.showStoryBoard("LaunchScreen", rootView: rootView!)
+    if let rootView {
+      RNSplashScreen.showStoryBoard(.launchScreen, rootView: rootView)
     }
   }
 
   func hide() {
-    RNSplashScreen.hideStoryBoard();
+    RNSplashScreen.hideStoryBoard()
   }
 }
