@@ -11,6 +11,8 @@ import com.mendix.developerapp.MendixBaseFragment
 import com.mendix.developerapp.loading.ProjectLoaderViewModel
 import com.mendix.developerapp.ui.theme.MyApplicationTheme
 import com.mendix.developerapp.utilities.GlobalTouchEventListener
+import com.zoontek.rnbootsplash.RNBootSplash
+import com.mendix.developerapp.R
 
 open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventListener {
     private lateinit var composeView: ComposeView
@@ -32,6 +34,14 @@ open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventLis
         savedInstanceState: Bundle?
     ): View? {
         val view = super.onCreateView(inflater, container, savedInstanceState)
+
+        viewModel.status.observe(viewLifecycleOwner) {
+            if (it === ProjectLoaderViewModel.STATUS_SUCCESS) {
+                RNBootSplash.init(requireActivity(), R.style.BootTheme)
+            }else{
+                RNBootSplash.hide(requireActivity());
+            }
+        }
 
         /**
          * Why aren't we just attaching to ReactRootView directly? ReactRootView is fairly special.

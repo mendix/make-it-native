@@ -7,9 +7,11 @@ import com.mendix.mendixnative.react.splash.MendixSplashScreenPresenter
 
 class SplashScreenPresenter : MendixSplashScreenPresenter {
     override fun show(activity: Activity) {
+        hide(activity)
         RNBootSplash.init(activity, R.style.BootTheme)
     }
 
     override fun hide(activity: Activity) {
+        RNBootSplash.hide(activity);
     }
 }

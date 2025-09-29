@@ -7,10 +7,12 @@ import com.mendix.developerapp.R
 import com.mendix.developerapp.sampelapps.SampleAppsManager
 import com.mendix.mendixnative.react.MxConfiguration
 import com.mendix.mendixnative.react.clearData
+import com.zoontek.rnbootsplash.RNBootSplash
+
 
 class MendixSampleProjectFragment : MendixProjectFragmentBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // react-native-bootsplash handles the native splash screen automatically
+        RNBootSplash.init(requireActivity(), R.style.BootTheme)
         MxConfiguration.setDefaultAppNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultDatabaseNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultFilesDirectoryOrDefault(SampleAppsManager.appName)
