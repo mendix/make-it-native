@@ -1523,9 +1523,6 @@ PODS:
     - Yoga
   - react-native-safe-area-context (5.2.0):
     - React-Core
-  - react-native-track-player (4.1.1):
-    - React-Core
-    - SwiftAudioEx (= 1.1.0)
   - react-native-video (6.10.0):
     - DoubleConversion
     - glog
@@ -2098,6 +2095,11 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNSVG (15.11.1):
     - React-Core
   - RNSwanBrowser (0.4.1):
@@ -2131,7 +2133,6 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
-  - SwiftAudioEx (1.1.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2195,7 +2196,6 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-track-player (from `../node_modules/react-native-track-player`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -2248,6 +2248,7 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - "RNSwanBrowser (from `../node_modules/@swan-io/react-native-browser`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -2280,7 +2281,6 @@ SPEC REPOS:
     - SDWebImageWebPCoder
     - SocketRocket
     - SSZipArchive
-    - SwiftAudioEx
 
 EXTERNAL SOURCES:
   boost:
@@ -2386,8 +2386,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-track-player:
-    :path: "../node_modules/react-native-track-player"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -2492,6 +2490,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNSwanBrowser:
@@ -2573,7 +2573,6 @@ SPEC CHECKSUMS:
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
   react-native-pager-view: c3b8efd9000368320e3710c01f38a83bd2170779
   react-native-safe-area-context: 849d7df29ecb2a7155c769c0b76849ba952c2aa3
-  react-native-track-player: 82ef1756ffeea61140fea17519ecd6d64ec3cf3e
   react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
   react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
   react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
@@ -2626,6 +2625,7 @@ SPEC CHECKSUMS:
   RNPermissions: 6e63e35bc999984014fa6d610c2e9b311c28c1ff
   RNReanimated: 280140e1989bc33d5586cbca10bd199fd1fbdbf1
   RNScreens: e9bb7c3063237983e75d01bb45ce591cc4e7afc2
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: 515a902fc18a375907eb4c3abec0b803fbfa37ef
   RNSwanBrowser: af8718931e79c8077be3cf021d1bc270ae666503
   RNVectorIcons: 85ed086927e7548461d593e68b190c38a6606a05
@@ -2633,7 +2633,6 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
   Yoga: 7d51419602153919f32aec72812e324d495ee49d
 
 PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
