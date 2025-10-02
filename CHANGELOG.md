@@ -1,5 +1,4 @@
 # Changelog   
--   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
 -   Migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
 All notable changes to the Make It Native mobile app will be documented in this file.
 
@@ -14,7 +13,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   File viewer now uses modal to display content
 -   We migrated from react-native-biometrics to @sbaiahmed1/react-native-biometrics for new architecture compatibility
 -   We have removed react-native-system-navigation-bar dependency. Navigation bar visibility is now handled by the react-native-video package.
--   Migrated from `react-native-sound` to `react-native-track-player` for improved audio playback capabilities and reliability.
 -   Migrated from `react-native-splash-screen` to `react-native-bootsplash` for better splash screen support and autolinking compatibility.
 
 ## [3.1.8] Make it Native - 2025-4-02
