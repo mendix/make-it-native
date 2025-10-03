@@ -106,7 +106,7 @@ abstract_target "Mendix" do
         if target.name == 'react-native-video'
           config.build_settings['SWIFT_VERSION'] = '5.0'
         end
-        if target.name == 'react-native-vision-camera'
+        if target.name == 'VisionCamera'
           config.build_settings['SWIFT_VERSION'] = '5.2'
         end
       end
