@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04222F8220403EC30092F0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04222F8120403EC30092F0A0 /* AppDelegate.swift */; };
-		04222FB22040470B0092F0A0 /* MendixReactWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04222FB12040470B0092F0A0 /* MendixReactWindowExtensions.swift */; };
 		0433D0C820878BA6001EDC7B /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433D0C720878BA6001EDC7B /* PaddingTextField.swift */; };
 		046CD08F20406110007291F9 /* OpenAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD08E20406110007291F9 /* OpenAppViewController.swift */; };
 		047B674A22B1080200FF5FC3 /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 047B674922B1080200FF5FC3 /* Bundles */; };
@@ -29,13 +28,10 @@
 		2C6E88AF2577E0580006B301 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6E88AE2577E0580006B301 /* Home.storyboard */; };
 		2C6E88BB2577E1BD0006B301 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E88BA2577E1BD0006B301 /* HomeViewController.swift */; };
 		2C887F5C24B78D640003DC53 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */; };
-		2C887FE524B89C200003DC53 /* RNSplashScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */; };
 		2CCCE91925A367F80087AD16 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCE91825A367F80087AD16 /* Colors.xcassets */; };
 		2CF2021525C30BCA00395332 /* LocalNetworkPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2021425C30BCA00395332 /* LocalNetworkPermissionService.swift */; };
-		6D631AFF82EFB03018D699AD /* libPods-Mendix-DeveloperApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0265C1A0BC85D1CEF83C96D0 /* libPods-Mendix-DeveloperApp.a */; };
 		6E0DD47E2A4354E900A21A54 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DD47D2A4354E900A21A54 /* HistoryManager.swift */; };
 		6E1EA91C2A4AD72B00C430A4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EA91B2A4AD72B00C430A4 /* LaunchScreenViewController.swift */; };
-		6E21481C2B90B6F000430472 /* mendixnative.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E21481B2B90B6F000430472 /* mendixnative.xcframework */; };
 		6E5FE7CE2A43017300B53D51 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5FE7CD2A43017300B53D51 /* HomeView.swift */; };
 		6E6C9B402A406C99002F788D /* HelpListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C9B3F2A406C99002F788D /* HelpListTile.swift */; };
 		6E6C9B422A408839002F788D /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C9B412A408839002F788D /* URLImage.swift */; };
@@ -59,6 +55,8 @@
 		6EF5DA0D2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EF5DA0C2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */; };
 		6EF5DA862A385C72009B4F09 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5DA852A385C72009B4F09 /* HistoryView.swift */; };
 		6EFB6B452A3B3EFE006D8C2C /* HelpHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB6B442A3B3EFE006D8C2C /* HelpHostViewController.swift */; };
+		8629648F682A58A3668DD616 /* libPods-Mendix-DeveloperApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7907A1EB3C7F64CA752058 /* libPods-Mendix-DeveloperApp.a */; };
+		9EA4C6632E8D2C4D0050BB15 /* MendixAppEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA4C6622E8D2C440050BB15 /* MendixAppEntryType.swift */; };
 		C538FD0A2BFF285B00140B7E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C538FD092BFF285B00140B7E /* PrivacyInfo.xcprivacy */; };
 		E7CA7B3A2A320CFA00F8EBF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CA7B392A320CFA00F8EBF0 /* Constants.swift */; };
 		E7EF3D222A3346E800A04EA8 /* LaunchScreenUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF3D212A3346E800A04EA8 /* LaunchScreenUIView.swift */; };
@@ -72,7 +70,6 @@
 		EB76E464229E88EF00E6AE5E /* NotoSansDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB76E463229E88EF00E6AE5E /* NotoSansDisplay-Regular.ttf */; };
 		EBA1256821B95D7100681FC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBA1256721B95D7100681FC6 /* GoogleService-Info.plist */; };
 		EBAE9AEB22A9089A0045660A /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE9AEA22A9089A0045660A /* URLValidator.swift */; };
-		EBB5240622EE2E9600557FEB /* RCTRootViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5240522EE2E9500557FEB /* RCTRootViewExtension.swift */; };
 		EBB5240C22EE335400557FEB /* MendixApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB5240B22EE335300557FEB /* MendixApp.storyboard */; };
 		EBD0933722B118F200FCA4EF /* SwipeBackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0933622B118F200FCA4EF /* SwipeBackNavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -91,9 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0265C1A0BC85D1CEF83C96D0 /* libPods-Mendix-DeveloperApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mendix-DeveloperApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04222F8120403EC30092F0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; wrapsLines = 1; };
-		04222FB12040470B0092F0A0 /* MendixReactWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MendixReactWindowExtensions.swift; sourceTree = "<group>"; };
 		0433D0C720878BA6001EDC7B /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		046CD08E20406110007291F9 /* OpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppViewController.swift; sourceTree = "<group>"; };
 		047B674922B1080200FF5FC3 /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bundles; sourceTree = "<group>"; };
@@ -108,7 +103,6 @@
 		0AE72E1821F75362000CD8D7 /* DeveloperApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeveloperApp.entitlements; sourceTree = "<group>"; };
 		0AEBC15321C1397E003E47B4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		0AEBC15621C139D3003E47B4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		0C893B05A3FBF4149AD5B93B /* Pods-Mendix-DeveloperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.debug.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		1055849D2A8DF9950015F9E0 /* SampleApps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleApps.swift; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DeveloperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeveloperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,9 +112,9 @@
 		2C6E88AE2577E0580006B301 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		2C6E88BA2577E1BD0006B301 /* HomeViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
-		2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSplashScreenExtensions.swift; sourceTree = "<group>"; };
 		2CCCE91825A367F80087AD16 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2CF2021425C30BCA00395332 /* LocalNetworkPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkPermissionService.swift; sourceTree = "<group>"; };
+		58A7393DE99FFFA2C0BDFFB6 /* Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; sourceTree = "<group>"; };
 		6E0DD47D2A4354E900A21A54 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		6E1EA91B2A4AD72B00C430A4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		6E21481B2B90B6F000430472 /* mendixnative.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = mendixnative.xcframework; path = "../node_modules/@mendix/native/ios/mendixnative.xcframework"; sourceTree = "<group>"; };
@@ -147,11 +141,12 @@
 		6EF5DA0C2A373F15009B4F09 /* OpenSans-Italic-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		6EF5DA852A385C72009B4F09 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		6EFB6B442A3B3EFE006D8C2C /* HelpHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpHostViewController.swift; sourceTree = "<group>"; };
+		75BED1FC3D294D4D650B050F /* Pods-Mendix-DeveloperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.debug.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7B7907A1EB3C7F64CA752058 /* libPods-Mendix-DeveloperApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mendix-DeveloperApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA4C6622E8D2C440050BB15 /* MendixAppEntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MendixAppEntryType.swift; sourceTree = "<group>"; };
 		C538FD092BFF285B00140B7E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D35B611E13EA45A9A21912F0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		D661F6F1A4BB4FFEEC1DD4B6 /* Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"; sourceTree = "<group>"; };
 		DF8CCDFC26E5FA0900323934 /* DeveloperApp.release.devtools.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DeveloperApp.release.devtools.xcconfig; sourceTree = "<group>"; };
-		E78438E6E5EB345B8D260C12 /* Pods-Mendix-DeveloperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.release.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.release.xcconfig"; sourceTree = "<group>"; };
 		E7CA7B392A320CFA00F8EBF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7EF3D212A3346E800A04EA8 /* LaunchScreenUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenUIView.swift; sourceTree = "<group>"; };
 		E7EF3D232A33474400A04EA8 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
@@ -168,22 +163,35 @@
 		EBA1256E21B96EAB00681FC6 /* glyphicons-halflings-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "glyphicons-halflings-regular.ttf"; sourceTree = "<group>"; };
 		EBAE9AEA22A9089A0045660A /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
 		EBB523FE22EE124900557FEB /* DeveloperApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeveloperApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		EBB5240522EE2E9500557FEB /* RCTRootViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCTRootViewExtension.swift; sourceTree = "<group>"; };
 		EBB5240B22EE335300557FEB /* MendixApp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MendixApp.storyboard; sourceTree = "<group>"; };
 		EBD0933622B118F200FCA4EF /* SwipeBackNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBackNavigationController.swift; sourceTree = "<group>"; };
+		EFE0BE2AFA25D99E94DAEBA2 /* Pods-Mendix-DeveloperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mendix-DeveloperApp.release.xcconfig"; path = "Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.release.xcconfig"; sourceTree = "<group>"; };
 		F09C33A4220B3340007FE2A7 /* ApiKeys.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ApiKeys.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9EA4C6642E8D2CB20050BB15 /* Extension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E21481C2B90B6F000430472 /* mendixnative.xcframework in Frameworks */,
 				0AEBC15821C139DF003E47B4 /* CoreFoundation.framework in Frameworks */,
 				0AEBC15421C1397E003E47B4 /* EventKit.framework in Frameworks */,
-				6D631AFF82EFB03018D699AD /* libPods-Mendix-DeveloperApp.a in Frameworks */,
 				10BF55CC2C231533000F10AD /* CodeScanner in Frameworks */,
+				8629648F682A58A3668DD616 /* libPods-Mendix-DeveloperApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +272,7 @@
 		13B07FAE1A68108700A75B9A /* DeveloperApp */ = {
 			isa = PBXGroup;
 			children = (
+				9EA4C6642E8D2CB20050BB15 /* Extension */,
 				6EB07C6D2A56DBDA004F74DC /* State */,
 				6E8442722A4047A300D6159E /* Components */,
 				2C6E88AD2577DFFB0006B301 /* Home */,
@@ -281,11 +290,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				6EAD388C2A3B439F00DC9D88 /* Launch */,
 				04222F8120403EC30092F0A0 /* AppDelegate.swift */,
-				2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */,
 				2CCCE91825A367F80087AD16 /* Colors.xcassets */,
 				2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */,
-				04222FB12040470B0092F0A0 /* MendixReactWindowExtensions.swift */,
-				EBB5240522EE2E9500557FEB /* RCTRootViewExtension.swift */,
 				EB07BDA720CEA13400E0CD48 /* Images.xcassets */,
 				2C005A9223DF2F5000003E29 /* Helpers.swift */,
 				EBD0933622B118F200FCA4EF /* SwipeBackNavigationController.swift */,
@@ -312,6 +318,7 @@
 		2CCCE90B25A365E00087AD16 /* MendixApp */ = {
 			isa = PBXGroup;
 			children = (
+				9EA4C6622E8D2C440050BB15 /* MendixAppEntryType.swift */,
 				EBB5240B22EE335300557FEB /* MendixApp.storyboard */,
 				EB3105CC22A6BD1400FF5ECF /* MendixAppViewController.swift */,
 			);
@@ -326,7 +333,7 @@
 				0AEBC15321C1397E003E47B4 /* EventKit.framework */,
 				EB3619B420D29A4B007A0996 /* Fonts */,
 				D35B611E13EA45A9A21912F0 /* libsqlite3.0.tbd */,
-				0265C1A0BC85D1CEF83C96D0 /* libPods-Mendix-DeveloperApp.a */,
+				7B7907A1EB3C7F64CA752058 /* libPods-Mendix-DeveloperApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,9 +429,9 @@
 		B7266CA697BC7EF170043D40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0C893B05A3FBF4149AD5B93B /* Pods-Mendix-DeveloperApp.debug.xcconfig */,
-				E78438E6E5EB345B8D260C12 /* Pods-Mendix-DeveloperApp.release.xcconfig */,
-				D661F6F1A4BB4FFEEC1DD4B6 /* Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig */,
+				75BED1FC3D294D4D650B050F /* Pods-Mendix-DeveloperApp.debug.xcconfig */,
+				EFE0BE2AFA25D99E94DAEBA2 /* Pods-Mendix-DeveloperApp.release.xcconfig */,
+				58A7393DE99FFFA2C0BDFFB6 /* Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -463,17 +470,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DeveloperApp" */;
 			buildPhases = (
-				393653B31220B1A8B98FB190 /* [CP] Check Pods Manifest.lock */,
+				2932CD3575D75C44EAE359D5 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				DF17395E25B4582800B65592 /* Embed Frameworks */,
-				C172FBA7B7AE84E7986F03ED /* [CP] Copy Pods Resources */,
-				640967B95A03B5199E113383 /* [CP] Embed Pods Frameworks */,
+				73109D77779EAA162A5D1674 /* [CP] Embed Pods Frameworks */,
+				E19DBCC8194D3841E98C45AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9EA4C6642E8D2CB20050BB15 /* Extension */,
 			);
 			name = DeveloperApp;
 			packageProductDependencies = (
@@ -558,7 +568,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		393653B31220B1A8B98FB190 /* [CP] Check Pods Manifest.lock */ = {
+		2932CD3575D75C44EAE359D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -580,7 +590,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		640967B95A03B5199E113383 /* [CP] Embed Pods Frameworks */ = {
+		73109D77779EAA162A5D1674 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -600,7 +610,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C172FBA7B7AE84E7986F03ED /* [CP] Copy Pods Resources */ = {
+		E19DBCC8194D3841E98C45AB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -709,10 +719,10 @@
 				6E6C9B422A408839002F788D /* URLImage.swift in Sources */,
 				6ECFF9762A458E08005EF95D /* CameraView.swift in Sources */,
 				0AC7FF992296F35E0038CD63 /* SettingsBundlerHelper.swift in Sources */,
+				9EA4C6632E8D2C4D0050BB15 /* MendixAppEntryType.swift in Sources */,
 				6E8B577F2A67FE5F0024C5A2 /* OnboardingView.swift in Sources */,
 				6EABAB582A41FE820030BF0D /* SampleAppCollectionViewController.swift in Sources */,
 				0433D0C820878BA6001EDC7B /* PaddingTextField.swift in Sources */,
-				EBB5240622EE2E9600557FEB /* RCTRootViewExtension.swift in Sources */,
 				6EFB6B452A3B3EFE006D8C2C /* HelpHostViewController.swift in Sources */,
 				6E8442742A40499A00D6159E /* AppBarContentScaffold.swift in Sources */,
 				6E5FE7CE2A43017300B53D51 /* HomeView.swift in Sources */,
@@ -729,7 +739,6 @@
 				2C887F5C24B78D640003DC53 /* SplashScreenPresenter.swift in Sources */,
 				04D987A0229D693800DE359B /* SampleAppsConfig.swift in Sources */,
 				6EAD38922A3C4C3E00DC9D88 /* HistoryListTile.swift in Sources */,
-				2C887FE524B89C200003DC53 /* RNSplashScreenExtensions.swift in Sources */,
 				6E84426F2A40459100D6159E /* SampleAppsSwiftUIView.swift in Sources */,
 				6E6C9B462A4098E4002F788D /* TroubleshootView.swift in Sources */,
 				6E6C9B442A408C12002F788D /* SampleAppCard.swift in Sources */,
@@ -738,7 +747,6 @@
 				2C6E88BB2577E1BD0006B301 /* HomeViewController.swift in Sources */,
 				2CF2021525C30BCA00395332 /* LocalNetworkPermissionService.swift in Sources */,
 				6EF5DA862A385C72009B4F09 /* HistoryView.swift in Sources */,
-				04222FB22040470B0092F0A0 /* MendixReactWindowExtensions.swift in Sources */,
 				6EE775812A3AF96300D80E58 /* HistoryHostViewController.swift in Sources */,
 				6EABAB5D2A42E0310030BF0D /* SmallLogoImage.swift in Sources */,
 				E7EF3D222A3346E800A04EA8 /* LaunchScreenUIView.swift in Sources */,

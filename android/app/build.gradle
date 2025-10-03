@@ -115,9 +115,6 @@ dependencies {
     implementation "com.facebook.react:react-android:0.77.3"
     implementation("com.facebook.react:hermes-android")
 
-    // Mendix dependencies
-    implementation project(":mendixnative-release")
-
     // Dev app dependencies
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "android.arch.lifecycle:extensions:1.1.1"
@@ -186,5 +183,4 @@ configurations.all {
     }
 }
 
-apply from: file("../../node_modules/@mendix/native/androidlib/mendix.gradle"); applyMendixGradle(project)
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

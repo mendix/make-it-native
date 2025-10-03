@@ -30,6 +30,7 @@ android/**/.classpath
 android/**/.project
 android/**/.settings/*.prefs
 android/**/release/*.aab
+android/**/.cxx/
 .idea
 .gradle
 local.properties

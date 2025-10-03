@@ -10,7 +10,7 @@ def node_require(script)
 end
 
 # Explicitly disable new architecture until all dependencies are updated
-ENV['RCT_NEW_ARCH_ENABLED'] = '0'
+ENV['RCT_NEW_ARCH_ENABLED'] = '1'
 
 # Use it to require both react-native's and this package's scripts:
 node_require('react-native/scripts/react_native_pods.rb')
@@ -41,6 +41,8 @@ abstract_target "Mendix" do
 
   use_react_native!(
     :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :fabric_enabled => true,
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
   pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
@@ -55,6 +57,7 @@ abstract_target "Mendix" do
   pod 'IQKeyboardManager'
   pod 'React-logger', :path => '../node_modules/react-native/ReactCommon/logger'
   pod 'SSZipArchive'
+  pod 'RNCAsyncStorage', :path=> "../node_modules/@react-native-async-storage/async-storage", :modular_headers => true
   
   target 'DeveloperApp' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
