@@ -91,6 +91,19 @@ abstract_target "Mendix" do
           end
         end
       end
+      
+      # Fix for SQLite duplicate header files - reliable approach
+      if target.name == 'op_sqlite' || target.name.include?('SQLite')
+        target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+          config.build_settings['SKIP_INSTALL'] = 'NO'
+          config.build_settings['DEFINES_MODULE'] = 'YES'
+          config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
+          
+          # This setting specifically prevents duplicate header errors
+          config.build_settings['HEADER_SEARCH_PATHS'] = '$(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/op_sqlite"'
+        end
+      end
     end
 
     # Enable React Native dev flags for all targets
@@ -114,14 +127,14 @@ abstract_target "Mendix" do
   
     # Ensure deployment_target is set correctly for all projects
     installer.generated_projects.each do |project|
-        project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
-            end
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
         end
-        project.build_configurations.each do |bc|
-            bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
-        end
+      end
+      project.build_configurations.each do |bc|
+        bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+      end
     end
   end
 end
