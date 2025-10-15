@@ -54,7 +54,7 @@ class SampleAppCollectionViewController: UIViewController {
     if segue.destination is MendixAppViewController {
       let sampleApp = sampleApps[currentSelectedSampleAppIndex]
       AppPreferences.devModeEnabled = false
-      ReactNative.instance.setup(MendixAppEntryType.sampleApp(sampleApp).mendixApp, launchOptions: nil)
+      ReactNative.shared.setup(MendixAppEntryType.sampleApp(sampleApp).mendixApp, launchOptions: nil)
     }
   }
   

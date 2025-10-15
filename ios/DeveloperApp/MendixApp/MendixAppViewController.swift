@@ -12,13 +12,9 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     
     // Set all orientations available while launching the mendix app.
     AppDelegate.orientationLock = .all
-    
-    if let delegate = AppDelegate.instance() {
-      delegate.window.overrideUserInterfaceStyle = .unspecified
-    }
-
-    ReactNative.instance.delegate = self
-    ReactNative.instance.start()
+    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .unspecified
+    ReactNative.shared.delegate = self
+    ReactNative.shared.start()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -36,17 +32,13 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     super.viewDidDisappear(animated)
     // Set orientation to only portrait mode, while exiting the mendix app.
     AppDelegate.orientationLock = .portrait
-    
-    // Force Light Mode
-    if let delegate = AppDelegate.instance() {
-      delegate.window.overrideUserInterfaceStyle = .light
-    }
+    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .light
   }
 
   func onAppClosed() {
-    if let appDelegate = AppDelegate.instance(), appDelegate.previewingSampleApp == true {
+    if let appDelegate = AppDelegate.delegateInstance(), appDelegate.previewingSampleApp == true {
       appDelegate.previewingSampleApp = false
-      ReactNative.instance.clearData()
+      StorageHelper.clearAll()
     }
     self.navigationController?.popViewController(animated: true)
   }

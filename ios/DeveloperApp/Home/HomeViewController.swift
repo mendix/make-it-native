@@ -108,7 +108,7 @@ class HomeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is MendixAppViewController {
-            ReactNative.instance.setup(MendixAppEntryType.regular.mendixApp, launchOptions: nil)
+            ReactNative.shared.setup(MendixAppEntryType.regular.mendixApp, launchOptions: nil)
         } else if segue.destination is ConnectionErrorViewController {
             let viewController = segue.destination as! ConnectionErrorViewController
             switch uiState {

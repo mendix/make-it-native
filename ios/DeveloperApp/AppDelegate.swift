@@ -8,13 +8,13 @@ import MendixNative
 import React
 
 @UIApplicationMain
-class AppDelegate: RCTAppDelegate {
+class AppDelegate: ReactAppProvider {
     
     var shouldLaunchLastApp: Bool = false
     var previewingSampleApp: Bool = false
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        setUpReactNative()
+        super.setUpProvider()
         super.application(application, didFinishLaunchingWithOptions: launchOptions)
         clearKeychainIfNecessary()
         setUpDevice()
@@ -26,7 +26,7 @@ class AppDelegate: RCTAppDelegate {
     
     override func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         RCTLinkingManager.application(app, open: url, options: options)
-        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactNative.instance.isActive() else {
+        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
             return true
         }
         var launchOptions: [AnyHashable: Any] = options
@@ -37,11 +37,11 @@ class AppDelegate: RCTAppDelegate {
     }
     
     private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {
-        ReactNative.instance.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
-        ReactNative.instance.start()
+        ReactNative.shared.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
+        ReactNative.shared.start()
     }
     
-    static func instance() -> AppDelegate? {
+    static func delegateInstance() -> AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
 }
@@ -87,29 +87,12 @@ extension AppDelegate {
     }
 }
 
-//ReactNative
-extension AppDelegate {
-    
-    private func setUpReactNative() {
-        self.automaticallyLoadReactNativeWindow = false
-        self.dependencyProvider = RCTAppDependencyProvider()
-    }
-    
-    override func sourceURL(for bridge: RCTBridge) -> URL? {
-        return bundleURL()
-    }
-
-    override func bundleURL() -> URL? {
-        return ReactNative.instance.bundleURL()
-    }
-}
-
 //Keychain
 extension AppDelegate {
     func clearKeychainIfNecessary() {
         if (UserDefaults.standard.bool(forKey: "HAS_RUN_BEFORE") == false) {
             UserDefaults.standard.setValue(true, forKey: "HAS_RUN_BEFORE")
-            ReactNative.clearKeychain()
+            KeychainHelper.clear()
         }
     }
 }
