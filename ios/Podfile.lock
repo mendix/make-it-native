@@ -2125,19 +2125,12 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
-<<<<<<< HEAD
-<<<<<<< HEAD
   - VisionCamera (4.7.1):
     - VisionCamera/Core (= 4.7.1)
     - VisionCamera/React (= 4.7.1)
   - VisionCamera/Core (4.7.1)
   - VisionCamera/React (4.7.1):
     - React-Core
-=======
-  - SwiftAudioEx (1.1.0)
->>>>>>> 8f05046 (migration from react-native-splash-screen to react-native-bootsplash)
-=======
->>>>>>> a9a553b (update pod file)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2532,15 +2525,7 @@ SPEC CHECKSUMS:
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-<<<<<<< HEAD
-<<<<<<< HEAD
   op-sqlite: 7c3a6a7f84f0969b96266dbd143a3793bc2bc9cf
-=======
-  op-sqlite: 0f9484085a99acfec17852d146862efe6582f7c9
->>>>>>> 8f05046 (migration from react-native-splash-screen to react-native-bootsplash)
-=======
-  op-sqlite: 7c3a6a7f84f0969b96266dbd143a3793bc2bc9cf
->>>>>>> 94a3249 (add splash functions)
   OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
@@ -2560,10 +2545,6 @@ SPEC CHECKSUMS:
   React-FabricComponents: d1e35a9d7660cb57ec31ae7730cf30fabb07039a
   React-FabricImage: 34de81a326d87d9a3a0d54c285dc518a9e896ce1
   React-featureflags: 08f06c820a37b29ed3ef9dddc6763c086339bc28
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 94a3249 (add splash functions)
   React-featureflagsnativemodule: e4c016c273fccd39e5c0425dbf552ae3ba6f557c
   React-graphics: 34008ef25e81687b5b89d6fe1ebc167c3414fd8b
   React-hermes: 997737a07bc954d032ba808a85d367c1e4eee2d9
@@ -2579,10 +2560,6 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: c32cbd3d9c334a51311ab9d717e2c72c7032a256
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: 64a732c0b8bb7f4928905e16ea8dc5cde6fb4832
-<<<<<<< HEAD
-=======
-  react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
->>>>>>> 94a3249 (add splash functions)
   react-native-cameraroll: fa835a59246b90ad2fa33c5e008fc25752ba7b80
   react-native-file-viewer-turbo: bd89c9a88d2c194563d2c6c071c3e7eff4ac2273
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
@@ -2593,52 +2570,9 @@ SPEC CHECKSUMS:
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
   react-native-pager-view: c3b8efd9000368320e3710c01f38a83bd2170779
   react-native-safe-area-context: 849d7df29ecb2a7155c769c0b76849ba952c2aa3
-<<<<<<< HEAD
-<<<<<<< HEAD
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
   react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
   react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
-=======
-  React-featureflagsnativemodule: 3f6b19ac469a5d26e3a52e5198735c1799f1e324
-  React-graphics: df8448a604e8fd03325e0f3d760b13e57416871c
-  React-hermes: 67f3ee00fdbe085e722fd89811073678ba28c10a
-  React-idlecallbacksnativemodule: 26de008466429c4a6feb772cde37d3eda5c1e045
-  React-ImageManager: 52a8c48c4c7c5a8124e8c363693bd2908b01c5f6
-  React-jserrorhandler: faa483d54dd358b11e81adcd5e6373da6030ed70
-  React-jsi: d5332d79759159a0127348d9b20cc90527dd40e8
-  React-jsiexecutor: 72c8df1af2c18736f6685cce4205c480f3783039
-  React-jsinspector: e444c5725dbb31aa7ce556d972511f8997b38bc5
-  React-jsitracing: 955646960c72c03e6e87df8706cab6bcdf960042
-  React-logger: a23563f96a622637d7cce687bdf304929104effd
-  React-Mapbuffer: 1864935968d15b9b73d8e413d29c780f0ab50038
-  React-microtasksnativemodule: 3b784cf40f7c3c9500b9a5f9e4eec5c9bbfbef8f
-  react-native-ble-plx: 2dd8780ee8d34c60399aaa897249ed1860ebef10
-  react-native-blob-util: b653f7dae5c9fa3f903af51bc2edfb8ef659022b
-  react-native-camera: 22dbf8ce6a4c6a25ae49f4e2fa5859c5277f1631
-  react-native-cameraroll: 0d805139369f07b822f51841801429a4049e1234
-  react-native-file-viewer-turbo: 02b2556f5193a8512c5b00fa24e0d29c1fa639cb
-  react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
-  react-native-geolocation: 697f7e4206386120bfdcf0c6a858e956360c734c
-  react-native-google-maps: 992905591a0a9315b8e74faecadd72f039e41dda
-  react-native-image-picker: 8c8f120521f283d7a069c51d519fbd654e8de8e3
-  react-native-maps: deb2adbdf309b622f15055b72b8742054929c740
-  react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
-  react-native-pager-view: 68e8a65a607a6f91a1e25865002192c3c4f53fcf
-  react-native-safe-area-context: 3e33e7c43c8b74dba436a5a32651cb8d7064c740
-  react-native-track-player: 6dc2e2633265704b8ab6d8124b80239d4ed1f911
-  react-native-video: 75279235027642749f1da92c456b10860c3aa13a
-  react-native-view-shot: 16b52ee447420cb06810b8dd05b711d3f978efb4
-  react-native-webview: 2cf4fe62b06f9ac42f92d1e2bb1345a407a13a57
->>>>>>> 8f05046 (migration from react-native-splash-screen to react-native-bootsplash)
-=======
-  react-native-track-player: 82ef1756ffeea61140fea17519ecd6d64ec3cf3e
-=======
->>>>>>> a9a553b (update pod file)
-  react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
-  react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
-  react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
->>>>>>> 94a3249 (add splash functions)
   React-nativeconfig: f77b4627803bf7886a1f2e96b33b8af34e583cc4
   React-NativeModulesApple: 6bfb56c8a05c9181727a4375c6fce152171c038d
   React-perflogger: 6820403fcb3daf843cb89772f2ba7b25cf7d5797
@@ -2664,19 +2598,12 @@ SPEC CHECKSUMS:
   React-RuntimeHermes: bc562eeae932000894a072e9ab3ff5b24d04a87b
   React-runtimescheduler: 1fc66730e3502512adb9ac24831938285a36f310
   React-timing: 7d80ad4297c57ec4cb49da4a5db1b82f93fedb2a
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 94a3249 (add splash functions)
   React-utils: 1dfda6bd64373a4bd19efa4d48ac0756a2bc8dff
   ReactAppDependencyProvider: 9b3704075c2fe8fd7c739779655fb88700a1ca30
   ReactCodegen: c9645fb81bcaf5afebaebb25874bcd5224cd40f1
   ReactCommon: 271491c2343c91609d3dc18bb4b4ebe67160de03
   ReactNativeBiometrics: 004ed272552611841af17cf348846404028df91f
-<<<<<<< HEAD
-=======
   RNBootSplash: 2c6b226e3ad3c97d16b6d53bd75d0cd281646bfb
->>>>>>> 94a3249 (add splash functions)
   RNCalendarEvents: 3a79bc6e476b55920aa706c211a15a1d2c53ec17
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
   RNCPicker: 4f6d5e8d107064be32dfc8f1bcb5a3741135db0b
@@ -2693,69 +2620,19 @@ SPEC CHECKSUMS:
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNNotifee: 4a6ee5c7deaf00e005050052d73ee6315dff7ec9
   RNPermissions: 6e63e35bc999984014fa6d610c2e9b311c28c1ff
-<<<<<<< HEAD
   RNReanimated: 10df3198b328f8a0677fdaaa2b449db53cdbff40
   RNScreens: e9bb7c3063237983e75d01bb45ce591cc4e7afc2
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: 515a902fc18a375907eb4c3abec0b803fbfa37ef
   RNSwanBrowser: af8718931e79c8077be3cf021d1bc270ae666503
   RNVectorIcons: 85ed086927e7548461d593e68b190c38a6606a05
-=======
-  React-utils: 6b632afea2c4ec4b782497fb61af859a5b1b355f
-  ReactAppDependencyProvider: 31015410a4a53b9fd0a908ad4d6e3e2b9a25086a
-  ReactCodegen: eac5d74d85dff515b48a5c36f154bc4128f217e6
-  ReactCommon: bf4612cba0fa356b529385029f470d5529dddde4
-  ReactNativeBiometrics: f56337d452bec236502d5ef4a4c86ec2a38214d0
-  RNBootSplash: 866866f2a3856cd76547a24c6a63be79aeca40f8
-  RNCalendarEvents: 1a67c97e7427cf16fbf60adbb4c11c0d62082eaa
-  RNCAsyncStorage: 40367e8d25522dca9c3513c7b9815a184669bd97
-  RNCPicker: 124b4fb5859ba1a3fd53a91e16d1e7a0fc016e59
-  RNDateTimePicker: 818460dc31b0dc5ec58289003e27dd8d022fb79c
-  RNDeviceInfo: d863506092aef7e7af3a1c350c913d867d795047
-  RNFastImage: 462a183c4b0b6b26fdfd639e1ed6ba37536c3b87
-  RNFBAnalytics: abb444ddc588edafef8dfa5c367e30b2022b1b80
-  RNFBApp: 0ea118fdf9e66ce5a925f35f8005e9e397fc669e
-  RNFBCrashlytics: 83fd3d33655ff926e3a57008ec94815ba8c2bc94
-  RNFBMessaging: 8047aaea4d0e56547715085c6d2bedee31bdcd9b
-  RNFBML: df509c560094cdf6fa5b8d17fde64ad504f305e9
-  RNGestureHandler: 9bf6e8f72d2e72c8f7eb45986fe71a5005fb072d
-  RNInAppBrowser: 031138591f9cbf57e987d0fe97f4e73d5fc7524b
-  RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
-  RNNotifee: 5e3b271e8ea7456a36eec994085543c9adca9168
-  RNPermissions: a4f47362ad585ea7a9a84d03288f18d22c54595d
-  RNReanimated: 20f0d150af988258289b2d6cda655bd14945a769
-  RNScreens: 86e5c168cdd055a8feead28eb756ca7103918b6a
-  RNSVG: 4903d466c3a877644d5219dbc1d97f9ef9e4a3cc
-  RNSwanBrowser: 53cc60ef6550708a1f2d8284af63dbc2d760cd8f
-  RNVectorIcons: f7a99433a71f4b38891c14c64b21fc521d064392
->>>>>>> 8f05046 (migration from react-native-splash-screen to react-native-bootsplash)
-=======
-  RNReanimated: 280140e1989bc33d5586cbca10bd199fd1fbdbf1
-  RNScreens: e9bb7c3063237983e75d01bb45ce591cc4e7afc2
-  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
-  RNSVG: 515a902fc18a375907eb4c3abec0b803fbfa37ef
-  RNSwanBrowser: af8718931e79c8077be3cf021d1bc270ae666503
-  RNVectorIcons: 85ed086927e7548461d593e68b190c38a6606a05
->>>>>>> 94a3249 (add splash functions)
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-<<<<<<< HEAD
-<<<<<<< HEAD
   VisionCamera: 0ecfede218b2d989be3d504270b71f3d2384d95d
-=======
->>>>>>> a9a553b (update pod file)
   Yoga: 7d51419602153919f32aec72812e324d495ee49d
-=======
-  SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
-<<<<<<< HEAD
-  Yoga: 92f3bb322c40a86b7233b815854730442e01b8c4
->>>>>>> 8f05046 (migration from react-native-splash-screen to react-native-bootsplash)
-=======
-  Yoga: 7d51419602153919f32aec72812e324d495ee49d
->>>>>>> 94a3249 (add splash functions)
 
-PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
+PODFILE CHECKSUM: 3fd89560df4a27778cde6447232a917ae0a204d0
 
 COCOAPODS: 1.16.2
