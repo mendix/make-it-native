@@ -43,8 +43,8 @@
     "react-native-ble-plx": "2.0.3",
     "react-native-blob-util": "0.21.2",
     "react-native-calendar-events": "2.1.0",
-    "react-native-vision-camera": "4.7.1",
     "react-native-device-info": "14.0.4",
+    "react-native-edge-to-edge": "1.7.0",
     "react-native-fast-image": "8.6.3",
     "react-native-file-viewer-turbo": "0.6.0",
     "react-native-geocoder": "0.5.0",
@@ -66,6 +66,7 @@
     "react-native-vector-icons": "10.2.0",
     "react-native-video": "6.10.0",
     "react-native-view-shot": "4.0.3",
+    "react-native-vision-camera": "4.7.1",
     "react-native-webview": "13.13.2",
     "simple-git": "^3.27.0"
   },
