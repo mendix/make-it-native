@@ -97,4 +97,9 @@
     <style name="MendixAlert.Button.Dark" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/blue1</item>
     </style>
+
+    <!-- BootSplash theme. -->
+    <style name="BootTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>

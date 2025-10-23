@@ -1515,8 +1515,6 @@ PODS:
     - Yoga
   - react-native-safe-area-context (5.2.0):
     - React-Core
-  - react-native-splash-screen (3.2.0):
-    - React
   - react-native-video (6.10.0):
     - DoubleConversion
     - glog
@@ -1912,6 +1910,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNBootSplash (6.3.10):
+    - React-Core
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
@@ -2193,7 +2193,6 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -2227,6 +2226,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "ReactNativeBiometrics (from `../node_modules/@sbaiahmed1/react-native-biometrics`)"
+  - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
@@ -2382,8 +2382,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-splash-screen:
-    :path: "../node_modules/react-native-splash-screen"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -2450,6 +2448,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeBiometrics:
     :path: "../node_modules/@sbaiahmed1/react-native-biometrics"
+  RNBootSplash:
+    :path: "../node_modules/react-native-bootsplash"
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
@@ -2570,7 +2570,6 @@ SPEC CHECKSUMS:
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
   react-native-pager-view: c3b8efd9000368320e3710c01f38a83bd2170779
   react-native-safe-area-context: 849d7df29ecb2a7155c769c0b76849ba952c2aa3
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: fcf88c7e93d7736a529f97f70ce92269684596ec
   react-native-view-shot: 9aea6ab99c8d81590d6b630d62a418ced77d1ed7
   react-native-webview: 326a2163c7117fd5b21e48c857b2946f0a7af598
@@ -2604,6 +2603,7 @@ SPEC CHECKSUMS:
   ReactCodegen: c9645fb81bcaf5afebaebb25874bcd5224cd40f1
   ReactCommon: 271491c2343c91609d3dc18bb4b4ebe67160de03
   ReactNativeBiometrics: 004ed272552611841af17cf348846404028df91f
+  RNBootSplash: 2c6b226e3ad3c97d16b6d53bd75d0cd281646bfb
   RNCalendarEvents: 3a79bc6e476b55920aa706c211a15a1d2c53ec17
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
   RNCPicker: 4f6d5e8d107064be32dfc8f1bcb5a3741135db0b
@@ -2633,6 +2633,6 @@ SPEC CHECKSUMS:
   VisionCamera: 0ecfede218b2d989be3d504270b71f3d2384d95d
   Yoga: 7d51419602153919f32aec72812e324d495ee49d
 
-PODFILE CHECKSUM: 282afb33fcc37153f02bdb469a79a07b3c5d46c3
+PODFILE CHECKSUM: 3fd89560df4a27778cde6447232a917ae0a204d0
 
 COCOAPODS: 1.16.2

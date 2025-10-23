@@ -37,21 +37,43 @@ platform :ios do
   end
 
   desc "Builds and install DeveloperApp into the simulator"
-  desc "This will use iPhone 13 Pro simulator with OS 15.5"
+  desc "This will use iPhone 15 Pro simulator with OS 17.5"
   lane :debug_internal do
     UI.message("Installing dependencies")
     sh("npm", "i", "--legacy-peer-deps")
     cocoapods
     UI.message("Building and installing DeveloperApp")
+    
+    # Boot the simulator if it's not already running
+    simulator_udid = sh("xcrun simctl list devices | grep -A 10 'iOS 17.5' | grep 'iPhone 15 Pro' | head -1 | grep -o '[A-F0-9-]\\{36\\}'").strip
+    UI.message("Using simulator UDID: #{simulator_udid}")
+    sh("xcrun simctl boot #{simulator_udid}") rescue nil # Ignore error if already booted
+    
+    # Build for simulator
     gym(
       scheme: "DeveloperApp",
       configuration: "Debug",
       skip_package_ipa: true,
       skip_package_pkg: true,
+      skip_archive: true,
       sdk: "iphonesimulator",
-      destination: "platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5",
+      destination: "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.5",
       xcargs: "ONLY_ACTIVE_ARCH=NO",
+      derived_data_path: "./build",
     )
+    
+    # Find the built app
+    app_path = sh("find ./build -name 'DeveloperApp.app' -type d | head -1").strip
+    
+    # Install and launch the app
+    UI.message("Installing app to simulator...")
+    sh("xcrun simctl install #{simulator_udid} '#{app_path}'")
+    
+    UI.message("Launching app...")
+    sh("xcrun simctl launch #{simulator_udid} com.mendix.developerapp.native.mx10")
+    
+    # Open simulator app if not already open
+    sh("open -a Simulator")
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"

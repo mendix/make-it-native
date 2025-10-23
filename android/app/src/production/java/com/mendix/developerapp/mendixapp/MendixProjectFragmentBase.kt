@@ -11,7 +11,8 @@ import com.mendix.developerapp.MendixBaseFragment
 import com.mendix.developerapp.loading.ProjectLoaderViewModel
 import com.mendix.developerapp.ui.theme.MyApplicationTheme
 import com.mendix.developerapp.utilities.GlobalTouchEventListener
-import org.devio.rn.splashscreen.SplashScreen
+import com.zoontek.rnbootsplash.RNBootSplash
+import com.mendix.developerapp.R
 
 open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventListener {
     private lateinit var composeView: ComposeView
@@ -36,9 +37,9 @@ open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventLis
 
         viewModel.status.observe(viewLifecycleOwner) {
             if (it === ProjectLoaderViewModel.STATUS_SUCCESS) {
-                SplashScreen.show(requireActivity())
-            } else {
-                SplashScreen.hide(requireActivity())
+                RNBootSplash.init(requireActivity(), R.style.BootTheme)
+            }else{
+                RNBootSplash.hide(requireActivity());
             }
         }
 

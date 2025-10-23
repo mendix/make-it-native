@@ -7,11 +7,12 @@ import com.mendix.developerapp.R
 import com.mendix.developerapp.sampelapps.SampleAppsManager
 import com.mendix.mendixnative.react.MxConfiguration
 import com.mendix.mendixnative.react.clearData
-import org.devio.rn.splashscreen.SplashScreen
+import com.zoontek.rnbootsplash.RNBootSplash
+
 
 class MendixSampleProjectFragment : MendixProjectFragmentBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        SplashScreen.show(requireActivity())
+        RNBootSplash.init(requireActivity(), R.style.BootTheme)
         MxConfiguration.setDefaultAppNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultDatabaseNameOrDefault(SampleAppsManager.appName)
         MxConfiguration.setDefaultFilesDirectoryOrDefault(SampleAppsManager.appName)
