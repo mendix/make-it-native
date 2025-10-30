@@ -51,6 +51,10 @@ abstract_target "Mendix" do
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCoreExtension', :modular_headers => true
+  pod 'FirebaseInstallations',  :modular_headers => true
+  pod 'GoogleDataTransport',    :modular_headers => true
+  pod 'nanopb',                 :modular_headers => true
 
   pod 'IQKeyboardManager'
   pod 'React-logger', :path => '../node_modules/react-native/ReactCommon/logger'
