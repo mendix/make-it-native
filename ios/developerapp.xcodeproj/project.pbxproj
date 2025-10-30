@@ -758,7 +758,6 @@
 				E7CA7B3A2A320CFA00F8EBF0 /* Constants.swift in Sources */,
 				EBAE9AEB22A9089A0045660A /* URLValidator.swift in Sources */,
 				2C005A9323DF2F5000003E29 /* Helpers.swift in Sources */,
-				6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */,
 				6E0DD47E2A4354E900A21A54 /* HistoryManager.swift in Sources */,
 				6EB07C6F2A56DBEA004F74DC /* AppState.swift in Sources */,
 				1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */,

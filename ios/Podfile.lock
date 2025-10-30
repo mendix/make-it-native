@@ -1462,14 +1462,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-camera (3.40.0):
-    - React-Core
-    - react-native-camera/RCT (= 3.40.0)
-    - react-native-camera/RN (= 3.40.0)
-  - react-native-camera/RCT (3.40.0):
-    - React-Core
-  - react-native-camera/RN (3.40.0):
-    - React-Core
   - react-native-cameraroll (7.4.0):
     - DoubleConversion
     - glog
@@ -1673,8 +1665,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-splash-screen (3.2.0):
-    - React
   - react-native-video (6.10.0):
     - DoubleConversion
     - glog
@@ -2093,7 +2083,26 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - RNBootSplash (6.3.10):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
@@ -2924,7 +2933,6 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: 3b784cf40f7c3c9500b9a5f9e4eec5c9bbfbef8f
   react-native-ble-plx: 2dd8780ee8d34c60399aaa897249ed1860ebef10
   react-native-blob-util: f82bbc6f071231ae76e1c03b77290de1781df313
-  react-native-camera: 22dbf8ce6a4c6a25ae49f4e2fa5859c5277f1631
   react-native-cameraroll: 4cc4ad5c832894a7729978900b3b3a75f6ed756c
   react-native-file-viewer-turbo: 6f1d6e33cebe8916c2919c0e7c5b41c9309646f0
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
@@ -2935,7 +2943,6 @@ SPEC CHECKSUMS:
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-pager-view: 932eb80f9448b463b63badae42dd20c11f3e37dd
   react-native-safe-area-context: 7e513d737b0b5c1d10bbe0e5fcc9f925a7be144c
-  react-native-splash-screen: a43276f9cf4b2e65d7ce30efe372ffc528064293
   react-native-video: 7122a2b9397bf722709321eac0630e8f59a404e7
   react-native-view-shot: a38d952d5c7103b79a67c8aa82da95f98be6e5c2
   react-native-webview: 449c3f27cdb926086a5eff7993421fd096cc5ae3
@@ -2969,6 +2976,7 @@ SPEC CHECKSUMS:
   ReactCodegen: eac5d74d85dff515b48a5c36f154bc4128f217e6
   ReactCommon: bf4612cba0fa356b529385029f470d5529dddde4
   ReactNativeBiometrics: 3a9a0c23f1a5158980de2474c1cfda6b19085dca
+  RNBootSplash: 6a83473bb3c1e6c2bfd36a51e5c6e1d343ec76b9
   RNCalendarEvents: 1a67c97e7427cf16fbf60adbb4c11c0d62082eaa
   RNCAsyncStorage: 50a24d7ae3bcba70a39f600366dbb23ca9ccf81c
   RNCPicker: cfb51a08c6e10357d9a65832e791825b0747b483
@@ -2995,9 +3003,9 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  VisionCamera: 0ecfede218b2d989be3d504270b71f3d2384d95d
-  Yoga: 7d51419602153919f32aec72812e324d495ee49d
+  VisionCamera: 9a8f98ae344fe5d148f84bb45829f9e4caab9d2f
+  Yoga: 92f3bb322c40a86b7233b815854730442e01b8c4
 
-PODFILE CHECKSUM: 3424d60954cebfa1c7493ca3b78d8410e4d1727a
+PODFILE CHECKSUM: 0a9fdf6312ec958c335fa884e2813ae0500f285a
 
 COCOAPODS: 1.16.2
