@@ -1,8 +1,10 @@
 import UIKit
+import MendixNative
+import React_RCTAppDelegate
 
 class MendixAppViewController: UIViewController, ReactNativeDelegate {
   override func becomeFirstResponder() -> Bool {
-    return true;
+    return true
   }
 
   override func viewDidLoad() {
@@ -10,18 +12,14 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     
     // Set all orientations available while launching the mendix app.
     AppDelegate.orientationLock = .all
-    
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    appDelegate.window?.overrideUserInterfaceStyle = .unspecified
-
-
-    ReactNative.instance.delegate = self
-    ReactNative.instance.start()
+    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .unspecified
+    ReactNative.shared.delegate = self
+    ReactNative.shared.start()
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    becomeFirstResponder()
+    _ = becomeFirstResponder()
     
     if #available(iOS 13.0, *) {
       UIApplication.shared.statusBarStyle = .darkContent
@@ -34,17 +32,13 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     super.viewDidDisappear(animated)
     // Set orientation to only portrait mode, while exiting the mendix app.
     AppDelegate.orientationLock = .portrait
-    
-    // Force Light Mode
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    appDelegate.window?.overrideUserInterfaceStyle = .light
+    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .light
   }
 
   func onAppClosed() {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    if (appDelegate.previewingSampleApp == true) {
+    if let appDelegate = AppDelegate.delegateInstance(), appDelegate.previewingSampleApp == true {
       appDelegate.previewingSampleApp = false
-      ReactNative.instance.clearData()
+      StorageHelper.clearAll()
     }
     self.navigationController?.popViewController(animated: true)
   }

@@ -2,32 +2,105 @@ import UIKit
 import Firebase
 import GoogleMaps
 import UserNotifications
+import React_RCTAppDelegate
+import ReactAppDependencyProvider
+import MendixNative
 import React
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
-    var window: UIWindow?
+class AppDelegate: ReactAppProvider {
+    
     var shouldLaunchLastApp: Bool = false
     var previewingSampleApp: Bool = false
     
-    // By default lock orientation only portrait mode.
-    static var orientationLock = UIInterfaceOrientationMask.portrait
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        super.setUpProvider()
+        super.application(application, didFinishLaunchingWithOptions: launchOptions)
+        clearKeychainIfNecessary()
+        setUpDevice()
+        setUpGoogleMaps()
+        setUpPushNotifications(application)
+        updateRootViewController(showOnboarding() ? .launchTutorial : .openApp)
+        return true
+    }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    override func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        RCTLinkingManager.application(app, open: url, options: options)
+        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
+            return true
+        }
+        var launchOptions: [AnyHashable: Any] = options
+        launchOptions[UIApplicationLaunchOptionsKey.annotation] = options[UIApplicationOpenURLOptionsKey.annotation] ?? []
+        launchOptions[UIApplicationLaunchOptionsKey.url] = url
+        launchMendixAppWithOptions(options: launchOptions)
+        return true
+    }
+    
+    private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {
+        ReactNative.shared.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
+        ReactNative.shared.start()
+    }
+    
+    static func delegateInstance() -> AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
+}
+
+//Device
+extension AppDelegate {
+    
+    static var orientationLock = UIInterfaceOrientationMask.portrait // By default lock orientation only portrait mode.
+    
+    override func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return AppDelegate.orientationLock
     }
     
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        clearKeychainIfNecessary()
-        
+    private func setUpDevice() {
         UIApplication.shared.isIdleTimerDisabled = true
-        
         UIDevice.current.isBatteryMonitoringEnabled = true
-        
-        let googleApiKey = Bundle.main.object(forInfoDictionaryKey: "GoogleMapsKey") as! String
-        GMSServices.provideAPIKey(googleApiKey != "" ? googleApiKey : "placeholderApiKey")
-        
+    }
+}
+
+//RootView
+extension AppDelegate {
+    private func updateRootViewController(_ storyboard: UIStoryboard) {
+        window = MendixReactWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = storyboard.instantiateInitialViewController()
+        window.makeKeyAndVisible()
+        window.overrideUserInterfaceStyle = .light // Force Light Mode
+        IQKeyboardManager.shared().isEnabled = false
+    }
+    
+    func changeRootViewToOpenApp() {
+        updateRootViewController(.openApp)
+    }
+}
+
+//GMS
+extension AppDelegate {
+    private func setUpGoogleMaps() {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "GoogleMapsKey") as? String, !apiKey.isEmpty else {
+            GMSServices.provideAPIKey("placeholderApiKey")
+            return
+        }
+        GMSServices.provideAPIKey(apiKey)
+    }
+}
+
+//Keychain
+extension AppDelegate {
+    func clearKeychainIfNecessary() {
+        if (UserDefaults.standard.bool(forKey: "HAS_RUN_BEFORE") == false) {
+            UserDefaults.standard.setValue(true, forKey: "HAS_RUN_BEFORE")
+            KeychainHelper.clear()
+        }
+    }
+}
+
+//Firebase + Push Notification
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    
+    private func setUpPushNotifications(_ application: UIApplication) {
         // Required for Remote notifications
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
@@ -46,76 +119,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
-        
         application.registerForRemoteNotifications()
-        
-        let onboardingShown = !showOnboarding() // showOnboardin return true, if onboarding has not shown up.
-        let storyboard: UIStoryboard?
-        
-        // If the onboarding was shown, do not show.
-        if (!onboardingShown) {
-            storyboard = UIStoryboard(name: "LaunchTutorial", bundle: nil)
-        } else {
-            storyboard = UIStoryboard(name: "OpenApp", bundle: nil)
-        }
-        
-        let rootViewController = storyboard!.instantiateInitialViewController()
-        self.window = MendixReactWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = rootViewController
-        self.window?.makeKeyAndVisible()
-        
-        // Force Light Mode
-        self.window?.overrideUserInterfaceStyle = .light
-        
-        IQKeyboardManager.shared().isEnabled = false;
-        
-        return true
-    }
-    
-    func changeRootViewToOpenApp(){
-        let storyboard: UIStoryboard? = UIStoryboard(name: "OpenApp", bundle: nil)
-        
-        let rootViewController = storyboard!.instantiateInitialViewController()
-        self.window = MendixReactWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = rootViewController
-        self.window?.makeKeyAndVisible()
-        
-        // Force Light Mode
-        self.window?.overrideUserInterfaceStyle = .light
-        
-        IQKeyboardManager.shared().isEnabled = false;
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        RCTLinkingManager.application(app, open: url, options: options)
-        guard let appUrl = AppPreferences.getAppUrl(), !appUrl.isEmpty, !ReactNative.instance.isActive() else {
-            return true
-        }
-        var launchOptions: [AnyHashable: Any] = options
-        launchOptions[UIApplicationLaunchOptionsKey.annotation] = options[UIApplicationOpenURLOptionsKey.annotation] ?? []
-        launchOptions[UIApplicationLaunchOptionsKey.url] = url
-        launchMendixAppWithOptions(options: launchOptions)
-        return true
-    }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
     }
     
     //Called when a notification is delivered to a foreground app.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .alert, .badge])
+        if #available(iOS 14.0, *) {
+            completionHandler([.sound, .badge])
+        } else {
+            completionHandler([.sound, .alert, .badge])
+        }
     }
     
     func userNotificationCenter(
@@ -125,19 +138,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ) {
         completionHandler()
     }
-    
-    private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {
-        let url = AppUrl.forBundle(
-            AppPreferences.getAppUrl(),
-            port: AppPreferences.getRemoteDebuggingPackagerPort(),
-            isDebuggingRemotely: AppPreferences.remoteDebuggingEnabled(),
-            isDevModeEnabled: AppPreferences.devModeEnabled())
-        let runtimeUrl: URL = AppUrl.forRuntime(AppPreferences.getAppUrl())!
-        let mendixApp = MendixApp(nil, bundleUrl: url!, runtimeUrl: runtimeUrl, warningsFilter: getWarningFilterValue(), isDeveloperApp: true, clearDataAtLaunch: false, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil))
-        ReactNative.instance.setup(mendixApp, launchOptions: options)
-        ReactNative.instance.start()
-    }
-    
     
     func handleMendixNotification(response: UNNotificationResponse) -> Bool {
         let mendixAdChannelId = "MENDIX_AD_CAMPAIGN_CHANNEL"
@@ -154,15 +154,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return false
     }
     
-    func clearKeychainIfNecessary() {
-        if (UserDefaults.standard.bool(forKey: "HAS_RUN_BEFORE") == false) {
-            UserDefaults.standard.setValue(true, forKey: "HAS_RUN_BEFORE")
-            ReactNative.clearKeychain()
-        }
-    }
-    
 #if DEBUG
-    func application(_ application: UIApplication,
+    override func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken

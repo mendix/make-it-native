@@ -16,16 +16,10 @@ class TabViewController: UITabBarController {
   }
   
   func setSelectedIndex(index:Int){
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    if appDelegate == nil {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+          let tabBarController = appDelegate.window.rootViewController as? UITabBarController else {
       return
     }
-    let tabBarController = appDelegate!.window?.rootViewController as? UITabBarController
-    
-    if tabBarController == nil {
-      return
-    }
-    
-    tabBarController!.selectedIndex = index
+    tabBarController.selectedIndex = index
   }
 }
