@@ -42,7 +42,6 @@
 		6E8442742A40499A00D6159E /* AppBarContentScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */; };
 		6E8442762A404C0300D6159E /* LargeLogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442752A404C0300D6159E /* LargeLogoImage.swift */; };
 		6E8B577F2A67FE5F0024C5A2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B577E2A67FE5F0024C5A2 /* OnboardingView.swift */; };
-		6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */; };
 		6EABAB582A41FE820030BF0D /* SampleAppCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABAB542A41FE7E0030BF0D /* SampleAppCollectionViewController.swift */; };
 		6EABAB592A41FE820030BF0D /* SampleApps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB552A41FE820030BF0D /* SampleApps.storyboard */; };
 		6EABAB5B2A41FFA10030BF0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB5A2A41FFA10030BF0D /* LaunchScreen.storyboard */; };
