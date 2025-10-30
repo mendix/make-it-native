@@ -41,7 +41,7 @@ It always uses v.0.0.0 and build number 0 by design
 
 Builds and install DeveloperApp into the simulator
 
-This will use iPhone 13 Pro simulator with OS 15.5
+This will use iPhone 15 Pro simulator with OS 17.5
 
 ### ios beta
 
@@ -68,14 +68,6 @@ This will also make sure the profile is up to date
 ```
 
 Send appstore version to review
-
-### ios build_mendixnative
-
-```sh
-[bundle exec] fastlane ios build_mendixnative
-```
-
-Build a new version of MendixNative lib
 
 ----
 

@@ -2092,6 +2092,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNBootSplash (6.3.10):
+    - React-Core
   - RNCalendarEvents (2.1.0):
     - React
   - RNCAsyncStorage (2.0.0):
@@ -2483,6 +2485,12 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
+  - VisionCamera (4.7.1):
+    - VisionCamera/Core (= 4.7.1)
+    - VisionCamera/React (= 4.7.1)
+  - VisionCamera/Core (4.7.1)
+  - VisionCamera/React (4.7.1):
+    - React-Core
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2536,7 +2544,6 @@ DEPENDENCIES:
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
-  - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-file-viewer-turbo (from `../node_modules/react-native-file-viewer-turbo`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
@@ -2547,7 +2554,6 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -2581,6 +2587,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "ReactNativeBiometrics (from `../node_modules/@sbaiahmed1/react-native-biometrics`)"
+  - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNCalendarEvents (from `../node_modules/react-native-calendar-events`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
@@ -2604,6 +2611,7 @@ DEPENDENCIES:
   - "RNSwanBrowser (from `../node_modules/@swan-io/react-native-browser`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - SSZipArchive
+  - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2717,8 +2725,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-ble-plx"
   react-native-blob-util:
     :path: "../node_modules/react-native-blob-util"
-  react-native-camera:
-    :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
   react-native-file-viewer-turbo:
@@ -2739,8 +2745,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-splash-screen:
-    :path: "../node_modules/react-native-splash-screen"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -2807,6 +2811,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeBiometrics:
     :path: "../node_modules/@sbaiahmed1/react-native-biometrics"
+  RNBootSplash:
+    :path: "../node_modules/react-native-bootsplash"
   RNCalendarEvents:
     :path: "../node_modules/react-native-calendar-events"
   RNCAsyncStorage:
@@ -2851,6 +2857,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@swan-io/react-native-browser"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  VisionCamera:
+    :path: "../node_modules/react-native-vision-camera"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2987,7 +2995,8 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
-  Yoga: 92f3bb322c40a86b7233b815854730442e01b8c4
+  VisionCamera: 0ecfede218b2d989be3d504270b71f3d2384d95d
+  Yoga: 7d51419602153919f32aec72812e324d495ee49d
 
 PODFILE CHECKSUM: 3424d60954cebfa1c7493ca3b78d8410e4d1727a
 

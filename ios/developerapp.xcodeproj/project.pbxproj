@@ -42,6 +42,7 @@
 		6E8442742A40499A00D6159E /* AppBarContentScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */; };
 		6E8442762A404C0300D6159E /* LargeLogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442752A404C0300D6159E /* LargeLogoImage.swift */; };
 		6E8B577F2A67FE5F0024C5A2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B577E2A67FE5F0024C5A2 /* OnboardingView.swift */; };
+		6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */; };
 		6EABAB582A41FE820030BF0D /* SampleAppCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABAB542A41FE7E0030BF0D /* SampleAppCollectionViewController.swift */; };
 		6EABAB592A41FE820030BF0D /* SampleApps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB552A41FE820030BF0D /* SampleApps.storyboard */; };
 		6EABAB5B2A41FFA10030BF0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB5A2A41FFA10030BF0D /* LaunchScreen.storyboard */; };
@@ -127,6 +128,7 @@
 		6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarContentScaffold.swift; sourceTree = "<group>"; };
 		6E8442752A404C0300D6159E /* LargeLogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeLogoImage.swift; sourceTree = "<group>"; };
 		6E8B577E2A67FE5F0024C5A2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSplashScreenExtensions.swift; sourceTree = "<group>"; };
 		6EABAB542A41FE7E0030BF0D /* SampleAppCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAppCollectionViewController.swift; sourceTree = "<group>"; };
 		6EABAB552A41FE820030BF0D /* SampleApps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SampleApps.storyboard; sourceTree = "<group>"; };
 		6EABAB5A2A41FFA10030BF0D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 				E7CA7B3A2A320CFA00F8EBF0 /* Constants.swift in Sources */,
 				EBAE9AEB22A9089A0045660A /* URLValidator.swift in Sources */,
 				2C005A9323DF2F5000003E29 /* Helpers.swift in Sources */,
+				6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */,
 				6E0DD47E2A4354E900A21A54 /* HistoryManager.swift in Sources */,
 				6EB07C6F2A56DBEA004F74DC /* AppState.swift in Sources */,
 				1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */,
