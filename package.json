@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "store-versions": {
-    "google-play": "1.0.0",
-    "apple-store": "2.9.9"
+    "google-play": "11.4.1",
+    "apple-store": "11.4.1"
   },
   "private": true,
   "scripts": {
@@ -19,10 +19,10 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.1.1",
-    "@mendix/native": "10.3.0",
+    "@mendix/native": "10.3.1",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
-    "@op-engineering/op-sqlite": "12.0.2",
+    "@op-engineering/op-sqlite": "15.0.7",
     "@react-native-async-storage/async-storage": "2.0.0",
     "@react-native-camera-roll/camera-roll": "7.4.0",
     "@react-native-community/cli": "16.0.2",
