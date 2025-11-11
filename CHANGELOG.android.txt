@@ -1,0 +1,1 @@
+- We fixed an issue where TextInput-based fields like the TextBox and TextArea would not receive focus on Android devices via touch.
