@@ -29,7 +29,6 @@
 		2C6E88AF2577E0580006B301 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6E88AE2577E0580006B301 /* Home.storyboard */; };
 		2C6E88BB2577E1BD0006B301 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6E88BA2577E1BD0006B301 /* HomeViewController.swift */; };
 		2C887F5C24B78D640003DC53 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */; };
-		2C887FE524B89C200003DC53 /* RNSplashScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */; };
 		2CCCE91925A367F80087AD16 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCE91825A367F80087AD16 /* Colors.xcassets */; };
 		2CF2021525C30BCA00395332 /* LocalNetworkPermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2021425C30BCA00395332 /* LocalNetworkPermissionService.swift */; };
 		6D631AFF82EFB03018D699AD /* libPods-Mendix-DeveloperApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0265C1A0BC85D1CEF83C96D0 /* libPods-Mendix-DeveloperApp.a */; };
@@ -46,6 +45,7 @@
 		6E8442742A40499A00D6159E /* AppBarContentScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */; };
 		6E8442762A404C0300D6159E /* LargeLogoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8442752A404C0300D6159E /* LargeLogoImage.swift */; };
 		6E8B577F2A67FE5F0024C5A2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B577E2A67FE5F0024C5A2 /* OnboardingView.swift */; };
+		6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */; };
 		6EABAB582A41FE820030BF0D /* SampleAppCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABAB542A41FE7E0030BF0D /* SampleAppCollectionViewController.swift */; };
 		6EABAB592A41FE820030BF0D /* SampleApps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB552A41FE820030BF0D /* SampleApps.storyboard */; };
 		6EABAB5B2A41FFA10030BF0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EABAB5A2A41FFA10030BF0D /* LaunchScreen.storyboard */; };
@@ -118,7 +118,6 @@
 		2C6E88AE2577E0580006B301 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		2C6E88BA2577E1BD0006B301 /* HomeViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
-		2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSplashScreenExtensions.swift; sourceTree = "<group>"; };
 		2CCCE91825A367F80087AD16 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2CF2021425C30BCA00395332 /* LocalNetworkPermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkPermissionService.swift; sourceTree = "<group>"; };
 		6E0DD47D2A4354E900A21A54 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		6E8442732A40499A00D6159E /* AppBarContentScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarContentScaffold.swift; sourceTree = "<group>"; };
 		6E8442752A404C0300D6159E /* LargeLogoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeLogoImage.swift; sourceTree = "<group>"; };
 		6E8B577E2A67FE5F0024C5A2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSplashScreenExtensions.swift; sourceTree = "<group>"; };
 		6EABAB542A41FE7E0030BF0D /* SampleAppCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAppCollectionViewController.swift; sourceTree = "<group>"; };
 		6EABAB552A41FE820030BF0D /* SampleApps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SampleApps.storyboard; sourceTree = "<group>"; };
 		6EABAB5A2A41FFA10030BF0D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -281,11 +281,11 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				6EAD388C2A3B439F00DC9D88 /* Launch */,
 				04222F8120403EC30092F0A0 /* AppDelegate.swift */,
-				2C887FE424B89C200003DC53 /* RNSplashScreenExtensions.swift */,
 				2CCCE91825A367F80087AD16 /* Colors.xcassets */,
 				2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */,
 				04222FB12040470B0092F0A0 /* MendixReactWindowExtensions.swift */,
 				EBB5240522EE2E9500557FEB /* RCTRootViewExtension.swift */,
+				6EA4E9162E717A7C009CCFBA /* RNSplashScreenExtensions.swift */,
 				EB07BDA720CEA13400E0CD48 /* Images.xcassets */,
 				2C005A9223DF2F5000003E29 /* Helpers.swift */,
 				EBD0933622B118F200FCA4EF /* SwipeBackNavigationController.swift */,
@@ -607,14 +607,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreExtension/FirebaseCoreExtension_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal/FirebaseCoreInternal_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCrashlytics/FirebaseCrashlytics_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport_Privacy.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.xcframework/ios-arm64/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.xcframework/ios-arm64_x86_64-simulator/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesSwift/Promises_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNDeviceInfo/RNDeviceInfoPrivacyInfo.bundle",
@@ -644,18 +649,24 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/SSZipArchive/SSZipArchive.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/react-native-blob-util/ReactNativeBlobUtilPrivacyInfo.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-picker/RNImagePickerPrivacyInfo.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCore_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCoreExtension_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCoreInternal_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCrashlytics_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseInstallations_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseMessaging_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleDataTransport_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleUtilities_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBLPromises_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Promises_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNDeviceInfoPrivacyInfo.bundle",
@@ -685,6 +696,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSZipArchive.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nanopb_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReactNativeBlobUtilPrivacyInfo.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNImagePickerPrivacyInfo.bundle",
 			);
@@ -719,6 +731,7 @@
 				E7CA7B3A2A320CFA00F8EBF0 /* Constants.swift in Sources */,
 				EBAE9AEB22A9089A0045660A /* URLValidator.swift in Sources */,
 				2C005A9323DF2F5000003E29 /* Helpers.swift in Sources */,
+				6EA4E9172E717A87009CCFBA /* RNSplashScreenExtensions.swift in Sources */,
 				6E0DD47E2A4354E900A21A54 /* HistoryManager.swift in Sources */,
 				6EB07C6F2A56DBEA004F74DC /* AppState.swift in Sources */,
 				1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */,
@@ -729,7 +742,6 @@
 				2C887F5C24B78D640003DC53 /* SplashScreenPresenter.swift in Sources */,
 				04D987A0229D693800DE359B /* SampleAppsConfig.swift in Sources */,
 				6EAD38922A3C4C3E00DC9D88 /* HistoryListTile.swift in Sources */,
-				2C887FE524B89C200003DC53 /* RNSplashScreenExtensions.swift in Sources */,
 				6E84426F2A40459100D6159E /* SampleAppsSwiftUIView.swift in Sources */,
 				6E6C9B462A4098E4002F788D /* TroubleshootView.swift in Sources */,
 				6E6C9B442A408C12002F788D /* SampleAppCard.swift in Sources */,
@@ -758,7 +770,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 600;
+				CURRENT_PROJECT_VERSION = 605;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
@@ -782,7 +794,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -795,7 +807,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.4.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -824,7 +836,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 600;
+				CURRENT_PROJECT_VERSION = 605;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -847,7 +859,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -860,7 +872,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.4.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1084,7 +1096,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 600;
+				CURRENT_PROJECT_VERSION = 605;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -1112,7 +1124,7 @@
 					"${SRCROOT}/../node_modules/@mendix/native/ios/**",
 				);
 				INFOPLIST_FILE = DeveloperApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native 10";
+				INFOPLIST_KEY_CFBundleDisplayName = "Make It Native";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1125,7 +1137,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 6.0.0;
+				MARKETING_VERSION = 11.4.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -51,7 +51,11 @@ abstract_target "Mendix" do
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true
-
+  pod 'FirebaseCoreExtension', :modular_headers => true
+  pod 'FirebaseInstallations',  :modular_headers => true
+  pod 'GoogleDataTransport',    :modular_headers => true
+  pod 'nanopb',                 :modular_headers => true
+  
   pod 'IQKeyboardManager'
   pod 'React-logger', :path => '../node_modules/react-native/ReactCommon/logger'
   pod 'SSZipArchive'
@@ -105,6 +109,9 @@ abstract_target "Mendix" do
         # Specify 'Swift Version: 5.0' for resolving archieve errors.
         if target.name == 'react-native-video'
           config.build_settings['SWIFT_VERSION'] = '5.0'
+        end
+        if target.name == 'VisionCamera'
+          config.build_settings['SWIFT_VERSION'] = '5.2'
         end
       end
     end

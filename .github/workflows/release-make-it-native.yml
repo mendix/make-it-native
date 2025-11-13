@@ -26,7 +26,30 @@ jobs:
 
       - name: Run release script
         env:
-          VERSION: ${{ github.event.inputs.version }}
+          MIN_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAT: ${{ secrets.PAT }}
-        run: node scripts/release-make-it-native.js
+        run: node scripts/release-make-it-native.mjs
+
+      - name: Send success message
+        if: success()
+        uses: ./.github/actions/slack-notification
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          message: |
+            ✅ *Make It Native automation succeeded!*
+            PRs created in:
+            • *make-it-native*
+            • *mendix/docs*
+            Please review and merge. 🙌
+          bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+
+      - name: Send failure message
+        if: failure()
+        uses: ./.github/actions/slack-notification
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          message: |
+            ❌ *Make It Native automation failed!*
+            Please check the workflow logs for more details. 🛠
+          bot-token: ${{ secrets.SLACK_BOT_TOKEN }}

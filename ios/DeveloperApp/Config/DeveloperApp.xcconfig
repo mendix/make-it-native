@@ -1,5 +1,5 @@
 // Identity
-APP_DISPLAY_NAME = Make It Native 10
+APP_DISPLAY_NAME = Make It Native
 BUNDLE_IDENTIFIER = com.mendix.developerapp.native.mx10
 
 CALENDARS_USAGE_DESCRIPTION = 'This app requires access to the calendar'
