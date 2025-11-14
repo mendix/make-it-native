@@ -49,7 +49,7 @@ fun WelcomePage(
                     .padding(28.dp)) {
                 Column(
                     verticalArrangement = Arrangement.SpaceAround,
-                    modifier = Modifier.height(270.dp)
+                    modifier = Modifier.heightIn(min = 270.dp)
                 ) {
                     // Icon
                     Image(
