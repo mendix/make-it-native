@@ -1,4 +1,5 @@
 import UIKit
+import MendixNative
 
 func getWarningFilterValue() -> WarningsFilter {
 #if DEBUG

@@ -2,19 +2,18 @@ import UIKit
 import AVFoundation
 import StoreKit
 import SwiftUI
+import MendixNative
 
 class HomeViewController: UIViewController {
     private var errorShown = false
-    private var clearCache: Bool = false
     private var developerMode: Bool = false
 
     private var uiState: HomeUIState = .idle {
         didSet {
             AppState.shared.uiState = uiState
-
             if (oldValue != uiState) {
-                DispatchQueue.main.async {
-                    self.updateUIState()
+                DispatchQueue.main.async {[weak self] in
+                    self?.updateUIState()
                 }
             }
         }
@@ -27,14 +26,14 @@ class HomeViewController: UIViewController {
         case .loading:
             break
         case .error, .deprecatedRuntime, .updateAvailable, .runtimeNotRunning, .packagerNotRunning:
-            self.performSegue(withIdentifier: "ConnectionError", sender: nil)
+            performSegue(withIdentifier: "ConnectionError", sender: nil)
             break
         }
     }
 
     private func setUIState(state: HomeUIState) {
-        DispatchQueue.main.async {
-            self.uiState = state
+        DispatchQueue.main.async {[weak self] in
+            self?.uiState = state
         }
     }
 
@@ -49,10 +48,10 @@ class HomeViewController: UIViewController {
         // Set up Swift UI screen.
         let homeUI = UIHostingController(rootView: HomeView(
             // Pass variables to Home Swift UI View.
-            launchOnTap: {
-                self.developerMode = AppState.shared.developerMode
-                self.clearCache = AppState.shared.clearCache
-                self.textFieldReturnAction(AppState.shared.url.lowercased())
+            launchOnTap: { [weak self] in
+                guard let self else { return }
+                developerMode = AppState.shared.developerMode
+                textFieldReturnAction(AppState.shared.url.lowercased())
             }
         ))
 
@@ -76,46 +75,40 @@ class HomeViewController: UIViewController {
         }
 
         uiState = .loading
-        validateMendixUrl(urlText) { (running) in
+        validateMendixUrl(urlText) {[weak self] running in
+            
+            guard let self else { return }
+            
             guard running, AppUrl.isValid(urlText) else {
-                self.uiState = .runtimeNotRunning(url: urlText)
+                uiState = .runtimeNotRunning(url: urlText)
                 return
             }
 
-            self.isSupportedMendixVersion(urlString: urlText) {
-                supported in
+            isSupportedMendixVersion(urlString: urlText) {[weak self] supported in
+                guard let self else { return }
                 if (!supported) {
                     return
                 }
-                self.uiState = .idle
-                self.launchApp(urlText)
+                uiState = .idle
+                launchApp(urlText)
             }
         }
     }
 
     private func launchApp(_ url: String) {
         HistoryStore().saveHistoryItem(historyItem: HistoryItem(url:url))
-        DispatchQueue.main.async {
-            AppPreferences.setAppUrl(url)
-            AppPreferences.remoteDebugging(false)
-            AppPreferences.devMode(self.developerMode)
-            self.performSegue(withIdentifier: "OpenMendixApp", sender: nil)
+        DispatchQueue.main.async {[weak self] in
+            guard let self else { return }
+            AppPreferences.appUrl = url
+            AppPreferences.remoteDebuggingEnabled = false
+            AppPreferences.devModeEnabled = developerMode
+            performSegue(withIdentifier: "OpenMendixApp", sender: nil)
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is MendixAppViewController {
-            let url = AppUrl.forBundle(
-                AppPreferences.getAppUrl(),
-                port: AppPreferences.getRemoteDebuggingPackagerPort(),
-                isDebuggingRemotely: AppPreferences.remoteDebuggingEnabled(),
-                isDevModeEnabled: AppPreferences.devModeEnabled())
-
-            let runtimeUrl: URL = AppUrl.forRuntime(AppPreferences.getAppUrl())!
-            
-            let mxApp = MendixApp(nil, bundleUrl: url!, runtimeUrl: runtimeUrl, warningsFilter: getWarningFilterValue(), isDeveloperApp: true, clearDataAtLaunch: self.clearCache, reactLoading: UIStoryboard(name: "LaunchScreen", bundle: nil))
-            mxApp.splashScreenPresenter = SplashScreenPresenter()
-            ReactNative.instance.setup(mxApp, launchOptions: nil)
+            ReactNative.shared.setup(MendixAppEntryType.regular.mendixApp, launchOptions: nil)
         } else if segue.destination is ConnectionErrorViewController {
             let viewController = segue.destination as! ConnectionErrorViewController
             switch uiState {
@@ -156,40 +149,38 @@ class HomeViewController: UIViewController {
 
         let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.timeoutIntervalForRequest = 3
-        URLSession(configuration: sessionConfiguration).dataTask(with: AppUrl.forPackagerStatus(urlString, port: AppPreferences.getRemoteDebuggingPackagerPort())) { (_, __, error) in
+        URLSession(configuration: sessionConfiguration)
+            .dataTask(with: AppUrl.forPackagerStatus(urlString, port: AppPreferences.remoteDebuggingPackagerPort)!) { (_, __, error) in
             if (error != nil) {
                 self.uiState = .packagerNotRunning(url: runtimeUrl.absoluteString)
                 return cb(false)
             }
 
-            RuntimeInfoProvider.getRuntimeInfo(runtimeUrl) { (response) in
-                guard let runtimeInfoResponse = response else {
-                    self.uiState = .runtimeNotRunning(url: urlString)
+            RuntimeInfoProvider.getRuntimeInfo(runtimeUrl) { [weak self] (response) in
+                
+                guard let self else { return }
+                
+                if (response.status == "INACCESSIBLE") {
+                    uiState = .runtimeNotRunning(url: urlString)
                     return cb(false)
                 }
 
-                if (runtimeInfoResponse.status == "INACCESSIBLE") {
-                    self.uiState = .runtimeNotRunning(url: urlString)
+                if (response.status == "FAILED") {
+                    uiState = .deprecatedRuntime
+                    return cb(false)
+                }
+                guard let runtimeInfo = response.runtimeInfo, let supportedNativeBinaryVersion =  Bundle.main.object(forInfoDictionaryKey: "Native Binary Version") as? Int else {
+                    uiState = .deprecatedRuntime
                     return cb(false)
                 }
 
-                if (runtimeInfoResponse.status == "FAILED") {
-                    self.uiState = .deprecatedRuntime
-                    return cb(false)
-                }
-                guard let runtimeInfo = runtimeInfoResponse.runtimeInfo, let supportedNativeBinaryVersion =  Bundle.main.object(forInfoDictionaryKey: "Native Binary Version") as? Int else {
-                    self.uiState = .deprecatedRuntime
-                    return cb(false)
-                }
-
-                let nativeBinaryVersion = runtimeInfo.nativeBinaryVersion
-                if (nativeBinaryVersion == supportedNativeBinaryVersion) {
+                if (runtimeInfo.nativeBinaryVersion == supportedNativeBinaryVersion) {
                     return cb(true)
-                } else if (nativeBinaryVersion > supportedNativeBinaryVersion) {
-                    self.uiState = .updateAvailable
+                } else if (runtimeInfo.nativeBinaryVersion > supportedNativeBinaryVersion) {
+                    uiState = .updateAvailable
                     return cb(false)
                 } else {
-                    self.uiState = .deprecatedRuntime
+                    uiState = .deprecatedRuntime
                     return cb(false)
                 }
             }
@@ -227,8 +218,8 @@ class HomeViewController: UIViewController {
     }
 
     private func getRuntimeErrorModel(url:String)->ConnectErrorModel{
-        let port = AppPreferences.getRemoteDebuggingPackagerPort()
-        let metroUrl = AppUrl.forPackagerStatus(url, port: port).absoluteString
+        let port = AppPreferences.remoteDebuggingPackagerPort
+        let metroUrl = AppUrl.forPackagerStatus(url, port: port)?.absoluteString ?? ""
         let runtimeUrl = AppUrl.forRuntime(url).absoluteString
 
         return ConnectErrorModel(
@@ -253,8 +244,8 @@ class HomeViewController: UIViewController {
     }
 
     private func getMetroErrorModel(url:String)->ConnectErrorModel{
-        let port = AppPreferences.getRemoteDebuggingPackagerPort()
-        let metroUrl = AppUrl.forPackagerStatus(url, port: port).absoluteString
+        let port = AppPreferences.remoteDebuggingPackagerPort
+        let metroUrl = AppUrl.forPackagerStatus(url, port: port)?.absoluteString ?? ""
         let runtimeUrl = AppUrl.forRuntime(url).absoluteString
 
         return ConnectErrorModel(
@@ -270,7 +261,7 @@ class HomeViewController: UIViewController {
             secondaryBtnTitle: "Retry",
             secondaryBtnAction: { () in
                 self.dismiss(animated: true, completion: nil)
-                self.textFieldReturnAction(AppUrl.forRuntime(url)!.absoluteString)
+                self.textFieldReturnAction(AppUrl.forRuntime(url).absoluteString)
             },
             uiState: .packagerNotRunning(url: url),
             metroUrl: metroUrl,

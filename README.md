@@ -100,7 +100,7 @@ First things first, make sure you clone your repo and install necessary software
    ```
 1. Install pods:
    ```bash
-   cd ios && pod install
+   cd ios && bundle install && bundle exec pod install
    ```
 
 ### 1.2 Switching to the Compatible Mendix Studio Pro Branch

@@ -1,9 +1,10 @@
 import Foundation
+import MendixNative
 
 class SplashScreenPresenter: SplashScreenPresenterProtocol  {
   func show(_ rootView: UIView?) {
-    if (rootView != nil) {
-      RNBootSplash.showStoryBoard("LaunchScreen", rootView: rootView!)
+    if let rootView {
+      RNBootSplash.showStoryBoard(.launchScreen, rootView: rootView)
     }
   }
 
