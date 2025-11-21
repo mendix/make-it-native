@@ -1412,14 +1412,6 @@ PODS:
     - React-Core
   - react-native-blob-util (0.21.2):
     - React-Core
-  - react-native-camera (3.40.0):
-    - React-Core
-    - react-native-camera/RCT (= 3.40.0)
-    - react-native-camera/RN (= 3.40.0)
-  - react-native-camera/RCT (3.40.0):
-    - React-Core
-  - react-native-camera/RN (3.40.0):
-    - React-Core
   - react-native-cameraroll (7.4.0):
     - DoubleConversion
     - glog
@@ -2108,6 +2100,12 @@ PODS:
   - SSZipArchive (2.6.0)
   - TouchID (4.4.1):
     - React
+  - VisionCamera (4.7.1):
+    - VisionCamera/Core (= 4.7.1)
+    - VisionCamera/React (= 4.7.1)
+  - VisionCamera/Core (4.7.1)
+  - VisionCamera/React (4.7.1):
+    - React-Core
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2164,7 +2162,6 @@ DEPENDENCIES:
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
-  - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
@@ -2233,6 +2230,7 @@ DEPENDENCIES:
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - SSZipArchive
   - TouchID (from `../node_modules/react-native-touch-id`)
+  - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2347,8 +2345,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-ble-plx"
   react-native-blob-util:
     :path: "../node_modules/react-native-blob-util"
-  react-native-camera:
-    :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-camera-roll/camera-roll"
   react-native-geocoder:
@@ -2483,6 +2479,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-vector-icons"
   TouchID:
     :path: "../node_modules/react-native-touch-id"
+  VisionCamera:
+    :path: "../node_modules/react-native-vision-camera"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2550,7 +2548,6 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: c32cbd3d9c334a51311ab9d717e2c72c7032a256
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
   react-native-blob-util: 64a732c0b8bb7f4928905e16ea8dc5cde6fb4832
-  react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
   react-native-cameraroll: fa835a59246b90ad2fa33c5e008fc25752ba7b80
   react-native-geocoder: 757427682892bb256f3b3745858cc90eba148a8e
   react-native-geolocation: 8559551683956a104cd6953a51f53edcef7a998f
@@ -2622,8 +2619,9 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
+  VisionCamera: 0ecfede218b2d989be3d504270b71f3d2384d95d
   Yoga: 7d51419602153919f32aec72812e324d495ee49d
 
-PODFILE CHECKSUM: 8045a3203b15a304651d034d96b1d93b2ccae6e4
+PODFILE CHECKSUM: a8ba4f8aa949fc78ec2919cd1aa7c8a2626f3a37
 
 COCOAPODS: 1.16.2
