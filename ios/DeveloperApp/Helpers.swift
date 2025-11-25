@@ -5,7 +5,7 @@ func getWarningFilterValue() -> WarningsFilter {
 #if DEBUG
   return .all
 #else
-  return AppPreferences.devModeEnabled() ? .partial : .none
+  return AppPreferences.devModeEnabled ? .partial : .none
 #endif
 }
 
