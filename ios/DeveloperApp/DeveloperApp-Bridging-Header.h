@@ -3,4 +3,3 @@
 #import "MendixNative.h"
 #import "IQKeyboardManager/IQKeyboardManager.h"
 #import "RNSplashScreen.h"
-#import "RNCPushNotificationIOS.h"
