@@ -120,8 +120,5 @@
                    android:value="{{GEO_API_KEY}}"/>
         <meta-data android:name="mendixnative.CookieEncryption"
                    android:value="${cookieEncryption}"/>
-        <meta-data
-                android:name="com.google.ar.core"
-                android:value="optional"/>
     </application>
 </manifest>
