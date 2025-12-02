@@ -1,1 +1,1 @@
-- We fixed an issue where TextInput-based fields like the TextBox and TextArea would not receive focus on Android devices via touch.
+- We have improved the UI for users who use three-button navigation when edge-to-edge mode is enabled.
