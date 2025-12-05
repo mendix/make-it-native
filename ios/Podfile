@@ -103,7 +103,7 @@ abstract_target "Mendix" do
         config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
         config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
         if target.name.start_with?("React") || target.name == "RCTTypeSafety"
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', "COCOAPODS=1", "RCT_DEV=1"]
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', "COCOAPODS=1", "RCT_DEV=1"]
         end
 
         # Specify 'Swift Version: 5.0' for resolving archieve errors.
