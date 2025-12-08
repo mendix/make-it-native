@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <!-- Required for scheduling local notifications -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <!-- Ignore deprecation: We still need this for the RN I think -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <!-- Ignore deprecation -->
@@ -97,18 +98,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions"/>
-        <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher"/>
-        <receiver
-                android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
-                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
-            </intent-filter>
-        </receiver>
-
         <service
                 android:name=".firebase.FirebaseMessagingService"
                 android:exported="false">
@@ -120,8 +109,5 @@
                    android:value="{{GEO_API_KEY}}"/>
         <meta-data android:name="mendixnative.CookieEncryption"
                    android:value="${cookieEncryption}"/>
-        <meta-data
-                android:name="com.google.ar.core"
-                android:value="optional"/>
     </application>
 </manifest>
