@@ -2103,11 +2103,11 @@ PODS:
   - SSZipArchive (2.6.0)
   - TouchID (4.4.1):
     - React
-  - VisionCamera (4.7.1):
-    - VisionCamera/Core (= 4.7.1)
-    - VisionCamera/React (= 4.7.1)
-  - VisionCamera/Core (4.7.1)
-  - VisionCamera/React (4.7.1):
+  - VisionCamera (4.7.3):
+    - VisionCamera/Core (= 4.7.3)
+    - VisionCamera/React (= 4.7.3)
+  - VisionCamera/Core (4.7.3)
+  - VisionCamera/React (4.7.3):
     - React-Core
   - Yoga (0.0.0)
 
@@ -2622,7 +2622,7 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
   TouchID: 6d9af299007675845fe9e23bd2701f4354613366
-  VisionCamera: 9a8f98ae344fe5d148f84bb45829f9e4caab9d2f
+  VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: 92f3bb322c40a86b7233b815854730442e01b8c4
 
 PODFILE CHECKSUM: a8ba4f8aa949fc78ec2919cd1aa7c8a2626f3a37
