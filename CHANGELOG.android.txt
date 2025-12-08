@@ -1,1 +1,2 @@
-- We have improved the UI for users who use three-button navigation when edge-to-edge mode is enabled.
+- We have migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features.
+- We fixed an issue where TextInput-based fields like the TextBox and TextArea would not receive focus on Android devices via touch.
