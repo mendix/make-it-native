@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "store-versions": {
-    "google-play": "11.4.1",
-    "apple-store": "11.4.1"
+    "google-play": "11.5.0",
+    "apple-store": "11.5.0"
   },
   "private": true,
   "scripts": {
     "postinstall": "jetify && patch-package",
-    "ios:clean-pod-install": "cd ios && del Podfile.lock && pod install",
+    "ios:clean-pod-install": "cd ios && del Podfile.lock && bundle install && bundle exec pod install",
+    "pod-install": "cd ios && bundle install && bundle exec pod install",
     "ios:dev": "cd ios && fastlane install_dev_certificate",
     "android:debug": "cd android && fastlane debug_internal",
     "ios:debug": "cd ios && arch -x86_64 fastlane debug_internal",

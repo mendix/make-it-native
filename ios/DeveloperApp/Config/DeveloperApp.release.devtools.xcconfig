@@ -1,3 +1,3 @@
-#include "Pods/Target Support Files/Pods-Mendix-DeveloperApp/Pods-Mendix-DeveloperApp.releasedevtoolsenabled.xcconfig"
+#include "Pods/Target Support Files/Pods-DeveloperApp/Pods-DeveloperApp.releasedevtoolsenabled.xcconfig"
 #include "DeveloperApp.xcconfig"
 #include "ApiKeys.xcconfig"
