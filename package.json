@@ -18,8 +18,8 @@
     "snyk:android": "cd android && snyk monitor --gradle-sub-project=app --configuration-attributes='com.android.build.api.attributes.BuildTypeAttr:release,react-native-camera:general,org.jetbrains.kotlin.platform.type:androidJvm' --configuration-matching='compile|implementation' --org=appdev --project-name=developerapp-android${SNYK_SUBPROJECT}"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^5.1.1",
-    "mendix-native": "github:mendix/mendix-native.git#moo/MOO-1870-react-19-upgrade",
+    "@gorhom/bottom-sheet": "5.1.1",
+    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.3.0/mendix-native-v0.3.0.tgz",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.0.7",
