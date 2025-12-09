@@ -28,7 +28,7 @@ struct LaunchScreenUIView: View {
   }
   
   private let animationTimer = Timer
-    .publish(every: 1, on: .current, in: RunLoopMode.commonModes)
+    .publish(every: 1, on: .current, in: RunLoop.Mode.common)
     .autoconnect()
   
   var body: some View {

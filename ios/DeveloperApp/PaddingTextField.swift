@@ -8,15 +8,15 @@ class PaddingTextField: UITextField {
   @IBInspectable var paddingLeft: CGFloat = 0
   
   override func textRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, createPaddingInsets())
+    return bounds.inset(by: createPaddingInsets())
   }
   
   override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, createPaddingInsets())
+    return bounds.inset(by: createPaddingInsets())
   }
   
   override func editingRect(forBounds bounds: CGRect) -> CGRect {
-    return UIEdgeInsetsInsetRect(bounds, createPaddingInsets())
+    return bounds.inset(by: createPaddingInsets())
   }
   
   private func createPaddingInsets() -> UIEdgeInsets {
