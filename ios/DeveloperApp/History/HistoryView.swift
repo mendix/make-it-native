@@ -37,7 +37,7 @@ struct HistoryView: View {
       
       ScrollView(.vertical, showsIndicators: false) {
         VStack{
-          if historyStore.historyList.count == 0 {
+          if historyStore.historyList.isEmpty {
             Text("No apps have been launched yet.")
               .padding(.top,25)
           } else {

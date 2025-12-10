@@ -3,6 +3,6 @@ import Foundation
 extension RCTRootView {
   override open func willMove(toWindow newWindow: UIWindow?) {
     super.willMove(toWindow: newWindow)
-    backgroundColor = UIColor.init(white: CGFloat(0.0), alpha: CGFloat(0.0))
+    backgroundColor = UIColor(white: 0.0, alpha: 0.0)
   }
 }

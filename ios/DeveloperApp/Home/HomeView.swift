@@ -150,7 +150,7 @@ struct HomeView: View {
   
   func permissionDeniedAlert() -> Alert {
     return Alert(title: Text("Camera"), message: Text("Camera access is required to use the QR scanner"), primaryButton: .default(Text("OK")){
-      UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+      UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     },secondaryButton: .cancel{
       showPermissionDeniedAlert = false
     })
