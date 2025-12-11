@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService
 import com.google.firebase.messaging.RemoteMessage
 import com.mendix.developerapp.R
 
@@ -38,7 +39,7 @@ class FirebaseMessagingService: com.google.firebase.messaging.FirebaseMessagingS
             }
 
 
-            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = context.getSystemService(RNPushNotificationListenerService.NOTIFICATION_SERVICE) as NotificationManager
             // Since android Oreo notification channel is needed.
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val channel = NotificationChannel(MENDIX_AD_CAMPAIGN_CHANNEL,
