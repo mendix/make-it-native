@@ -1,1 +1,0 @@
-- We have migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features.
