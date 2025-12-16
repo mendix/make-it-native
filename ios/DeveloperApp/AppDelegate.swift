@@ -13,7 +13,7 @@ class AppDelegate: ReactAppProvider {
     var shouldLaunchLastApp: Bool = false
     var previewingSampleApp: Bool = false
     
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         super.setUpProvider()
         super.application(application, didFinishLaunchingWithOptions: launchOptions)
         clearKeychainIfNecessary()
@@ -24,14 +24,14 @@ class AppDelegate: ReactAppProvider {
         return true
     }
     
-    override func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         RCTLinkingManager.application(app, open: url, options: options)
         guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
             return true
         }
         var launchOptions: [AnyHashable: Any] = options
-        launchOptions[UIApplicationLaunchOptionsKey.annotation] = options[UIApplicationOpenURLOptionsKey.annotation] ?? []
-        launchOptions[UIApplicationLaunchOptionsKey.url] = url
+        launchOptions[UIApplication.LaunchOptionsKey.annotation] = options[UIApplication.OpenURLOptionsKey.annotation] ?? []
+        launchOptions[UIApplication.LaunchOptionsKey.url] = url
         launchMendixAppWithOptions(options: launchOptions)
         return true
     }
@@ -106,29 +106,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             FirebaseApp.configure()
         }
         //Register MiN for remote Notifications
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-        } else {
-            let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
+        // For iOS 10+ display notification (sent via APNS)
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
     }
     
     //Called when a notification is delivered to a foreground app.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        if #available(iOS 14.0, *) {
-            completionHandler([.sound, .badge])
-        } else {
-            completionHandler([.sound, .alert, .badge])
-        }
+        completionHandler([.sound, .badge, .banner, .list])
     }
     
     func userNotificationCenter(

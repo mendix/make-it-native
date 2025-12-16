@@ -6,6 +6,10 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
   override func becomeFirstResponder() -> Bool {
     return true
   }
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .darkContent
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,12 +24,7 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     _ = becomeFirstResponder()
-    
-    if #available(iOS 13.0, *) {
-      UIApplication.shared.statusBarStyle = .darkContent
-    } else {
-      UIApplication.shared.statusBarStyle = .default
-    }
+    setNeedsStatusBarAppearanceUpdate()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
