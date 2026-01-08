@@ -14,6 +14,7 @@ class AppDelegate: ReactAppProvider {
     var previewingSampleApp: Bool = false
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
         super.setUpProvider()
         super.application(application, didFinishLaunchingWithOptions: launchOptions)
         clearKeychainIfNecessary()
@@ -34,6 +35,14 @@ class AppDelegate: ReactAppProvider {
         launchOptions[UIApplication.LaunchOptionsKey.url] = url
         launchMendixAppWithOptions(options: launchOptions)
         return true
+    }
+    
+    override func applicationDidEnterBackground(_ application: UIApplication) {
+        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
+    }
+        
+    override func applicationWillTerminate(_ application: UIApplication) {
+        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
     
     private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {

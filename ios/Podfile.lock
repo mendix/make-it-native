@@ -189,7 +189,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.3.0):
+  - MendixNative (0.3.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2974,7 +2974,7 @@ SPEC CHECKSUMS:
   hermes-engine: 2771b98fb813fdc6f92edd7c9c0035ecabf9fee7
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: a55e00448d33a66d59bd4b5c5d3057123d34337c
+  MendixNative: 358ef00fc883a39da69680c6c2a09ecf85a0b887
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 12554de3e1a0cb86cbad3cf1f0c50450f57d3855
@@ -3086,6 +3086,6 @@ SPEC CHECKSUMS:
   VisionCamera: 9a8f98ae344fe5d148f84bb45829f9e4caab9d2f
   Yoga: e14bad835e12b6c7e2260fc320bd00e0f4b45add
 
-PODFILE CHECKSUM: 31efe3f3eb2c09c2c2cd75ac7556c032a5324d1f
+PODFILE CHECKSUM: 6d3ca2b313f2042ecffa8f1e7cca1d98ea668bfe
 
 COCOAPODS: 1.16.2
