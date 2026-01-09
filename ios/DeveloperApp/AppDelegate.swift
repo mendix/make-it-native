@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        SessionCookieStore.restore()
+        SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
         clearKeychainIfNecessary()
         
         UIApplication.shared.isIdleTimerDisabled = true
@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        SessionCookieStore.persist()
+        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        SessionCookieStore.persist()
+        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
     
     //Called when a notification is delivered to a foreground app.
