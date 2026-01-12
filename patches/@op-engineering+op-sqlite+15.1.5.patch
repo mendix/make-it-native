@@ -79,7 +79,7 @@ index 5912d7b..f2cb85b 100644
 -         makeNativeMethod("clearStateNativeJsi",
 -                          OPSQLiteBridge::clearStateNativeJsi)});
 +         makeNativeMethod("clearStateNativeJsi", OPSQLiteBridge::clearStateNativeJsi),
-+    	    makeNativeMethod("deleteAllDBsJsi", OPSQLiteBridge::deleteAllDBsJsi)});
++    	 makeNativeMethod("deleteAllDBsJsi", OPSQLiteBridge::deleteAllDBsJsi)});
    }
  
  private:
@@ -89,7 +89,7 @@ index 5912d7b..f2cb85b 100644
    }
 +
 +  static bool deleteAllDBsJsi(jni::alias_ref<jni::JObject> thiz) {
-+    return opsqlite::deleteAllDbs();
++  	return opsqlite::deleteAllDbs();
 +  }
  };
  
@@ -170,7 +170,7 @@ index 68a9bc4..142e9d9 100644
    void on_commit();
    void on_rollback();
    void invalidate();
-+  void drop();
++    void drop();
    ~DBHostObject() override;
  
  private:
@@ -233,9 +233,9 @@ index 32906a2..4a1e452 100644
 +# app_package = JSON.parse(File.read(package_json_path))
  
 -op_sqlite_config = app_package["op-sqlite"]
- use_sqlcipher = false
--use_crsqlite = false
-+use_crsqlite = true
+-use_sqlcipher = false
++use_sqlcipher = true
+ use_crsqlite = false
  use_libsql = false
 -performance_mode = false
 +performance_mode = true
