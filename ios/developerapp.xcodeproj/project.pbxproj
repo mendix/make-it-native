@@ -770,7 +770,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 519;
+				CURRENT_PROJECT_VERSION = 522;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
@@ -807,7 +807,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 10.24.4;
+				MARKETING_VERSION = 10.24.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -836,7 +836,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 519;
+				CURRENT_PROJECT_VERSION = 522;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -872,7 +872,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 10.24.4;
+				MARKETING_VERSION = 10.24.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1096,7 +1096,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 519;
+				CURRENT_PROJECT_VERSION = 522;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -1137,7 +1137,7 @@
 					"$(PROJECT_DIR)",
 					"${SRCROOT}/../node_modules/@mendix/native/ios",
 				);
-				MARKETING_VERSION = 10.24.4;
+				MARKETING_VERSION = 10.24.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
