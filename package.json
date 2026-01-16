@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "5.1.1",
-    "mendix-native": "./mendix-native-0.3.2.tgz",
+    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.3.2/mendix-native-v0.3.2.tgz",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.1.5",
