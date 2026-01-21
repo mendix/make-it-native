@@ -221,10 +221,11 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - op-sqlite (15.1.5):
+  - op-sqlite (15.0.7):
     - DoubleConversion
     - glog
     - hermes-engine
+    - OpenSSL-Universal
     - RCT-Folly (= 2024.11.18.00)
     - RCTRequired
     - RCTTypeSafety
@@ -242,6 +243,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - OpenSSL-Universal (3.3.3001)
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -2716,6 +2718,7 @@ SPEC REPOS:
     - libwebp
     - MultiplatformBleAdapter
     - nanopb
+    - OpenSSL-Universal
     - PromisesObjC
     - PromisesSwift
     - QRCodeReader.swift
@@ -2974,7 +2977,8 @@ SPEC CHECKSUMS:
   MendixNative: 358ef00fc883a39da69680c6c2a09ecf85a0b887
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  op-sqlite: a8239b295e2fad068d587c16d6c41d1ffd98ede8
+  op-sqlite: 12554de3e1a0cb86cbad3cf1f0c50450f57d3855
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
