@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "5.1.1",
-    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.3.2/mendix-native-v0.3.2.tgz",
+    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.3.1/mendix-native-v0.3.1.tgz",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
-    "@op-engineering/op-sqlite": "15.1.5",
+    "@op-engineering/op-sqlite": "15.0.7",
     "@react-native-async-storage/async-storage": "2.0.0",
     "@react-native-camera-roll/camera-roll": "7.4.0",
     "@react-native-community/cli": "18.0.1",
