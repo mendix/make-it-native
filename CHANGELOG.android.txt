@@ -1,1 +1,2 @@
+- We have fixed checking and asking for `read-media` permissions on Android devices using SDK 33+.
 - We have enhanced the edge-to-edge viewing experience on Android.
