@@ -2974,7 +2974,7 @@ SPEC CHECKSUMS:
   hermes-engine: 2771b98fb813fdc6f92edd7c9c0035ecabf9fee7
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 358ef00fc883a39da69680c6c2a09ecf85a0b887
+  MendixNative: eb0ce8790842c3cbb5e75b8b37fd78d7006be0f0
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 870c9b6b9ef342a12dc89b841c38ad451d1a885c

@@ -1,0 +1,16 @@
+diff --git a/node_modules/mendix-native/MendixNative.podspec b/node_modules/mendix-native/MendixNative.podspec
+index 178c100..177a883 100644
+--- a/node_modules/mendix-native/MendixNative.podspec
++++ b/node_modules/mendix-native/MendixNative.podspec
+@@ -17,6 +17,11 @@ Pod::Spec.new do |s|
+   s.public_header_files = "ios/**/*.h"
+   s.private_header_files = "ios/**/*.h"
+ 
++  s.swift_version = "5.9"
++  s.pod_target_xcconfig = {
++    "DEFINES_MODULE" => "YES"
++  }
++
+   s.dependency "SSZipArchive"
+   s.dependency "RNCAsyncStorage"
+   s.dependency "ReactCommon"
