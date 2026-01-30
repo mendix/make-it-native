@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "store-versions": {
-    "google-play": "11.6.2",
-    "apple-store": "11.6.1"
+    "google-play": "11.6.3",
+    "apple-store": "11.6.3"
   },
   "private": true,
   "scripts": {
