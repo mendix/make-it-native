@@ -69,7 +69,7 @@ index d36fd85..7513556 100644
    println "[OP-SQLITE] using sqlcipher."
  } else if(useLibsql) {
 diff --git a/node_modules/@op-engineering/op-sqlite/android/cpp-adapter.cpp b/node_modules/@op-engineering/op-sqlite/android/cpp-adapter.cpp
-index 8feaf77..2393963 100644
+index 8feaf77..261ec22 100644
 --- a/node_modules/@op-engineering/op-sqlite/android/cpp-adapter.cpp
 +++ b/node_modules/@op-engineering/op-sqlite/android/cpp-adapter.cpp
 @@ -19,8 +19,8 @@ struct OPSQLiteBridge : jni::JavaClass<OPSQLiteBridge> {
@@ -206,7 +206,7 @@ index 91511ab..cc73dfe 100644
  
  } // namespace opsqlite
 diff --git a/node_modules/@op-engineering/op-sqlite/op-sqlite.podspec b/node_modules/@op-engineering/op-sqlite/op-sqlite.podspec
-index 375cc3e..e259537 100644
+index 375cc3e..e6fce21 100644
 --- a/node_modules/@op-engineering/op-sqlite/op-sqlite.podspec
 +++ b/node_modules/@op-engineering/op-sqlite/op-sqlite.podspec
 @@ -1,4 +1,3 @@
@@ -266,12 +266,3 @@ index 375cc3e..e259537 100644
  Pod::Spec.new do |s|
    s.name         = "op-sqlite"
    s.version      = package["version"]
-@@ -97,6 +64,8 @@ Pod::Spec.new do |s|
-   
-   # Base source files
-   source_files = Dir.glob("ios/**/*.{h,m,mm}") + Dir.glob("cpp/**/*.{h,cpp,c}")
-+  # Avoid pulling headers from vendored xcframeworks into the pod target
-+  source_files = source_files.reject { |path| path.include?(".xcframework/") }
- 
-   # Set the path to the `c_sources` directory based on environment
-   if is_user_app
