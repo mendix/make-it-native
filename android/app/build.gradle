@@ -28,6 +28,19 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.compileSdkVersion
 
+    def releaseProps = new Properties()
+    def releasePropsFile = new File('./local.properties')
+    def hasReleaseSigning = false
+    if (releasePropsFile.canRead()) {
+        releaseProps.load(new FileInputStream(releasePropsFile))
+        hasReleaseSigning = [
+            "key.store",
+            "key.store.password",
+            "key.alias",
+            "key.alias.password"
+        ].every { releaseProps.containsKey(it) }
+    }
+
     namespace "com.mendix.developerapp"
     defaultConfig {
         applicationId "com.mendix.developerapp.mx10"
@@ -59,17 +72,13 @@ android {
             }
         }
         release {
-           Properties releaseProps = new Properties()
-           def propFile = new File('./local.properties')
-           if (propFile.canRead()) {
-               releaseProps.load(new FileInputStream(propFile))
-
+           if (hasReleaseSigning) {
                storeFile file(releaseProps["key.store"])
                storePassword releaseProps["key.store.password"]
                keyAlias releaseProps["key.alias"]
                keyPassword releaseProps["key.alias.password"]
            } else {
-               print 'local.properties not found'
+               print 'Release signing config missing; skipping signingConfig.release'
            }
         }
     }
@@ -78,7 +87,9 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            signingConfig signingConfigs.release
+            if (hasReleaseSigning) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
