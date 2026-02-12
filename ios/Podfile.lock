@@ -1924,6 +1924,27 @@ PODS:
     - RNFBApp
   - RNFileViewer (2.1.5):
     - React-Core
+  - RNFlashList (1.8.3):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNGestureHandler (2.23.1):
     - DoubleConversion
     - glog
@@ -2218,6 +2239,7 @@ DEPENDENCIES:
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - "RNFBML (from `../node_modules/@react-native-firebase/ml`)"
   - RNFileViewer (from `../node_modules/react-native-file-viewer`)
+  - "RNFlashList (from `../node_modules/@shopify/flash-list`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
   - RNLocalize (from `../node_modules/react-native-localize`)
@@ -2457,6 +2479,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/ml"
   RNFileViewer:
     :path: "../node_modules/react-native-file-viewer"
+  RNFlashList:
+    :path: "../node_modules/@shopify/flash-list"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNInAppBrowser:
@@ -2604,6 +2628,7 @@ SPEC CHECKSUMS:
   RNFBMessaging: 6d244fcbdf8489869facfefb4ddf17386e234f68
   RNFBML: 08783a26be74283e4f3279730afdbdec9ae40c8e
   RNFileViewer: 4b5d83358214347e4ab2d4ca8d5c1c90d869e251
+  RNFlashList: e2981ad152fadf10f3b05e56cba9888317d85458
   RNGestureHandler: 9bf6e8f72d2e72c8f7eb45986fe71a5005fb072d
   RNInAppBrowser: 031138591f9cbf57e987d0fe97f4e73d5fc7524b
   RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
