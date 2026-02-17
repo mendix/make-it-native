@@ -1,0 +1,1 @@
+- We have added support for Native Templates using the flash-list dependency.
