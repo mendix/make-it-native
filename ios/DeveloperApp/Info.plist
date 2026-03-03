@@ -58,13 +58,13 @@
 	<true/>
 	<key>MobildeDocsUrl</key>
 	<string>https://docs.mendix.com/refguide/mobile/</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>${BLUETOOTH_USAGE_DESCRIPTION}</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -88,6 +88,8 @@
 	<key>Native Binary Version</key>
 	<integer>31</integer>
 	<key>NativeOTAEnabled</key>
+	<true/>
+	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>ReferenceGuideUrl</key>
 	<string>https://docs.mendix.com/refguide/</string>
