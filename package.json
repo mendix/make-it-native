@@ -23,7 +23,7 @@
     "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.3.1/mendix-native-v0.3.1.tgz",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
-    "@op-engineering/op-sqlite": "15.0.7",
+    "@op-engineering/op-sqlite": "15.2.5",
     "@shopify/flash-list": "2.2.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-camera-roll/camera-roll": "7.4.0",
@@ -78,7 +78,7 @@
   "devDependencies": {
     "del-cli": "^3.0.1",
     "jetifier": "^1.6.8",
-    "patch-package": "^8.0.0",
+    "patch-package": "^8.0.1",
     "snyk": "^1.1118.0"
   },
   "engines": {
