@@ -123,7 +123,7 @@ android {
 
 dependencies {
     // React Native Core
-    implementation "com.facebook.react:react-android:0.78.2"
+    implementation "com.facebook.react:react-android:0.83.2"
     implementation("com.facebook.react:hermes-android")
 
     // Dev app dependencies
@@ -193,4 +193,3 @@ configurations.all {
     }
 }
 
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

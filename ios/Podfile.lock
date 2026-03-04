@@ -1849,6 +1849,21 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
+  - react-native-vector-icons-ant-design (12.4.1)
+  - react-native-vector-icons-entypo (12.4.1)
+  - react-native-vector-icons-evil-icons (12.4.1)
+  - react-native-vector-icons-feather (12.4.1)
+  - react-native-vector-icons-fontawesome (12.4.1)
+  - react-native-vector-icons-fontawesome5 (12.3.1)
+  - react-native-vector-icons-fontawesome6 (12.3.1)
+  - react-native-vector-icons-fontisto (12.4.1)
+  - react-native-vector-icons-foundation (12.4.1)
+  - react-native-vector-icons-ionicons (12.4.1)
+  - react-native-vector-icons-material-design-icons (12.4.1)
+  - react-native-vector-icons-material-icons (12.4.1)
+  - react-native-vector-icons-octicons (20.4.1)
+  - react-native-vector-icons-simple-line-icons (12.4.1)
+  - react-native-vector-icons-zocial (12.4.1)
   - react-native-video (6.19.0):
     - hermes-engine
     - RCTRequired
@@ -2794,28 +2809,6 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNVectorIcons (10.3.0):
-    - hermes-engine
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -2897,6 +2890,21 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-vector-icons-ant-design (from `../node_modules/@react-native-vector-icons/ant-design`)"
+  - "react-native-vector-icons-entypo (from `../node_modules/@react-native-vector-icons/entypo`)"
+  - "react-native-vector-icons-evil-icons (from `../node_modules/@react-native-vector-icons/evil-icons`)"
+  - "react-native-vector-icons-feather (from `../node_modules/@react-native-vector-icons/feather`)"
+  - "react-native-vector-icons-fontawesome (from `../node_modules/@react-native-vector-icons/fontawesome`)"
+  - "react-native-vector-icons-fontawesome5 (from `../node_modules/@react-native-vector-icons/fontawesome5`)"
+  - "react-native-vector-icons-fontawesome6 (from `../node_modules/@react-native-vector-icons/fontawesome6`)"
+  - "react-native-vector-icons-fontisto (from `../node_modules/@react-native-vector-icons/fontisto`)"
+  - "react-native-vector-icons-foundation (from `../node_modules/@react-native-vector-icons/foundation`)"
+  - "react-native-vector-icons-ionicons (from `../node_modules/@react-native-vector-icons/ionicons`)"
+  - "react-native-vector-icons-material-design-icons (from `../node_modules/@react-native-vector-icons/material-design-icons`)"
+  - "react-native-vector-icons-material-icons (from `../node_modules/@react-native-vector-icons/material-icons`)"
+  - "react-native-vector-icons-octicons (from `../node_modules/@react-native-vector-icons/octicons`)"
+  - "react-native-vector-icons-simple-line-icons (from `../node_modules/@react-native-vector-icons/simple-line-icons`)"
+  - "react-native-vector-icons-zocial (from `../node_modules/@react-native-vector-icons/zocial`)"
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -2957,7 +2965,6 @@ DEPENDENCIES:
   - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - "RNSwanBrowser (from `../node_modules/@swan-io/react-native-browser`)"
-  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - SSZipArchive
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -3099,6 +3106,36 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-vector-icons-ant-design:
+    :path: "../node_modules/@react-native-vector-icons/ant-design"
+  react-native-vector-icons-entypo:
+    :path: "../node_modules/@react-native-vector-icons/entypo"
+  react-native-vector-icons-evil-icons:
+    :path: "../node_modules/@react-native-vector-icons/evil-icons"
+  react-native-vector-icons-feather:
+    :path: "../node_modules/@react-native-vector-icons/feather"
+  react-native-vector-icons-fontawesome:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome"
+  react-native-vector-icons-fontawesome5:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome5"
+  react-native-vector-icons-fontawesome6:
+    :path: "../node_modules/@react-native-vector-icons/fontawesome6"
+  react-native-vector-icons-fontisto:
+    :path: "../node_modules/@react-native-vector-icons/fontisto"
+  react-native-vector-icons-foundation:
+    :path: "../node_modules/@react-native-vector-icons/foundation"
+  react-native-vector-icons-ionicons:
+    :path: "../node_modules/@react-native-vector-icons/ionicons"
+  react-native-vector-icons-material-design-icons:
+    :path: "../node_modules/@react-native-vector-icons/material-design-icons"
+  react-native-vector-icons-material-icons:
+    :path: "../node_modules/@react-native-vector-icons/material-icons"
+  react-native-vector-icons-octicons:
+    :path: "../node_modules/@react-native-vector-icons/octicons"
+  react-native-vector-icons-simple-line-icons:
+    :path: "../node_modules/@react-native-vector-icons/simple-line-icons"
+  react-native-vector-icons-zocial:
+    :path: "../node_modules/@react-native-vector-icons/zocial"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-view-shot:
@@ -3219,8 +3256,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   RNSwanBrowser:
     :path: "../node_modules/@swan-io/react-native-browser"
-  RNVectorIcons:
-    :path: "../node_modules/react-native-vector-icons"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
   Yoga:
@@ -3303,6 +3338,21 @@ SPEC CHECKSUMS:
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-pager-view: c8817c1d9f4643417e68f0b846c51214b2252eea
   react-native-safe-area-context: ae7587b95fb580d1800c5b0b2a7bd48c2868e67a
+  react-native-vector-icons-ant-design: e88c25686a4e778a56823f7ecb4e014fde1713c5
+  react-native-vector-icons-entypo: 9b3015a5b28f681c668cb3c4c7b4e18ddfac63a3
+  react-native-vector-icons-evil-icons: 95e47db501f8e4250f2c08af7af0ad06b640d702
+  react-native-vector-icons-feather: b669f5bc4981f53aaa25d0e0135ae9a7d5c1bbd5
+  react-native-vector-icons-fontawesome: 3ecb33d69640b08c1800d2893d90eeac4af22e61
+  react-native-vector-icons-fontawesome5: c3a1fc199dc7c4b6af887b6fc95cd75b5b1532cb
+  react-native-vector-icons-fontawesome6: 7464629872b702957385275b62cff2f6c28199cc
+  react-native-vector-icons-fontisto: 7440cd61194fc79c7142496383322fc89e50bfa3
+  react-native-vector-icons-foundation: 03434904133240e5c878973e141c148dc26150b4
+  react-native-vector-icons-ionicons: 7bc32eadb4d24c93252430b49f25b8be000e2340
+  react-native-vector-icons-material-design-icons: 06451bebfd9affaecdd541230f23c6cb077e7063
+  react-native-vector-icons-material-icons: 2fe75632937d07937bfe8ca953e1b5d06eef3a1d
+  react-native-vector-icons-octicons: f16562ca7c486f918bc721eb66d9b5a91144ed4d
+  react-native-vector-icons-simple-line-icons: 39dfe757ffaa5c00c48dfe71ab06a4ccbfec5abd
+  react-native-vector-icons-zocial: c05a4faec2bf4142453333b6cd2238574f160fd8
   react-native-video: bca076cfff2a3e749fc63b3ac88118e1d8ee2689
   react-native-view-shot: fb3c0774edb448f42705491802a455beac1502a2
   react-native-webview: 3e8f69f3c6c54cf86ba2dd9335b587d4c5478846
@@ -3363,7 +3413,6 @@ SPEC CHECKSUMS:
   RNSound: 436aa4de81ae87b90e1781b5dd9247df3aa4622a
   RNSVG: 0bd149b873018bc6e0e3321e2f6435bdba294460
   RNSwanBrowser: c5376b1f2ef2a27411de137f9c04530ac76aad4a
-  RNVectorIcons: 4351544f100d4f12cac156a7c13399e60bab3e26
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
