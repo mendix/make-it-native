@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.8",
-    "mendix-native": "file:./package-0.4.5.tgz",
+    "mendix-native": "github:mendix/mendix-native#moo/MOO-2245-upgrade-rn-to083",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.2.5",
@@ -65,7 +65,7 @@
     "react-native-sound": "0.13.0",
     "react-native-bootsplash": "6.3.12",
     "react-native-svg": "15.15.3",
-    "react-native-tab-view": "3.5.2",
+    "react-native-tab-view": "4.3.0",
     "@react-native-vector-icons/ant-design": "12.4.1",
     "@react-native-vector-icons/common": "12.4.0",
     "@react-native-vector-icons/entypo": "12.4.1",
