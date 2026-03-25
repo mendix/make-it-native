@@ -37,7 +37,7 @@ const DOCS_REPO_OWNER = "MendixMobile";
 const DOCS_UPSTREAM_OWNER = "mendix";
 const DOCS_BRANCH_NAME = `update-mobile-release-notes-v${MIN_VERSION}`;
 const TARGET_FILE =
-  "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native-10.md";
+  "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native.md";
 
 const octokit = new Octokit({ auth: GITHUB_PAT });
 
