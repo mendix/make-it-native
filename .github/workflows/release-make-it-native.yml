@@ -32,7 +32,7 @@ jobs:
         run: node scripts/release-make-it-native.mjs
 
       - name: Send success message
-        if: success()
+        if: false # Disabled for testing, restore to success() when done
         uses: ./.github/actions/slack-notification
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
@@ -45,7 +45,7 @@ jobs:
           bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
 
       - name: Send failure message
-        if: failure()
+        if: false # Disabled for testing, restore to failure() when done
         uses: ./.github/actions/slack-notification
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
