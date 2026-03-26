@@ -130,16 +130,19 @@ async function cloneDocsRepo() {
 
   process.chdir(DOCS_REPO_NAME);
 
-  await git.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
-  await git.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
+  // Re-initialize simpleGit after chdir so it operates inside the cloned repo.
+  const repoGit = simpleGit();
+
+  await repoGit.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
+  await repoGit.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
 
   // Add upstream remote and fetch so we can branch off the latest upstream/development.
   // This avoids including fork-only commits (e.g., sync.yml) in the PR.
-  await git.addRemote(
+  await repoGit.addRemote(
     "upstream",
     `https://github.com/${DOCS_UPSTREAM_OWNER}/${DOCS_REPO_NAME}.git`
   );
-  await git.fetch("upstream");
+  await repoGit.fetch("upstream");
 }
 
 async function checkoutLocalBranch(git) {
