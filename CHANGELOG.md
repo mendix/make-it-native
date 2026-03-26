@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [99.2.1test] Make it Native - 2026-03-26
+
 ### Changes
 
 -   Migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features
@@ -16,7 +18,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   We migrated from react-native-fast-image to @d11/react-native-fast-image for new architecture compatibility.
 -   Upgrade react-native-reanimated to v3.16.7.
 -   We migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
-
 
 ## [3.1.8] Make it Native - 2025-4-02
 
