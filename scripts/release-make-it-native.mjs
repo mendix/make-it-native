@@ -121,6 +121,23 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
 
+async function syncForkWithUpstream() {
+  // Sync the fork's development branch with upstream (mendix/docs) via the GitHub API.
+  // This is equivalent to clicking "Sync fork" on GitHub and ensures the fork
+  // doesn't have extra commits (e.g., from sync.yml merge commits) that would
+  // appear in the PR diff.
+  console.log("Syncing MendixMobile/docs fork with upstream mendix/docs...");
+  const result = await octokit.request(
+    "POST /repos/{owner}/{repo}/merge-upstream",
+    {
+      owner: DOCS_REPO_OWNER,
+      repo: DOCS_REPO_NAME,
+      branch: "development",
+    }
+  );
+  console.log(`✅ Fork synced: ${result.data.message} (${result.data.merge_type})`);
+}
+
 async function cloneDocsRepo() {
   const git = simpleGit();
 
@@ -182,6 +199,7 @@ async function updateMiNChangelog(changelog, unreleasedContent, changelogPath) {
 // Update MiN Release Notes in Docs repo
 async function updateMiNReleaseNotes(unreleasedContent) {
   try {
+    await syncForkWithUpstream();
     await cloneDocsRepo();
     const git = simpleGit();
     await checkoutLocalBranch(git);
