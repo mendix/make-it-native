@@ -130,29 +130,12 @@ async function cloneDocsRepo() {
 
   process.chdir(DOCS_REPO_NAME);
 
-  // Re-initialize simpleGit after chdir so it operates inside the cloned repo.
-  const repoGit = simpleGit();
-
-  await repoGit.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
-  await repoGit.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
-}
-
-async function getUpstreamDevelopmentSha() {
-  // Use the GitHub API to get the latest commit SHA of mendix/docs:development.
-  // This lets us branch from the exact upstream state without needing direct clone access,
-  // avoiding fork-only commits (e.g., sync.yml) from appearing in the PR.
-  const { data: branch } = await octokit.repos.getBranch({
-    owner: DOCS_UPSTREAM_OWNER,
-    repo: DOCS_REPO_NAME,
-    branch: "development",
-  });
-  console.log(`Branching from upstream development SHA: ${branch.commit.sha}`);
-  return branch.commit.sha;
+  await git.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
+  await git.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
 }
 
 async function checkoutLocalBranch(git) {
-  const upstreamSha = await getUpstreamDevelopmentSha();
-  await git.checkout(["-b", DOCS_BRANCH_NAME, upstreamSha]);
+  await git.checkoutLocalBranch(DOCS_BRANCH_NAME);
 }
 
 async function updateDocsMiNReleaseNotes(unreleasedContent) {
