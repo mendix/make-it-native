@@ -135,19 +135,24 @@ async function cloneDocsRepo() {
 
   await repoGit.addConfig("user.name", GIT_AUTHOR_NAME, false, "global");
   await repoGit.addConfig("user.email", GIT_AUTHOR_EMAIL, false, "global");
+}
 
-  // Add upstream remote and fetch so we can branch off the latest upstream/development.
-  // This avoids including fork-only commits (e.g., sync.yml) in the PR.
-  await repoGit.addRemote(
-    "upstream",
-    `https://x-access-token:${GITHUB_PAT}@github.com/${DOCS_UPSTREAM_OWNER}/${DOCS_REPO_NAME}.git`
-  );
-  await repoGit.fetch("upstream");
+async function getUpstreamDevelopmentSha() {
+  // Use the GitHub API to get the latest commit SHA of mendix/docs:development.
+  // This lets us branch from the exact upstream state without needing direct clone access,
+  // avoiding fork-only commits (e.g., sync.yml) from appearing in the PR.
+  const { data: branch } = await octokit.repos.getBranch({
+    owner: DOCS_UPSTREAM_OWNER,
+    repo: DOCS_REPO_NAME,
+    branch: "development",
+  });
+  console.log(`Branching from upstream development SHA: ${branch.commit.sha}`);
+  return branch.commit.sha;
 }
 
 async function checkoutLocalBranch(git) {
-  // Branch off upstream/development to ensure a clean PR with only our commit.
-  await git.checkout(["-b", DOCS_BRANCH_NAME, "upstream/development"]);
+  const upstreamSha = await getUpstreamDevelopmentSha();
+  await git.checkout(["-b", DOCS_BRANCH_NAME, upstreamSha]);
 }
 
 async function updateDocsMiNReleaseNotes(unreleasedContent) {
