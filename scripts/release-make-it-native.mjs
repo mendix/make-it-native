@@ -140,7 +140,7 @@ async function cloneDocsRepo() {
   // This avoids including fork-only commits (e.g., sync.yml) in the PR.
   await repoGit.addRemote(
     "upstream",
-    `https://github.com/${DOCS_UPSTREAM_OWNER}/${DOCS_REPO_NAME}.git`
+    `https://x-access-token:${GITHUB_PAT}@github.com/${DOCS_UPSTREAM_OWNER}/${DOCS_REPO_NAME}.git`
   );
   await repoGit.fetch("upstream");
 }
