@@ -16,7 +16,7 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     
     // Set all orientations available while launching the mendix app.
     AppDelegate.orientationLock = .all
-    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .unspecified
+    AppDelegate.delegateInstance()?.window?.overrideUserInterfaceStyle = .unspecified
     ReactNative.shared.delegate = self
     ReactNative.shared.start()
   }
@@ -31,7 +31,7 @@ class MendixAppViewController: UIViewController, ReactNativeDelegate {
     super.viewDidDisappear(animated)
     // Set orientation to only portrait mode, while exiting the mendix app.
     AppDelegate.orientationLock = .portrait
-    AppDelegate.delegateInstance()?.window.overrideUserInterfaceStyle = .light
+    AppDelegate.delegateInstance()?.window?.overrideUserInterfaceStyle = .light
   }
 
   func onAppClosed() {
