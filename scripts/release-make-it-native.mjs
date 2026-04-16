@@ -37,7 +37,7 @@ const DOCS_REPO_OWNER = "MendixMobile";
 const DOCS_UPSTREAM_OWNER = "mendix";
 const DOCS_BRANCH_NAME = `update-mobile-release-notes-v${MIN_VERSION}`;
 const TARGET_FILE =
-  "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native-10.md";
+  "content/en/docs/releasenotes/mobile/make-it-native-parent/make-it-native.md";
 
 const octokit = new Octokit({ auth: GITHUB_PAT });
 
@@ -116,10 +116,14 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
     month: "short",
     day: "numeric",
   });
-  const title = `## ${MIN_VERSION}\n\n**Release date: ${formattedDate}**`;
+  const title = `## Android ${MIN_VERSION} / iOS ${MIN_VERSION}\n\n**Release date: ${formattedDate}**`;
 
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
+
+// This file exists only in the fork (MendixMobile/docs) and not in upstream (mendix/docs).
+// Removing it in our branch ensures it doesn't appear in the cross-fork PR diff.
+const FORK_SYNC_FILE = ".github/workflows/sync.yml";
 
 async function cloneDocsRepo() {
   const git = simpleGit();
@@ -144,6 +148,10 @@ async function updateDocsMiNReleaseNotes(unreleasedContent) {
 }
 
 async function createPRUpdateDocsMiNReleaseNotes(git) {
+  // Remove the fork's sync.yml so it doesn't appear in the cross-fork PR diff.
+  if (fs.existsSync(FORK_SYNC_FILE)) {
+    await git.rm(FORK_SYNC_FILE);
+  }
   await git.add(TARGET_FILE);
   await git.commit(`docs: update mobile release notes for v${MIN_VERSION}`);
   await git.push("origin", DOCS_BRANCH_NAME, ["--force"]);
