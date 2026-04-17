@@ -15,17 +15,16 @@ class AppDelegate: ReactAppProvider {
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-        super.setUpProvider()
-        super.application(application, didFinishLaunchingWithOptions: launchOptions)
+        setUpProvider(dependencyProvider: RCTAppDependencyProvider())
         clearKeychainIfNecessary()
         setUpDevice()
         setUpGoogleMaps()
         setUpPushNotifications(application)
         updateRootViewController(showOnboarding() ? .launchTutorial : .openApp)
-        return true
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         RCTLinkingManager.application(app, open: url, options: options)
         guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
             return true
@@ -37,11 +36,11 @@ class AppDelegate: ReactAppProvider {
         return true
     }
     
-    override func applicationDidEnterBackground(_ application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
         
-    override func applicationWillTerminate(_ application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
     
@@ -60,7 +59,7 @@ extension AppDelegate {
     
     static var orientationLock = UIInterfaceOrientationMask.portrait // By default lock orientation only portrait mode.
     
-    override func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return AppDelegate.orientationLock
     }
     
@@ -74,9 +73,9 @@ extension AppDelegate {
 extension AppDelegate {
     private func updateRootViewController(_ storyboard: UIStoryboard) {
         window = MendixReactWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = storyboard.instantiateInitialViewController()
-        window.makeKeyAndVisible()
-        window.overrideUserInterfaceStyle = .light // Force Light Mode
+        window?.rootViewController = storyboard.instantiateInitialViewController()
+        window?.makeKeyAndVisible()
+        window?.overrideUserInterfaceStyle = .light // Force Light Mode
         IQKeyboardManager.shared().isEnabled = false
     }
     
@@ -154,7 +153,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     }
     
 #if DEBUG
-    override func application(_ application: UIApplication,
+    func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken

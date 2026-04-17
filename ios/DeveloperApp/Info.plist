@@ -58,13 +58,13 @@
 	<true/>
 	<key>MobildeDocsUrl</key>
 	<string>https://docs.mendix.com/refguide/mobile/</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>${BLUETOOTH_USAGE_DESCRIPTION}</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -88,6 +88,8 @@
 	<key>Native Binary Version</key>
 	<integer>31</integer>
 	<key>NativeOTAEnabled</key>
+	<true/>
+	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>ReferenceGuideUrl</key>
 	<string>https://docs.mendix.com/refguide/</string>
@@ -118,10 +120,13 @@
 		<string>FontAwesome5_Brands.ttf</string>
 		<string>FontAwesome5_Regular.ttf</string>
 		<string>FontAwesome5_Solid.ttf</string>
+		<string>FontAwesome6_Brands.ttf</string>
+		<string>FontAwesome6_Regular.ttf</string>
+		<string>FontAwesome6_Solid.ttf</string>
 		<string>Fontisto.ttf</string>
 		<string>Foundation.ttf</string>
 		<string>Ionicons.ttf</string>
-		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialDesignIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
