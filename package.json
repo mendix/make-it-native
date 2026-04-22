@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.8",
-    "mendix-native": "github:mendix/mendix-native#moo/MOO-2245-upgrade-rn-to083",
+    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.4.1/mendix-native-v0.4.1.tgz",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.2.5",
