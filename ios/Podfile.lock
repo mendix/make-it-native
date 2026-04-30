@@ -79,7 +79,7 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.13)
     - nanopb (< 2.30911.0, >= 2.30908.0)
     - PromisesSwift (~> 2.1)
-  - fmt (11.0.2)
+  - fmt (12.1.0)
   - glog (0.3.5)
   - Google-Maps-iOS-Utils (5.0.0):
     - GoogleMaps (~> 8.0)
@@ -172,7 +172,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.3.2):
+  - MendixNative (0.4.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -237,7 +237,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - OpenSSL-Universal (3.3.3001)
+  - OpenSSL-Universal (3.6.0000)
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -246,20 +246,20 @@ PODS:
     - boost
     - DoubleConversion
     - fast_float (= 8.0.0)
-    - fmt (= 11.0.2)
+    - fmt (= 12.1.0)
     - glog
     - RCT-Folly/Default (= 2024.11.18.00)
   - RCT-Folly/Default (2024.11.18.00):
     - boost
     - DoubleConversion
     - fast_float (= 8.0.0)
-    - fmt (= 11.0.2)
+    - fmt (= 12.1.0)
     - glog
   - RCT-Folly/Fabric (2024.11.18.00):
     - boost
     - DoubleConversion
     - fast_float (= 8.0.0)
-    - fmt (= 11.0.2)
+    - fmt (= 12.1.0)
     - glog
   - RCTDeprecation (0.83.4)
   - RCTRequired (0.83.4)
@@ -4207,25 +4207,25 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 585984d0a1df120617eb10b44cad8968b859815e
   FirebaseRemoteConfigInterop: 6efda51fb5e2f15b16585197e26eaa09574e8a4d
   FirebaseSessions: dbd14adac65ce996228652c1fc3a3f576bdf3ecc
-  fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
+  fmt: 530618a01105dae0fa3a2f27c81ae11fa8f67eac
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   Google-Maps-iOS-Utils: 66d6de12be1ce6d3742a54661e7a79cb317a9321
   GoogleAppMeasurement: f65fc137531af9ad647f1c0a42f3b6a4d3a98049
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 24966888f6c742fdc7fe913a14d29a107464de7e
+  hermes-engine: 9909ca521b44677f3244c0ddbe64a261fbc506d7
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 73ee938465675ee5ff94dfde36dd3e4217e94a2e
+  MendixNative: 91822aad01e73d9afe13953415824bd451b809d9
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 64000c0da2357c4d73faf4d23ff34dd1ddb332d4
-  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
+  OpenSSL-Universal: 9110d21982bb7e8b22a962b6db56a8aa805afde7
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
-  RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
+  RCT-Folly: b29feb752b08042c62badaef7d453f3bb5e6ae23
   RCTDeprecation: 9da1d0cf93db23ca8b41e8efe9ae558fd9c0077f
   RCTRequired: 92a63c7041031a131fa5206eb082d53f95729b79
   RCTSwiftUI: 395b65655229fa2006415207adcfcb6e35dc78ed
@@ -4342,6 +4342,6 @@ SPEC CHECKSUMS:
   VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: b669e79fa0f8d3f6f5e35372345f54b99e06b13c
 
-PODFILE CHECKSUM: 6858d5d8223fce1cc7271f24beb353475b0ccb2e
+PODFILE CHECKSUM: 4055089adb603ffbf3447d2f4b53833e1309be14
 
 COCOAPODS: 1.16.2
