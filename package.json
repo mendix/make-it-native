@@ -33,6 +33,7 @@
     "@react-native-community/datetimepicker": "8.2.0",
     "@react-native-community/geolocation": "3.4.0",
     "@react-native-community/netinfo": "11.5.2",
+    "@react-native-community/slider": "^5.2.0",
     "@react-native-firebase/analytics": "20.1.0",
     "@react-native-firebase/app": "20.1.0",
     "@react-native-firebase/crashlytics": "20.1.0",
