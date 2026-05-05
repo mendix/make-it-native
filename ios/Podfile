@@ -48,7 +48,6 @@ target 'DeveloperApp' do
     :fabric_enabled => true,
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
   pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
