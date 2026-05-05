@@ -185,7 +185,7 @@ class ProjectLoaderViewModel : ViewModel() {
             }
         }
 
-        override fun onFailure(cause: Exception?) {
+        override fun onFailure(cause: Exception) {
             setStatus(STATUS_ERROR_BUNDLE)
         }
     }

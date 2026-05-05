@@ -12,8 +12,9 @@ import com.mendix.mendixnative.error.ErrorType
 
 class CrashlyticsErrorHandler(val context: Context) : ErrorHandler {
     override fun handleError(title: String?, stack: Array<out StackFrame>?, type: ErrorType) {
+        val crashlyticsStack = stack?.let { source -> Array(source.size) { index -> source[index] } } ?: emptyArray()
         FirebaseCrashlytics.getInstance().setCustomKey("Error type", type.name)
-        FirebaseCrashlytics.getInstance().log(StackTraceHelper.formatStackTrace(title, stack!!))
+        FirebaseCrashlytics.getInstance().log(StackTraceHelper.formatStackTrace(title, crashlyticsStack))
         (if (type === ErrorType.NATIVE) Exception(title) else title?.let {
             JavascriptException(
                 it
@@ -23,7 +24,7 @@ class CrashlyticsErrorHandler(val context: Context) : ErrorHandler {
         Bundle().let {
             it.putString("title", title)
             it.putString("type", type.name)
-            it.putString("stack_frame", StackTraceHelper.formatStackTrace(title, stack))
+            it.putString("stack_frame", StackTraceHelper.formatStackTrace(title, crashlyticsStack))
             FirebaseAnalytics.getInstance(context).logEvent("red_box", it)
         }
     }

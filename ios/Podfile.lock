@@ -172,7 +172,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.3.2):
+  - MendixNative (0.4.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -4214,10 +4214,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 24966888f6c742fdc7fe913a14d29a107464de7e
+  hermes-engine: d6436b1abe54ecbd1c6f6b72cfe18ebefa2bb3e3
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 73ee938465675ee5ff94dfde36dd3e4217e94a2e
+  MendixNative: 91822aad01e73d9afe13953415824bd451b809d9
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 64000c0da2357c4d73faf4d23ff34dd1ddb332d4
@@ -4342,6 +4342,6 @@ SPEC CHECKSUMS:
   VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: b669e79fa0f8d3f6f5e35372345f54b99e06b13c
 
-PODFILE CHECKSUM: 6858d5d8223fce1cc7271f24beb353475b0ccb2e
+PODFILE CHECKSUM: 8f52dd6296d40fdc351dad43ae7219a3ffac6b65
 
 COCOAPODS: 1.16.2
