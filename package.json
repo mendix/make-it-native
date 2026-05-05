@@ -42,7 +42,7 @@
     "@sbaiahmed1/react-native-biometrics": "0.10.0",
     "@swan-io/react-native-browser": "1.0.1",
     "react-native": "0.83.4",
-    "react-native-ble-plx": "2.0.3",
+    "react-native-ble-plx": "3.5.1",
     "react-native-blob-util": "0.24.7",
     "react-native-calendar-events": "2.2.0",
     "react-native-device-info": "15.0.2",

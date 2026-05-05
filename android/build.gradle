@@ -71,14 +71,6 @@ allprojects {
     // Uncomment the following line if Windows fails due to long paths
     // buildDir = c:/temp/${rootProject.name}/${project.name}
     repositories {
-        all { ArtifactRepository repo ->
-            if (repo.url.toString().contains("jcenter.bintray.com")) {
-                remove repo
-                mavenCentral()
-            }
-        }
-        google()
-        maven { url 'https://jitpack.io' }
         maven {
             url "$rootDir/../node_modules/@notifee/react-native/android/libs"
         }
