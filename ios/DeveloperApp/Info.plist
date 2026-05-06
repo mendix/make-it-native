@@ -67,8 +67,6 @@
 	<string>To use that feature the app needs access to your media library.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>${BLUETOOTH_USAGE_DESCRIPTION}</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>${BLUETOOTH_USAGE_DESCRIPTION}</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>${CALENDARS_USAGE_DESCRIPTION}</string>
 	<key>NSCameraUsageDescription</key>

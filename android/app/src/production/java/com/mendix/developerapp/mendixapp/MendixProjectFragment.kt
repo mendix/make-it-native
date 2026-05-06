@@ -20,9 +20,7 @@ class MendixProjectFragment : MendixProjectFragmentBase() {
         super.onCreate(savedInstanceState)
 
         // Setting up our download listener
-        reactNativeHost.reactInstanceManager.devSupportManager.apply {
-            setBundleDownloadListener(this, viewModel.devServerCallback)
-        }
+        setBundleDownloadListener(reactHost?.devSupportManager, viewModel.devServerCallback)
 
         // This now uses built-in RN mechanism to show bundling progress.
         DefaultDevLoadingViewImplementation.setDevLoadingEnabled(true);
