@@ -76,10 +76,6 @@
     "react-native-webview": "13.16.1",
     "simple-git": "^3.32.3"
   },
-  "op-sqlite": {
-    "sqlcipher": true,
-    "performanceMode": true
-  },
   "overrides": {
     "@sideway/address": "4.1.4"
   },
