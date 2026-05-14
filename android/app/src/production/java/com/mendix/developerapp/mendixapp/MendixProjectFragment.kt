@@ -2,8 +2,7 @@ package com.mendix.developerapp.mendixapp
 
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
-import com.facebook.react.devsupport.DefaultDevLoadingViewImplementation
-import com.facebook.react.devsupport.setBundleDownloadListener
+import com.mendix.developerapp.MainApplication
 import com.mendix.mendixnative.react.MxConfiguration
 
 class MendixProjectFragment : MendixProjectFragmentBase() {
@@ -19,11 +18,16 @@ class MendixProjectFragment : MendixProjectFragmentBase() {
 
         super.onCreate(savedInstanceState)
 
-        // Setting up our download listener
-        setBundleDownloadListener(reactHost?.devSupportManager, viewModel.devServerCallback)
+        // Wire the ViewModel's download listener into the application-level holder.
+        // The holder was injected into the DevSupportManager at ReactHost creation time.
+        (requireActivity().application as MainApplication)
+            .bundleDownloadListenerHolder.delegate = viewModel.devServerCallback
+    }
 
-        // This now uses built-in RN mechanism to show bundling progress.
-        DefaultDevLoadingViewImplementation.setDevLoadingEnabled(true);
+    override fun onDestroy() {
+        (requireActivity().application as? MainApplication)
+            ?.bundleDownloadListenerHolder?.delegate = null
+        super.onDestroy()
     }
 
     override fun onCloseProjectSelected() {

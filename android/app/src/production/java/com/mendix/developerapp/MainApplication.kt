@@ -1,5 +1,7 @@
 package com.mendix.developerapp
 
+import com.facebook.react.devsupport.interfaces.DevBundleDownloadListener
+import com.mendix.developerapp.loading.BundleDownloadListenerHolder
 import com.mendix.developerapp.sampelapps.SampleAppsManager
 import com.mendix.developerapp.splashscreen.SplashScreenPresenter
 import com.mendix.developerapp.util.imageBackground
@@ -15,6 +17,11 @@ class MainApplication : BaseApplication() {
         var backgroundImagePath = imageBackground(backgroundImage)
         var splashImagePath = splashBackground(backgroundImage)
     }
+
+    val bundleDownloadListenerHolder = BundleDownloadListenerHolder()
+
+    override val devBundleDownloadListener: DevBundleDownloadListener
+        get() = bundleDownloadListenerHolder
 
     override fun getUseDeveloperSupport(): Boolean {
         return SampleAppsManager.sampleAppJSBundlePath == null
