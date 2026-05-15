@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
-import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -29,7 +28,6 @@ import com.mendix.developerapp.firebase.FCMNotificationHandler
 import com.mendix.developerapp.firebase.MENDIX_AD_CAMPAIGN_CHANNEL
 import com.mendix.developerapp.home.HomeViewModel
 import com.mendix.developerapp.mendixapp.MendixProjectFragment
-import com.mendix.developerapp.utilities.GlobalTouchEventListener
 import com.mendix.developerapp.utilities.getWarningFilterValue
 import com.mendix.developerapp.utilities.supportsAR
 import com.mendix.mendixnative.fragment.BackButtonHandler
@@ -207,12 +205,6 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
             it.putBoolean(MendixReactFragment.ARG_CLEAR_DATA, clearData)
             it.putBoolean(MendixReactFragment.ARG_USE_DEVELOPER_SUPPORT, true)
         })
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        return if ((currentFragment as? GlobalTouchEventListener)?.dispatchTouchEvent(ev) == true) {
-            true
-        } else super.dispatchTouchEvent(ev)
     }
 
     override fun onBackPressed() {

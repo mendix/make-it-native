@@ -2,12 +2,9 @@ import UIKit
 import Firebase
 import GoogleMaps
 import UserNotifications
-import React_RCTAppDelegate
-import ReactAppDependencyProvider
 import MendixNative
-import React
 
-@UIApplicationMain
+@main
 class AppDelegate: ReactAppProvider {
     
     var shouldLaunchLastApp: Bool = false
@@ -15,7 +12,7 @@ class AppDelegate: ReactAppProvider {
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-        setUpProvider(dependencyProvider: RCTAppDependencyProvider())
+        setUpProvider()
         clearKeychainIfNecessary()
         setUpDevice()
         setUpGoogleMaps()
@@ -72,7 +69,7 @@ extension AppDelegate {
 //RootView
 extension AppDelegate {
     private func updateRootViewController(_ storyboard: UIStoryboard) {
-        window = MendixReactWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = storyboard.instantiateInitialViewController()
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light // Force Light Mode
