@@ -8,11 +8,10 @@ import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import com.mendix.developerapp.MendixBaseFragment
 import com.mendix.developerapp.loading.ProjectLoaderViewModel
-import com.mendix.developerapp.utilities.GlobalTouchEventListener
 import com.zoontek.rnbootsplash.RNBootSplash
 import com.mendix.developerapp.R
 
-open class MendixProjectFragmentBase : MendixBaseFragment(), GlobalTouchEventListener {
+open class MendixProjectFragmentBase : MendixBaseFragment() {
     protected val viewModel: ProjectLoaderViewModel by viewModels()
 
     override fun onCreateView(

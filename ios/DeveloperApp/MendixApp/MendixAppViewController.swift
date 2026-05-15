@@ -1,8 +1,7 @@
 import UIKit
 import MendixNative
-import React_RCTAppDelegate
 
-class MendixAppViewController: UIViewController, ReactNativeDelegate {
+class MendixAppViewController: UIViewController, ReactNativeDelegateInternal {
   override func becomeFirstResponder() -> Bool {
     return true
   }
