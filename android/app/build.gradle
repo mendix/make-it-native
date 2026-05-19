@@ -46,8 +46,8 @@ android {
         applicationId "com.mendix.developerapp.mx10"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 619
-        versionName "11.9.0"
+        versionCode 621
+        versionName "11.10.0"
         missingDimensionStrategy "react-native-camera", "general"
         testBuildType System.getProperty("testBuildType", "debug")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
