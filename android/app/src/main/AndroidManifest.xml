@@ -81,7 +81,7 @@
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode|fontScale"
                 android:launchMode="singleTask"
                 android:screenOrientation="user"
-                android:windowSoftInputMode="stateHidden"
+                android:windowSoftInputMode="adjustPan"
                 android:exported="true">
             <intent-filter>
                 <action android:name="com.mendix.mendixnative.action.START"/>

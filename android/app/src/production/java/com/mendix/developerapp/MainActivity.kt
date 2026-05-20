@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         preferences = AppPreferences(applicationContext)
         devAppPreferences = getPreferences(MODE_PRIVATE)
 
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
         setupHomeViewModel()
         setupNavigation()
