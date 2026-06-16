@@ -25,6 +25,11 @@ open class MendixProjectFragmentBase : MendixBaseFragment() {
 
         viewModel.status.observe(viewLifecycleOwner) {
             if (it === ProjectLoaderViewModel.STATUS_SUCCESS) {
+                // Surface RN's "Open DevTools" item in the dev menu. isDeviceDebugEnabled
+                // defaults to ReactBuildConfig.DEBUG (false in release) and is in-memory only,
+                // so it must be set each launch once the React instance (and thus the
+                // DevSupportManager) exists. Safely no-ops when dev support is off (devSettings null).
+                currentDevSupportManager?.devSettings?.isDeviceDebugEnabled = true
                 RNBootSplash.init(requireActivity(), R.style.BootTheme)
             }else{
                 RNBootSplash.hide(requireActivity());
