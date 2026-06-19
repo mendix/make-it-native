@@ -86,7 +86,6 @@
             android:requestLegacyExternalStorage="true"
             android:theme="@style/Theme.MakeItNative"
             android:usesCleartextTraffic="true"
-            android:networkSecurityConfig="@xml/network_security_config"
             tools:ignore="GoogleAppIndexingWarning"
             tools:targetApi="28"
             android:supportsRtl="true">
