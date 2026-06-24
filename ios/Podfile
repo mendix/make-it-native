@@ -81,6 +81,30 @@ target 'DeveloperApp' do
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', "RCT_DEV=1"]
         end
 
+        # As a developer tool — always use the Debug prebuilt variants of both
+        # React.xcframework (React-Core-prebuilt) and the native dependencies bundle
+        # (ReactNativeDependencies, which includes hermesvm) regardless of the app
+        # build configuration.
+        #
+        if target.name == 'React-Core-prebuilt' || target.name == 'ReactNativeDependencies' || target.name == 'hermes-engine'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['DEBUG=1']
+        end
+
+        # If any source-compiled pod that defines a Fabric component (e.g.
+        # react-native-safe-area-context) is compiled WITHOUT REACT_NATIVE_DEBUG, its
+        # construction vtable puts the vbase offset at a different index. The prebuilt's
+        # Props::Props() then reads garbage at -0x60, computes an invalid 'this +
+        # vbase_offset' address, and crashes with EXC_BAD_ACCESS at
+        # `str x9, [x8, x10]` (Props::Props() + 52).
+        #
+        # Fix: define REACT_NATIVE_DEBUG=1 for ALL pods in ALL configurations.
+        # This explicitly sets REACT_NATIVE_DEBUG regardless of NDEBUG, because
+        # flags.h only auto-detects it when neither REACT_NATIVE_DEBUG nor
+        # REACT_NATIVE_PRODUCTION is explicitly defined.
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['REACT_NATIVE_DEBUG=1']
+
         # Workaround for Folly F14 bug exposed by Xcode 26:
         # Folly's F14SetFallback.h uses reinterpret_cast to access the private
         # internals of std::unordered_set — an unsafe hack that relies on a
@@ -88,23 +112,13 @@ target 'DeveloperApp' do
         # causing the debug-only assertion (FOLLY_SAFE_DCHECK at line 234)
         # to fail with SIGABRT.
         # Since F14SetFallback.h is a header-only template compiled by any
-        # target that includes it, we define NDEBUG for ALL targets to set
-        # folly::kIsDebug=false, disabling the assertion. This matches the
-        # behavior of Release/Production builds which already define NDEBUG.
-        #
-        # However, NDEBUG also triggers flags.h to define REACT_NATIVE_PRODUCTION
-        # instead of REACT_NATIVE_DEBUG, which changes the layout of the Sealable
-        # base class (adds std::atomic<bool> in debug mode). The prebuilt RN
-        # binaries were compiled with REACT_NATIVE_DEBUG active (no NDEBUG), so
-        # their Props/ViewProps structs are larger. Third-party Fabric components
-        # (e.g. react-native-safe-area-context) compiled with NDEBUG=1 would see
-        # a smaller ViewProps, causing an ABI mismatch and EXC_BAD_ACCESS.
-        # Fix: explicitly define REACT_NATIVE_DEBUG=1 so flags.h skips its
-        # NDEBUG-based auto-detection, keeping the Sealable debug layout and
-        # matching the prebuilt ABI, while NDEBUG still silences Folly.
+        # target that includes it, we define NDEBUG for ALL DEBUG-config targets to
+        # set folly::kIsDebug=false, disabling the assertion. Release configs already
+        # have NDEBUG defined by the compiler. Since REACT_NATIVE_DEBUG=1 is now
+        # set explicitly above, flags.h skips NDEBUG-based auto-detection and
+        # REACT_NATIVE_DEBUG remains active even with NDEBUG=1.
         if config.name == 'Debug'
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', 'NDEBUG=1', 'REACT_NATIVE_DEBUG=1']
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['NDEBUG=1']
         end
 
       end
