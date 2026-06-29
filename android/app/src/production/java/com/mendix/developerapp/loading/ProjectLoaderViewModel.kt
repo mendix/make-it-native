@@ -11,7 +11,6 @@ import com.mendix.mendixnative.api.ResponseStatus
 import com.mendix.mendixnative.api.RuntimeInfoResponse
 import com.mendix.mendixnative.api.getRuntimeInfo
 import com.mendix.mendixnative.react.MxConfiguration
-import com.mendix.mendixnative.util.MendixBackwardsCompatUtility
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -141,7 +140,6 @@ class ProjectLoaderViewModel : ViewModel() {
                 ResponseStatus.FAILED -> setStatus(STATUS_ERROR_CONNECTION)
                 else -> {
                     val nativeBinaryVersion = runtimeInfoResponse.data!!.nativeBinaryVersion
-                    MendixBackwardsCompatUtility.update(runtimeInfoResponse.data!!.version)
                     val supportedBinaryVersion = MxConfiguration.NATIVE_BINARY_VERSION
                     when {
                         nativeBinaryVersion == supportedBinaryVersion -> {

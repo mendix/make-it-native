@@ -242,7 +242,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
     }
 
     override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        return if ((currentFragment as? MendixReactFragment)?.onKeyUp(
+        return if (event != null && (currentFragment as? MendixReactFragment)?.onKeyUp(
                 keyCode,
                 event
             ) == true

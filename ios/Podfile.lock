@@ -151,9 +151,9 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - hermes-engine (250829098.0.9):
-    - hermes-engine/Pre-built (= 250829098.0.9)
-  - hermes-engine/Pre-built (250829098.0.9)
+  - hermes-engine (0.15.1):
+    - hermes-engine/Pre-built (= 0.15.1)
+  - hermes-engine/Pre-built (0.15.1)
   - IQKeyboardManager (6.5.19)
   - libwebp (1.5.0):
     - libwebp/demux (= 1.5.0)
@@ -3119,7 +3119,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
-    :tag: hermes-v250829098.0.9
+    :tag: hermes-v0.15.1
   MendixNative:
     :path: "../node_modules/mendix-native"
   op-sqlite:
