@@ -156,9 +156,9 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - hermes-engine (250829098.0.9):
-    - hermes-engine/Pre-built (= 250829098.0.9)
-  - hermes-engine/Pre-built (250829098.0.9)
+  - hermes-engine (0.15.1):
+    - hermes-engine/Pre-built (= 0.15.1)
+  - hermes-engine/Pre-built (0.15.1)
   - IQKeyboardManager (6.5.19)
   - libwebp (1.5.0):
     - libwebp/demux (= 1.5.0)
@@ -172,7 +172,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.5.0):
+  - MendixNative (0.5.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -2451,6 +2451,9 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
+  - react-native-track-player (4.1.2):
+    - React-Core
+    - SwiftAudioEx (= 1.1.0)
   - react-native-vector-icons (12.3.0):
     - boost
     - DoubleConversion
@@ -3800,6 +3803,7 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.6.0)
+  - SwiftAudioEx (1.1.0)
   - VisionCamera (4.7.3):
     - VisionCamera/Core (= 4.7.3)
     - VisionCamera/React (= 4.7.3)
@@ -3879,6 +3883,7 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-track-player (from `../node_modules/react-native-track-player`)
   - "react-native-vector-icons (from `../node_modules/@react-native-vector-icons/get-image`)"
   - "react-native-vector-icons-material-icons (from `../node_modules/@react-native-vector-icons/material-icons`)"
   - react-native-video (from `../node_modules/react-native-video`)
@@ -3975,6 +3980,7 @@ SPEC REPOS:
     - SDWebImageWebPCoder
     - SocketRocket
     - SSZipArchive
+    - SwiftAudioEx
 
 EXTERNAL SOURCES:
   boost:
@@ -3993,7 +3999,7 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
-    :tag: hermes-v250829098.0.9
+    :tag: hermes-v0.15.1
   MendixNative:
     :path: "../node_modules/mendix-native"
   op-sqlite:
@@ -4094,6 +4100,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-track-player:
+    :path: "../node_modules/react-native-track-player"
   react-native-vector-icons:
     :path: "../node_modules/@react-native-vector-icons/get-image"
   react-native-vector-icons-material-icons:
@@ -4246,10 +4254,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 166613ab57f3dde1bf3f24c60212b66a1d585f8b
+  hermes-engine: 2ece5229b4460076597f50050f4fb14074f8f714
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 2499d1796c68bc9bfc3ebecc5bf91b0a28c13ef1
+  MendixNative: ccdf5357fa15ee34fcf7a680ea9f6b5d2595c0ff
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 64000c0da2357c4d73faf4d23ff34dd1ddb332d4
@@ -4305,6 +4313,7 @@ SPEC CHECKSUMS:
   react-native-netinfo: 57447b5a45c98808f8eae292cf641f3d91d13830
   react-native-pager-view: a0516effb17ca5120ac2113bfd21b91130ad5748
   react-native-safe-area-context: befb5404eb8a16fdc07fa2bebab3568ecabcbb8a
+  react-native-track-player: dd56f9948e03756a217c75e0a61aa04aab65b5a1
   react-native-vector-icons: 6ba2060e1b82ce0663f14375579fe1d48e9b668a
   react-native-vector-icons-material-icons: 2fe75632937d07937bfe8ca953e1b5d06eef3a1d
   react-native-video: f8e9788554c53a1852166cd119d6e7c324b16dfe
@@ -4366,14 +4375,15 @@ SPEC CHECKSUMS:
   RNSound: d5dd3ca86d9978e1c2736dfa943ba619fc9fc504
   RNSVG: db85b4eb848b5978a77cdbf797738f4e3ed1bdbb
   RNSwanBrowser: d7ecaca6870461dd83eba13c037aa5acd4db2cdd
-  RNWorklets: 4d1b91f0b9da6c677f1b4311f9b587a5ac52d803
+  RNWorklets: c797347c9218739ffba1b65bbfa75412877615bf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
+  SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
   VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: 447c8baf495b8d96457a46e6691a2c9952cbd07f
 
-PODFILE CHECKSUM: dfd6edcdfb21607087b6c181b325f90fb96b198d
+PODFILE CHECKSUM: 69c63345a7fd82e3c42d65006ad95567f511e169
 
 COCOAPODS: 1.16.2
