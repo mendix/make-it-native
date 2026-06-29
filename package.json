@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.14",
-    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.5.0/mendix-native-v0.5.0.tgz",
+    "mendix-native": "github:mendix/mendix-native#moo/MOO-2265-update-deprecated-apis",
     "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.2.5",
