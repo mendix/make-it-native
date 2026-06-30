@@ -11,9 +11,9 @@ end
 
 ENV['RCT_NEW_ARCH_ENABLED'] = '1'
 
-# Build React Native from source so patch-package changes to native RN code are compiled.
-ENV['RCT_USE_PREBUILT_RNCORE'] = '0'
-ENV['RCT_USE_RN_DEP'] = '0'
+# When '0' = Build React Native from source so patch-package changes to native RN code are compiled (if any exist).
+ENV['RCT_USE_PREBUILT_RNCORE'] = '1'
+ENV['RCT_USE_RN_DEP'] = '1'
 
 # Use it to require both react-native's and this package's scripts:
 node_require('react-native/scripts/react_native_pods.rb')
@@ -74,22 +74,36 @@ target 'DeveloperApp' do
     
     installer.pods_project.targets.each do |target|
 
-      if target.name == 'fmt'
-        target.build_configurations.each do |config|
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FMT_USE_CONSTEXPR=0'
-          config.build_settings['OTHER_CPLUSPLUSFLAGS'] ||= ['$(inherited)']
-          config.build_settings['OTHER_CPLUSPLUSFLAGS'] << '-Wno-invalid-constexpr'
-          config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++23'
-        end
-      end
-
       target.build_configurations.each do |config|
         
         if target.name.start_with?('React') || target.name == 'RCTTypeSafety'
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', "RCT_DEV=1"]
         end
+
+        # As a developer tool — always use the Debug prebuilt variants of both
+        # React.xcframework (React-Core-prebuilt) and the native dependencies bundle
+        # (ReactNativeDependencies, which includes hermesvm) regardless of the app
+        # build configuration.
+        #
+        if target.name == 'React-Core-prebuilt' || target.name == 'ReactNativeDependencies' || target.name == 'hermes-engine'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['DEBUG=1']
+        end
+
+        # If any source-compiled pod that defines a Fabric component (e.g.
+        # react-native-safe-area-context) is compiled WITHOUT REACT_NATIVE_DEBUG, its
+        # construction vtable puts the vbase offset at a different index. The prebuilt's
+        # Props::Props() then reads garbage at -0x60, computes an invalid 'this +
+        # vbase_offset' address, and crashes with EXC_BAD_ACCESS at
+        # `str x9, [x8, x10]` (Props::Props() + 52).
+        #
+        # Fix: define REACT_NATIVE_DEBUG=1 for ALL pods in ALL configurations.
+        # This explicitly sets REACT_NATIVE_DEBUG regardless of NDEBUG, because
+        # flags.h only auto-detects it when neither REACT_NATIVE_DEBUG nor
+        # REACT_NATIVE_PRODUCTION is explicitly defined.
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['REACT_NATIVE_DEBUG=1']
 
         # Workaround for Folly F14 bug exposed by Xcode 26:
         # Folly's F14SetFallback.h uses reinterpret_cast to access the private
@@ -98,12 +112,13 @@ target 'DeveloperApp' do
         # causing the debug-only assertion (FOLLY_SAFE_DCHECK at line 234)
         # to fail with SIGABRT.
         # Since F14SetFallback.h is a header-only template compiled by any
-        # target that includes it, we define NDEBUG for ALL targets to set
-        # folly::kIsDebug=false, disabling the assertion. This matches the
-        # behavior of Release/Production builds which already define NDEBUG.
+        # target that includes it, we define NDEBUG for ALL DEBUG-config targets to
+        # set folly::kIsDebug=false, disabling the assertion. Release configs already
+        # have NDEBUG defined by the compiler. Since REACT_NATIVE_DEBUG=1 is now
+        # set explicitly above, flags.h skips NDEBUG-based auto-detection and
+        # REACT_NATIVE_DEBUG remains active even with NDEBUG=1.
         if config.name == 'Debug'
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
-          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', 'NDEBUG=1']
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['NDEBUG=1']
         end
 
       end
