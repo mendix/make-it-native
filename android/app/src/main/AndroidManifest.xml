@@ -37,10 +37,16 @@
     <!-- Ignore deprecation: We still need this for the RN I think -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <!-- Ignore deprecation -->
     <!-- Required for Android 13+ (SDK 33+) -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" android:minSdkVersion="33"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" android:minSdkVersion="33"/>
+    <!--
+    READ_MEDIA_IMAGES and READ_MEDIA_VIDEO are explicitly removed (tools:node="remove") following
+    Google Play's Photo and Video Permissions policy.
+    These broad permissions are only allowed for apps whose core purpose is persistent media library access.
+    As a developer platform, Make It Native does not qualify; CameraRoll.getPhotos() enumeration will not
+    work on API 33+. Use tools:node="remove" to also block any dependency from re-adding them during manifest merge.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" tools:node="remove"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove"/>
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" android:minSdkVersion="33"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" android:minSdkVersion="33"/>
 
