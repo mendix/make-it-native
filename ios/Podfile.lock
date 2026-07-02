@@ -198,6 +198,53 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
+  - NitroGeolocation (1.4.2):
+    - hermes-engine
+    - NitroModules
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
+  - NitroModules (0.36.1):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - op-sqlite (15.2.5):
     - hermes-engine
     - OpenSSL-Universal
@@ -1714,28 +1761,6 @@ PODS:
     - Yoga
   - react-native-geocoder (0.5.0):
     - React
-  - react-native-geolocation (3.4.0):
-    - hermes-engine
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
   - react-native-google-maps (1.20.1):
     - Google-Maps-iOS-Utils (= 5.0.0)
     - GoogleMaps (= 8.4.0)
@@ -2923,6 +2948,8 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MendixNative (from `../node_modules/mendix-native`)
   - nanopb
+  - NitroGeolocation (from `../node_modules/react-native-nitro-geolocation`)
+  - NitroModules (from `../node_modules/react-native-nitro-modules`)
   - "op-sqlite (from `../node_modules/@op-engineering/op-sqlite`)"
   - QRCodeReader.swift (~> 10.1.0)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -2967,7 +2994,6 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-file-viewer-turbo (from `../node_modules/react-native-file-viewer-turbo`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
-  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -3082,6 +3108,10 @@ EXTERNAL SOURCES:
     :tag: hermes-v250829098.0.9
   MendixNative:
     :path: "../node_modules/mendix-native"
+  NitroGeolocation:
+    :path: "../node_modules/react-native-nitro-geolocation"
+  NitroModules:
+    :path: "../node_modules/react-native-nitro-modules"
   op-sqlite:
     :path: "../node_modules/@op-engineering/op-sqlite"
   RCTDeprecation:
@@ -3166,8 +3196,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-file-viewer-turbo"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
-  react-native-geolocation:
-    :path: "../node_modules/@react-native-community/geolocation"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
   react-native-image-picker:
@@ -3331,12 +3359,14 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 48a4081d5ebf9ec3b0d6ad6a11254f1f5a7f5bae
+  hermes-engine: 166613ab57f3dde1bf3f24c60212b66a1d585f8b
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   MendixNative: 7cba944a4e608e6ab40ec281e9b2b0f9f3cdefe0
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
+  NitroGeolocation: 647199e12e95fa2e4030e872ede9a3598fd379d3
+  NitroModules: 4d19ff59969b2c67a19175fb17b66917af6708e0
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
   OpenSSL-Universal: 9110d21982bb7e8b22a962b6db56a8aa805afde7
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
@@ -3350,7 +3380,7 @@ SPEC CHECKSUMS:
   React: 1ba7d364ade7d883a1ec055bfc3606f35fdee17b
   React-callinvoker: bc2a26f8d84fb01f003fc6de6c9337b64715f95b
   React-Core: 7840d3a80b43a95c5e80ef75146bd70925ebab0f
-  React-Core-prebuilt: da3a158f1e31b83bdf28f7855e22a0885cfb9d61
+  React-Core-prebuilt: 2439654d53489a5609231fe950d7f4e4c641ad52
   React-CoreModules: 2eb010400b63b89e53a324ffb3c112e4c7c3ce42
   React-cxxreact: a558e92199d26f145afa9e62c4233cf8e7950efe
   React-debug: 755200a6e7f5e6e0a40ff8d215493d43cce285fc
@@ -3383,7 +3413,6 @@ SPEC CHECKSUMS:
   react-native-cameraroll: bd1a177463acbba89365d09e81057294eba1e2f6
   react-native-file-viewer-turbo: 0da5fe2575b1c2e43ce8246fcd0fa9c3b097a72d
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
-  react-native-geolocation: cfc39041210bd9f591ec2beb7d417291251da8e5
   react-native-google-maps: c4f5c5b2dda17e7cb2cb2b37a81f140b039b3e7e
   react-native-image-picker: 168d6972e50ea848defe4ac4c222faa9bc52aea0
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab
@@ -3430,7 +3459,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 797de5178718324c6eba3327b07f9a423fbd5787
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeBiometrics: 9ead8d633833fd13e5a79564af8ba7064c2a58c6
-  ReactNativeDependencies: b2c3c0cdbf1823de4ac83c51bf6e64ee0ecd86ad
+  ReactNativeDependencies: 14132e559d3008cd261e3c00859a58fd4f7fa42c
   RNBootSplash: 13b7612788960d0c5446e68489ac2509e506cfcd
   RNCalendarEvents: f90f73666b6bcbb3cc8a491ffbb5e48c0db3de37
   RNCAsyncStorage: 3a4f5e2777dae1688b781a487923a08569e27fe4
@@ -3461,6 +3490,6 @@ SPEC CHECKSUMS:
   VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: c0b3f2c7e8d3e327e450223a2414ca3fa296b9a2
 
-PODFILE CHECKSUM: 82c9cfbd7db4666e2b937d7c62e7ff7cd5466d02
+PODFILE CHECKSUM: 3ac57498e7a5b50e63c45224f2a40431ea916f8c
 
 COCOAPODS: 1.16.2
