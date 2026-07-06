@@ -33,8 +33,8 @@ android {
         applicationId "com.mendix.developerapp.mx10"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 620
-        versionName "11.6.5"
+        versionCode 627
+        versionName "11.6.6"
         missingDimensionStrategy "react-native-camera", "general"
         testBuildType System.getProperty("testBuildType", "debug")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -64,10 +64,10 @@ android {
            if (propFile.canRead()) {
                releaseProps.load(new FileInputStream(propFile))
 
-               storeFile file(releaseProps["key.store"])
-               storePassword releaseProps["key.store.password"]
-               keyAlias releaseProps["key.alias"]
-               keyPassword releaseProps["key.alias.password"]
+//              storeFile file(releaseProps["key.store"])
+//              storePassword releaseProps["key.store.password"]
+//              keyAlias releaseProps["key.alias"]
+//              keyPassword releaseProps["key.alias.password"]
            } else {
                print 'local.properties not found'
            }
