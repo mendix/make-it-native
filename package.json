@@ -21,7 +21,6 @@
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.14",
     "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v0.5.0/mendix-native-v0.5.0.tgz",
-    "@notifee/react-native": "9.1.8",
     "@octokit/rest": "^21.1.1",
     "@op-engineering/op-sqlite": "15.2.5",
     "@shopify/flash-list": "2.3.1",
@@ -56,6 +55,7 @@
     "react-native-linear-gradient": "2.8.3",
     "react-native-localize": "3.7.0",
     "react-native-maps": "1.20.1",
+    "react-native-notify-kit": "10.4.7",
     "react-native-pager-view": "6.9.1",
     "react-native-permissions": "5.5.1",
     "react-native-reanimated": "4.3.1",
