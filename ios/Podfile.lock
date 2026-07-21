@@ -198,7 +198,7 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - NitroGeolocation (1.4.2):
+  - NitroGeolocation (1.4.3):
     - hermes-engine
     - NitroModules
     - RCTRequired
@@ -3405,7 +3405,7 @@ SPEC CHECKSUMS:
   MendixNative: 7e5ed081dfc0cbe76d8d81b76efafba9f3dd6a4e
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  NitroGeolocation: 647199e12e95fa2e4030e872ede9a3598fd379d3
+  NitroGeolocation: 688a2b889656060dafe9d83dc62fc0513b954a97
   NitroModules: 4d19ff59969b2c67a19175fb17b66917af6708e0
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
   OpenSSL-Universal: ecee7b138fa75a74ecf00d7ffd248fb584739b9e
