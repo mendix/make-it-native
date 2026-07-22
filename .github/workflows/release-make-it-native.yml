@@ -21,6 +21,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Sync docs fork with upstream
+        run: gh repo sync MendixMobile/docs --branch development --force
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+
       - name: Install dependencies
         run: npm ci
 

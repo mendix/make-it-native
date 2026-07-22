@@ -79,6 +79,9 @@ async function createPRUpdateChangelog() {
 
   await git.addConfig("user.name", GIT_AUTHOR_NAME, ["--global"]);
   await git.addConfig("user.email", GIT_AUTHOR_EMAIL, ["--global"]);
+  
+  // Get the current branch name (the one selected in GitHub Actions UI)
+  const currentBranch = await git.revparse(["--abbrev-ref", "HEAD"]);
 
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
@@ -91,7 +94,7 @@ async function createPRUpdateChangelog() {
     repo: process.env.GITHUB_REPOSITORY.split("/")[1],
     title: `Update CHANGELOG for v${MIN_VERSION}`,
     head: CHANGELOG_BRANCH_NAME,
-    base: "main",
+    base: currentBranch,
     body: "**Note:** Please do not take any action on this pull request unless it has been reviewed and approved by a member of the Mobile team.",
     draft: true,
   });
@@ -121,9 +124,6 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
 
-// This file exists only in the fork (MendixMobile/docs) and not in upstream (mendix/docs).
-// Removing it in our branch ensures it doesn't appear in the cross-fork PR diff.
-const FORK_SYNC_FILE = ".github/workflows/sync.yml";
 
 async function cloneDocsRepo() {
   const git = simpleGit();
@@ -148,10 +148,6 @@ async function updateDocsMiNReleaseNotes(unreleasedContent) {
 }
 
 async function createPRUpdateDocsMiNReleaseNotes(git) {
-  // Remove the fork's sync.yml so it doesn't appear in the cross-fork PR diff.
-  if (fs.existsSync(FORK_SYNC_FILE)) {
-    await git.rm(FORK_SYNC_FILE);
-  }
   await git.add(TARGET_FILE);
   await git.commit(`docs: update mobile release notes for v${MIN_VERSION}`);
   await git.push("origin", DOCS_BRANCH_NAME, ["--force"]);
