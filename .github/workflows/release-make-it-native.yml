@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PAT: ${{ secrets.PAT }}
+      PAT: ${{ secrets.MENDIX_MOBILE_DOCS_PR_GITHUB_PAT }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4
 
@@ -24,7 +24,7 @@ jobs:
       - name: Sync docs fork with upstream
         run: gh repo sync MendixMobile/docs --branch development --force
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.MENDIX_MOBILE_DOCS_PR_GITHUB_PAT }}
 
       - name: Install dependencies
         run: npm ci
@@ -33,5 +33,5 @@ jobs:
         env:
           MIN_VERSION: ${{ github.event.inputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAT: ${{ secrets.PAT }}
+          PAT: ${{ secrets.MENDIX_MOBILE_DOCS_PR_GITHUB_PAT }}
         run: node scripts/release-make-it-native.mjs
