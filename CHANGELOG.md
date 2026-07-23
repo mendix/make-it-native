@@ -20,7 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   We migrated from react-native-fast-image to @d11/react-native-fast-image for new architecture compatibility.
 -   Upgrade react-native-reanimated to v3.16.7.
 -   We migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
-
+-   Replaced @notifee/react-native with react-native-notify-kit library.
 
 ## [3.1.8] Make it Native - 2025-4-02
 

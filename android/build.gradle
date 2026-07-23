@@ -71,10 +71,6 @@ allprojects {
     // Uncomment the following line if Windows fails due to long paths
     // buildDir = c:/temp/${rootProject.name}/${project.name}
     repositories {
-        maven {
-            url "$rootDir/../node_modules/@notifee/react-native/android/libs"
-        }
-
         // Build all modules with Android 16KB pages enabled
         plugins.withId('com.android.application') {
             android {
