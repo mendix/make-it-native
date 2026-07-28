@@ -1,1 +1,2 @@
 - We have added support for Native Templates using the flash-list dependency.
+- Replaced @notifee/react-native with react-native-notify-kit library.
