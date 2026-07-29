@@ -167,7 +167,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.5.0):
+  - MendixNative (0.6.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -3371,10 +3371,10 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 9f413d250a72916dd55c7f91986df1af38bfd3d1
+  hermes-engine: 2ece5229b4460076597f50050f4fb14074f8f714
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 7cba944a4e608e6ab40ec281e9b2b0f9f3cdefe0
+  MendixNative: 7e5ed081dfc0cbe76d8d81b76efafba9f3dd6a4e
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
@@ -3390,7 +3390,7 @@ SPEC CHECKSUMS:
   React: 1ba7d364ade7d883a1ec055bfc3606f35fdee17b
   React-callinvoker: bc2a26f8d84fb01f003fc6de6c9337b64715f95b
   React-Core: 7840d3a80b43a95c5e80ef75146bd70925ebab0f
-  React-Core-prebuilt: d701b5b0eb57bfcf6c51f70272957e310f18265b
+  React-Core-prebuilt: a54db89db007bc34115efc5abe10e05c699797da
   React-CoreModules: 2eb010400b63b89e53a324ffb3c112e4c7c3ce42
   React-cxxreact: a558e92199d26f145afa9e62c4233cf8e7950efe
   React-debug: 755200a6e7f5e6e0a40ff8d215493d43cce285fc
@@ -3470,7 +3470,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 797de5178718324c6eba3327b07f9a423fbd5787
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeBiometrics: 9ead8d633833fd13e5a79564af8ba7064c2a58c6
-  ReactNativeDependencies: 3594fe509c7410bab314d8d79aba0852e442de2d
+  ReactNativeDependencies: e709c771664b1e4e11acf00936c61a975577bf9c
   RNBootSplash: 13b7612788960d0c5446e68489ac2509e506cfcd
   RNCalendarEvents: f90f73666b6bcbb3cc8a491ffbb5e48c0db3de37
   RNCAsyncStorage: 3a4f5e2777dae1688b781a487923a08569e27fe4
@@ -3493,7 +3493,7 @@ SPEC CHECKSUMS:
   RNSound: 25cfdc38a1353362053c01ca827d7ddf80860de1
   RNSVG: c69f7709226108f5eb89b5aa8833c17a36345468
   RNSwanBrowser: 2f5794aca112ebea7c875e6e2918d32011d0b6b3
-  RNWorklets: 06ce05d69455cc14f5676c177050a39aa557d4d2
+  RNWorklets: 7d24538032e023ed207e3b4d9b234695ddadd201
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
@@ -3501,6 +3501,6 @@ SPEC CHECKSUMS:
   VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
   Yoga: c0b3f2c7e8d3e327e450223a2414ca3fa296b9a2
 
-PODFILE CHECKSUM: 3ac57498e7a5b50e63c45224f2a40431ea916f8c
+PODFILE CHECKSUM: 81c4ca245150e58edd434018a63f151b472d150d
 
 COCOAPODS: 1.16.2
