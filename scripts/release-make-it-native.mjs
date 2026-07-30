@@ -79,6 +79,12 @@ async function createPRUpdateChangelog() {
 
   await git.addConfig("user.name", GIT_AUTHOR_NAME, ["--global"]);
   await git.addConfig("user.email", GIT_AUTHOR_EMAIL, ["--global"]);
+  
+  // Get the current branch name (the one selected in GitHub Actions UI)
+  const currentBranch = process.env.GITHUB_REF_NAME;
+  if (!currentBranch) {
+    throw new Error("GITHUB_REF_NAME environment variable is not set");
+  }
 
   await git.checkoutLocalBranch(CHANGELOG_BRANCH_NAME);
 
@@ -86,15 +92,54 @@ async function createPRUpdateChangelog() {
   await git.commit(`chore: update CHANGELOG for v${MIN_VERSION}`);
   await git.push("origin", CHANGELOG_BRANCH_NAME, ["--force-with-lease"]);
 
-  await octokit.pulls.create({
-    owner: process.env.GITHUB_REPOSITORY_OWNER,
-    repo: process.env.GITHUB_REPOSITORY.split("/")[1],
-    title: `Update CHANGELOG for v${MIN_VERSION}`,
-    head: CHANGELOG_BRANCH_NAME,
-    base: "main",
-    body: "**Note:** Please do not take any action on this pull request unless it has been reviewed and approved by a member of the Mobile team.",
-    draft: true,
-  });
+  const owner = process.env.GITHUB_REPOSITORY_OWNER;
+  const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
+  const prBody = "**Note:** Please do not take any action on this pull request unless it has been reviewed and approved by a member of the Mobile team.";
+
+  try {
+    await octokit.pulls.create({
+      owner,
+      repo,
+      title: `Update CHANGELOG for v${MIN_VERSION}`,
+      head: CHANGELOG_BRANCH_NAME,
+      base: currentBranch,
+      body: prBody,
+      draft: true,
+    });
+    console.log("✅ Created PR to update CHANGELOG in make-it-native");
+  } catch (err) {
+    const isPRExistsError =
+      err.status === 422 &&
+      (err.message?.includes("A pull request already exists") ||
+        err.response?.data?.errors?.some(
+          (e) => e.resource === "PullRequest" && e.message?.includes("A pull request already exists")
+        ));
+
+    if (isPRExistsError) {
+      console.log("ℹ️ PR already exists, updating existing PR...");
+      const { data: existingPRs } = await octokit.pulls.list({
+        owner,
+        repo,
+        head: CHANGELOG_BRANCH_NAME,
+        base: currentBranch,
+        state: "open",
+      });
+      if (existingPRs.length > 0) {
+        const existingPR = existingPRs[0];
+        await octokit.pulls.update({
+          owner,
+          repo,
+          pull_number: existingPR.number,
+          body: prBody,
+        });
+        console.log(`✅ Updated existing PR #${existingPR.number}`);
+      } else {
+        throw new Error("PR exists but could not be found for update");
+      }
+    } else {
+      throw err;
+    }
+  }
 }
 
 // Docs
@@ -121,9 +166,6 @@ function injectUnreleasedToDoc(docPath, unreleasedContent) {
   return `${frontmatter}\n\n${firstParagraph}\n${title}\n\n${unreleasedContent}\n\n${afterFirstParagraph}`;
 }
 
-// This file exists only in the fork (MendixMobile/docs) and not in upstream (mendix/docs).
-// Removing it in our branch ensures it doesn't appear in the cross-fork PR diff.
-const FORK_SYNC_FILE = ".github/workflows/sync.yml";
 
 async function cloneDocsRepo() {
   const git = simpleGit();
@@ -148,10 +190,6 @@ async function updateDocsMiNReleaseNotes(unreleasedContent) {
 }
 
 async function createPRUpdateDocsMiNReleaseNotes(git) {
-  // Remove the fork's sync.yml so it doesn't appear in the cross-fork PR diff.
-  if (fs.existsSync(FORK_SYNC_FILE)) {
-    await git.rm(FORK_SYNC_FILE);
-  }
   await git.add(TARGET_FILE);
   await git.commit(`docs: update mobile release notes for v${MIN_VERSION}`);
   await git.push("origin", DOCS_BRANCH_NAME, ["--force"]);
