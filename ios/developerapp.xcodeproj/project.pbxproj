@@ -754,7 +754,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.6.7;
+				MARKETING_VERSION = 111.6.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -816,7 +816,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.6.7;
+				MARKETING_VERSION = 111.6.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1078,7 +1078,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.6.7;
+				MARKETING_VERSION = 111.6.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
