@@ -167,7 +167,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.5.0):
+  - MendixNative (0.5.2):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -221,10 +221,10 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - OpenSSL-Universal (3.3.3001)
-  - PromisesObjC (2.4.0)
-  - PromisesSwift (2.4.0):
-    - PromisesObjC (= 2.4.0)
+  - OpenSSL-Universal (3.6.2000)
+  - PromisesObjC (2.4.1)
+  - PromisesSwift (2.4.1):
+    - PromisesObjC (= 2.4.1)
   - QRCodeReader.swift (10.1.0)
   - RCTDeprecation (0.84.1)
   - RCTRequired (0.84.1)
@@ -3371,16 +3371,16 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 48a4081d5ebf9ec3b0d6ad6a11254f1f5a7f5bae
+  hermes-engine: 9f413d250a72916dd55c7f91986df1af38bfd3d1
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 7cba944a4e608e6ab40ec281e9b2b0f9f3cdefe0
+  MendixNative: b789c95cb7e776e332a0dabd4f39b91e20c1f31d
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
-  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
-  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  OpenSSL-Universal: ecee7b138fa75a74ecf00d7ffd248fb584739b9e
+  PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
+  PromisesSwift: 217dea0fd5d2ad65222a109c48698add13cc1c5b
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCTDeprecation: af44b104091a34482596cd9bd7e8d90c4e9b4bd7
   RCTRequired: bb77b070f75f53398ce43c0aaaa58337cebe2bf6
@@ -3390,7 +3390,7 @@ SPEC CHECKSUMS:
   React: 1ba7d364ade7d883a1ec055bfc3606f35fdee17b
   React-callinvoker: bc2a26f8d84fb01f003fc6de6c9337b64715f95b
   React-Core: 7840d3a80b43a95c5e80ef75146bd70925ebab0f
-  React-Core-prebuilt: da3a158f1e31b83bdf28f7855e22a0885cfb9d61
+  React-Core-prebuilt: d701b5b0eb57bfcf6c51f70272957e310f18265b
   React-CoreModules: 2eb010400b63b89e53a324ffb3c112e4c7c3ce42
   React-cxxreact: a558e92199d26f145afa9e62c4233cf8e7950efe
   React-debug: 755200a6e7f5e6e0a40ff8d215493d43cce285fc
@@ -3470,7 +3470,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 797de5178718324c6eba3327b07f9a423fbd5787
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeBiometrics: 9ead8d633833fd13e5a79564af8ba7064c2a58c6
-  ReactNativeDependencies: b2c3c0cdbf1823de4ac83c51bf6e64ee0ecd86ad
+  ReactNativeDependencies: 3594fe509c7410bab314d8d79aba0852e442de2d
   RNBootSplash: 13b7612788960d0c5446e68489ac2509e506cfcd
   RNCalendarEvents: f90f73666b6bcbb3cc8a491ffbb5e48c0db3de37
   RNCAsyncStorage: 3a4f5e2777dae1688b781a487923a08569e27fe4
