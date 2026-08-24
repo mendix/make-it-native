@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "store-versions": {
-    "google-play": "11.6.7",
+    "google-play": "11.6.8",
     "apple-store": "111.6.7"
   },
   "private": true,
