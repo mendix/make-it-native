@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash window background: draw the splash image centered with its aspect
+     ratio preserved so the logo is never stretched to fill the window. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#161F30" />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/splash_screen"
+            android:gravity="center" />
+    </item>
+</layer-list>
