@@ -10,6 +10,6 @@
     <item>
         <bitmap
             android:src="@drawable/splash_screen"
-            android:gravity="center" />
+            android:gravity="fill_vertical" />
     </item>
 </layer-list>
