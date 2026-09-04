@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04222F8220403EC30092F0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04222F8120403EC30092F0A0 /* AppDelegate.swift */; };
+		04222F8420403EC30092F0A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04222F8320403EC30092F0A0 /* SceneDelegate.swift */; };
 		0433D0C820878BA6001EDC7B /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0433D0C720878BA6001EDC7B /* PaddingTextField.swift */; };
 		046CD08F20406110007291F9 /* OpenAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD08E20406110007291F9 /* OpenAppViewController.swift */; };
 		047B674A22B1080200FF5FC3 /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 047B674922B1080200FF5FC3 /* Bundles */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		04222F8120403EC30092F0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; wrapsLines = 1; };
+		04222F8320403EC30092F0A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; tabWidth = 2; wrapsLines = 1; };
 		0433D0C720878BA6001EDC7B /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		046CD08E20406110007291F9 /* OpenAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppViewController.swift; sourceTree = "<group>"; };
 		047B674922B1080200FF5FC3 /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bundles; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				6EAD388C2A3B439F00DC9D88 /* Launch */,
 				04222F8120403EC30092F0A0 /* AppDelegate.swift */,
+				04222F8320403EC30092F0A0 /* SceneDelegate.swift */,
 				2CCCE91825A367F80087AD16 /* Colors.xcassets */,
 				2C887F5B24B78D640003DC53 /* SplashScreenPresenter.swift */,
 				EB07BDA720CEA13400E0CD48 /* Images.xcassets */,
@@ -678,6 +681,7 @@
 				1055849E2A8DF9950015F9E0 /* SampleApps.swift in Sources */,
 				E7EF3D242A33474400A04EA8 /* LaunchScreenStateManager.swift in Sources */,
 				04222F8220403EC30092F0A0 /* AppDelegate.swift in Sources */,
+				04222F8420403EC30092F0A0 /* SceneDelegate.swift in Sources */,
 				6E1EA91C2A4AD72B00C430A4 /* LaunchScreenViewController.swift in Sources */,
 				6E6C9B402A406C99002F788D /* HelpListTile.swift in Sources */,
 				2C887F5C24B78D640003DC53 /* SplashScreenPresenter.swift in Sources */,

@@ -76,6 +76,8 @@ target 'DeveloperApp' do
 
       target.build_configurations.each do |config|
         
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+        
         if target.name.start_with?('React') || target.name == 'RCTTypeSafety'
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] |= ['$(inherited)', "RCT_DEV=1"]

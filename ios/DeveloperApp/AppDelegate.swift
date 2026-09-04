@@ -5,49 +5,28 @@ import UserNotifications
 import MendixNative
 
 @main
-class AppDelegate: ReactAppProvider {
-    
-    var shouldLaunchLastApp: Bool = false
-    var previewingSampleApp: Bool = false
-    
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    /// The window lives on `SceneDelegate` under the scene lifecycle, but `UIApplicationDelegate`
+    /// declares `window` as an optional requirement that third party libraries still read through
+    /// `UIApplication.shared.delegate` (react-native-firebase, reanimated, blob-util). Without this
+    /// forwarding property the selector is unimplemented and those reads crash.
+    @objc var window: UIWindow? {
+        get { SceneDelegate.delegateInstance()?.window }
+        set { SceneDelegate.delegateInstance()?.window = newValue }
+    }
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-        setUpProvider()
         clearKeychainIfNecessary()
         setUpDevice()
         setUpGoogleMaps()
         setUpPushNotifications(application)
-        updateRootViewController(showOnboarding() ? .launchTutorial : .openApp)
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        RCTLinkingManager.application(app, open: url, options: options)
-        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
-            return true
-        }
-        var launchOptions: [AnyHashable: Any] = options
-        launchOptions[UIApplication.LaunchOptionsKey.annotation] = options[UIApplication.OpenURLOptionsKey.annotation] ?? []
-        launchOptions[UIApplication.LaunchOptionsKey.url] = url
-        launchMendixAppWithOptions(options: launchOptions)
         return true
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
         
     func applicationWillTerminate(_ application: UIApplication) {
         SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-    }
-    
-    private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {
-        ReactNative.shared.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
-        ReactNative.shared.start()
-    }
-    
-    static func delegateInstance() -> AppDelegate? {
-        return UIApplication.shared.delegate as? AppDelegate
     }
 }
 
@@ -63,21 +42,6 @@ extension AppDelegate {
     private func setUpDevice() {
         UIApplication.shared.isIdleTimerDisabled = true
         UIDevice.current.isBatteryMonitoringEnabled = true
-    }
-}
-
-//RootView
-extension AppDelegate {
-    private func updateRootViewController(_ storyboard: UIStoryboard) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = storyboard.instantiateInitialViewController()
-        window?.makeKeyAndVisible()
-        window?.overrideUserInterfaceStyle = .light // Force Light Mode
-        IQKeyboardManager.shared().isEnabled = false
-    }
-    
-    func changeRootViewToOpenApp() {
-        updateRootViewController(.openApp)
     }
 }
 
