@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash window background: the artwork is scaled uniformly to cover the window and
+     centered (center-crop), so the logo baked into it keeps its aspect ratio on every
+     screen size and orientation. The artwork's grain is ~4% non-opaque, so the solid colour
+     underneath shows through it (and covers the window if the bitmap fails to decode). -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#161F30" />
+        </shape>
+    </item>
+    <item>
+        <drawable
+            class="com.mendix.developerapp.splashscreen.CenterCropDrawable"
+            android:src="@drawable/splash_screen" />
+    </item>
+</layer-list>
