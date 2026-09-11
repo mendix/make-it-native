@@ -154,6 +154,8 @@
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string></string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchTutorial</string>
 	<key>UIRequiredDeviceCapabilities</key>
