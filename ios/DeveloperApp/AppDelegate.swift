@@ -5,16 +5,7 @@ import UserNotifications
 import MendixNative
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    /// The window lives on `SceneDelegate` under the scene lifecycle, but `UIApplicationDelegate`
-    /// declares `window` as an optional requirement that third party libraries still read through
-    /// `UIApplication.shared.delegate` (react-native-firebase, reanimated, blob-util). Without this
-    /// forwarding property the selector is unimplemented and those reads crash.
-    @objc var window: UIWindow? {
-        get { SceneDelegate.delegateInstance()?.window }
-        set { SceneDelegate.delegateInstance()?.window = newValue }
-    }
+class AppDelegate: LegacyWindowAppDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
