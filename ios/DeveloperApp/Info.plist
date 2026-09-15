@@ -83,8 +83,6 @@
 	<string>To use that feature the app needs access to your microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To use that feature the app needs access to your photo library.</string>
-	<key>Native Binary Version</key>
-	<integer>32</integer>
 	<key>NativeOTAEnabled</key>
 	<true/>
 	<key>RCTNewArchEnabled</key>
