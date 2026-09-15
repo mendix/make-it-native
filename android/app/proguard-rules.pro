@@ -84,6 +84,10 @@
 -keep class androidx.biometric.** { *; }
 -keep class com.sbaiahmed1.reactnativebiometrics.** { *; }
 
+# Splash window background: inflated by class name from res/drawable/bootsplash.xml,
+# so R8 cannot see the reference and would otherwise strip it.
+-keep class com.mendix.developerapp.splashscreen.CenterCropDrawable { <init>(...); }
+
 #@d11/react-native-fast-image
 -keep public class com.dylanvann.fastimage.* {*;}
 -keep public class com.dylanvann.fastimage.** {*;}
