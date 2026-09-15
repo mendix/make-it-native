@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixes
 
 - We have fixed the textinputs hiding behind on-screen keyboard.
+- We migrated iOS to the UIKit scene delegate lifecycle.
 
 ### Changes
 

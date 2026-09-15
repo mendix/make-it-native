@@ -167,7 +167,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.5.2):
+  - MendixNative (0.5.3):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -3402,7 +3402,7 @@ SPEC CHECKSUMS:
   hermes-engine: 9f6d216d03a4100ed243774d56948a93afc5bae1
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: b789c95cb7e776e332a0dabd4f39b91e20c1f31d
+  MendixNative: 9eafc82c338dad09bdd25536d66ae9afe26945a8
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   NitroGeolocation: 688a2b889656060dafe9d83dc62fc0513b954a97
