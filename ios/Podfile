@@ -75,6 +75,12 @@ target 'DeveloperApp' do
     installer.pods_project.targets.each do |target|
 
       target.build_configurations.each do |config|
+
+        minimum_ios_version = Gem::Version.new(deployment_target)
+        current_deployment_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+        if current_deployment_target && Gem::Version.new(current_deployment_target) < minimum_ios_version
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+        end
         
         if target.name.start_with?('React') || target.name == 'RCTTypeSafety'
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
