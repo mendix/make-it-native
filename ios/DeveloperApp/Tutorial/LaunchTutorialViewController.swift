@@ -22,7 +22,7 @@ class LaunchTutorialViewController: UIViewController {
   }
   
   private func closeOnboarding() {
-    AppDelegate.delegateInstance()?.changeRootViewToOpenApp()
+    SceneDelegate.delegateInstance()?.changeRootViewToOpenApp()
   }
   
   private func setupSwiftUIScreen(){
