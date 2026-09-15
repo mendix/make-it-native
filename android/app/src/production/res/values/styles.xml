@@ -103,6 +103,6 @@
 
     <!-- BootSplash theme. -->
     <style name="BootTheme" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowBackground">@drawable/bootsplash</item>
     </style>
 </resources>
