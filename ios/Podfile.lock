@@ -198,53 +198,6 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - NitroGeolocation (1.4.3):
-    - hermes-engine
-    - NitroModules
-    - RCTRequired
-    - RCTTypeSafety
-    - React-callinvoker
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
-  - NitroModules (0.36.1):
-    - hermes-engine
-    - RCTRequired
-    - RCTTypeSafety
-    - React-callinvoker
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
   - op-sqlite (15.2.5):
     - hermes-engine
     - OpenSSL-Universal
@@ -268,7 +221,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - OpenSSL-Universal (3.6.2000)
+  - OpenSSL-Universal (3.3.3001)
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -1761,6 +1714,28 @@ PODS:
     - Yoga
   - react-native-geocoder (0.5.0):
     - React
+  - react-native-geolocation (3.4.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - react-native-google-maps (1.20.1):
     - Google-Maps-iOS-Utils (= 5.0.0)
     - GoogleMaps (= 8.4.0)
@@ -2988,8 +2963,6 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MendixNative (from `../node_modules/mendix-native`)
   - nanopb
-  - NitroGeolocation (from `../node_modules/react-native-nitro-geolocation`)
-  - NitroModules (from `../node_modules/react-native-nitro-modules`)
   - "op-sqlite (from `../node_modules/@op-engineering/op-sqlite`)"
   - QRCodeReader.swift (~> 10.1.0)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -3034,6 +3007,7 @@ DEPENDENCIES:
   - "react-native-cameraroll (from `../node_modules/@react-native-camera-roll/camera-roll`)"
   - react-native-file-viewer-turbo (from `../node_modules/react-native-file-viewer-turbo`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-maps (from `../node_modules/react-native-maps`)
@@ -3148,10 +3122,6 @@ EXTERNAL SOURCES:
     :tag: hermes-v250829098.0.9
   MendixNative:
     :path: "../node_modules/mendix-native"
-  NitroGeolocation:
-    :path: "../node_modules/react-native-nitro-geolocation"
-  NitroModules:
-    :path: "../node_modules/react-native-nitro-modules"
   op-sqlite:
     :path: "../node_modules/@op-engineering/op-sqlite"
   RCTDeprecation:
@@ -3236,6 +3206,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-file-viewer-turbo"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
   react-native-image-picker:
@@ -3405,10 +3377,8 @@ SPEC CHECKSUMS:
   MendixNative: 9eafc82c338dad09bdd25536d66ae9afe26945a8
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  NitroGeolocation: 688a2b889656060dafe9d83dc62fc0513b954a97
-  NitroModules: 4d19ff59969b2c67a19175fb17b66917af6708e0
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
-  OpenSSL-Universal: ecee7b138fa75a74ecf00d7ffd248fb584739b9e
+  OpenSSL-Universal: 6082b0bf950e5636fe0d78def171184e2b3899c2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
@@ -3453,6 +3423,7 @@ SPEC CHECKSUMS:
   react-native-cameraroll: bd1a177463acbba89365d09e81057294eba1e2f6
   react-native-file-viewer-turbo: 0da5fe2575b1c2e43ce8246fcd0fa9c3b097a72d
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
+  react-native-geolocation: cfc39041210bd9f591ec2beb7d417291251da8e5
   react-native-google-maps: c4f5c5b2dda17e7cb2cb2b37a81f140b039b3e7e
   react-native-image-picker: 168d6972e50ea848defe4ac4c222faa9bc52aea0
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab
