@@ -44,7 +44,10 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun getAppUrl(): String {
-        return mutableState.value.appUrl
+        // Hand out the same string validateAppUrl checks. A trailing space or newline, easily
+        // picked up from a scanned QR code, would otherwise pass validation and then break URL
+        // parsing further down.
+        return mutableState.value.appUrl.trim { it <= ' ' }
     }
 
     fun setAppUrl(value: String) {
@@ -82,7 +85,7 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
 
     fun launchAppOnClickListener() {
         if (!mutableState.value.appUrlInvalid){
-            preferences.appUrl = mutableState.value.appUrl
+            preferences.appUrl = getAppUrl()
             launchApp.invoke()
         }
     }
@@ -131,6 +134,12 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun onBarCodeScanSuccess(url: String){
+        // Several frames are analysed concurrently, so the same QR code is usually reported more
+        // than once. Only the first scan may launch: the launch action is declared on the home
+        // destination, so navigating again after we left it throws. Dismissing the dialog below
+        // makes this a one-shot until the scanner is opened again.
+        if (!mutableState.value.showQRCodeDialog) return
+
         setAppUrl(url)
         toggleQRCodeDialog()
         launchApp()

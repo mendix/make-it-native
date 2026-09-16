@@ -83,7 +83,17 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        /**
+         * The saved state is dropped on purpose. react-native-screens' ScreenFragment throws from
+         * its constructor when it is restored, so restoring the fragment hierarchy crashes on the
+         * way up before any of our code runs. A restored React Native session is unusable anyway:
+         * the runtime and the downloaded bundle are gone, and the project has to be loaded again.
+         *
+         * Passing null makes a restore behave like a cold start and land on the home screen. The
+         * activity declares configChanges for orientation, uiMode and fontScale, so it is not
+         * recreated for those; in practice this only affects restore after process death.
+         */
+        super.onCreate(null)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         preferences = AppPreferences(applicationContext)

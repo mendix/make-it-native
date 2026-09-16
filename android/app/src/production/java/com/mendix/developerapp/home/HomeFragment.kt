@@ -20,6 +20,7 @@ import com.google.android.material.color.MaterialColors
 import com.mendix.developerapp.BaseFragment
 import com.mendix.developerapp.R
 import com.mendix.developerapp.ui.theme.MyApplicationTheme
+import com.mendix.developerapp.util.sanitizedForReactNative
 import com.mendix.developerapp.utilities.getWarningFilterValue
 import com.mendix.mendixnative.react.MendixApp
 
@@ -140,7 +141,13 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun launch() {
-        findNavController().navigate(
+        val navController = findNavController()
+        // The launch action is only declared on the home destination, so navigating from anywhere
+        // else throws. A late QR scan or a stale callback can still get us here after the user has
+        // moved on.
+        if (navController.currentDestination?.id != R.id.nav_home) return
+
+        navController.navigate(
             HomeFragmentDirections.actionStartAppFragmentToMendixProjectLoaderFragment(
                 getString(R.string.react_native_component_name),
                     MendixApp(
@@ -149,7 +156,7 @@ class HomeFragment : BaseFragment() {
                             viewModel.getDevModeEnabled(),
                             true
                     ),
-                    activity?.intent?.extras,
+                    activity?.intent?.extras?.sanitizedForReactNative(),
                     viewModel.getClearData(),
                     true,
             )

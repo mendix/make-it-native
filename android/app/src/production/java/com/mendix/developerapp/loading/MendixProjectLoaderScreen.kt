@@ -7,6 +7,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,7 +30,14 @@ fun MendixProjectLoaderScreen(viewModel: ProjectLoaderViewModel) {
         animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
     ).value
 
-    val uri = URI(state.appUrl)
+    /**
+     * The app URL is whatever the user typed or scanned. It is validated with OkHttp, which is far
+     * more lenient than [URI] -- an IDN host, for instance, passes validation and then fails to
+     * parse here. The URI is only used to build error text, so fall back to showing the raw value
+     * instead of taking the app down with an exception thrown during composition.
+     */
+    val uri = remember(state.appUrl) { runCatching { URI(state.appUrl) }.getOrNull() }
+    val displayUrl = uri?.toString() ?: state.appUrl
     val errorMessageTitle: String
     var primaryButtonText = stringResource(R.string.button_troubleshooting)
     var secondaryButtonText = stringResource(R.string.button_retry)
@@ -56,10 +64,10 @@ fun MendixProjectLoaderScreen(viewModel: ProjectLoaderViewModel) {
         }
     }
 
-    val portNumber = if (uri.port == -1) { if (uri.scheme == "http") "80" else "443" } else uri.port
+    val portNumber = if (uri == null || uri.port == -1) { if (uri?.scheme == "http") "80" else "443" } else uri.port
     val errorMessage = when (state.status) {
-        ProjectLoaderViewModel.STATUS_ERROR_BUNDLE -> stringResource(R.string.error_js_bundle, uri, portNumber )
-        ProjectLoaderViewModel.STATUS_ERROR_CONNECTION -> stringResource(R.string.error_runtime_connection, uri, portNumber)
+        ProjectLoaderViewModel.STATUS_ERROR_BUNDLE -> stringResource(R.string.error_js_bundle, displayUrl, portNumber )
+        ProjectLoaderViewModel.STATUS_ERROR_CONNECTION -> stringResource(R.string.error_runtime_connection, displayUrl, portNumber)
         ProjectLoaderViewModel.STATUS_ERROR_NO_NATIVE_PROFIlE -> stringResource(R.string.error_missing_native_profile)
         ProjectLoaderViewModel.STATUS_ERROR_PACKAGER_CONNECTION -> stringResource(R.string.error_packager_not_running)
         ProjectLoaderViewModel.STATUS_ERROR_STUDIO_OUTDATED -> stringResource(R.string.error_min_outdated)
