@@ -714,7 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 626;
+				CURRENT_PROJECT_VERSION = 633;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
@@ -748,7 +748,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.12.1;
+				MARKETING_VERSION = 11.12.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -777,7 +777,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 626;
+				CURRENT_PROJECT_VERSION = 633;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -810,7 +810,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.12.1;
+				MARKETING_VERSION = 11.12.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1055,7 +1055,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperApp/DeveloperApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 626;
+				CURRENT_PROJECT_VERSION = 633;
 				DEVELOPMENT_TEAM = BC32QNM6AD;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -1093,7 +1093,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 11.12.1;
+				MARKETING_VERSION = 11.12.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
