@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Fixes
+
+-   We fixed an issue on iOS where a deep link that cold-started the app was not delivered to React Native, causing `Linking.getInitialURL()` to return `null`.
+
 ### Changes
 
 -   Migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features

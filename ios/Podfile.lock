@@ -189,7 +189,7 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - MendixNative (0.3.1):
+  - MendixNative (0.3.4):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -3012,7 +3012,7 @@ SPEC CHECKSUMS:
   hermes-engine: 2771b98fb813fdc6f92edd7c9c0035ecabf9fee7
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  MendixNative: 358ef00fc883a39da69680c6c2a09ecf85a0b887
+  MendixNative: 0a3caf6245eb2932bf109c2e7af213c8ff959679
   MultiplatformBleAdapter: 5a6a897b006764392f9cef785e4360f54fb9477d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   op-sqlite: 12554de3e1a0cb86cbad3cf1f0c50450f57d3855
