@@ -169,10 +169,12 @@ class HomeViewController: UIViewController {
                     uiState = .deprecatedRuntime
                     return cb(false)
                 }
-                guard let runtimeInfo = response.runtimeInfo, let supportedNativeBinaryVersion = MxConfigProxy.prepare()?.nativeBinaryVersion.intValue else {
+                guard let runtimeInfo = response.runtimeInfo else {
                     uiState = .deprecatedRuntime
                     return cb(false)
                 }
+                
+                let supportedNativeBinaryVersion = MxConfiguration.nativeBinaryVersion
 
                 if (runtimeInfo.nativeBinaryVersion == supportedNativeBinaryVersion) {
                     return cb(true)
