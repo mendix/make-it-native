@@ -22,14 +22,12 @@ class AppDelegate: ReactAppProvider {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        RCTLinkingManager.application(app, open: url, options: options)
-        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty, !ReactAppProvider.isReactAppActive() else {
-            return true
+        // A running React app receives the URL as an event, otherwise the URL is passed through the
+        // launch options so it is available to Linking.getInitialURL() after a cold start.
+        if ReactAppProvider.isReactAppActive() {
+            return RCTLinkingManager.application(app, open: url, options: options)
         }
-        var launchOptions: [AnyHashable: Any] = options
-        launchOptions[UIApplication.LaunchOptionsKey.annotation] = options[UIApplication.OpenURLOptionsKey.annotation] ?? []
-        launchOptions[UIApplication.LaunchOptionsKey.url] = url
-        launchMendixAppWithOptions(options: launchOptions)
+        launchMendixAppWithOptions(options: ReactAppProvider.launchOptions(from: url, options: options))
         return true
     }
     
@@ -41,7 +39,10 @@ class AppDelegate: ReactAppProvider {
         SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
     
-    private func launchMendixAppWithOptions(options: [AnyHashable: Any] = [:]) {
+    private func launchMendixAppWithOptions(options: [AnyHashable: Any]) {
+        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty else {
+            return
+        }
         ReactNative.shared.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
         ReactNative.shared.start()
     }

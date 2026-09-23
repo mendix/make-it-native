@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixes
 
+- We fixed an issue on iOS where a deep link that cold-started the app was not delivered to React Native, causing `Linking.getInitialURL()` to return `null`.
 - We have fixed the textinputs hiding behind on-screen keyboard.
 - We have fixed the Android splash screen being stretched. The Mendix logo is now centered and displayed with the correct proportions on all screen sizes.
 
