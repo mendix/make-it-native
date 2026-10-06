@@ -166,17 +166,22 @@ PODS:
     - hermes-engine/Pre-built (= 260318099.0.4)
   - hermes-engine/Pre-built (260318099.0.4)
   - IQKeyboardManager (6.5.19)
-  - libwebp (1.5.0):
-    - libwebp/demux (= 1.5.0)
-    - libwebp/mux (= 1.5.0)
-    - libwebp/sharpyuv (= 1.5.0)
-    - libwebp/webp (= 1.5.0)
-  - libwebp/demux (1.5.0):
+  - libavif/core (0.11.1)
+  - libavif/libdav1d (0.11.1):
+    - libavif/core
+    - libdav1d (>= 0.6.0)
+  - libdav1d (1.2.0)
+  - libwebp (1.6.0):
+    - libwebp/demux (= 1.6.0)
+    - libwebp/mux (= 1.6.0)
+    - libwebp/sharpyuv (= 1.6.0)
+    - libwebp/webp (= 1.6.0)
+  - libwebp/demux (1.6.0):
     - libwebp/webp
-  - libwebp/mux (1.5.0):
+  - libwebp/mux (1.6.0):
     - libwebp/demux
-  - libwebp/sharpyuv (1.5.0)
-  - libwebp/webp (1.5.0):
+  - libwebp/sharpyuv (1.6.0)
+  - libwebp/webp (1.6.0):
     - libwebp/sharpyuv
   - MendixNative (0.6.2):
     - hermes-engine
@@ -1647,7 +1652,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-blob-util (0.24.7):
+  - react-native-blob-util (0.24.11):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1793,7 +1798,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-safe-area-context (5.7.0):
+  - react-native-safe-area-context (5.8.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1807,8 +1812,8 @@ PODS:
     - React-graphics
     - React-ImageManager
     - React-jsi
-    - react-native-safe-area-context/common (= 5.7.0)
-    - react-native-safe-area-context/fabric (= 5.7.0)
+    - react-native-safe-area-context/common (= 5.8.1)
+    - react-native-safe-area-context/fabric (= 5.8.1)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-renderercss
@@ -1818,7 +1823,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-safe-area-context/common (5.7.0):
+  - react-native-safe-area-context/common (5.8.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1841,7 +1846,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-safe-area-context/fabric (5.7.0):
+  - react-native-safe-area-context/fabric (5.8.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1868,7 +1873,7 @@ PODS:
   - react-native-track-player (4.1.2):
     - React-Core
     - SwiftAudioEx (= 1.1.0)
-  - react-native-vector-icons (12.3.0):
+  - react-native-vector-icons (13.0.1):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1891,7 +1896,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-vector-icons-material-icons (12.4.1)
+  - react-native-vector-icons-material-icons (13.1.4)
   - react-native-video (6.19.2):
     - hermes-engine
     - RCTRequired
@@ -2520,10 +2525,35 @@ PODS:
     - Yoga
   - RNDeviceInfo (15.0.2):
     - React-Core
-  - RNFastImage (8.6.3):
+  - RNFastImage (8.13.0):
+    - hermes-engine
+    - libavif/core (~> 0.11.1)
+    - libavif/libdav1d (~> 0.11.1)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-bridging
     - React-Core
-    - SDWebImage (~> 5.11.1)
-    - SDWebImageWebPCoder (~> 0.8.4)
+    - React-Core-prebuilt
+    - React-cxxstableapi
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - SDWebImage (>= 5.19.1)
+    - SDWebImageAVIFCoder (~> 0.11.0)
+    - SDWebImageSVGCoder (~> 1.7.0)
+    - SDWebImageWebPCoder (~> 0.14)
+    - Yoga
   - RNFBAnalytics (20.1.0):
     - Firebase/Analytics (= 10.27.0)
     - React-Core
@@ -2981,12 +3011,17 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
-  - SDWebImageWebPCoder (0.8.5):
+  - SDWebImage (5.21.7):
+    - SDWebImage/Core (= 5.21.7)
+  - SDWebImage/Core (5.21.7)
+  - SDWebImageAVIFCoder (0.11.1):
+    - libavif/core (>= 0.11.0)
+    - SDWebImage (~> 5.10)
+  - SDWebImageSVGCoder (1.7.0):
+    - SDWebImage/Core (~> 5.6)
+  - SDWebImageWebPCoder (0.15.0):
     - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.10)
+    - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.7.1):
     - ReactNativeDependencies
   - SSZipArchive (2.6.0)
@@ -3126,7 +3161,7 @@ DEPENDENCIES:
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
-  - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - "RNFastImage (from `../node_modules/@d11/react-native-fast-image`)"
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
@@ -3166,6 +3201,8 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - IQKeyboardManager
+    - libavif
+    - libdav1d
     - libwebp
     - MultiplatformBleAdapter
     - nanopb
@@ -3174,6 +3211,8 @@ SPEC REPOS:
     - PromisesSwift
     - QRCodeReader.swift
     - SDWebImage
+    - SDWebImageAVIFCoder
+    - SDWebImageSVGCoder
     - SDWebImageWebPCoder
     - SSZipArchive
     - SwiftAudioEx
@@ -3407,7 +3446,7 @@ EXTERNAL SOURCES:
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNFastImage:
-    :path: "../node_modules/react-native-fast-image"
+    :path: "../node_modules/@d11/react-native-fast-image"
   RNFBAnalytics:
     :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
@@ -3472,7 +3511,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   hermes-engine: a1158910bb7e300b9e3d2f1e2d433f817ec1a4b5
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
-  libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
+  libavif: 84bbb62fb232c3018d6f1bab79beea87e35de7b7
+  libdav1d: 23581a4d8ec811ff171ed5e2e05cd27bad64c39f
+  libwebp: af5937a13536ef73f3784d69cc342b98961acf33
   MendixNative: 6de5c0daa7124a30fcc7e73b88342caa3fb31eea
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
@@ -3524,7 +3565,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: 9bdc748bc7766ae29e1f04a30993bdb95f4c0fb7
   React-mutationobservernativemodule: 13aac2d70ba3905b08008656a790b18f7befb7c7
   react-native-ble-plx: d6178fe13bb60e3ced278f528bb476fc0ceaf102
-  react-native-blob-util: 69839754596fae2cf6864427ef88f49520098fd2
+  react-native-blob-util: 89d5ccbafcdb2ae701dfca9002472de6a080b624
   react-native-cameraroll: 6a7f0cae784ce8f4e028909bb736b9bdd4c3bdab
   react-native-file-viewer-turbo: c6aeaccc0224ef6191ff3fe8cf4ab0a6508f676f
   react-native-geocoder: bc977303c9c53cce36bcdb3c6f17e6832f86beb6
@@ -3533,10 +3574,10 @@ SPEC CHECKSUMS:
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab
   react-native-netinfo: ab116f626a6433d6157415e969b8c688c12cbf86
   react-native-pager-view: 9474ba016fdcce9f11a168372728e87defb94a1c
-  react-native-safe-area-context: f3c01ed86f0ed264614095acd0943582665826d0
+  react-native-safe-area-context: 16d6b3596ac139875d38ad9ac1c816169ec5735a
   react-native-track-player: dd56f9948e03756a217c75e0a61aa04aab65b5a1
-  react-native-vector-icons: 0737bb6b26396324a11c0df338e22209ec1acab0
-  react-native-vector-icons-material-icons: 2fe75632937d07937bfe8ca953e1b5d06eef3a1d
+  react-native-vector-icons: 13bdb36c614afa6cc4e3c36b42e0e8df989ff65f
+  react-native-vector-icons-material-icons: 6d1d8ea28261609bbb975b1e9c51fe54eedfafe6
   react-native-video: 715a442e7b3345202e365ad5e69437ba9889bffa
   react-native-view-shot: 95614d7e87e2b495d6f803a948c9e2f1bb523b23
   react-native-webview: cf5744283da37226fd72b1b99c10bac8c0c4cb8f
@@ -3584,7 +3625,7 @@ SPEC CHECKSUMS:
   RNCPicker: d3db4b004e95a5bd224e1c926f84978b45bc0040
   RNDateTimePicker: c540de7fec7bb410b2624f120ec0105acf679eca
   RNDeviceInfo: 4c852998208b60dc192ae3529e5867817719ad1e
-  RNFastImage: 462a183c4b0b6b26fdfd639e1ed6ba37536c3b87
+  RNFastImage: 2aad2bc7fcf6fd99c538d7ec5f862e5b1f5a64e8
   RNFBAnalytics: 2d5a256a65b42748763b5420a7a0a7d03d8d4ddc
   RNFBApp: a04e05e3ad4c3e6a2a84cf714f6845ec2cf5d73d
   RNFBCrashlytics: c6fb94c74a60c96a2aab77a1ace11ae85848d65e
@@ -3601,8 +3642,10 @@ SPEC CHECKSUMS:
   RNSVG: 2763b18e0405296e97c651358716e997ce041b1f
   RNSwanBrowser: 9eef8c94d19a14d5bafcd8a520915b39dfc5d47e
   RNWorklets: 488806637a21eb17812a48dadca7cb8c698c8cfd
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
+  SDWebImage: e9fc87c1aab89a8ab1bbd74eba378c6f53be8abf
+  SDWebImageAVIFCoder: afe194a084e851f70228e4be35ef651df0fc5c57
+  SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
+  SDWebImageWebPCoder: 0e06e365080397465cc73a7a9b472d8a3bd0f377
   SocketRocket: 37aec555668fb852ec12e3c0de59a86ca58f0871
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
   SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
