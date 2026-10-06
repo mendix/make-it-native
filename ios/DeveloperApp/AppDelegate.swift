@@ -5,50 +5,19 @@ import UserNotifications
 import MendixNative
 
 @main
-class AppDelegate: ReactAppProvider {
-    
-    var shouldLaunchLastApp: Bool = false
-    var previewingSampleApp: Bool = false
-    
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+class AppDelegate: LegacyWindowAppDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SessionCookieStore.restore() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-        setUpProvider()
         clearKeychainIfNecessary()
         setUpDevice()
         setUpGoogleMaps()
         setUpPushNotifications(application)
-        updateRootViewController(showOnboarding() ? .launchTutorial : .openApp)
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // A running React app receives the URL as an event, otherwise the URL is passed through the
-        // launch options so it is available to Linking.getInitialURL() after a cold start.
-        if ReactAppProvider.isReactAppActive() {
-            return RCTLinkingManager.application(app, open: url, options: options)
-        }
-        launchMendixAppWithOptions(options: ReactAppProvider.launchOptions(from: url, options: options))
         return true
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
     }
         
     func applicationWillTerminate(_ application: UIApplication) {
         SessionCookieStore.persist() //iOS does not persist session cookies across app restarts, this helps persisting session cookies to match behaviour with Android
-    }
-    
-    private func launchMendixAppWithOptions(options: [AnyHashable: Any]) {
-        guard let appUrl = AppPreferences.appUrl, !appUrl.isEmpty else {
-            return
-        }
-        ReactNative.shared.setup(MendixAppEntryType.deeplink.mendixApp, launchOptions: options)
-        ReactNative.shared.start()
-    }
-    
-    static func delegateInstance() -> AppDelegate? {
-        return UIApplication.shared.delegate as? AppDelegate
     }
 }
 
@@ -64,21 +33,6 @@ extension AppDelegate {
     private func setUpDevice() {
         UIApplication.shared.isIdleTimerDisabled = true
         UIDevice.current.isBatteryMonitoringEnabled = true
-    }
-}
-
-//RootView
-extension AppDelegate {
-    private func updateRootViewController(_ storyboard: UIStoryboard) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = storyboard.instantiateInitialViewController()
-        window?.makeKeyAndVisible()
-        window?.overrideUserInterfaceStyle = .light // Force Light Mode
-        IQKeyboardManager.shared().isEnabled = false
-    }
-    
-    func changeRootViewToOpenApp() {
-        updateRootViewController(.openApp)
     }
 }
 

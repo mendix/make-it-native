@@ -15,8 +15,8 @@ ENV['RCT_NEW_ARCH_ENABLED'] = '1'
 ENV['RCT_USE_PREBUILT_RNCORE'] = '1'
 ENV['RCT_USE_RN_DEP'] = '1'
 
-# Enabled by default in RN 0.84, disabling it since appdev/clent still use hermes v0.16.0
-ENV['RCT_HERMES_V1_ENABLED'] = '0'
+# React Native 0.88 always uses Hermes V1 (hermes-compiler 260318099.0.4, HBC bytecode version 99).
+# Bundles compiled by appdev/client must use the same hermes-compiler version, otherwise loading fails with a bytecode version mismatch.
 
 # Use it to require both react-native's and this package's scripts:
 node_require('react-native/scripts/react_native_pods.rb')
