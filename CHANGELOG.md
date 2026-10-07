@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changes
 
+-   We upgraded React Native to 0.88.0-rc.3. On iOS the app now uses the scene-based lifecycle (`SceneDelegate`).
+-   The app now uses Hermes V1 (HBC bytecode version 99). JavaScript bundles compiled with Hermes 0.16.0 (bytecode version 96) can no longer be loaded and must be compiled with hermes-compiler 260318099.0.4.
+-   We upgraded @op-engineering/op-sqlite to 18.2.5, react-native-gesture-handler to 2.33.0, react-native-reanimated to 4.7.1, react-native-worklets to 0.13.0, react-native-screens to 4.28.0, react-native-nitro-modules to 0.36.2, react-native-blob-util to 0.24.11, react-native-safe-area-context to 5.8.1, and the @react-native-vector-icons/* family to 13.x (to match appdev/client, which uses @react-native-vector-icons/common 13.0.3).
 -   Migrated from react-native-push-notification to @notifee/react-native for better new architecture compatibility and enhanced push notification features
 -   Removed `@react-native-masked-view/masked-view` dependency.
 -   We migrated from react-native-file-viewer to react-native-file-viewer-turbo for new architecture compatibility
