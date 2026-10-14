@@ -2,170 +2,176 @@ PODS:
   - BVLinearGradient (2.8.3):
     - React-Core
   - FBLazyVector (0.84.1)
-  - Firebase (10.27.0):
-    - Firebase/Core (= 10.27.0)
-  - Firebase/Analytics (10.27.0):
+  - Firebase (11.11.0):
+    - Firebase/Core (= 11.11.0)
+  - Firebase/Analytics (11.11.0):
     - Firebase/Core
-  - Firebase/Core (10.27.0):
+  - Firebase/Core (11.11.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 10.27.0)
-  - Firebase/CoreOnly (10.27.0):
-    - FirebaseCore (= 10.27.0)
-  - Firebase/Crashlytics (10.27.0):
+    - FirebaseAnalytics (~> 11.11.0)
+  - Firebase/CoreOnly (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+  - Firebase/Crashlytics (11.11.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 10.27.0)
-  - Firebase/Messaging (10.27.0):
+    - FirebaseCrashlytics (~> 11.11.0)
+  - Firebase/Messaging (11.11.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 10.27.0)
-  - FirebaseAnalytics (10.27.0):
-    - FirebaseAnalytics/AdIdSupport (= 10.27.0)
-    - FirebaseCore (~> 10.0)
-    - FirebaseInstallations (~> 10.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (10.27.0):
-    - FirebaseCore (~> 10.0)
-    - FirebaseInstallations (~> 10.0)
-    - GoogleAppMeasurement (= 10.27.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - FirebaseCore (10.27.0):
-    - FirebaseCoreInternal (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.12)
-    - GoogleUtilities/Logger (~> 7.12)
-  - FirebaseCoreExtension (10.29.0):
-    - FirebaseCore (~> 10.0)
-  - FirebaseCoreInternal (10.29.0):
-    - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseCrashlytics (10.27.0):
-    - FirebaseCore (~> 10.5)
-    - FirebaseInstallations (~> 10.0)
-    - FirebaseRemoteConfigInterop (~> 10.23)
-    - FirebaseSessions (~> 10.5)
-    - GoogleDataTransport (~> 9.2)
-    - GoogleUtilities/Environment (~> 7.8)
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-    - PromisesObjC (~> 2.1)
-  - FirebaseInstallations (10.29.0):
-    - FirebaseCore (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/UserDefaults (~> 7.8)
-    - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (10.27.0):
-    - FirebaseCore (~> 10.0)
-    - FirebaseInstallations (~> 10.0)
-    - GoogleDataTransport (~> 9.3)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/Reachability (~> 7.8)
-    - GoogleUtilities/UserDefaults (~> 7.8)
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - FirebaseRemoteConfigInterop (10.29.0)
-  - FirebaseSessions (10.29.0):
-    - FirebaseCore (~> 10.5)
-    - FirebaseCoreExtension (~> 10.0)
-    - FirebaseInstallations (~> 10.0)
-    - GoogleDataTransport (~> 9.2)
-    - GoogleUtilities/Environment (~> 7.13)
-    - GoogleUtilities/UserDefaults (~> 7.13)
-    - nanopb (< 2.30911.0, >= 2.30908.0)
+    - FirebaseMessaging (~> 11.11.0)
+  - FirebaseAnalytics (11.11.0):
+    - FirebaseAnalytics/AdIdSupport (= 11.11.0)
+    - FirebaseCore (~> 11.11.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseAnalytics/AdIdSupport (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleAppMeasurement (= 11.11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseCore (11.11.0):
+    - FirebaseCoreInternal (~> 11.11.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/Logger (~> 8.0)
+  - FirebaseCoreExtension (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+  - FirebaseCoreInternal (11.11.0):
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+  - FirebaseCrashlytics (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfigInterop (~> 11.0)
+    - FirebaseSessions (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseInstallations (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseMessaging (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/Reachability (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - nanopb (~> 3.30910.0)
+  - FirebaseRemoteConfigInterop (11.15.0)
+  - FirebaseSessions (11.11.0):
+    - FirebaseCore (~> 11.11.0)
+    - FirebaseCoreExtension (~> 11.11.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - nanopb (~> 3.30910.0)
     - PromisesSwift (~> 2.1)
   - Google-Maps-iOS-Utils (5.0.0):
     - GoogleMaps (~> 8.0)
-  - GoogleAppMeasurement (10.27.0):
-    - GoogleAppMeasurement/AdIdSupport (= 10.27.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (10.27.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.27.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (10.27.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-  - GoogleDataTransport (9.4.1):
-    - GoogleUtilities/Environment (~> 7.7)
-    - nanopb (< 2.30911.0, >= 2.30908.0)
-    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleAppMeasurement (11.11.0):
+    - GoogleAppMeasurement/AdIdSupport (= 11.11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/AdIdSupport (11.11.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (11.11.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleDataTransport (10.1.1):
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
   - GoogleMaps (8.4.0):
     - GoogleMaps/Maps (= 8.4.0)
   - GoogleMaps/Base (8.4.0)
   - GoogleMaps/Maps (8.4.0):
     - GoogleMaps/Base
-  - GoogleUtilities (7.13.3):
-    - GoogleUtilities/AppDelegateSwizzler (= 7.13.3)
-    - GoogleUtilities/Environment (= 7.13.3)
-    - GoogleUtilities/ISASwizzler (= 7.13.3)
-    - GoogleUtilities/Logger (= 7.13.3)
-    - GoogleUtilities/MethodSwizzler (= 7.13.3)
-    - GoogleUtilities/Network (= 7.13.3)
-    - "GoogleUtilities/NSData+zlib (= 7.13.3)"
-    - GoogleUtilities/Privacy (= 7.13.3)
-    - GoogleUtilities/Reachability (= 7.13.3)
-    - GoogleUtilities/SwizzlerTestHelpers (= 7.13.3)
-    - GoogleUtilities/UserDefaults (= 7.13.3)
-  - GoogleUtilities/AppDelegateSwizzler (7.13.3):
+  - GoogleMLKit/BarcodeScanning (9.0.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitBarcodeScanning (~> 8.0.0)
+  - GoogleMLKit/MLKitCore (9.0.0):
+    - MLKitCommon (~> 14.0.0)
+  - GoogleToolboxForMac/Defines (4.2.1)
+  - GoogleToolboxForMac/Logger (4.2.1):
+    - GoogleToolboxForMac/Defines (= 4.2.1)
+  - "GoogleToolboxForMac/NSData+zlib (4.2.1)":
+    - GoogleToolboxForMac/Defines (= 4.2.1)
+  - GoogleUtilities (8.1.4):
+    - GoogleUtilities/AppDelegateSwizzler (= 8.1.4)
+    - GoogleUtilities/Environment (= 8.1.4)
+    - GoogleUtilities/Logger (= 8.1.4)
+    - GoogleUtilities/MethodSwizzler (= 8.1.4)
+    - GoogleUtilities/Network (= 8.1.4)
+    - "GoogleUtilities/NSData+zlib (= 8.1.4)"
+    - GoogleUtilities/Privacy (= 8.1.4)
+    - GoogleUtilities/Reachability (= 8.1.4)
+    - GoogleUtilities/SwizzlerTestHelpers (= 8.1.4)
+    - GoogleUtilities/UserDefaults (= 8.1.4)
+  - GoogleUtilities/AppDelegateSwizzler (8.1.4):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
     - GoogleUtilities/Privacy
-  - GoogleUtilities/Environment (7.13.3):
+  - GoogleUtilities/Environment (8.1.4):
     - GoogleUtilities/Privacy
-    - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/ISASwizzler (7.13.3):
-    - GoogleUtilities/Privacy
-  - GoogleUtilities/Logger (7.13.3):
+  - GoogleUtilities/Logger (8.1.4):
     - GoogleUtilities/Environment
     - GoogleUtilities/Privacy
-  - GoogleUtilities/MethodSwizzler (7.13.3):
+  - GoogleUtilities/MethodSwizzler (8.1.4):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - GoogleUtilities/Network (7.13.3):
+  - GoogleUtilities/Network (8.1.4):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Privacy
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.13.3)":
+  - "GoogleUtilities/NSData+zlib (8.1.4)":
     - GoogleUtilities/Privacy
-  - GoogleUtilities/Privacy (7.13.3)
-  - GoogleUtilities/Reachability (7.13.3):
+  - GoogleUtilities/Privacy (8.1.4)
+  - GoogleUtilities/Reachability (8.1.4):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - GoogleUtilities/SwizzlerTestHelpers (7.13.3):
+  - GoogleUtilities/SwizzlerTestHelpers (8.1.4):
     - GoogleUtilities/MethodSwizzler
-  - GoogleUtilities/UserDefaults (7.13.3):
+  - GoogleUtilities/UserDefaults (8.1.4):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
+  - GTMSessionFetcher/Core (3.5.0)
   - hermes-engine (0.15.1):
     - hermes-engine/Pre-built (= 0.15.1)
   - hermes-engine/Pre-built (0.15.1)
   - IQKeyboardManager (6.5.19)
-  - libwebp (1.5.0):
-    - libwebp/demux (= 1.5.0)
-    - libwebp/mux (= 1.5.0)
-    - libwebp/sharpyuv (= 1.5.0)
-    - libwebp/webp (= 1.5.0)
-  - libwebp/demux (1.5.0):
+  - libwebp (1.6.0):
+    - libwebp/demux (= 1.6.0)
+    - libwebp/mux (= 1.6.0)
+    - libwebp/sharpyuv (= 1.6.0)
+    - libwebp/webp (= 1.6.0)
+  - libwebp/demux (1.6.0):
     - libwebp/webp
-  - libwebp/mux (1.5.0):
+  - libwebp/mux (1.6.0):
     - libwebp/demux
-  - libwebp/sharpyuv (1.5.0)
-  - libwebp/webp (1.5.0):
+  - libwebp/sharpyuv (1.6.0)
+  - libwebp/webp (1.6.0):
     - libwebp/sharpyuv
   - MendixNative (0.6.2):
     - hermes-engine
@@ -192,12 +198,29 @@ PODS:
     - RNCAsyncStorage
     - SSZipArchive
     - Yoga
+  - MLImage (1.0.0-beta8)
+  - MLKitBarcodeScanning (8.0.0):
+    - MLKitCommon (~> 14.0)
+    - MLKitVision (~> 10.0)
+  - MLKitCommon (14.0.0):
+    - GoogleDataTransport (~> 10.0)
+    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
+    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
+    - GoogleUtilities/Logger (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
+  - MLKitVision (10.0.0):
+    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
+    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
+    - MLImage (= 1.0.0-beta8)
+    - MLKitCommon (~> 14.0)
   - MultiplatformBleAdapter (0.2.0)
-  - nanopb (2.30910.0):
-    - nanopb/decode (= 2.30910.0)
-    - nanopb/encode (= 2.30910.0)
-  - nanopb/decode (2.30910.0)
-  - nanopb/encode (2.30910.0)
+  - nanopb (3.30910.0):
+    - nanopb/decode (= 3.30910.0)
+    - nanopb/encode (= 3.30910.0)
+  - nanopb/decode (3.30910.0)
+  - nanopb/encode (3.30910.0)
   - NitroGeolocation (1.4.3):
     - hermes-engine
     - NitroModules
@@ -222,7 +245,31 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - NitroModules (0.36.1):
+  - NitroImage (0.15.2):
+    - hermes-engine
+    - NitroModules
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
+  - NitroModules (0.37.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -269,9 +316,9 @@ PODS:
     - ReactNativeDependencies
     - Yoga
   - OpenSSL-Universal (3.6.2000)
-  - PromisesObjC (2.4.0)
-  - PromisesSwift (2.4.0):
-    - PromisesObjC (= 2.4.0)
+  - PromisesObjC (2.4.1)
+  - PromisesSwift (2.4.1):
+    - PromisesObjC (= 2.4.1)
   - QRCodeReader.swift (10.1.0)
   - RCTDeprecation (0.84.1)
   - RCTRequired (0.84.1)
@@ -2543,24 +2590,24 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNFBAnalytics (20.1.0):
-    - Firebase/Analytics (= 10.27.0)
+  - RNFBAnalytics (21.14.0):
+    - Firebase/Analytics (= 11.11.0)
     - React-Core
     - RNFBApp
-  - RNFBApp (20.1.0):
-    - Firebase/CoreOnly (= 10.27.0)
+  - RNFBApp (21.14.0):
+    - Firebase/CoreOnly (= 11.11.0)
     - React-Core
-  - RNFBCrashlytics (20.1.0):
-    - Firebase/Crashlytics (= 10.27.0)
+  - RNFBCrashlytics (21.14.0):
+    - Firebase/Crashlytics (= 11.11.0)
     - FirebaseCoreExtension
     - React-Core
     - RNFBApp
-  - RNFBMessaging (20.1.0):
-    - Firebase/Messaging (= 10.27.0)
+  - RNFBMessaging (21.14.0):
+    - Firebase/Messaging (= 11.11.0)
     - FirebaseCoreExtension
     - React-Core
     - RNFBApp
-  - RNFBML (20.1.0):
+  - RNFBML (21.14.0):
     - React-Core
     - RNFBApp
   - RNGestureHandler (2.31.2):
@@ -2965,12 +3012,58 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SSZipArchive (2.6.0)
   - SwiftAudioEx (1.1.0)
-  - VisionCamera (4.7.3):
-    - VisionCamera/Core (= 4.7.3)
-    - VisionCamera/React (= 4.7.3)
-  - VisionCamera/Core (4.7.3)
-  - VisionCamera/React (4.7.3):
+  - VisionCamera (5.2.3):
+    - hermes-engine
+    - NitroImage
+    - NitroModules
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
     - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
+  - VisionCameraBarcodeScanner (5.2.3):
+    - GoogleMLKit/BarcodeScanning (= 9.0.0)
+    - hermes-engine
+    - NitroImage
+    - NitroModules
+    - RCTRequired
+    - RCTTypeSafety
+    - React-callinvoker
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - VisionCamera
+    - Yoga
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2989,6 +3082,7 @@ DEPENDENCIES:
   - MendixNative (from `../node_modules/mendix-native`)
   - nanopb
   - NitroGeolocation (from `../node_modules/react-native-nitro-geolocation`)
+  - NitroImage (from `../node_modules/react-native-nitro-image`)
   - NitroModules (from `../node_modules/react-native-nitro-modules`)
   - "op-sqlite (from `../node_modules/@op-engineering/op-sqlite`)"
   - QRCodeReader.swift (~> 10.1.0)
@@ -3106,6 +3200,7 @@ DEPENDENCIES:
   - RNWorklets (from `../node_modules/react-native-worklets`)
   - SSZipArchive
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
+  - VisionCameraBarcodeScanner (from `../node_modules/react-native-vision-camera-barcode-scanner`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -3124,9 +3219,16 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
+    - GoogleMLKit
+    - GoogleToolboxForMac
     - GoogleUtilities
+    - GTMSessionFetcher
     - IQKeyboardManager
     - libwebp
+    - MLImage
+    - MLKitBarcodeScanning
+    - MLKitCommon
+    - MLKitVision
     - MultiplatformBleAdapter
     - nanopb
     - OpenSSL-Universal
@@ -3150,6 +3252,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/mendix-native"
   NitroGeolocation:
     :path: "../node_modules/react-native-nitro-geolocation"
+  NitroImage:
+    :path: "../node_modules/react-native-nitro-image"
   NitroModules:
     :path: "../node_modules/react-native-nitro-modules"
   op-sqlite:
@@ -3378,39 +3482,49 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-worklets"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
+  VisionCameraBarcodeScanner:
+    :path: "../node_modules/react-native-vision-camera-barcode-scanner"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   BVLinearGradient: cb006ba232a1f3e4f341bb62c42d1098c284da70
   FBLazyVector: e97c19a5a442429d1988f182a1940fb08df514da
-  Firebase: 26b040b20866a55f55eb3611b9fcf3ae64816b86
-  FirebaseAnalytics: f9211b719db260cc91aebee8bb539cb367d0dfd1
-  FirebaseCore: a2b95ae4ce7c83ceecfbbbe3b6f1cddc7415a808
-  FirebaseCoreExtension: 705ca5b14bf71d2564a0ddc677df1fc86ffa600f
-  FirebaseCoreInternal: df84dd300b561c27d5571684f389bf60b0a5c934
-  FirebaseCrashlytics: 81ea6ec96519388687f6061beb838a8eec482293
-  FirebaseInstallations: 913cf60d0400ebd5d6b63a28b290372ab44590dd
-  FirebaseMessaging: 585984d0a1df120617eb10b44cad8968b859815e
-  FirebaseRemoteConfigInterop: 6efda51fb5e2f15b16585197e26eaa09574e8a4d
-  FirebaseSessions: dbd14adac65ce996228652c1fc3a3f576bdf3ecc
+  Firebase: 6a8f201c61eda24e98f1ce2b44b1b9c2caf525cc
+  FirebaseAnalytics: acfa848bf81e1a4dbf60ef1f0eddd7328fe6673e
+  FirebaseCore: 2321536f9c423b1f857e047a82b8a42abc6d9e2c
+  FirebaseCoreExtension: 3a64994969dd05f4bcb7e6896c654eded238e75b
+  FirebaseCoreInternal: 31ee350d87b30a9349e907f84bf49ef8e6791e5a
+  FirebaseCrashlytics: 5058c465e10782f54337b394c37254e0595174e9
+  FirebaseInstallations: 781e0e37aa0e1c92b44d00e739aba79ad31b2dba
+  FirebaseMessaging: c7be9357fd8ba33bc45b9a6c3cdff0b466e1e2a4
+  FirebaseRemoteConfigInterop: 1c6135e8a094cc6368949f5faeeca7ee8948b8aa
+  FirebaseSessions: f5c6bfeb66a7202deaf33352017bb6365e395820
   Google-Maps-iOS-Utils: 66d6de12be1ce6d3742a54661e7a79cb317a9321
-  GoogleAppMeasurement: f65fc137531af9ad647f1c0a42f3b6a4d3a98049
-  GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
+  GoogleAppMeasurement: 8a82b93a6400c8e6551c0bcd66a9177f2e067aed
+  GoogleDataTransport: a24e58982ab3ba2f64d79613e027fe7f57e88539
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
-  GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  hermes-engine: 2ece5229b4460076597f50050f4fb14074f8f714
+  GoogleMLKit: b1eee21a41c57704fe72483b15c85cb2c0cd7444
+  GoogleToolboxForMac: d1a2cbf009c453f4d6ded37c105e2f67a32206d8
+  GoogleUtilities: db34c1c11c6f2eccb6fab2340cb8ceb1451299dc
+  GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
+  hermes-engine: 50fb1f372048c9c3c99deccbe0d3656ed0435825
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
-  libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
+  libwebp: af5937a13536ef73f3784d69cc342b98961acf33
   MendixNative: 784e3f3502d5ed1af5deb1ebccfa47760af238d8
+  MLImage: 0de5c6c2bf9e93b80ef752e2797f0836f03b58c0
+  MLKitBarcodeScanning: 39de223e7b1b8a8fbf10816a536dd292d8a39343
+  MLKitCommon: 47d47b50a031d00db62f1b0efe5a1d8b09a3b2e6
+  MLKitVision: 39a5a812db83c4a0794445088e567f3631c11961
   MultiplatformBleAdapter: b1fddd0d499b96b607e00f0faa8e60648343dc1d
-  nanopb: 438bc412db1928dac798aa6fd75726007be04262
+  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   NitroGeolocation: 688a2b889656060dafe9d83dc62fc0513b954a97
-  NitroModules: 4d19ff59969b2c67a19175fb17b66917af6708e0
+  NitroImage: 2b8a7a3b67a9759a7270541add4840bd7c4b0f5a
+  NitroModules: b34e8b7defdbfca89f0973f2291c18e37f691527
   op-sqlite: e9ef65bcf95a97863874cee87841425bb71c8396
   OpenSSL-Universal: ecee7b138fa75a74ecf00d7ffd248fb584739b9e
-  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
+  PromisesSwift: 217dea0fd5d2ad65222a109c48698add13cc1c5b
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   RCTDeprecation: af44b104091a34482596cd9bd7e8d90c4e9b4bd7
   RCTRequired: bb77b070f75f53398ce43c0aaaa58337cebe2bf6
@@ -3420,7 +3534,7 @@ SPEC CHECKSUMS:
   React: 1ba7d364ade7d883a1ec055bfc3606f35fdee17b
   React-callinvoker: bc2a26f8d84fb01f003fc6de6c9337b64715f95b
   React-Core: 7840d3a80b43a95c5e80ef75146bd70925ebab0f
-  React-Core-prebuilt: a54db89db007bc34115efc5abe10e05c699797da
+  React-Core-prebuilt: 634e5eaec55d17d0b05e92677d84040135faddf9
   React-CoreModules: 2eb010400b63b89e53a324ffb3c112e4c7c3ce42
   React-cxxreact: a558e92199d26f145afa9e62c4233cf8e7950efe
   React-debug: 755200a6e7f5e6e0a40ff8d215493d43cce285fc
@@ -3499,7 +3613,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 797de5178718324c6eba3327b07f9a423fbd5787
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeBiometrics: 9ead8d633833fd13e5a79564af8ba7064c2a58c6
-  ReactNativeDependencies: e709c771664b1e4e11acf00936c61a975577bf9c
+  ReactNativeDependencies: fcf8eea8b2dff2b096ed0c73e0b2b230d802ad82
   RNBootSplash: 13b7612788960d0c5446e68489ac2509e506cfcd
   RNCalendarEvents: f90f73666b6bcbb3cc8a491ffbb5e48c0db3de37
   RNCAsyncStorage: 3a4f5e2777dae1688b781a487923a08569e27fe4
@@ -3507,11 +3621,11 @@ SPEC CHECKSUMS:
   RNDateTimePicker: 9c0a849bbe1c256f0854fea255734b715f5ea876
   RNDeviceInfo: 4c852998208b60dc192ae3529e5867817719ad1e
   RNFastImage: 462a183c4b0b6b26fdfd639e1ed6ba37536c3b87
-  RNFBAnalytics: 2d5a256a65b42748763b5420a7a0a7d03d8d4ddc
-  RNFBApp: a04e05e3ad4c3e6a2a84cf714f6845ec2cf5d73d
-  RNFBCrashlytics: c6fb94c74a60c96a2aab77a1ace11ae85848d65e
-  RNFBMessaging: 6d244fcbdf8489869facfefb4ddf17386e234f68
-  RNFBML: 08783a26be74283e4f3279730afdbdec9ae40c8e
+  RNFBAnalytics: b33dc47a5cdf688a58ad284f2c0b184299b59fd3
+  RNFBApp: 4105e54d9ca4a1c10893a032268470f670181110
+  RNFBCrashlytics: d2d9dd4636bad3f3c3ec42f53c3c13780cd634f5
+  RNFBMessaging: 6857871d9dff8f26b0c325fc7d97ba69cb77d213
+  RNFBML: 4be90aeb798583c4c370b35867a0ab2abbbab4fc
   RNGestureHandler: b4f6de20b30325ee40b693f558ad02213201ce91
   RNInAppBrowser: 6d3eb68d471b9834335c664704719b8be1bfdb20
   RNLocalize: 1e6eb4290e89502c3d2193d82dfb7de14a9e672b
@@ -3527,7 +3641,8 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
   SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
-  VisionCamera: 7187b3dac1ff3071234ead959ce311875748e14f
+  VisionCamera: 9ee62ca16c7cc389a8d3c0b3a04d8d13ba770d38
+  VisionCameraBarcodeScanner: 3e34676540e7fa7b0903b670b8532a64d21abfb1
   Yoga: c0b3f2c7e8d3e327e450223a2414ca3fa296b9a2
 
 PODFILE CHECKSUM: 81c4ca245150e58edd434018a63f151b472d150d
