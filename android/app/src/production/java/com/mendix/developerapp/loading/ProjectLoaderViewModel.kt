@@ -172,12 +172,12 @@ class ProjectLoaderViewModel : ViewModel() {
             setStatus(STATUS_SUCCESS)
         }
 
-        override fun onProgress(text: String?, done: Int?, total: Int?) {
+        override fun onProgress(text: String?, done: Int?, total: Int?, percent: Int?) {
             setStatus(STATUS_LOADING)
 
             mutableState.update { it.copy(
                     hasProgress = true,
-                    downloadProgress = ((done ?: 0).toDouble() / (total
+                    downloadProgress = percent ?: ((done ?: 0).toDouble() / (total
                         ?: 1).toDouble() * 100).toInt()
                 )
             }
