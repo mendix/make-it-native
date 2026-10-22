@@ -10,6 +10,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -90,6 +91,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         devAppPreferences = getPreferences(MODE_PRIVATE)
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        onBackPressedDispatcher.addCallback(this, backPressedCallback)
 
         setupHomeViewModel()
         setupNavigation()
@@ -207,9 +209,24 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
         })
     }
 
-    override fun onBackPressed() {
-        if ((currentFragment as? BackButtonHandler)?.onBackPressed() != true) {
-            super.onBackPressed()
+    /**
+     * With targetSdk 36 predictive back is enabled by default and Activity.onBackPressed is no longer called,
+     * so back events have to be handled through the OnBackPressedDispatcher.
+     */
+    private val backPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if ((currentFragment as? BackButtonHandler)?.onBackPressed() != true) {
+                performDefaultBack()
+            }
+        }
+    }
+
+    private fun performDefaultBack() {
+        backPressedCallback.isEnabled = false
+        try {
+            onBackPressedDispatcher.onBackPressed()
+        } finally {
+            backPressedCallback.isEnabled = true
         }
     }
 
@@ -250,7 +267,7 @@ class MainActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler, LaunchS
     }
 
     override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed()
+        performDefaultBack()
     }
 
     override fun requestPermissions(
