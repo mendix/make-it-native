@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Breaking
+
+-   We updated react-native-vision-camera from v4.7.3 to v5.2.3 and added react-native-vision-camera-barcode-scanner v5.2.3 and react-native-nitro-image v0.15.2. We also updated react-native-nitro-modules to v0.37.0. react-native-vision-camera-barcode-scanner is only used on Android; on iOS the Barcode Scanner widget uses Apple's built-in scanner from react-native-vision-camera.
+-   Because of this update, the Barcode Scanner widget requires version 4.6.0 or above (Native Mobile Resources version 12.6.0 or above). Older versions of the widget will not work in this version of Make It Native.
+
 ### Fixes
 
 - We have fixed the textinputs hiding behind on-screen keyboard.
