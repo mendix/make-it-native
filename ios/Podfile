@@ -51,9 +51,7 @@ target 'DeveloperApp' do
     :fabric_enabled => true,
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
-  pod 'GoogleMaps'
-  pod 'Google-Maps-iOS-Utils'
+  pod 'react-native-maps/Google', :path => '../node_modules/react-native-maps'
   # Required for Push notifications
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
@@ -74,10 +72,15 @@ target 'DeveloperApp' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
+    minimum_ios_version = Gem::Version.new(deployment_target)
     
     installer.pods_project.targets.each do |target|
 
       target.build_configurations.each do |config|
+        current_deployment_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+        if current_deployment_target && Gem::Version.new(current_deployment_target) < minimum_ios_version
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+        end
         
         if target.name.start_with?('React') || target.name == 'RCTTypeSafety'
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= []
