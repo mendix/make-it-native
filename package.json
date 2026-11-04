@@ -42,7 +42,7 @@
     "@sbaiahmed1/react-native-biometrics": "0.10.0",
     "@shopify/flash-list": "2.3.1",
     "@swan-io/react-native-browser": "1.0.1",
-    "mendix-native": "github:mendix/mendix-native#moo/MOO-2500-rn-0.88",
+    "mendix-native": "https://github.com/mendix/mendix-native/releases/download/v1.0.0/mendix-native-v1.0.0.tgz",
     "react-native": "0.88.0",
     "react-native-ble-plx": "3.5.1",
     "react-native-blob-util": "0.24.11",
