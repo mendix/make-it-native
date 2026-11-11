@@ -15,8 +15,8 @@ class BundleDownloadListenerHolder : DevBundleDownloadListener {
         delegate?.onSuccess()
     }
 
-    override fun onProgress(status: String?, done: Int?, total: Int?) {
-        delegate?.onProgress(status, done, total)
+    override fun onProgress(status: String?, done: Int?, total: Int?, percent: Int?) {
+        delegate?.onProgress(status, done, total, percent)
     }
 
     override fun onFailure(cause: Exception) {
