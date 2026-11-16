@@ -16,8 +16,8 @@ class TabViewController: UITabBarController {
   }
   
   func setSelectedIndex(index:Int){
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-          let tabBarController = appDelegate.window?.rootViewController as? UITabBarController else {
+    guard let sceneDelegate = SceneDelegate.delegateInstance(),
+          let tabBarController = sceneDelegate.window?.rootViewController as? UITabBarController else {
       return
     }
     tabBarController.selectedIndex = index

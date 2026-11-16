@@ -6,9 +6,8 @@ class OpenAppViewController: UIViewController {
     
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    if (appDelegate.shouldLaunchLastApp) {
-      appDelegate.shouldLaunchLastApp = false;
+    if let sceneDelegate = SceneDelegate.delegateInstance(), sceneDelegate.shouldLaunchLastApp {
+      sceneDelegate.shouldLaunchLastApp = false;
       self.performSegue(withIdentifier: "MendixApp", sender: nil)
     }
   }

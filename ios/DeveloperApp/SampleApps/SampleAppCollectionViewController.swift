@@ -38,8 +38,7 @@ class SampleAppCollectionViewController: UIViewController {
   }
   
   func onTap(app: SampleApp) {
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    appDelegate.previewingSampleApp = true
+    SceneDelegate.delegateInstance()?.previewingSampleApp = true
     
     for i in 0..<sampleApps.count {
       if sampleApps[i].id == app.id {
