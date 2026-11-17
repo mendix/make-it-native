@@ -23,6 +23,7 @@
         
         <!-- Edge-to-edge: disable the contrasting background of the navigation bar -->
         <item name="enforceNavigationBarContrast">false</item>
+        <item name="android:textViewStyle">@style/MendixTextView</item>
     </style>
 
     <style name="Theme.MakeItNative.TextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -70,16 +71,22 @@
     <!--  Base Mendix app theme-->
     <style name="Theme.Mendix" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:editTextStyle">@style/MendixEditText</item>
+        <item name="android:textViewStyle">@style/MendixTextView</item>
         <item name="android:alertDialogTheme">@style/MendixAlert.Light</item>
     </style>
     <style name="Theme.Mendix.Dark" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:editTextStyle">@style/MendixEditText</item>
+        <item name="android:textViewStyle">@style/MendixTextView</item>
         <item name="android:alertDialogTheme">@style/MendixAlert.Dark</item>
     </style>
 
     <style name="MendixEditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <!-- Overridden in values-v35 to keep TextView line breaking in sync with React Native's text measurement.
+         Remove after upgrading to React Native 0.89+ (see values-v35/styles.xml). -->
+    <style name="MendixTextView" parent="android:Widget.Material.TextView" />
 
     <style name="MendixAlert.Light" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@color/white</item>
