@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixes
 
 - We have fixed the textinputs hiding behind on-screen keyboard.
-- We have fixed the Android splash screen being stretched. The Mendix logo is now centered and displayed with the correct proportions on all screen sizes.
-- We migrated iOS to the UIKit scene delegate lifecycle.
 
 ### Changes
 
@@ -22,7 +20,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   We migrated from react-native-fast-image to @d11/react-native-fast-image for new architecture compatibility.
 -   Upgrade react-native-reanimated to v3.16.7.
 -   We migrated from `react-native-splash-screen` to `react-native-bootsplash@6.3.10` for better splash screen support and autolinking compatibility.
--   Replaced @notifee/react-native with react-native-notify-kit library.
 
 ## [11.12.3] Make it Native - 2026-11-19
 
@@ -36,6 +33,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixes
 
 -  We have fixed the Android back button closing the app instead of navigating back within the Mendix app.
+
+## [11.12.2] Make it Native - 2026-9-18
+
+### Fixes
+
+- We have fixed the Android splash screen being stretched. The Mendix logo is now centered and displayed with the correct proportions on all screen sizes.
+- We migrated iOS to the UIKit scene delegate lifecycle.
+
+## [11.12.1] Make it Native - 2026-8-12
+
+### Changes
+
+- Replaced @notifee/react-native with react-native-notify-kit library.
 
 ## [3.1.8] Make it Native - 2025-4-02
 
