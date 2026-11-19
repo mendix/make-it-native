@@ -81,6 +81,8 @@
 	<string>To use that feature the app needs access to your location.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To use that feature the app needs access to your microphone.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>To use that feature the app needs access to your motion and fitness activity.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To use that feature the app needs access to your photo library.</string>
 	<key>NativeOTAEnabled</key>
@@ -134,8 +136,15 @@
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string></string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>brand-primary</string>
+		<key>UIImageName</key>
+		<string>Logo Icon</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchTutorial</string>
 	<key>UIRequiredDeviceCapabilities</key>
